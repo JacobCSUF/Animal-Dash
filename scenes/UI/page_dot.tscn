@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cihhs64uxc1ot"]
+
+[ext_resource type="Script" uid="uid://b1ke3rgkos4de" path="res://scripts/page_dot.gd" id="1_2ohsu"]
+[ext_resource type="Texture2D" uid="uid://ckhr83kjp5c2" path="res://sprites/ui_button.png" id="1_wq3r4"]
+[ext_resource type="Texture2D" uid="uid://djfl4yoccjia8" path="res://sprites/ui_button_filled.png" id="2_2ohsu"]
+
+[node name="page_dot" type="Control" unique_id=1776851473]
+texture_filter = 2
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ohsu")
+
+[node name="UiButton" type="Sprite2D" parent="." unique_id=2084117104]
+z_index = 1
+texture_filter = 2
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("1_wq3r4")
+
+[node name="UiButtonFilled" type="Sprite2D" parent="." unique_id=627347037]
+visible = false
+z_index = 1
+texture_filter = 2
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("2_2ohsu")

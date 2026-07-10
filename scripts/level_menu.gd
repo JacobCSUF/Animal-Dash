@@ -13,6 +13,8 @@ extends Control
 
 @onready var coin_label: Label = $Coin2/coin_label
 
+const PAGE_DOT = preload("uid://cihhs64uxc1ot")
+@onready var pagnation: HBoxContainer = $pagnation
 
 signal level_select(level: PackedScene)
 signal button_pressed(menu: MenuHandler.Menus)
@@ -43,6 +45,14 @@ var level_dict = {
 	
 
 func _ready():
+	
+	for i in range(level_dict.size()):
+		
+		var d = PAGE_DOT.instantiate()
+		print(i)
+		pagnation.add_child(d)
+		if i == 0:
+			d.toggle_on()
 	set_level()
 	
 func set_counter(ind:= 0):
