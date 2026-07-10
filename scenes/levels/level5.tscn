@@ -101,11 +101,11 @@ script = ExtResource("1_4r5lo")
 lr = SubResource("Resource_72xjh")
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("15_lxeoi")]
-position = Vector2(104, 88)
+position = Vector2(8272, 152)
 player = NodePath("../player")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("16_q3cny")]
-position = Vector2(104, 88)
+position = Vector2(8272, 152)
 
 [node name="background" parent="." unique_id=1318822552 instance=ExtResource("3_pm1y0")]
 bg = SubResource("Resource_2eb3b")
@@ -948,3 +948,6 @@ stage = 4
 [node name="pipe_fall23" parent="." unique_id=230605571 instance=ExtResource("18_4r5lo")]
 position = Vector2(16760, 64)
 stage = 4
+
+[node name="cart_enter2" parent="." unique_id=53265263 instance=ExtResource("22_34tlj")]
+position = Vector2(8288, 184)

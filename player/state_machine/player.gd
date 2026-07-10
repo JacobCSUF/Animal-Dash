@@ -39,6 +39,7 @@ var speed_mult = 1.0
 @onready var is_dash_timer: Timer = $is_dash_timer
 
 func _ready():
+	speed_mult = speed_mult_start
 	GameState.set_player(self,anim_text)
 	icon.sprite_frames = GameState.animal_resource.animations
 	GameState.connect("changed_state", Callable(self, "_on_changed_state"))
@@ -101,8 +102,17 @@ func die():
 	
 	
 	
+func get_partial_mult(speed,weight):
+	var s = speed +((speed*speed_mult)-speed)*weight
+	print(s)
+	return s
 	
 	
+func get_partial_mult_vector(speed_v,weight):
+	var x = speed_v.x +((speed_v.x*speed_mult)-speed_v.x)*weight
+	var y = speed_v.y +((speed_v.y*speed_mult)-speed_v.y)*weight
+	print(Vector2(x,y))
+	return Vector2(x,y)
 	
 	
 	
