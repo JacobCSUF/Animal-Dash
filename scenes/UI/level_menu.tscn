@@ -111,11 +111,11 @@ corner_detail = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_od4ud"]
 bg_color = Color(0, 0, 0, 0.8627451)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.9911584, 0, 0.25074846, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -272,10 +272,10 @@ alignment = 1
 
 [node name="Panel2" type="Panel" parent="." unique_id=1597081017]
 layout_mode = 0
-offset_left = 416.0
-offset_top = 60.0
-offset_right = 439.0
-offset_bottom = 84.0
+offset_left = 368.0
+offset_top = 63.0
+offset_right = 434.0
+offset_bottom = 78.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_od4ud")
 
 [node name="Label" type="Label" parent="Panel2" unique_id=1656370607]
@@ -291,19 +291,19 @@ text = "Completed"
 [node name="Label2" type="Label" parent="Panel2" unique_id=560409594]
 z_index = 1
 layout_mode = 0
-offset_left = 3.0
-offset_top = -2.0
-offset_right = 43.0
-offset_bottom = 32.0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 50.0
+offset_bottom = 37.0
 theme_override_colors/font_color = Color(0.20115656, 1.3536774e-07, 0.006811223, 1)
 theme_override_colors/font_shadow_color = Color(0.26244184, 0, 0, 0.518)
 theme_override_colors/font_outline_color = Color(0.9970401, 0, 0.14298528, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 5
+theme_override_constants/outline_size = 3
 theme_override_constants/shadow_outline_size = 2
-theme_override_font_sizes/font_size = 24
-text = "x"
+theme_override_font_sizes/font_size = 10
+text = "Cleared x"
 
 [node name="ImgbinB6a6e1Dcc386Cd2c37Cef87794Eaaf7d" type="Sprite2D" parent="." unique_id=232763736]
 visible = false
