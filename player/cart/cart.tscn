@@ -1,0 +1,335 @@
+[gd_scene format=3 uid="uid://xuwiexuyjr6s"]
+
+[ext_resource type="Texture2D" uid="uid://d33aucrrmyhnl" path="res://sprites/mine_cart/cart.png" id="1_474ei"]
+[ext_resource type="Script" uid="uid://di67rwl8lf3wa" path="res://player/cart/cart.gd" id="1_ml0nl"]
+[ext_resource type="Texture2D" uid="uid://diqncbiciobdm" path="res://sprites/mine_cart/cart_wheel.png" id="2_ml0nl"]
+[ext_resource type="AudioStream" uid="uid://bmcpwpqrnwbaf" path="res://sounds/sound_effects/water-pump_short.mp3" id="4_yrxms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
+size = Vector2(21, 25)
+
+[sub_resource type="Animation" id="Animation_25t8q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/wheel1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/wheel2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("body:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -12)]
+}
+
+[sub_resource type="Animation" id="Animation_yrxms"]
+resource_name = "bob"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, -12), Vector2(1, -8)]
+}
+
+[sub_resource type="Animation" id="Animation_1fhm3"]
+resource_name = "cart_spin"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/wheel1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/wheel2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="Animation" id="Animation_i0ly8"]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.2617994, 0.2617994]
+}
+
+[sub_resource type="Animation" id="Animation_583xw"]
+resource_name = "ground_land"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.13962634015954636, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_31u0d"]
+resource_name = "jump"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.76666665, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.3490658503988659, -0.3490658503988659, -0.17453292519943295, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_u8qib"]
+resource_name = "plunge"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, -12), Vector2(1, 0), Vector2(1, -12), Vector2(1, -8), Vector2(1, -12)]
+}
+
+[sub_resource type="Animation" id="Animation_v38yv"]
+resource_name = "water_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.40142572, 0.0, 0.0, -0.34906584, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, -12), Vector2(1, 40), Vector2(1, 40), Vector2(1, -12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_25t8q"]
+_data = {
+&"RESET": SubResource("Animation_25t8q"),
+&"bob": SubResource("Animation_yrxms"),
+&"cart_spin": SubResource("Animation_1fhm3"),
+&"fall": SubResource("Animation_i0ly8"),
+&"ground_land": SubResource("Animation_583xw"),
+&"jump": SubResource("Animation_31u0d"),
+&"plunge": SubResource("Animation_u8qib"),
+&"water_down": SubResource("Animation_v38yv")
+}
+
+[sub_resource type="Animation" id="Animation_fehju"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/wheel1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/wheel2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_x72n7"]
+resource_name = "spin"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/wheel1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/wheel2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jbbfl"]
+_data = {
+&"RESET": SubResource("Animation_fehju"),
+&"spin": SubResource("Animation_x72n7")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gobk7"]
+size = Vector2(27.185642, 14.752754)
+
+[node name="cart" type="Node2D" unique_id=400616375]
+z_index = 2
+script = ExtResource("1_ml0nl")
+
+[node name="body" type="Sprite2D" parent="." unique_id=1739910430]
+light_mask = 0
+position = Vector2(1, -12)
+texture = ExtResource("1_474ei")
+
+[node name="wheel1" type="Sprite2D" parent="body" unique_id=1265814159]
+light_mask = 0
+position = Vector2(-12.481462, 8.495431)
+texture = ExtResource("2_ml0nl")
+offset = Vector2(0.5, -0.5)
+
+[node name="wheel2" type="Sprite2D" parent="body" unique_id=294050220]
+light_mask = 0
+position = Vector2(3.5420933, 8.485212)
+texture = ExtResource("2_ml0nl")
+offset = Vector2(0.5, -0.5)
+
+[node name="player_col" type="Area2D" parent="body" unique_id=684530843 groups=["player"]]
+position = Vector2(-1, 12)
+collision_mask = 0
+
+[node name="pcol" type="CollisionShape2D" parent="body/player_col" unique_id=1325835377]
+position = Vector2(-3.5, -17.5)
+shape = SubResource("RectangleShape2D_1sg0x")
+disabled = true
+
+[node name="cart_anis" type="AnimationPlayer" parent="." unique_id=927227237]
+physics_interpolation_mode = 2
+libraries/ = SubResource("AnimationLibrary_25t8q")
+speed_scale = 1.3
+
+[node name="wheels" type="AnimationPlayer" parent="." unique_id=1254976070]
+libraries/ = SubResource("AnimationLibrary_jbbfl")
+
+[node name="boat" type="Node2D" parent="." unique_id=412417795]
+
+[node name="cart" type="Node2D" parent="." unique_id=463859227]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1861116559]
+collision_layer = 0
+collision_mask = 2
+
+[node name="ccol" type="CollisionShape2D" parent="Area2D" unique_id=1117425223]
+position = Vector2(-3.987589, -2.623623)
+shape = SubResource("RectangleShape2D_gobk7")
+disabled = true
+
+[node name="sds" type="Node2D" parent="." unique_id=1948360350]
+
+[node name="dive" type="AudioStreamPlayer2D" parent="." unique_id=1124946678]
+position = Vector2(-1, 43)
+stream = ExtResource("4_yrxms")
+volume_db = -15.0
+pitch_scale = 1.2
+
+[connection signal="animation_finished" from="cart_anis" to="." method="_on_cart_anis_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

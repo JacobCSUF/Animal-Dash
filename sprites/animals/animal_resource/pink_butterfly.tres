@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="AnimalResource" format=3 uid="uid://b4wb6efmxuuxv"]
+
+[ext_resource type="SpriteFrames" uid="uid://nxecp61r5lmm" path="res://sprites/animals/animation_resources/pink_butterfly_frames.tres" id="1_sglnt"]
+[ext_resource type="Script" uid="uid://co07lgyk00dl6" path="res://sprites/animals/animal_resource/animal_resource.gd" id="1_weysy"]
+[ext_resource type="Texture2D" uid="uid://cidnpx1eucbv8" path="res://sprites/animals/butterfly_pink_full.png" id="3_c6gfi"]
+
+[sub_resource type="Gradient" id="Gradient_7wauq"]
+offsets = PackedFloat32Array(0, 0.2214854, 0.65384614, 1)
+colors = PackedColorArray(1, 0.54249036, 0.8302106, 1, 0.9425915, 0.00010068953, 0.7327793, 1, 0.97777313, 0.6460892, 0.8961423, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m81w3"]
+gradient = SubResource("Gradient_7wauq")
+
+[resource]
+script = ExtResource("1_weysy")
+sprites = ExtResource("3_c6gfi")
+animations = ExtResource("1_sglnt")
+dash_colors = SubResource("GradientTexture1D_m81w3")
+float_colors = SubResource("GradientTexture1D_m81w3")
+metadata/_custom_type_script = "uid://co07lgyk00dl6"

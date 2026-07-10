@@ -1,0 +1,49 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://nxecp61r5lmm"]
+
+[ext_resource type="Texture2D" uid="uid://cidnpx1eucbv8" path="res://sprites/animals/butterfly_pink_full.png" id="1_supjq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptmt1"]
+atlas = ExtResource("1_supjq")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwxc8"]
+atlas = ExtResource("1_supjq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ah27t"]
+atlas = ExtResource("1_supjq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e5ts"]
+atlas = ExtResource("1_supjq")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptmt1")
+}],
+"loop": 1,
+"name": &"ball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwxc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ah27t")
+}],
+"loop": 1,
+"name": &"flappy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e5ts")
+}],
+"loop": 1,
+"name": &"float",
+"speed": 7.0
+}]

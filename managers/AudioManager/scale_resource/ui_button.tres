@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ScaleResource" format=3 uid="uid://dfmrlipel3efm"]
+
+[ext_resource type="Script" uid="uid://cfvvtbgfccs2t" path="res://managers/AudioManager/scale_resource/scale_resource.gd" id="1_hddmb"]
+[ext_resource type="AudioStream" uid="uid://dwhw3u5act4ov" path="res://sounds/sound_effects/ui_click.mp3" id="2_vinp2"]
+
+[resource]
+script = ExtResource("1_hddmb")
+sound = ExtResource("2_vinp2")
+metadata/_custom_type_script = "uid://cfvvtbgfccs2t"

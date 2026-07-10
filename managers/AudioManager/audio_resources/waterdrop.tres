@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SoundResource" format=3 uid="uid://buvj1er471afn"]
+
+[ext_resource type="Script" uid="uid://de16u0mha72wi" path="res://managers/AudioManager/audio_resources/sound_resource.gd" id="1_wvr8q"]
+[ext_resource type="AudioStream" uid="uid://ovowprlgufmf" path="res://sounds/area/water_drop.mp3" id="2_7sovo"]
+
+[resource]
+script = ExtResource("1_wvr8q")
+sound = ExtResource("2_7sovo")
+volume = -12.0
+pitch = 0.6
+random_pitch = 0.2
+metadata/_custom_type_script = "uid://de16u0mha72wi"

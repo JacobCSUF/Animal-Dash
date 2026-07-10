@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bsdqi8o3bnhlx"]
+
+[ext_resource type="Script" uid="uid://b66wyvgptgr07" path="res://scripts/water_dropper.gd" id="1_127l1"]
+[ext_resource type="Texture2D" uid="uid://cgq361m1okpcj" path="res://sprites/panel.png" id="2_yjawk"]
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="3_hou2i"]
+[ext_resource type="Texture2D" uid="uid://sy5w56awfl6m" path="res://sprites/textures/water_drop_texture.png" id="4_yjawk"]
+[ext_resource type="Texture2D" uid="uid://despy15iv7ioe" path="res://sprites/ctr.png" id="5_hou2i"]
+[ext_resource type="Texture2D" uid="uid://cfj338uh0gpjo" path="res://sprites/waterdrop.png" id="6_yjawk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_11r44"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_isoxp"]
+shader = ExtResource("3_hou2i")
+shader_parameter/top_down_move = true
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = -2.4359996407099995
+shader_parameter/sway_speed = -1.0
+shader_parameter/sway_strength = 0.01
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hou2i"]
+shader = ExtResource("3_hou2i")
+shader_parameter/top_down_move = true
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = -0.15199953221999962
+shader_parameter/sway_speed = -1.0
+shader_parameter/sway_strength = 0.0
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[node name="water_dropper" type="Node2D" unique_id=2030908267]
+z_index = 1
+script = ExtResource("1_127l1")
+
+[node name="panel" type="Sprite2D" parent="." unique_id=1482882561]
+z_index = 2
+material = SubResource("ShaderMaterial_11r44")
+position = Vector2(0, -10)
+texture = ExtResource("2_yjawk")
+
+[node name="WaterDropTexture" type="Sprite2D" parent="panel" unique_id=373620972]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_isoxp")
+position = Vector2(0, 5)
+texture = ExtResource("4_yjawk")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1697738547]
+position = Vector2(6, -6)
+rect = Rect2(-66, -52, 127, 116)
+
+[node name="Ctr" type="Sprite2D" parent="." unique_id=1099099921]
+z_index = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_hou2i")
+position = Vector2(0, -5)
+texture = ExtResource("5_hou2i")
+
+[node name="Waterdrop" type="Sprite2D" parent="." unique_id=2041919401]
+z_index = 2
+position = Vector2(0, -6)
+texture = ExtResource("6_yjawk")

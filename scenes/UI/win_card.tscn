@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://vv7twnx5yeo5"]
+
+[ext_resource type="Script" uid="uid://dpftlcpx8awj8" path="res://scripts/win_card.gd" id="1_8ec7x"]
+[ext_resource type="PackedScene" uid="uid://bqj5gg7tuxrwp" path="res://scenes/UI/base_button.tscn" id="2_0mqbr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ec7x"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="win_card" type="Control" unique_id=635528446]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ec7x")
+
+[node name="Panel" type="Panel" parent="." unique_id=54984865]
+layout_mode = 0
+offset_left = 141.0
+offset_top = -2.0
+offset_right = 470.0
+offset_bottom = 242.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ec7x")
+
+[node name="redo" parent="." unique_id=1750113617 instance=ExtResource("2_0mqbr")]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 107.0
+offset_right = 265.0
+offset_bottom = 132.0
+text = "Start Over"
+to_menu = 8
+
+[node name="level_select" parent="." unique_id=841753528 instance=ExtResource("2_0mqbr")]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 143.0
+offset_right = 286.0
+offset_bottom = 177.09775
+text = "Level Select"
+to_menu = 5
+
+[node name="Label" type="Label" parent="." unique_id=1841955345]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 14.0
+offset_right = 461.0
+offset_bottom = 81.38962
+theme_override_font_sizes/font_size = 64
+text = "YOU WON"
+
+[node name="Coin_label" type="Label" parent="." unique_id=1178414093]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 110.0
+offset_right = 364.0
+offset_bottom = 127.0
+text = "Coins: "
+
+[connection signal="b_pressed" from="redo" to="." method="_on_redo_b_pressed"]
+[connection signal="b_pressed" from="level_select" to="." method="_on_level_select_b_pressed"]

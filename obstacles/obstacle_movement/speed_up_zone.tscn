@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://gpdkycy3ujmq"]
+
+[ext_resource type="Script" uid="uid://dwrlo42yvasoy" path="res://scripts/speed_change.gd" id="1_bb5tm"]
+[ext_resource type="Texture2D" uid="uid://3jvh18w3udki" path="res://sprites/speed_boost.png" id="1_l6b1d"]
+[ext_resource type="Texture2D" uid="uid://c8hoacl2o6n7g" path="res://sprites/speed_up_line.png" id="2_4lfsm"]
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="2_kmkdj"]
+[ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="6_wce4i"]
+[ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="7_8bfnv"]
+[ext_resource type="Script" uid="uid://clgxy4enti5s5" path="res://managers/background_manager/bg_params.gd" id="8_8bfnv"]
+[ext_resource type="Script" uid="uid://ceabpejx0in8f" path="res://1triggers/response_resource/r_bg_resource.gd" id="8_wce4i"]
+[ext_resource type="Script" uid="uid://ca3kmxodgic3d" path="res://1triggers/response_resource/r_particle_resource.gd" id="9_a23yf"]
+[ext_resource type="AudioStream" uid="uid://jnojsbfk3edn" path="res://sounds/area/speedup.mp3" id="10_obmvn"]
+[ext_resource type="Texture2D" uid="uid://0pore0i2dbln" path="res://sprites/gpu_particles/shimmersheet.png" id="12_b88fr"]
+[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://managers/sound_inc_manager/sound_inc_component.tscn" id="13_a23yf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kmkdj"]
+shader = ExtResource("2_kmkdj")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = -3.389999686025
+shader_parameter/uv_speed_y = 0.0
+shader_parameter/sway_speed = -1.0
+shader_parameter/sway_strength = 0.01
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sgrjw"]
+shader = ExtResource("2_kmkdj")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 1.7470005579824992
+shader_parameter/sway_speed = -10.056998102707505
+shader_parameter/sway_strength = 0.0800000038
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lfsm"]
+shader = ExtResource("2_kmkdj")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 1.7470005579824992
+shader_parameter/sway_speed = -10.056998102707505
+shader_parameter/sway_strength = 0.0800000038
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 16.95200080522
+
+[sub_resource type="Resource" id="Resource_obmvn"]
+script = ExtResource("8_8bfnv")
+color = Color(0, 1, 0.20392157, 1)
+metadata/_custom_type_script = "uid://clgxy4enti5s5"
+
+[sub_resource type="Resource" id="Resource_8bfnv"]
+script = ExtResource("8_wce4i")
+bg = SubResource("Resource_obmvn")
+metadata/_custom_type_script = "uid://ceabpejx0in8f"
+
+[sub_resource type="Resource" id="Resource_2tr8i"]
+script = ExtResource("9_a23yf")
+metadata/_custom_type_script = "uid://ca3kmxodgic3d"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bb5tm"]
+size = Vector2(20, 359)
+
+[sub_resource type="Gradient" id="Gradient_a23yf"]
+offsets = PackedFloat32Array(0, 0.6476923, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b88fr"]
+gradient = SubResource("Gradient_a23yf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2tr8i"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 60.0
+initial_velocity_min = 100.0
+initial_velocity_max = 250.0
+angular_velocity_min = -50.000015
+angular_velocity_max = 49.99998
+gravity = Vector3(0, 100, 0)
+scale_min = 0.099999994
+scale_max = 0.19999999
+color_ramp = SubResource("GradientTexture1D_b88fr")
+
+[node name="speed_up_zone" type="Node2D" unique_id=721493928 node_paths=PackedStringArray("sound_inc_component")]
+script = ExtResource("1_bb5tm")
+speed_change = 0.5
+sound_inc_component = NodePath("SoundIncComponent")
+
+[node name="SpeedBoost" type="Sprite2D" parent="." unique_id=1314721509]
+material = SubResource("ShaderMaterial_kmkdj")
+position = Vector2(12, 144)
+texture = ExtResource("1_l6b1d")
+
+[node name="SpeedUpLine" type="Sprite2D" parent="." unique_id=1925311564]
+material = SubResource("ShaderMaterial_sgrjw")
+position = Vector2(5, 136)
+texture = ExtResource("2_4lfsm")
+
+[node name="SpeedUpLine2" type="Sprite2D" parent="." unique_id=1286095964]
+material = SubResource("ShaderMaterial_4lfsm")
+position = Vector2(18, 138)
+texture = ExtResource("2_4lfsm")
+
+[node name="direct_area" parent="." unique_id=1000805726 instance=ExtResource("6_wce4i")]
+responses = Array[ExtResource("7_8bfnv")]([SubResource("Resource_8bfnv"), SubResource("Resource_2tr8i")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="direct_area" unique_id=692413569]
+position = Vector2(13, 140.5)
+shape = SubResource("RectangleShape2D_bb5tm")
+
+[node name="particles" type="GPUParticles2D" parent="." unique_id=1187034020]
+modulate = Color(0.50854594, 0.97408897, 0, 1)
+light_mask = 0
+position = Vector2(33, 372)
+emitting = false
+amount = 20
+texture = ExtResource("12_b88fr")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_2tr8i")
+
+[node name="Speedup" type="AudioStreamPlayer2D" parent="." unique_id=1029590691]
+position = Vector2(11, 139)
+stream = ExtResource("10_obmvn")
+volume_db = -2.5
+pitch_scale = 2.5
+
+[node name="SoundIncComponent" parent="." unique_id=1361065053 node_paths=PackedStringArray("sound", "area") instance=ExtResource("13_a23yf")]
+sound = NodePath("../Speedup")
+area = NodePath("../direct_area")
+sound_type = 2
+
+[connection signal="area_entered" from="direct_area" to="." method="_on_direct_area_area_entered"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundResource" format=3 uid="uid://cq5p680rxtmwp"]
+
+[ext_resource type="Script" uid="uid://de16u0mha72wi" path="res://managers/AudioManager/audio_resources/sound_resource.gd" id="1_xn0x2"]
+[ext_resource type="AudioStream" uid="uid://dwhw3u5act4ov" path="res://sounds/sound_effects/ui_click.mp3" id="2_yyp5r"]
+
+[resource]
+script = ExtResource("1_xn0x2")
+sound = ExtResource("2_yyp5r")
+volume = -21.0
+metadata/_custom_type_script = "uid://de16u0mha72wi"

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://67v0taus1rdj"]
+
+[ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="1_a6pq4"]
+[ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="2_f4834"]
+[ext_resource type="Script" uid="uid://cdojrf8j4lvru" path="res://1triggers/response_resource/r_movement_resource.gd" id="3_1wqts"]
+[ext_resource type="Script" uid="uid://daxf6fnwb7v3" path="res://1triggers/base_object/base_object.gd" id="4_xfg8t"]
+[ext_resource type="PackedScene" uid="uid://dnncyh7xd3cbn" path="res://obstacles/pipes/pipe.tscn" id="5_delt4"]
+[ext_resource type="Texture2D" uid="uid://4vjr3xo23mmi" path="res://sprites/arrow-Sheet.png" id="6_f4834"]
+
+[sub_resource type="Resource" id="Resource_6lcb6"]
+script = ExtResource("3_1wqts")
+target_path = NodePath("../BaseObject")
+move_in_line = true
+direction = Vector2(0, 1)
+distance = 125
+duration1 = 0.5
+play_sound = true
+sound = 13
+metadata/_custom_type_script = "uid://cdojrf8j4lvru"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrbvv"]
+size = Vector2(20, 380)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhh42"]
+atlas = ExtResource("6_f4834")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1wqts"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhh42")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="pipe_fall_2" type="Node2D" unique_id=352954824]
+
+[node name="direct_area" parent="." unique_id=1000805726 instance=ExtResource("1_a6pq4")]
+position = Vector2(4, 152)
+responses = Array[ExtResource("2_f4834")]([SubResource("Resource_6lcb6")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="direct_area" unique_id=435662316]
+position = Vector2(-89, 4.5)
+shape = SubResource("RectangleShape2D_hrbvv")
+
+[node name="BaseObject" type="Node2D" parent="." unique_id=2057976917]
+position = Vector2(240, 125)
+rotation = -3.1415925
+script = ExtResource("4_xfg8t")
+metadata/_custom_type_script = "uid://daxf6fnwb7v3"
+
+[node name="pipe6" parent="BaseObject" unique_id=1899843357 instance=ExtResource("5_delt4")]
+
+[node name="arrow" type="AnimatedSprite2D" parent="BaseObject/pipe6" unique_id=2034641805]
+position = Vector2(16, 31.999992)
+sprite_frames = SubResource("SpriteFrames_1wqts")
+autoplay = "default"

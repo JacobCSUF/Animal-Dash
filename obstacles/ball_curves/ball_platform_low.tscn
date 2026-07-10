@@ -1,0 +1,137 @@
+[gd_scene format=4 uid="uid://di5gwitg4rvwo"]
+
+[ext_resource type="Texture2D" uid="uid://uhsapvolwmgv" path="res://sprites/tiles/grass.png" id="1_18h1o"]
+[ext_resource type="Script" uid="uid://daxf6fnwb7v3" path="res://1triggers/base_object/base_object.gd" id="1_fo0hq"]
+[ext_resource type="Script" uid="uid://cvxnelhw3tch3" path="res://components/movement_component/bob_params.gd" id="2_gvkcc"]
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="2_rx8n5"]
+[ext_resource type="Texture2D" uid="uid://cmpf1bt2bxox7" path="res://sprites/tiles/ball_thing.png" id="3_46jok"]
+[ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="6_h1vxp"]
+
+[sub_resource type="Resource" id="Resource_u0151"]
+script = ExtResource("2_gvkcc")
+height = 2.5
+metadata/_custom_type_script = "uid://cvxnelhw3tch3"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_phqch"]
+texture = ExtResource("1_18h1o")
+0:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+7:4/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+5:6/0 = 0
+7:6/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+1:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+5:17/0 = 0
+5:18/0 = 0
+5:19/0 = 0
+0:20/0 = 0
+1:20/0 = 0
+2:20/0 = 0
+5:20/0 = 0
+0:21/0 = 0
+1:21/0 = 0
+2:21/0 = 0
+5:21/0 = 0
+0:22/0 = 0
+1:22/0 = 0
+2:22/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6lcb6"]
+sources/0 = SubResource("TileSetAtlasSource_phqch")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pw7xu"]
+shader = ExtResource("2_rx8n5")
+shader_parameter/top_down_move = true
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 1.3590005395525004
+shader_parameter/sway_speed = -1.0
+shader_parameter/sway_strength = 0.0
+shader_parameter/noise_scale = 1.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
+size = Vector2(112, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lcb6"]
+size = Vector2(110, 20)
+
+[node name="ball_platform_low" type="Node2D" unique_id=2100361934]
+script = ExtResource("1_fo0hq")
+bob = SubResource("Resource_u0151")
+metadata/_custom_type_script = "uid://daxf6fnwb7v3"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1001331581]
+tile_map_data = PackedByteArray("AAAAAAAAAAAFAAoAAAABAAAAAAAGAAUAAAACAAAAAAAGAAUAAAADAAAAAAAGAAUAAAAEAAAAAAAGAAUAAAAFAAAAAAAGAAUAAAAGAAAAAAAFAAkAAAAAAAEAAAADAAQAAAABAAEAAAAEAAQAAAACAAEAAAAEAAQAAAADAAEAAAAEAAQAAAAEAAEAAAAEAAQAAAAFAAEAAAAEAAQAAAAGAAEAAAAFAAQAAAA=")
+tile_set = SubResource("TileSet_6lcb6")
+
+[node name="BallThing" type="Sprite2D" parent="." unique_id=1771744562]
+material = SubResource("ShaderMaterial_pw7xu")
+position = Vector2(56, 19.5)
+texture = ExtResource("3_46jok")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=335708184]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=737765978]
+position = Vector2(56, 16)
+shape = SubResource("RectangleShape2D_1sg0x")
+
+[node name="direct_area" parent="." unique_id=1000805726 instance=ExtResource("6_h1vxp")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="direct_area" unique_id=2085870267]
+position = Vector2(56, 2)
+shape = SubResource("RectangleShape2D_6lcb6")

@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://ch5o57bbmrer7"]
+
+[ext_resource type="Script" uid="uid://b8yachq0c5cpq" path="res://scripts/button_pop.gd" id="1_r4m02"]
+[ext_resource type="Script" uid="uid://cvxnelhw3tch3" path="res://components/movement_component/bob_params.gd" id="2_go1vd"]
+[ext_resource type="Texture2D" uid="uid://m0hqwdle8a3m" path="res://sprites/float_button.png" id="3_lh5ab"]
+[ext_resource type="Texture2D" uid="uid://bnkqyo4mxjrb2" path="res://sprites/float_button_right.png" id="4_0rv2c"]
+[ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="5_wwjjh"]
+[ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="6_4giwj"]
+[ext_resource type="Script" uid="uid://e8yw2hruql0h" path="res://1triggers/response_resource/r_route_resource.gd" id="7_q8q0h"]
+[ext_resource type="Script" uid="uid://clgxy4enti5s5" path="res://managers/background_manager/bg_params.gd" id="8_ammvl"]
+[ext_resource type="Script" uid="uid://ceabpejx0in8f" path="res://1triggers/response_resource/r_bg_resource.gd" id="9_wrait"]
+[ext_resource type="PackedScene" uid="uid://dsi7byfnrch8g" path="res://globals/components/area_handler.tscn" id="10_6i7o1"]
+[ext_resource type="AudioStream" uid="uid://dg8wd2w6v721" path="res://sounds/area/button12.mp3" id="11_itmdv"]
+
+[sub_resource type="Resource" id="Resource_fkg2g"]
+script = ExtResource("2_go1vd")
+height = 2.0
+duration = 0.45
+metadata/_custom_type_script = "uid://cvxnelhw3tch3"
+
+[sub_resource type="Resource" id="Resource_6lcb6"]
+script = ExtResource("7_q8q0h")
+target_path = NodePath("..")
+metadata/_custom_type_script = "uid://e8yw2hruql0h"
+
+[sub_resource type="Resource" id="Resource_okrh3"]
+script = ExtResource("8_ammvl")
+color = Color(0, 0.74509805, 1, 0.3019608)
+inc_dur = 0.2
+dec_dur = 0.2
+metadata/_custom_type_script = "uid://clgxy4enti5s5"
+
+[sub_resource type="Resource" id="Resource_0mox8"]
+script = ExtResource("9_wrait")
+bg = SubResource("Resource_okrh3")
+metadata/_custom_type_script = "uid://ceabpejx0in8f"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1sg0x"]
+radius = 3.0
+height = 54.0
+
+[sub_resource type="Gradient" id="Gradient_okrh3"]
+offsets = PackedFloat32Array(0, 0.6396552, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pgghr"]
+gradient = SubResource("Gradient_okrh3")
+
+[sub_resource type="Curve" id="Curve_fkg2g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_f1sjo"]
+curve = SubResource("Curve_fkg2g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_22grc"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 450.0
+initial_velocity_max = 450.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 359.99997
+gravity = Vector3(0, 30, 0)
+scale_curve = SubResource("CurveTexture_f1sjo")
+color_ramp = SubResource("GradientTexture1D_pgghr")
+
+[node name="ring_button" type="Node2D" unique_id=588861498]
+script = ExtResource("1_r4m02")
+bob = SubResource("Resource_fkg2g")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1738224578]
+
+[node name="FloatButton" type="Sprite2D" parent="Node2D" unique_id=1937869975]
+z_index = -2
+position = Vector2(3, 7)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_lh5ab")
+
+[node name="FloatButtonRight" type="Sprite2D" parent="Node2D" unique_id=154025829]
+position = Vector2(12, 6)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_0rv2c")
+
+[node name="direct_area" parent="." unique_id=1000805726 instance=ExtResource("5_wwjjh")]
+responses = Array[ExtResource("6_4giwj")]([SubResource("Resource_6lcb6"), SubResource("Resource_0mox8")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="direct_area" unique_id=595627323]
+position = Vector2(6, 6)
+shape = SubResource("CapsuleShape2D_1sg0x")
+
+[node name="AreaHandler" parent="." unique_id=1169549112 node_paths=PackedStringArray("area", "dis_target", "audio_player", "particles") instance=ExtResource("10_6i7o1")]
+area = NodePath("../direct_area")
+disappear = true
+dis_target = NodePath("../Node2D")
+audio_player = NodePath("../Button12")
+play_at_body = true
+particles = NodePath("../GPUParticles2D")
+one_shot = true
+
+[node name="Button12" type="AudioStreamPlayer2D" parent="." unique_id=910773619]
+position = Vector2(4, 55)
+stream = ExtResource("11_itmdv")
+volume_db = 1.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1853591931]
+modulate = Color(0, 1, 1, 0.5411765)
+position = Vector2(0.9090909, -0.9090909)
+emitting = false
+amount = 200
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_22grc")

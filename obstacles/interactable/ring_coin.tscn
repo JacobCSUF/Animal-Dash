@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://drv3wipjns5sv"]
+
+[ext_resource type="Script" uid="uid://cmy7trj244fu7" path="res://scripts/gold_ring.gd" id="1_t0u5j"]
+[ext_resource type="Script" uid="uid://cvxnelhw3tch3" path="res://components/movement_component/bob_params.gd" id="2_n36s1"]
+[ext_resource type="Texture2D" uid="uid://dnjsfgo2e8kgs" path="res://sprites/gold_ring_left.png" id="3_0fb2y"]
+[ext_resource type="Texture2D" uid="uid://ogquvqddam84" path="res://sprites/gold_ring_right.png" id="4_s5h2u"]
+[ext_resource type="Texture2D" uid="uid://6k75kh5rnw8o" path="res://sprites/gpu_particles/shimmer3.png" id="5_oyf1c"]
+[ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="6_t0tkl"]
+[ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="7_0fb2y"]
+[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://managers/sound_inc_manager/sound_inc_component.tscn" id="7_ic58f"]
+[ext_resource type="AudioStream" uid="uid://b3axi8mm0xebf" path="res://sounds/sound_effects/drop-coin-384921.mp3" id="8_26vik"]
+[ext_resource type="Script" uid="uid://e8yw2hruql0h" path="res://1triggers/response_resource/r_route_resource.gd" id="8_s5h2u"]
+
+[sub_resource type="Resource" id="Resource_cdoyq"]
+script = ExtResource("2_n36s1")
+height = 2.0
+duration = 0.45
+metadata/_custom_type_script = "uid://cvxnelhw3tch3"
+
+[sub_resource type="Curve" id="Curve_142xw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tf1y8"]
+curve = SubResource("Curve_142xw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m34t3"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 3, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 11.0
+emission_ring_inner_radius = 8.0
+emission_ring_cone_angle = 90.0
+angle_min = -19.99999
+angle_max = 20.000011
+spread = 180.0
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+angular_velocity_min = -30.000015
+angular_velocity_max = 29.999983
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_tf1y8")
+
+[sub_resource type="Curve" id="Curve_t0u5j"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6083086, 0.6031129), -1.1583011, -1.1583011, 0, 0, Vector2(1, 0.28793776), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_n36s1"]
+curve = SubResource("Curve_t0u5j")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0fb2y"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 3, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 11.0
+emission_ring_inner_radius = 8.0
+emission_ring_cone_angle = 90.0
+angle_min = -19.99999
+angle_max = 20.000011
+spread = 180.0
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+angular_velocity_min = -30.000015
+angular_velocity_max = 29.999983
+gravity = Vector3(0, -25, 0)
+scale_min = 0.7
+scale_max = 1.25
+scale_curve = SubResource("CurveTexture_n36s1")
+
+[sub_resource type="Resource" id="Resource_62owk"]
+script = ExtResource("8_s5h2u")
+target_path = NodePath("..")
+metadata/_custom_type_script = "uid://e8yw2hruql0h"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1sg0x"]
+radius = 3.7885742
+height = 51.077065
+
+[node name="ring_coin" type="Node2D" unique_id=437536858 groups=["coin"]]
+script = ExtResource("1_t0u5j")
+bob = SubResource("Resource_cdoyq")
+metadata/_custom_type_script = "uid://daxf6fnwb7v3"
+
+[node name="GoldRingLeft" type="Sprite2D" parent="." unique_id=1430232740]
+z_index = -2
+position = Vector2(8, -6)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0fb2y")
+
+[node name="GoldRingRight" type="Sprite2D" parent="." unique_id=456999454]
+position = Vector2(17, -7)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_s5h2u")
+
+[node name="particles" type="GPUParticles2D" parent="." unique_id=162295628]
+physics_interpolation_mode = 2
+modulate = Color(0.8866978, 0.88573545, 0.61499083, 1)
+z_index = 1
+position = Vector2(8.405632, -6.6830025)
+amount = 25
+texture = ExtResource("5_oyf1c")
+process_material = SubResource("ParticleProcessMaterial_m34t3")
+
+[node name="particles2" type="GPUParticles2D" parent="." unique_id=1018411405]
+physics_interpolation_mode = 2
+modulate = Color(0.8866978, 0.88573545, 0.61499083, 1)
+z_index = 1
+position = Vector2(8.64418, -5.9084663)
+emitting = false
+texture = ExtResource("5_oyf1c")
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_0fb2y")
+
+[node name="direct_area" parent="." unique_id=1000805726 instance=ExtResource("6_t0tkl")]
+collision_layer = 0
+collision_mask = 1
+responses = Array[ExtResource("7_0fb2y")]([SubResource("Resource_62owk")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="direct_area" unique_id=1626654272]
+position = Vector2(11.127029, -6.2854958)
+shape = SubResource("CapsuleShape2D_1sg0x")
+
+[node name="SoundIncComponent" parent="." unique_id=786669208 node_paths=PackedStringArray("sound", "area") instance=ExtResource("7_ic58f")]
+sound = NodePath("../coin")
+area = NodePath("../direct_area")
+
+[node name="coin" type="AudioStreamPlayer2D" parent="." unique_id=654655370]
+position = Vector2(13.398575, 41.960434)
+stream = ExtResource("8_26vik")
+volume_db = -22.0
+pitch_scale = 0.69
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1424380481]
+
+[connection signal="area_entered" from="direct_area" to="." method="_on_direct_area_area_entered"]

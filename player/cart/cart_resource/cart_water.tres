@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CartResource" format=3 uid="uid://vtjgclurmxlb"]
+
+[ext_resource type="Script" uid="uid://x40jkqm3ye7p" path="res://player/cart/cart_resource/cart_resource.gd" id="1_73j4d"]
+
+[resource]
+script = ExtResource("1_73j4d")
+move_sound = 1
+jump_sound = 3
+land_sound = 3
+move_particle = 6
+jump_particle = 5
+land_particle = 5
+metadata/_custom_type_script = "uid://x40jkqm3ye7p"

@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://067e1j3nk5u4"]
+
+[ext_resource type="Script" uid="uid://bln7re1rgpwyo" path="res://scripts/pipe_fall.gd" id="1_4405t"]
+[ext_resource type="PackedScene" uid="uid://ccpykyobc3qdv" path="res://obstacles/obstacle piece/stretch_pipe.tscn" id="1_x5t7e"]
+[ext_resource type="AudioStream" uid="uid://11jfmiy56m88" path="res://sounds/sound_effects/splash2.mp3" id="2_8pxn3"]
+[ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="3_4405t"]
+[ext_resource type="Texture2D" uid="uid://4vjr3xo23mmi" path="res://sprites/arrow-Sheet.png" id="4_2blny"]
+[ext_resource type="Texture2D" uid="uid://crvpfrexohg8d" path="res://sprites/gpu_particles/fire_particle.png" id="4_gheg7"]
+[ext_resource type="PackedScene" uid="uid://berse50gptghu" path="res://managers/particle_manager/particle_scenes/splash_particle.tscn" id="5_4405t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhh42"]
+atlas = ExtResource("4_2blny")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b06db"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhh42")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lcb6"]
+size = Vector2(29, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
+size = Vector2(20, 489.5)
+
+[sub_resource type="Animation" id="Animation_8pxn3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pipe:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4405t"]
+resource_name = "fall"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pipe:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 95)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8pxn3"]
+_data = {
+&"RESET": SubResource("Animation_8pxn3"),
+&"fall": SubResource("Animation_4405t")
+}
+
+[node name="pipe_fall" type="Node2D" unique_id=1922247055]
+script = ExtResource("1_4405t")
+metadata/_custom_type_script = "uid://daxf6fnwb7v3"
+
+[node name="WaterSplash1" type="AudioStreamPlayer2D" parent="." unique_id=37826879]
+position = Vector2(3, 20)
+stream = ExtResource("2_8pxn3")
+volume_db = -14.229
+pitch_scale = 1.45
+
+[node name="pipe" type="Node2D" parent="." unique_id=795012726]
+
+[node name="stretch pipe" parent="pipe" unique_id=1596464814 instance=ExtResource("1_x5t7e")]
+size = 112
+
+[node name="arrow" type="AnimatedSprite2D" parent="pipe/stretch pipe" unique_id=930998578]
+z_index = 1
+position = Vector2(-1, -63)
+sprite_frames = SubResource("SpriteFrames_b06db")
+autoplay = "default"
+
+[node name="splash" parent="pipe/stretch pipe" unique_id=1911826222 instance=ExtResource("5_4405t")]
+position = Vector2(21, 18)
+rotation = 0.95818573
+texture = ExtResource("4_gheg7")
+
+[node name="splash2" parent="pipe/stretch pipe" unique_id=1476878120 instance=ExtResource("5_4405t")]
+position = Vector2(-20, 15.000002)
+rotation = -0.8936085
+
+[node name="Area2D" type="Area2D" parent="pipe/stretch pipe" unique_id=1716170479]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pipe/stretch pipe/Area2D" unique_id=699040768]
+position = Vector2(-2, 37)
+shape = SubResource("RectangleShape2D_6lcb6")
+
+[node name="direct_area" parent="." unique_id=1000805726 instance=ExtResource("3_4405t")]
+position = Vector2(-139, -17)
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="direct_area" unique_id=2094767765]
+position = Vector2(-172, 76)
+shape = SubResource("RectangleShape2D_1sg0x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1982605978]
+libraries/ = SubResource("AnimationLibrary_8pxn3")
+
+[connection signal="body_entered" from="pipe/stretch pipe/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="direct_area" to="." method="_on_direct_area_area_entered"]

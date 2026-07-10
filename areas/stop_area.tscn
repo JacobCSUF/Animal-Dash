@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://fp5t1slu2ash"]
+
+[sub_resource type="GDScript" id="GDScript_di85p"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+
+
+
+func _on_area_entered(area: Area2D) -> void:
+	GameState.change_state(\"stop\",{\"pos\"=self.global_position})
+"
+
+[node name="stop_area" type="Area2D" unique_id=2140587133]
+collision_layer = 0
+script = SubResource("GDScript_di85p")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

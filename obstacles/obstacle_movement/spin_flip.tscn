@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bmjoi4u2vn3lt"]
+
+[ext_resource type="Script" uid="uid://cb2ggcfkd5bxp" path="res://scripts/spin_flip.gd" id="1_cjeeq"]
+[ext_resource type="Texture2D" uid="uid://b8k672b7ne8rx" path="res://sprites/spin_flip.png" id="1_lalqp"]
+[ext_resource type="AudioStream" uid="uid://q2hu4ep1p75q" path="res://sounds/area/wind_up_spin.mp3" id="3_kmy5o"]
+[ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="4_iqow0"]
+[ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="5_q6e1c"]
+[ext_resource type="Script" uid="uid://e8yw2hruql0h" path="res://1triggers/response_resource/r_route_resource.gd" id="6_dllu4"]
+[ext_resource type="Texture2D" uid="uid://bmeo244anl5c7" path="res://sprites/spin_flip_circle.png" id="7_dllu4"]
+[ext_resource type="AudioStream" uid="uid://jjygoi0pp6j4" path="res://sounds/windup.mp3" id="8_iqow0"]
+[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://managers/sound_inc_manager/sound_inc_component.tscn" id="9_lumvx"]
+
+[sub_resource type="Gradient" id="Gradient_eljev"]
+offsets = PackedFloat32Array(0, 0.71525884, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k8cke"]
+gradient = SubResource("Gradient_eljev")
+width = 166
+height = 166
+fill = 1
+fill_from = Vector2(0.50183153, 0.4896215)
+fill_to = Vector2(0.64590967, 0.1916972)
+
+[sub_resource type="Resource" id="Resource_v5ndk"]
+script = ExtResource("6_dllu4")
+target_path = NodePath("..")
+metadata/_custom_type_script = "uid://e8yw2hruql0h"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4y2x8"]
+radius = 44.0
+
+[sub_resource type="Animation" id="Animation_dllu4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpinFlipCircle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_iqow0"]
+resource_name = "spin"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpinFlipCircle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lumvx"]
+_data = {
+&"RESET": SubResource("Animation_dllu4"),
+&"spin": SubResource("Animation_iqow0")
+}
+
+[node name="spin_flip" type="Node2D" unique_id=2147143428 node_paths=PackedStringArray("sound_inc_component")]
+script = ExtResource("1_cjeeq")
+sound_inc_component = NodePath("SoundIncComponent")
+
+[node name="SpinFlip" type="Sprite2D" parent="." unique_id=1054154793]
+light_mask = 0
+z_index = -1
+texture = ExtResource("1_lalqp")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=791895055]
+texture = SubResource("GradientTexture2D_k8cke")
+
+[node name="wind_up" type="AudioStreamPlayer2D" parent="." unique_id=1844065527]
+position = Vector2(2, 48)
+stream = ExtResource("3_kmy5o")
+volume_db = -28.0
+pitch_scale = 3.3
+
+[node name="direct_area" parent="." unique_id=1000805726 instance=ExtResource("4_iqow0")]
+position = Vector2(19.738808, -153.49782)
+responses = Array[ExtResource("5_q6e1c")]([SubResource("Resource_v5ndk")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="direct_area" unique_id=1496806026]
+position = Vector2(-19.738808, 153.49782)
+shape = SubResource("CircleShape2D_4y2x8")
+
+[node name="SpinFlipCircle" type="Sprite2D" parent="." unique_id=1489175738]
+light_mask = 0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_dllu4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=146629085]
+libraries/ = SubResource("AnimationLibrary_lumvx")
+autoplay = &"spin"
+speed_scale = 0.8
+
+[node name="Windup" type="AudioStreamPlayer2D" parent="." unique_id=1449856102]
+position = Vector2(0, -1)
+stream = ExtResource("8_iqow0")
+volume_db = -20.0
+pitch_scale = 1.4
+autoplay = true
+max_distance = 300.0
+
+[node name="SoundIncComponent" parent="." unique_id=786669208 node_paths=PackedStringArray("sound", "area") instance=ExtResource("9_lumvx")]
+sound = NodePath("../wind_up")
+area = NodePath("../direct_area")
+sound_type = 5
+
+[connection signal="area_entered" from="direct_area" to="." method="_on_direct_area_area_entered"]
+[connection signal="area_exited" from="direct_area" to="." method="_on_direct_area_area_exited"]

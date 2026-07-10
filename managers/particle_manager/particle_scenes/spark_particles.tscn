@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://mb45wu5tanuv"]
+
+[ext_resource type="Texture2D" uid="uid://cax18vhv4ncwy" path="res://sprites/gpu_particles/spark.png" id="1_gb4hg"]
+
+[sub_resource type="Gradient" id="Gradient_gb4hg"]
+offsets = PackedFloat32Array(0, 0.15560167, 0.45020747, 0.8278008, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.8245151, 0.8560156, 0.5176254, 1, 0.88258785, 0.74632895, 0.46187204, 1, 0.8326782, 0.5379432, 0.36834177, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3wphh"]
+gradient = SubResource("Gradient_gb4hg")
+
+[sub_resource type="Curve" id="Curve_r8ma7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vy7jm"]
+curve = SubResource("Curve_r8ma7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u35qu"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(15, 2.5, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0.5, -1, 0)
+spread = 90.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 359.99997
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_vy7jm")
+color_ramp = SubResource("GradientTexture1D_3wphh")
+
+[node name="spark" type="GPUParticles2D" unique_id=1911826222]
+emitting = false
+amount = 20
+texture = ExtResource("1_gb4hg")
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+randomness = 0.38
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_u35qu")

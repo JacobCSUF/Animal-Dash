@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://evt7yw62xe28"]
+
+[ext_resource type="Script" uid="uid://daxf6fnwb7v3" path="res://1triggers/base_object/base_object.gd" id="1_6wd5l"]
+[ext_resource type="Texture2D" uid="uid://bas6w5jlusqcs" path="res://sprites/lvl snow decorations/massive_ice_spike.png" id="1_i0c64"]
+[ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="2_6wd5l"]
+
+[node name="big_ice_spike" type="Node2D" unique_id=1015407073]
+script = ExtResource("1_6wd5l")
+metadata/_custom_type_script = "uid://daxf6fnwb7v3"
+
+[node name="MassiveIceSpike" type="Sprite2D" parent="." unique_id=897778606]
+texture = ExtResource("1_i0c64")
+
+[node name="kill_area" parent="." unique_id=8564388 instance=ExtResource("2_6wd5l")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="kill_area" unique_id=336252497]
+position = Vector2(8, -8)
+polygon = PackedVector2Array(3, -145, 8, -134, 3, 182, -31, 182, -8, -134)

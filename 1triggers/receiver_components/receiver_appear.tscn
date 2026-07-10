@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dypeca3fu16tv"]
+
+[ext_resource type="Script" uid="uid://do01xxqagww6i" path="res://1triggers/receiver_components/receiver_appear.gd" id="1_7lurl"]
+[ext_resource type="AudioStream" uid="uid://dj46xh6ybldof" path="res://sounds/sound_effects/appear.mp3" id="2_adlsq"]
+[ext_resource type="Texture2D" uid="uid://0pore0i2dbln" path="res://sprites/gpu_particles/shimmersheet.png" id="3_7lurl"]
+[ext_resource type="Material" uid="uid://bukxx4o22k4tp" path="res://resources/particles/appear.tres" id="4_m77wt"]
+[ext_resource type="Texture2D" uid="uid://cu3u5dcpv5sus" path="res://sprites/gpu_particles/smoke_shimmer.png" id="5_7nydy"]
+[ext_resource type="Material" uid="uid://s0ru0l5genka" path="res://resources/particles/smoke.tres" id="6_fsytl"]
+[ext_resource type="Texture2D" uid="uid://sy5w56awfl6m" path="res://sprites/textures/water_drop_texture.png" id="7_uwsbn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7lurl"]
+blend_mode = 1
+
+[node name="receiver_appear" type="Node2D" unique_id=1054869441]
+script = ExtResource("1_7lurl")
+
+[node name="Appear" type="AudioStreamPlayer" parent="." unique_id=909829604]
+stream = ExtResource("2_adlsq")
+volume_db = -32.0
+pitch_scale = 2.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2126577566]
+physics_interpolation_mode = 2
+visible = false
+z_index = 1
+material = SubResource("CanvasItemMaterial_7lurl")
+position = Vector2(58, 21)
+amount = 80
+texture = ExtResource("3_7lurl")
+lifetime = 0.7
+fixed_fps = 60
+trail_lifetime = 0.16
+process_material = ExtResource("4_m77wt")
+
+[node name="smoke" type="GPUParticles2D" parent="." unique_id=1566493181]
+physics_interpolation_mode = 2
+modulate = Color(0.8811, 0.8633, 0.89, 1)
+z_index = -1
+position = Vector2(1, -1)
+emitting = false
+amount = 9
+texture = ExtResource("5_7nydy")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = ExtResource("6_fsytl")
+
+[node name="WaterDropTexture" type="Sprite2D" parent="." unique_id=2030689561]
+visible = false
+position = Vector2(0, 1)
+texture = ExtResource("7_uwsbn")

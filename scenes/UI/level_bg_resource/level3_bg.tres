@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BackGroundResource" format=3 uid="uid://ov53kiya5xl4"]
+
+[ext_resource type="Texture2D" uid="uid://0pore0i2dbln" path="res://sprites/gpu_particles/shimmersheet.png" id="1_ewkip"]
+[ext_resource type="Script" uid="uid://c3nbhfhjpls2a" path="res://scenes/levels/bg_resource.gd" id="2_h8ti8"]
+
+[sub_resource type="Gradient" id="Gradient_8efq7"]
+offsets = PackedFloat32Array(0.21343283, 0.5, 0.7776119)
+colors = PackedColorArray(0.3812738, 0.57280755, 0.8487569, 0.38039216, 0.33740005, 0.308, 0.56, 0.5137255, 0.23290503, 0.48196286, 0.68826216, 0.40784314)
+
+[resource]
+script = ExtResource("2_h8ti8")
+particle_texture = ExtResource("1_ewkip")
+p_color = Color(0.8511186, 0.99999994, 0.9988305, 1)
+bg_gradient = SubResource("Gradient_8efq7")
+fog_color = Color(0.3007, 0.5572649, 0.97, 0.13333334)
+metadata/_custom_type_script = "uid://c3nbhfhjpls2a"

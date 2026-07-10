@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundResource" format=3 uid="uid://djrgh0trdcn2r"]
+
+[ext_resource type="Script" uid="uid://de16u0mha72wi" path="res://managers/AudioManager/audio_resources/sound_resource.gd" id="1_bdbel"]
+[ext_resource type="AudioStream" uid="uid://b31r7ola11brm" path="res://sounds/boat_move.mp3" id="2_ybr1t"]
+
+[resource]
+script = ExtResource("1_bdbel")
+sound = ExtResource("2_ybr1t")
+volume = -28.0
+pitch = 1.4
+metadata/_custom_type_script = "uid://de16u0mha72wi"

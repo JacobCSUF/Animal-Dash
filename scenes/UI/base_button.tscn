@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bqj5gg7tuxrwp"]
+
+[ext_resource type="Script" uid="uid://cvqxmagdeq065" path="res://scenes/UI/base_button.gd" id="1_so061"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_so061"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.5686275)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="base" type="Button" unique_id=1570557467]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_so061")
+script = ExtResource("1_so061")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

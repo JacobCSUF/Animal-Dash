@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://cvh0kylui755i"]
+
+[ext_resource type="Script" uid="uid://dnqaquxpb6v4u" path="res://scripts/pipe_arrow_down.gd" id="1_xj5bg"]
+[ext_resource type="Texture2D" uid="uid://ch6b1lx0syyhb" path="res://sprites/pipes/pipe.png" id="2_24ahk"]
+[ext_resource type="Texture2D" uid="uid://nuywn0slov0s" path="res://sprites/pipes/pipe_clear_part.png" id="3_saivf"]
+[ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="4_g2y8n"]
+[ext_resource type="Texture2D" uid="uid://4vjr3xo23mmi" path="res://sprites/arrow-Sheet.png" id="5_siyy3"]
+[ext_resource type="Script" uid="uid://2xs7q7s4bipi" path="res://scripts/shader_component.gd" id="7_o0ojk"]
+[ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="8_vuv7k"]
+[ext_resource type="Script" uid="uid://bpmk80j1qy0bc" path="res://1triggers/response_resource/r_audio1_resource.gd" id="9_6ny3x"]
+[ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="9_dsoki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfvvv"]
+size = Vector2(30, 234)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhh42"]
+atlas = ExtResource("5_siyy3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr85p"]
+atlas = ExtResource("5_siyy3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0c74h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhh42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr85p")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Resource" id="Resource_7cvth"]
+script = ExtResource("9_6ny3x")
+sound = 12
+position = NodePath("../Pipe/PipeClearPart")
+metadata/_custom_type_script = "uid://bpmk80j1qy0bc"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ns7"]
+size = Vector2(24, 758)
+
+[node name="pipe_arrow_down" type="Node2D" unique_id=363680300 node_paths=PackedStringArray("shader_component")]
+script = ExtResource("1_xj5bg")
+shader_component = NodePath("ShaderComponent")
+metadata/_custom_type_script = "uid://daxf6fnwb7v3"
+
+[node name="Pipe" type="Sprite2D" parent="." unique_id=1996585472]
+position = Vector2(7, 127)
+rotation = -3.1415925
+texture = ExtResource("2_24ahk")
+
+[node name="PipeClearPart" type="Sprite2D" parent="Pipe" unique_id=1205352735]
+position = Vector2(-5, -103)
+texture = ExtResource("3_saivf")
+
+[node name="kill_area" parent="Pipe" unique_id=8564388 instance=ExtResource("4_g2y8n")]
+position = Vector2(-10, -109)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe/kill_area" unique_id=193523243]
+position = Vector2(1, 116)
+shape = SubResource("RectangleShape2D_hfvvv")
+
+[node name="arrow" type="AnimatedSprite2D" parent="." unique_id=1727411808]
+position = Vector2(16, 205)
+rotation = -3.1415925
+sprite_frames = SubResource("SpriteFrames_0c74h")
+autoplay = "default"
+
+[node name="ShaderComponent" type="Node2D" parent="." unique_id=1951009930 node_paths=PackedStringArray("sprites")]
+script = ExtResource("7_o0ojk")
+sprites = [NodePath("../Pipe"), NodePath("../Pipe/PipeClearPart"), NodePath("../arrow")]
+metadata/_custom_type_script = "uid://2xs7q7s4bipi"
+
+[node name="direct_area" parent="." unique_id=1000805726 instance=ExtResource("8_vuv7k")]
+position = Vector2(-114, 161)
+responses = Array[ExtResource("9_dsoki")]([SubResource("Resource_7cvth")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="direct_area" unique_id=328971888]
+position = Vector2(-2, 60)
+shape = SubResource("RectangleShape2D_l3ns7")
+
+[connection signal="area_entered" from="direct_area" to="." method="_on_direct_area_area_entered"]

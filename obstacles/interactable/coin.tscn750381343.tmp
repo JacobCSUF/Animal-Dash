@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://ftfnkrmwb02f"]
+
+[ext_resource type="Script" uid="uid://dqwdxarimvoas" path="res://scripts/coin.gd" id="1_11l1o"]
+[ext_resource type="Texture2D" uid="uid://44e6j6lceu3u" path="res://sprites/coin-Sheet.png" id="1_rwqht"]
+[ext_resource type="AudioStream" uid="uid://b3axi8mm0xebf" path="res://sounds/sound_effects/drop-coin-384921.mp3" id="2_i64fm"]
+[ext_resource type="Texture2D" uid="uid://6k75kh5rnw8o" path="res://sprites/textures/shimmer3.png" id="4_418ts"]
+[ext_resource type="PackedScene" uid="uid://b6bpghi8nj0h4" path="res://1triggers/area_trig.tscn" id="5_418ts"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11l1o"]
+atlas = ExtResource("1_rwqht")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d14el"]
+atlas = ExtResource("1_rwqht")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ikuy"]
+atlas = ExtResource("1_rwqht")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnlwo"]
+atlas = ExtResource("1_rwqht")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jig8b"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_11l1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d14el")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1ikuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnlwo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d14el"]
+radius = 11.0
+
+[sub_resource type="Gradient" id="Gradient_11l1o"]
+offsets = PackedFloat32Array(0, 0.58446866, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.26397288, 0.2639729, 0.2639728, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d14el"]
+gradient = SubResource("Gradient_11l1o")
+width = 48
+height = 48
+fill = 1
+fill_from = Vector2(0.4993895, 0.4993895)
+fill_to = Vector2(0.83882785, 0.14041515)
+
+[sub_resource type="Curve" id="Curve_418ts"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tf1y8"]
+curve = SubResource("Curve_418ts")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g30d2"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 12.0
+angle_min = -19.99999
+angle_max = 20.000011
+spread = 180.0
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+angular_velocity_min = -30.000015
+angular_velocity_max = 29.999983
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_tf1y8")
+
+[sub_resource type="Curve" id="Curve_g30d2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6083086, 0.6031129), -1.1583011, -1.1583011, 0, 0, Vector2(1, 0.28793776), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qn4ut"]
+curve = SubResource("Curve_g30d2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r20mg"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 8, 1)
+angle_min = -19.99999
+angle_max = 20.000011
+spread = 180.0
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+angular_velocity_min = -30.000015
+angular_velocity_max = 29.999983
+gravity = Vector3(0, -25, 0)
+scale_min = 0.7
+scale_max = 1.25
+scale_curve = SubResource("CurveTexture_qn4ut")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g30d2"]
+radius = 11.0
+
+[node name="Coin" type="Node2D" unique_id=1270067473]
+script = ExtResource("1_11l1o")
+textures = null
+scenes = null
+
+[node name="CoinSheet" type="AnimatedSprite2D" parent="." unique_id=599253525]
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_jig8b")
+autoplay = "default"
+frame_progress = 0.3827682
+
+[node name="Area2D" type="Area2D" parent="CoinSheet" unique_id=1691681019]
+scale = Vector2(2.2222223, 2.2222223)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinSheet/Area2D" unique_id=948946399]
+shape = SubResource("CircleShape2D_d14el")
+
+[node name="DropCoin384921" type="AudioStreamPlayer2D" parent="." unique_id=343990665]
+position = Vector2(4, 48)
+stream = ExtResource("2_i64fm")
+volume_db = -20.0
+pitch_scale = 0.8
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1235244516]
+position = Vector2(1, 0)
+texture = SubResource("GradientTexture2D_d14el")
+
+[node name="particles" type="GPUParticles2D" parent="." unique_id=722859341]
+physics_interpolation_mode = 2
+modulate = Color(0.8866978, 0.88573545, 0.61499083, 1)
+z_index = 1
+amount = 10
+texture = ExtResource("4_418ts")
+process_material = SubResource("ParticleProcessMaterial_g30d2")
+
+[node name="particles2" type="GPUParticles2D" parent="." unique_id=628686784]
+physics_interpolation_mode = 2
+modulate = Color(0.8866978, 0.88573545, 0.61499083, 1)
+z_index = 1
+position = Vector2(0, -11)
+emitting = false
+amount = 3
+texture = ExtResource("4_418ts")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_r20mg")
+
+[node name="AreaTrig" parent="." unique_id=303656433 groups=["trigger"] instance=ExtResource("5_418ts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTrig" unique_id=922902213]
+shape = SubResource("CircleShape2D_g30d2")
+
+[connection signal="body_entered" from="CoinSheet/Area2D" to="." method="_on_area_2d_body_entered"]

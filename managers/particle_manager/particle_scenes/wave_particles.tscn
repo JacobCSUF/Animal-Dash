@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cdsgxus8ex8xi"]
+
+[ext_resource type="Texture2D" uid="uid://og2et56egt1l" path="res://sprites/gpu_particles/water_shimmer.png" id="1_qsig0"]
+
+[sub_resource type="Gradient" id="Gradient_n4wlb"]
+offsets = PackedFloat32Array(0, 0.6396552, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lsvi0"]
+gradient = SubResource("Gradient_n4wlb")
+
+[sub_resource type="Curve" id="Curve_emjra"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_44uos"]
+curve = SubResource("Curve_emjra")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yjgtf"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(-0.25, -1, 0)
+spread = 50.0
+initial_velocity_min = 170.0
+initial_velocity_max = 185.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 359.99997
+gravity = Vector3(0, 800, 0)
+scale_min = 0.5
+scale_max = 0.75
+scale_curve = SubResource("CurveTexture_44uos")
+color_ramp = SubResource("GradientTexture1D_lsvi0")
+
+[node name="wave" type="GPUParticles2D" unique_id=1911826222]
+modulate = Color(0.32156864, 0.8156863, 0.8509804, 1)
+amount = 50
+texture = ExtResource("1_qsig0")
+lifetime = 0.35000000000000003
+randomness = 0.38
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_yjgtf")

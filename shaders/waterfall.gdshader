@@ -1,0 +1,54 @@
+shader_type canvas_item;
+
+uniform bool top_down_move = false;
+uniform bool wave_top_down = false;
+
+uniform float uv_speed_x : hint_range(-10.0, 10.0) = 0.0;
+uniform float uv_speed_y : hint_range(-10.0, 10.0) = -0.0;
+// The speed of the horizontal flame movement (sway)
+uniform float sway_speed : hint_range(-50.0, -0.1) = -1.0;
+
+// How far the texture is displaced horizontally
+uniform float sway_strength : hint_range(0.0, 0.5) = 0.01;
+// Scales the noise to control the size of the waves/flickers
+uniform float noise_scale : hint_range(1.0, 20.0) = 5.0;
+
+// NEW: This uniform will hold the time offset for this specific flame instance.
+uniform float time_offset : hint_range(0.0, 100.0) = 0.0;
+
+// Simple noise function (adapted from common GLSL techniques)
+float noise1(vec2 p, float t) { // Pass the time 't' as an argument
+    // We use the passed-in time 't' instead of the global TIME
+    float n = sin(p.x * 2.0 + t * sway_speed) * 0.5;
+    n += sin(p.y * 5.0 + t * sway_speed * 1.5) * 0.3;
+    return n;
+}
+
+void fragment() {
+    // 1. Calculate the INSTANCE TIME: TIME + offset
+    float instance_time = TIME + time_offset;
+
+    vec2 distorted_uv = UV;
+
+    // 2. Call the noise function with the instance-specific time
+    float displacement = noise1(UV * noise_scale, instance_time) * sway_strength;
+	
+	if (wave_top_down)
+    // 3. Apply the displacement
+    	distorted_uv.y += displacement;
+	else
+		distorted_uv.x += displacement;
+	
+
+    // 4. Sample the original texture
+    vec4 color = texture(TEXTURE, distorted_uv);
+
+    COLOR = color;
+}
+void vertex() {
+	if (top_down_move)
+		UV.y +=TIME* uv_speed_y;
+	else 
+		UV.x +=TIME* uv_speed_x;
+
+}

@@ -1,0 +1,109 @@
+[gd_scene format=4 uid="uid://bua33pm7s8osp"]
+
+[ext_resource type="Resource" uid="uid://d16o6o2ewp68" path="res://scenes/UI/level_bg_resource/level2_bg.tres" id="2_wyja1"]
+[ext_resource type="PackedScene" uid="uid://bap6ofsij3477" path="res://scenes/background.tscn" id="3_cnofd"]
+[ext_resource type="Texture2D" uid="uid://b4a7j1u2i0anh" path="res://sprites/pipes/pipe_thin_curve.png" id="4_qsp63"]
+[ext_resource type="Texture2D" uid="uid://db1phwb71s76j" path="res://sprites/pipes/thin_long_pipe_decor.png" id="5_87hg0"]
+[ext_resource type="PackedScene" uid="uid://v0xrayim6wg5" path="res://obstacles/pipes/pipe_curve_thin.tscn" id="6_pxi4c"]
+[ext_resource type="PackedScene" uid="uid://cu3aadyktwbg1" path="res://obstacles/pipes/pipe_thin_long.tscn" id="9_11amn"]
+[ext_resource type="PackedScene" uid="uid://co8mupe6t3dnn" path="res://scenes/tilemap_base.tscn" id="10_syiq6"]
+[ext_resource type="PackedScene" uid="uid://ddhq2isj8wu4x" path="res://obstacles/obstacle_movement/cannon.tscn" id="11_nimi2"]
+
+[node name="Level2Display" type="Node2D" unique_id=1428031925]
+
+[node name="background" parent="." unique_id=1318822552 instance=ExtResource("3_cnofd")]
+bg = ExtResource("2_wyja1")
+
+[node name="Parallax2D" type="Parallax2D" parent="background" unique_id=269981586]
+modulate = Color(0.19584742, 0.35164967, 0.1988729, 1)
+z_index = -70
+scroll_scale = Vector2(0.75, 0.75)
+repeat_size = Vector2(640, 0)
+
+[node name="ThinLongPipeDecor" type="Sprite2D" parent="background/Parallax2D" unique_id=130261732]
+modulate = Color(0.33462042, 0.40573278, 0.33467522, 1)
+position = Vector2(269, 255)
+texture = ExtResource("5_87hg0")
+
+[node name="PipeThinCurve" type="Sprite2D" parent="background/Parallax2D" unique_id=1563716085]
+modulate = Color(0.33462042, 0.40573278, 0.33467522, 1)
+position = Vector2(258, 151)
+texture = ExtResource("4_qsp63")
+
+[node name="PipeThinCurve2" type="Sprite2D" parent="background/Parallax2D" unique_id=756491792]
+modulate = Color(0.33462042, 0.40573278, 0.33467522, 1)
+position = Vector2(174, 123)
+rotation = 3.1415927
+texture = ExtResource("4_qsp63")
+
+[node name="ThinLongPipeDecor2" type="Sprite2D" parent="background/Parallax2D" unique_id=685953203]
+modulate = Color(0.33462042, 0.40573278, 0.33467522, 1)
+position = Vector2(163, 39)
+texture = ExtResource("5_87hg0")
+
+[node name="PipeThinCurve3" type="Sprite2D" parent="background/Parallax2D" unique_id=2027775941]
+modulate = Color(0.33462042, 0.40573278, 0.33467522, 1)
+position = Vector2(549, 137)
+texture = ExtResource("4_qsp63")
+
+[node name="PipeThinCurve4" type="Sprite2D" parent="background/Parallax2D" unique_id=1116127505]
+modulate = Color(0.33462042, 0.40573278, 0.33467522, 1)
+position = Vector2(473, 134)
+rotation = -1.5707964
+texture = ExtResource("4_qsp63")
+
+[node name="ThinLongPipeDecor3" type="Sprite2D" parent="background/Parallax2D" unique_id=699308182]
+modulate = Color(0.33462042, 0.40573278, 0.33467522, 1)
+position = Vector2(459, 242)
+texture = ExtResource("5_87hg0")
+
+[node name="ThinLongPipeDecor4" type="Sprite2D" parent="background/Parallax2D" unique_id=1318000549]
+modulate = Color(0.33462042, 0.40573278, 0.33467522, 1)
+position = Vector2(560, 240)
+texture = ExtResource("5_87hg0")
+
+[node name="front" parent="." unique_id=13827966 instance=ExtResource("10_syiq6")]
+tile_map_data = PackedByteArray("AAAeAAYAAwAJAAIAAAAQABEAAgAJAAIAAAAPABEAAgAJAAIAAAAOABEAAgAJAAIAAAANABEAAgAJAAIAAAAMABEAAgAJAAIAAAAbABEAAAAHAAYAAAAaABEAAgAJAAIAAAAZABEAAgAJAAIAAAAYABEAAgAJAAIAAAAXABEAAgAJAAIAAAAWABEAAgAJAAIAAAAVABEAAgAJAAIAAAAUABEAAgAJAAIAAAATABEAAgAJAAIAAAASABEAAgAJAAIAAAARABEAAgAJAAIAAAAbABQAAAAHAAYAAAAbABMAAAAHAAYAAAAbABIAAAAHAAYAAAAaABQAAgAJAAIAAAAaABMAAgAJAAIAAAAaABIAAgAJAAIAAAAZABQAAgAJAAIAAAAZABMAAgAJAAIAAAAZABIAAgAJAAIAAAAYABQAAgAJAAIAAAAYABMAAgAJAAIAAAAYABIAAgAJAAIAAAAXABQAAgAJAAIAAAAXABMAAgAJAAIAAAAXABIAAgAJAAIAAAAWABQAAgAJAAIAAAAWABMAAgAJAAIAAAAWABIAAgAJAAIAAAAVABQAAgAJAAIAAAAVABMAAgAJAAIAAAAVABIAAgAJAAIAAAAUABQAAgAJAAIAAAAUABMAAgAJAAIAAAAUABIAAgAJAAIAAAATABQAAgAJAAIAAAATABMAAgAJAAIAAAATABIAAgAJAAIAAAASABQAAgAJAAIAAAASABMAAgAJAAIAAAASABIAAgAJAAIAAAARABQAAgAJAAIAAAARABMAAgAJAAIAAAARABIAAgAJAAIAAAAQABQAAgAJAAIAAAAQABMAAgAJAAIAAAAQABIAAgAJAAIAAAAPABQAAgAJAAIAAAAPABMAAgAJAAIAAAAPABIAAgAJAAIAAAAOABQAAgAJAAIAAAAOABMAAgAJAAIAAAAOABIAAgAJAAIAAAANABQAAgAJAAIAAAANABMAAgAJAAIAAAANABIAAgAJAAIAAAAMABQAAgAJAAIAAAAMABMAAgAJAAIAAAAMABIAAgAJAAIAAAAbABUAAAAHAAcAAAAaABUAAAAGAAcAAAAZABUAAAAGAAcAAAAYABUAAAAGAAcAAAAXABUAAAAGAAcAAAAWABUAAAAGAAcAAAAVABUAAAAGAAcAAAAUABUAAAAGAAcAAAATABUAAAAGAAcAAAASABUAAAAGAAcAAAARABUAAAAGAAcAAAAQABUAAAAGAAcAAAAPABUAAAAGAAcAAAAOABUAAAAGAAcAAAANABUAAAAGAAcAAAAMABUAAAAGAAcAAAALABUAAAAFAAcAAAALABQAAAAFAAYAAAALABMAAAAFAAYAAAALABIAAAAFAAYAAAALABEAAAAFAAYAAAAbABAAAAAHAAYAAAAaABAAAgAJAAIAAAAZABAAAgAJAAIAAAAYABAAAgAJAAIAAAAXABAAAgAJAAIAAAAWABAAAgAJAAIAAAAVABAAAgAJAAIAAAAUABAAAgAJAAIAAAATABAAAgAJAAIAAAASABAAAgAJAAIAAAARABAAAgAJAAIAAAAQABAAAgAJAAIAAAAPABAAAgAJAAIAAAAOABAAAgAJAAIAAAANABAAAgAJAAIAAAAMABAAAgAJAAIAAAALABAAAAAFAAYAAAAbAA8AAAAHAAUAAAAaAA8AAgAKAAAAAAAZAA8AAgAKAAAAAAAYAA8AAgAKAAAAAAAXAA8AAgAKAAAAAAAWAA8AAgAKAAAAAAAVAA8AAgAKAAAAAAAUAA8AAgAKAAAAAAATAA8AAgAKAAAAAAASAA8AAgAKAAAAAAARAA8AAgAKAAAAAAAQAA8AAgAKAAAAAAAPAA8AAgAKAAAAAAAOAA8AAgAKAAAAAAANAA8AAgAKAAAAAAAMAA8AAgAKAAAAAAALAA8AAAAFAAUAAAAdAAcAAAAFAAYAAAAeAAcAAwAJAAIAAAAfAAcAAAAHAAYAAAAfAAYAAAAHAAYAAAAfAAUAAAAHAAUAAAAeAAUAAAAGAAUAAAAdAAUAAAAFAAUAAAAdAAYAAAAFAAYAAAAdAAgAAAAFAAcAAAAeAAgAAwAJAAMAAAAfAAgAAAAHAAcAAAA=")
+
+[node name="cannon" parent="." unique_id=392632572 instance=ExtResource("11_nimi2")]
+position = Vector2(162, 108.99999)
+rotation = -0.72082096
+
+[node name="cannon2" parent="." unique_id=154178595 instance=ExtResource("11_nimi2")]
+position = Vector2(498.99997, 245.99997)
+rotation = -2.7384217
+
+[node name="PipeThinCurve" type="Sprite2D" parent="." unique_id=1174905343]
+position = Vector2(214, 225)
+texture = ExtResource("4_qsp63")
+
+[node name="PipeThinCurve2" type="Sprite2D" parent="." unique_id=1571815328]
+position = Vector2(128, 222)
+rotation = 4.712389
+texture = ExtResource("4_qsp63")
+
+[node name="PipeThinCurve3" type="Sprite2D" parent="." unique_id=605931485]
+position = Vector2(486, 313)
+texture = ExtResource("4_qsp63")
+
+[node name="ThinLongPipeDecor" type="Sprite2D" parent="." unique_id=1593691095]
+position = Vector2(114, 311)
+texture = ExtResource("5_87hg0")
+
+[node name="pipe_curve" parent="." unique_id=1078158950 instance=ExtResource("6_pxi4c")]
+position = Vector2(25, 103)
+
+[node name="pipe_curve2" parent="." unique_id=1263270921 instance=ExtResource("6_pxi4c")]
+position = Vector2(28, 161)
+
+[node name="pipe_curve3" parent="." unique_id=349128063 instance=ExtResource("6_pxi4c")]
+position = Vector2(25, 234)
+rotation = 1.5707964
+
+[node name="pipe_curve5" parent="." unique_id=431153608 instance=ExtResource("6_pxi4c")]
+position = Vector2(498, 186)
+rotation = 3.1415927
+
+[node name="pipe_thin_long" parent="." unique_id=1640087411 instance=ExtResource("9_11amn")]
+position = Vector2(601, 200)
+rotation = -1.5707964

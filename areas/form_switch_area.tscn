@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b4kehrgafry0x"]
+
+[ext_resource type="Script" uid="uid://c4ns8qihxkght" path="res://scripts/form_switch.gd" id="1_gulyr"]
+
+[node name="form_switch" type="Area2D" unique_id=392286471]
+collision_layer = 0
+script = ExtResource("1_gulyr")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

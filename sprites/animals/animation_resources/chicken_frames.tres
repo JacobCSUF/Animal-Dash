@@ -1,0 +1,49 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b47wadem5x5tk"]
+
+[ext_resource type="Texture2D" uid="uid://cwexct148c18q" path="res://sprites/animals/chicken_full.png" id="1_4ahqh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctn8u"]
+atlas = ExtResource("1_4ahqh")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2hx6"]
+atlas = ExtResource("1_4ahqh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxji2"]
+atlas = ExtResource("1_4ahqh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7lkx"]
+atlas = ExtResource("1_4ahqh")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctn8u")
+}],
+"loop": 1,
+"name": &"ball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2hx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxji2")
+}],
+"loop": 1,
+"name": &"flappy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7lkx")
+}],
+"loop": 1,
+"name": &"float",
+"speed": 7.0
+}]

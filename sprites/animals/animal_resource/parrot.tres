@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="AnimalResource" format=3 uid="uid://bvjtc1tct7p8"]
+
+[ext_resource type="Script" uid="uid://co07lgyk00dl6" path="res://sprites/animals/animal_resource/animal_resource.gd" id="1_psqti"]
+[ext_resource type="SpriteFrames" uid="uid://cofo1ne87oloo" path="res://sprites/animals/animation_resources/parrot_frames.tres" id="1_vjtyr"]
+[ext_resource type="Texture2D" uid="uid://crpq8x42x0r0e" path="res://sprites/animals/parrot_full.png" id="3_yx33a"]
+
+[sub_resource type="Gradient" id="Gradient_vjtyr"]
+offsets = PackedFloat32Array(0, 0.47117516, 0.6707317, 0.8397849, 0.9387097)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0.5254902, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yx33a"]
+gradient = SubResource("Gradient_vjtyr")
+
+[sub_resource type="Gradient" id="Gradient_hnjvq"]
+offsets = PackedFloat32Array(0.05210643, 0.11197339, 0.17184035, 0.2427938, 0.33813748, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0.36862746, 1, 0.14901961, 0.6745098, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h5ue2"]
+gradient = SubResource("Gradient_hnjvq")
+
+[resource]
+script = ExtResource("1_psqti")
+sprites = ExtResource("3_yx33a")
+animations = ExtResource("1_vjtyr")
+dash_colors = SubResource("GradientTexture1D_yx33a")
+float_colors = SubResource("GradientTexture1D_h5ue2")
+metadata/_custom_type_script = "uid://co07lgyk00dl6"

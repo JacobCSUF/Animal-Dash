@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://cruq5rchkeqj6"]
+
+[ext_resource type="Script" uid="uid://dwrlo42yvasoy" path="res://scripts/speed_change.gd" id="1_spng2"]
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="2_7hu27"]
+[ext_resource type="Texture2D" uid="uid://dgbsvcl2gmybt" path="res://sprites/slow_down.png" id="3_ltjdc"]
+[ext_resource type="Texture2D" uid="uid://cc8qkophgojp5" path="res://sprites/slow_line.png" id="4_spng2"]
+[ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="6_l28nv"]
+[ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="7_jgh87"]
+[ext_resource type="Script" uid="uid://clgxy4enti5s5" path="res://managers/background_manager/bg_params.gd" id="8_2370d"]
+[ext_resource type="Script" uid="uid://ceabpejx0in8f" path="res://1triggers/response_resource/r_bg_resource.gd" id="9_rysjm"]
+[ext_resource type="AudioStream" uid="uid://b4bph1gl3amu5" path="res://sounds/area/slowdown.mp3" id="10_spng2"]
+[ext_resource type="Texture2D" uid="uid://0pore0i2dbln" path="res://sprites/gpu_particles/shimmersheet.png" id="11_7hu27"]
+[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://managers/sound_inc_manager/sound_inc_component.tscn" id="11_udou6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kmkdj"]
+shader = ExtResource("2_7hu27")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = 4.898000707654999
+shader_parameter/uv_speed_y = 0.0
+shader_parameter/sway_speed = -1.0
+shader_parameter/sway_strength = 0.01
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sgrjw"]
+shader = ExtResource("2_7hu27")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 1.7470005579824992
+shader_parameter/sway_speed = -10.056998102707505
+shader_parameter/sway_strength = 0.0800000038
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lfsm"]
+shader = ExtResource("2_7hu27")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 1.7470005579824992
+shader_parameter/sway_speed = -10.056998102707505
+shader_parameter/sway_strength = 0.0800000038
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 16.95200080522
+
+[sub_resource type="Resource" id="Resource_spng2"]
+script = ExtResource("8_2370d")
+color = Color(0, 0.47058824, 1, 1)
+metadata/_custom_type_script = "uid://clgxy4enti5s5"
+
+[sub_resource type="Resource" id="Resource_7hu27"]
+script = ExtResource("9_rysjm")
+bg = SubResource("Resource_spng2")
+metadata/_custom_type_script = "uid://ceabpejx0in8f"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bb5tm"]
+size = Vector2(20, 359)
+
+[sub_resource type="Gradient" id="Gradient_udou6"]
+offsets = PackedFloat32Array(0, 0.6476923, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g3smc"]
+gradient = SubResource("Gradient_udou6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hpmcs"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 60.0
+initial_velocity_min = 40.0
+initial_velocity_max = 125.0
+angular_velocity_min = -50.000015
+angular_velocity_max = 49.99998
+gravity = Vector3(0, 100, 0)
+scale_min = 0.099999994
+scale_max = 0.19999999
+color_ramp = SubResource("GradientTexture1D_g3smc")
+
+[node name="slow_down_zone" type="Node2D" unique_id=721493928 node_paths=PackedStringArray("sound_inc_component")]
+script = ExtResource("1_spng2")
+speed_change = -0.5
+sound_inc_component = NodePath("SoundIncComponent")
+
+[node name="SpeedBoost" type="Sprite2D" parent="." unique_id=1314721509]
+material = SubResource("ShaderMaterial_kmkdj")
+position = Vector2(12, 144)
+texture = ExtResource("3_ltjdc")
+
+[node name="SpeedUpLine" type="Sprite2D" parent="." unique_id=1925311564]
+material = SubResource("ShaderMaterial_sgrjw")
+position = Vector2(5, 136)
+texture = ExtResource("4_spng2")
+
+[node name="SpeedUpLine2" type="Sprite2D" parent="." unique_id=1286095964]
+material = SubResource("ShaderMaterial_4lfsm")
+position = Vector2(18, 138)
+texture = ExtResource("4_spng2")
+
+[node name="direct_area" parent="." unique_id=1000805726 instance=ExtResource("6_l28nv")]
+responses = Array[ExtResource("7_jgh87")]([SubResource("Resource_7hu27")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="direct_area" unique_id=692413569]
+position = Vector2(13, 140.5)
+shape = SubResource("RectangleShape2D_bb5tm")
+
+[node name="Slowdown" type="AudioStreamPlayer2D" parent="." unique_id=1278087651]
+light_mask = 0
+position = Vector2(10, 135)
+stream = ExtResource("10_spng2")
+volume_db = -2.5
+pitch_scale = 2.08
+
+[node name="particles" type="GPUParticles2D" parent="." unique_id=442104425]
+modulate = Color(0, 1, 1, 1)
+light_mask = 0
+position = Vector2(17, 192)
+emitting = false
+amount = 20
+texture = ExtResource("11_7hu27")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_hpmcs")
+
+[node name="SoundIncComponent" parent="." unique_id=786669208 node_paths=PackedStringArray("sound", "area") instance=ExtResource("11_udou6")]
+sound = NodePath("../Slowdown")
+area = NodePath("../direct_area")
+sound_type = 3
+
+[connection signal="area_entered" from="direct_area" to="." method="_on_direct_area_area_entered"]

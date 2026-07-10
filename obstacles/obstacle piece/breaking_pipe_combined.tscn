@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b3m217xhf5mds"]
+
+[ext_resource type="PackedScene" uid="uid://bixrnva4xwye6" path="res://obstacles/obstacle piece/breaking_pipe.tscn" id="1_aj1no"]
+[ext_resource type="Script" uid="uid://bpxs8i7s0a06n" path="res://scripts/breaking_pipe_combined.gd" id="1_u2gfm"]
+[ext_resource type="PackedScene" uid="uid://dnncyh7xd3cbn" path="res://obstacles/pipes/pipe.tscn" id="3_u2gfm"]
+
+[node name="breaking_pipe_combined" type="Node2D" unique_id=2100492921]
+z_index = -1
+script = ExtResource("1_u2gfm")
+
+[node name="breaking_pipe" parent="." unique_id=1182489173 instance=ExtResource("1_aj1no")]
+position = Vector2(3, -13)
+
+[node name="pipe" parent="." unique_id=707627036 instance=ExtResource("3_u2gfm")]
+position = Vector2(0, 100)
+
+[node name="pipe2" parent="." unique_id=689250183 instance=ExtResource("3_u2gfm")]
+position = Vector2(32, 0)
+rotation = -3.1415927

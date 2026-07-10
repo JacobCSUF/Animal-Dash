@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://c8xoem85xkudm"]
+
+[ext_resource type="Script" uid="uid://cwbfjdquw722i" path="res://scripts/pipe_crane_lift.gd" id="1_u8ueo"]
+[ext_resource type="Texture2D" uid="uid://ykyjweqxqvs7" path="res://sprites/robot.png" id="2_hjscj"]
+[ext_resource type="Texture2D" uid="uid://u16tocloukdp" path="res://sprites/pipes/pipe_crane.png" id="3_ybgtq"]
+[ext_resource type="Texture2D" uid="uid://bcie6t0a621dk" path="res://sprites/crane_lift.png" id="4_lqehd"]
+[ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="6_ybgtq"]
+[ext_resource type="PackedScene" uid="uid://cwce22ml12n0g" path="res://globals/components/AREA_TRIGGER.tscn" id="7_c3yqf"]
+[ext_resource type="AudioStream" uid="uid://c2p0bfnq7xpll" path="res://sounds/sound_effects/crane_lift.mp3" id="7_lqehd"]
+[ext_resource type="Script" uid="uid://b2shq2gjd4fvt" path="res://addons/ropesim/Rope.gd" id="7_m4fct"]
+[ext_resource type="Script" uid="uid://1xluodkpnre3" path="res://addons/ropesim/RopeHandle.gd" id="8_x3h11"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqehd"]
+size = Vector2(204, 29)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_m4fct"]
+
+[sub_resource type="RopeWindParameters" id="RopeWindParameters_0fbp3"]
+wind_strength = 0.5
+oscillation_strength = 0.2
+noise = SubResource("FastNoiseLite_m4fct")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3h11"]
+size = Vector2(35, 649)
+
+[node name="pipe_crane_lift" type="Node2D" unique_id=312769885]
+script = ExtResource("1_u8ueo")
+
+[node name="Robot" type="Sprite2D" parent="." unique_id=2058044226]
+position = Vector2(166, -62)
+texture = ExtResource("2_hjscj")
+
+[node name="CraneLift2" type="AudioStreamPlayer2D" parent="." unique_id=1580289889]
+position = Vector2(27, 117)
+stream = ExtResource("7_lqehd")
+volume_db = -2.0
+max_distance = 400.0
+
+[node name="CraneLift" type="Sprite2D" parent="." unique_id=25942916]
+position = Vector2(51, -37)
+texture = ExtResource("4_lqehd")
+
+[node name="PipeCrane" type="Sprite2D" parent="CraneLift" unique_id=520643348]
+position = Vector2(-21, 103)
+texture = ExtResource("3_ybgtq")
+
+[node name="kill_area" parent="CraneLift/PipeCrane" unique_id=8564388 instance=ExtResource("6_ybgtq")]
+position = Vector2(-1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CraneLift/PipeCrane/kill_area" unique_id=1262354574]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_lqehd")
+
+[node name="Rope" type="Node2D" parent="CraneLift" unique_id=1338061451]
+z_index = -1
+position = Vector2(-23, 53)
+script = ExtResource("7_m4fct")
+num_segments = 20
+rope_length = 27.0
+gravity_direction = Vector2(1.3, 1)
+wind = SubResource("RopeWindParameters_0fbp3")
+line_width = 1.0
+color = Color(0.4859069, 0.5436966, 0.65617853, 1)
+metadata/_custom_type_script = "uid://b2shq2gjd4fvt"
+
+[node name="RopeHandle2" type="Marker2D" parent="CraneLift/Rope" unique_id=100329431]
+position = Vector2(59, 37)
+script = ExtResource("8_x3h11")
+strength = 1.0
+rope_path = NodePath("..")
+metadata/_custom_type_script = "uid://1xluodkpnre3"
+
+[node name="Rope2" type="Node2D" parent="CraneLift" unique_id=1161333368]
+z_index = -1
+position = Vector2(-23, 53)
+script = ExtResource("7_m4fct")
+num_segments = 20
+rope_length = 27.0
+gravity_direction = Vector2(-2, 1)
+wind = SubResource("RopeWindParameters_0fbp3")
+line_width = 1.0
+color = Color(0.4859069, 0.5436966, 0.65617853, 1)
+metadata/_custom_type_script = "uid://b2shq2gjd4fvt"
+
+[node name="RopeHandle" type="Marker2D" parent="CraneLift/Rope2" unique_id=1894216295]
+position = Vector2(-57, 37)
+script = ExtResource("8_x3h11")
+strength = 1.0
+rope_path = NodePath("..")
+metadata/_custom_type_script = "uid://1xluodkpnre3"
+
+[node name="AREA_TRIGGER" parent="." unique_id=1200709446 node_paths=PackedStringArray("target", "audio_player") instance=ExtResource("7_c3yqf")]
+position = Vector2(-345, 70)
+target = NodePath("../CraneLift")
+loc1 = Vector2(0, -1)
+speed = 4.5
+audio_player = NodePath("../CraneLift2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AREA_TRIGGER" unique_id=1383108887]
+position = Vector2(-7.5, 45.5)
+shape = SubResource("RectangleShape2D_x3h11")

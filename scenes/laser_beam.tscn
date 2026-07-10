@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c70uc1gyxldvu"]
+
+[ext_resource type="Script" uid="uid://csvhs4yrh7cla" path="res://scripts/laser_beam.gd" id="1_5ua82"]
+[ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="2_ierl2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ierl2"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icd7v"]
+
+[node name="laser_beam" type="Node2D" unique_id=869966]
+script = ExtResource("1_5ua82")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1256119227]
+
+[node name="laser_line" type="Line2D" parent="." unique_id=1527642449]
+points = PackedVector2Array(0, 0, -25, 0)
+width = 30.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1549922290]
+process_material = SubResource("ParticleProcessMaterial_ierl2")
+
+[node name="kill_area" parent="." unique_id=8564388 instance=ExtResource("2_ierl2")]
+position = Vector2(-5, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill_area" unique_id=1387592596]
+shape = SubResource("RectangleShape2D_icd7v")

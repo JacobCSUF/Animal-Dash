@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dac7uvbirqk0w"]
+
+[ext_resource type="Script" uid="uid://5w62tf2n352h" path="res://components/animated_sprite_signal.gd" id="1_ai5d5"]
+
+[node name="AnimatedSpriteSignal" type="AnimatedSprite2D" unique_id=1472339427]
+script = ExtResource("1_ai5d5")

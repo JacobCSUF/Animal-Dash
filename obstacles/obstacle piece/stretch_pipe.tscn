@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ccpykyobc3qdv"]
+
+[ext_resource type="Script" uid="uid://5nxdbijypxs5" path="res://scripts/stretch_pipe.gd" id="1_bbouh"]
+[ext_resource type="Texture2D" uid="uid://bm0kd7eqgnqa" path="res://sprites/pipes/pipe_stretch_top.png" id="2_3n7jw"]
+[ext_resource type="Texture2D" uid="uid://cx3h0m66io501" path="res://sprites/pipes/pipe_stretch_middle.png" id="3_2ttfy"]
+[ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="4_2ttfy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep4fy"]
+size = Vector2(30, 62)
+
+[node name="stretch pipe" type="Node2D" unique_id=1596464814]
+script = ExtResource("1_bbouh")
+size = 16
+
+[node name="PipeStretchTop" type="Sprite2D" parent="." unique_id=983874488]
+position = Vector2(-1, -25)
+texture = ExtResource("2_3n7jw")
+offset = Vector2(0, -16)
+
+[node name="PipeStretchMiddle" type="Sprite2D" parent="." unique_id=20825730]
+position = Vector2(0, -17)
+texture = ExtResource("3_2ttfy")
+region_enabled = true
+region_rect = Rect2(1, 1, 32, 16)
+
+[node name="PipeStretchBottom" type="Sprite2D" parent="." unique_id=2094113220]
+position = Vector2(-1, -9)
+rotation = -3.1415925
+texture = ExtResource("2_3n7jw")
+offset = Vector2(0, -16)
+
+[node name="kill_area" parent="." unique_id=8564388 instance=ExtResource("4_2ttfy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill_area" unique_id=1096719594]
+position = Vector2(-1, -17)
+shape = SubResource("RectangleShape2D_ep4fy")

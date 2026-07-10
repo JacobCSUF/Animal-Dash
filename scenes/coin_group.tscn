@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cecyd5pwmkxxl"]
+
+[ext_resource type="Script" uid="uid://dllegcf0ri41c" path="res://scripts/coin_group.gd" id="1_djg6b"]
+
+[node name="coin_group" type="Node2D" unique_id=1135607632]
+script = ExtResource("1_djg6b")

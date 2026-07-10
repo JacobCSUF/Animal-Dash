@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://daduexh2nx1fq"]
+
+[ext_resource type="Script" uid="uid://bduyh752d0tik" path="res://scripts/sign.gd" id="1_c1yto"]
+[ext_resource type="Script" uid="uid://cvxnelhw3tch3" path="res://components/movement_component/bob_params.gd" id="2_21chy"]
+[ext_resource type="Texture2D" uid="uid://ct3c5ynaspfai" path="res://sprites/signs/base_sign-Sheet.png" id="3_0supx"]
+[ext_resource type="Texture2D" uid="uid://c74w2nddtro8k" path="res://sprites/signs/pipe_sign.png" id="3_21chy"]
+[ext_resource type="Texture2D" uid="uid://dkkg0n6dxhbw4" path="res://sprites/signs/sign_pole.png" id="4_hrpho"]
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="5_orxrr"]
+[ext_resource type="Script" uid="uid://d28kjhngbvsef" path="res://1triggers/base_object/object_components/movement_component.gd" id="6_hrpho"]
+[ext_resource type="Texture2D" uid="uid://bcjh36ewmb5j6" path="res://sprites/ctr_light.png" id="6_orxrr"]
+[ext_resource type="PackedScene" uid="uid://dntngraxq82x6" path="res://managers/particle_manager/particle_scenes/wall_particles.tscn" id="10_cgkdl"]
+[ext_resource type="Texture2D" uid="uid://metjb87flxmc" path="res://sprites/gpu_particles/sign_shard.png" id="11_n1q4e"]
+[ext_resource type="AudioStream" uid="uid://601xx0j3ae6b" path="res://sounds/area/floraphonic-wood-smash-1-170410.mp3" id="11_yrh08"]
+[ext_resource type="AudioStream" uid="uid://bnowitjwpuq4o" path="res://sounds/electric.mp3" id="13_s6vml"]
+[ext_resource type="PackedScene" uid="uid://cwce22ml12n0g" path="res://globals/components/AREA_TRIGGER.tscn" id="13_yrh08"]
+
+[sub_resource type="Resource" id="Resource_hrpho"]
+script = ExtResource("2_21chy")
+height = 2.0
+duration = 1.0
+speed = 2.0
+metadata/_custom_type_script = "uid://cvxnelhw3tch3"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orxrr"]
+size = Vector2(38, 30)
+
+[sub_resource type="Gradient" id="Gradient_yrh08"]
+offsets = PackedFloat32Array(0, 0.6396552, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yrh08"]
+gradient = SubResource("Gradient_yrh08")
+
+[sub_resource type="Curve" id="Curve_egdst"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_s6vml"]
+curve = SubResource("Curve_egdst")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8oaca"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(20, 15, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+spread = 90.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 359.99997
+gravity = Vector3(0, 300, 0)
+scale_min = 0.099999994
+scale_curve = SubResource("CurveTexture_s6vml")
+color_ramp = SubResource("GradientTexture1D_yrh08")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0supx"]
+atlas = ExtResource("3_0supx")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05s30"]
+atlas = ExtResource("3_0supx")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a3vg2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0supx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05s30")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cgkdl"]
+shader = ExtResource("5_orxrr")
+shader_parameter/top_down_move = true
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = -0.19999953449999985
+shader_parameter/sway_speed = -1.0
+shader_parameter/sway_strength = 0.0
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[node name="sign" type="Node2D" unique_id=2022114262]
+script = ExtResource("1_c1yto")
+bob = SubResource("Resource_hrpho")
+
+[node name="SignPole" type="Sprite2D" parent="." unique_id=1996755626]
+z_index = -1
+position = Vector2(11, 105)
+texture = ExtResource("4_hrpho")
+
+[node name="MovementComponent" type="Node2D" parent="." unique_id=574092388]
+script = ExtResource("6_hrpho")
+metadata/_custom_type_script = "uid://d28kjhngbvsef"
+
+[node name="CrateBreak" type="AudioStreamPlayer2D" parent="." unique_id=865780833]
+position = Vector2(11, 37)
+stream = ExtResource("11_yrh08")
+volume_db = -19.627
+
+[node name="Electric" type="AudioStreamPlayer2D" parent="." unique_id=413252357]
+position = Vector2(2, 0)
+stream = ExtResource("13_s6vml")
+volume_db = -31.507
+pitch_scale = 2.54
+
+[node name="AREA_TRIGGER" parent="." unique_id=1200709446 node_paths=PackedStringArray("dis_target", "audio_player", "audio_player2", "particles") instance=ExtResource("13_yrh08")]
+disappear = true
+dis_target = NodePath("../rotate/BaseSign")
+audio_player = NodePath("../CrateBreak")
+rand_pitch = 0.1
+audio_player2 = NodePath("../Electric")
+rand_pitch2 = 0.1
+particles = NodePath("../rotate/block_particles")
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AREA_TRIGGER" unique_id=1793478779]
+position = Vector2(3, -2)
+shape = SubResource("RectangleShape2D_orxrr")
+
+[node name="rotate" type="Node2D" parent="." unique_id=1539001701]
+position = Vector2(3, -2)
+
+[node name="block_particles" parent="rotate" unique_id=1911826222 instance=ExtResource("10_cgkdl")]
+position = Vector2(4, -2)
+texture = ExtResource("11_n1q4e")
+process_material = SubResource("ParticleProcessMaterial_8oaca")
+
+[node name="BaseSign" type="AnimatedSprite2D" parent="rotate" unique_id=984410801]
+sprite_frames = SubResource("SpriteFrames_a3vg2")
+autoplay = "default"
+
+[node name="sign_image" type="Sprite2D" parent="rotate/BaseSign" unique_id=144600380]
+position = Vector2(0, 1)
+texture = ExtResource("3_21chy")
+
+[node name="Ctr" type="Sprite2D" parent="rotate/BaseSign" unique_id=1288642511]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_cgkdl")
+position = Vector2(-0.5, -0.50000036)
+scale = Vector2(2.1875, 0.84375)
+texture = ExtResource("6_orxrr")

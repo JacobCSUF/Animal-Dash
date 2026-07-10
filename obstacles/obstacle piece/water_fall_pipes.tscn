@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://bl7s505kqwn23"]
+
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="1_ai73e"]
+[ext_resource type="Script" uid="uid://brndwc01861nd" path="res://scripts/water_fall_pipes.gd" id="1_sx1an"]
+[ext_resource type="Texture2D" uid="uid://cbxyve1mu71n3" path="res://sprites/waterfall.png" id="2_rh6qf"]
+[ext_resource type="PackedScene" uid="uid://dnncyh7xd3cbn" path="res://obstacles/pipes/pipe.tscn" id="3_13my7"]
+[ext_resource type="Script" uid="uid://cvxnelhw3tch3" path="res://components/movement_component/bob_params.gd" id="3_sx1an"]
+[ext_resource type="Texture2D" uid="uid://dpgjpg2frjva8" path="res://sprites/textures/water_drop_texture_bright.png" id="5_13my7"]
+[ext_resource type="PackedScene" uid="uid://cwce22ml12n0g" path="res://globals/components/AREA_TRIGGER.tscn" id="6_l247p"]
+[ext_resource type="Texture2D" uid="uid://cgq361m1okpcj" path="res://sprites/panel.png" id="8_a527q"]
+[ext_resource type="AudioStream" uid="uid://dp1gusbhm77n" path="res://sounds/sound_effects/water_splash_1.mp3" id="9_a527q"]
+[ext_resource type="Texture2D" uid="uid://cfj338uh0gpjo" path="res://sprites/waterdrop.png" id="10_sx1an"]
+[ext_resource type="AudioStream" uid="uid://qkha8vsawcl5" path="res://sounds/sound_effects/water_fall_small.mp3" id="11_a527q"]
+[ext_resource type="Script" uid="uid://2xs7q7s4bipi" path="res://scripts/shader_component.gd" id="11_sx1an"]
+
+[sub_resource type="Resource" id="Resource_4x4hb"]
+script = ExtResource("3_sx1an")
+height = 2.0
+metadata/_custom_type_script = "uid://cvxnelhw3tch3"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8gsxa"]
+shader = ExtResource("1_ai73e")
+shader_parameter/top_down_move = true
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = -2.4359996407099995
+shader_parameter/sway_speed = -1.0
+shader_parameter/sway_strength = 0.01
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gsxa"]
+size = Vector2(21, 100)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kvk8v"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(8, 8, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 30.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 250, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0mdhn"]
+shader = ExtResource("1_ai73e")
+shader_parameter/top_down_move = true
+shader_parameter/wave_top_down = true
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = -0.41999954495000047
+shader_parameter/sway_speed = -2.743997755339997
+shader_parameter/sway_strength = 0.042000001995
+shader_parameter/noise_scale = 10.0000004275
+shader_parameter/time_offset = 0.0
+
+[node name="water_fall_pipes" type="Node2D" unique_id=212128519 node_paths=PackedStringArray("shader_component")]
+script = ExtResource("1_sx1an")
+shader_component = NodePath("ShaderComponent")
+metadata/_custom_type_script = "uid://daxf6fnwb7v3"
+
+[node name="pipe" parent="." unique_id=707627036 instance=ExtResource("3_13my7")]
+position = Vector2(0, 96)
+bob = SubResource("Resource_4x4hb")
+
+[node name="pipe2" parent="." unique_id=1087826257 instance=ExtResource("3_13my7")]
+position = Vector2(32, 0)
+rotation = -3.1415925
+bob = SubResource("Resource_4x4hb")
+
+[node name="Panel" type="Sprite2D" parent="pipe2" unique_id=2094610329]
+position = Vector2(16.000004, 39.999996)
+rotation = 3.1415925
+texture = ExtResource("8_a527q")
+
+[node name="WaterDropTexture" type="Sprite2D" parent="pipe2/Panel" unique_id=1782188091]
+z_index = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_8gsxa")
+position = Vector2(-1.9071884e-07, 4.548127)
+scale = Vector2(1, 1.4314836)
+texture = ExtResource("5_13my7")
+
+[node name="Waterdrop" type="Sprite2D" parent="pipe2/Panel" unique_id=454922808]
+z_index = 1
+position = Vector2(0, 4)
+texture = ExtResource("10_sx1an")
+
+[node name="AREA_TRIGGER" parent="." unique_id=1200709446 node_paths=PackedStringArray("audio_player", "particles") instance=ExtResource("6_l247p")]
+position = Vector2(16, 44)
+audio_player = NodePath("../WaterSplash1")
+play_at_body = true
+particles = NodePath("../particles")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AREA_TRIGGER" unique_id=2135263566]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_8gsxa")
+
+[node name="particles" type="GPUParticles2D" parent="." unique_id=1187832420]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(18, 39)
+emitting = false
+amount = 80
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_kvk8v")
+
+[node name="WaterSplash1" type="AudioStreamPlayer2D" parent="." unique_id=1514375721]
+position = Vector2(21, 89)
+stream = ExtResource("9_a527q")
+volume_db = -11.556
+pitch_scale = 1.07
+
+[node name="WaterfallSmall363670" type="AudioStreamPlayer2D" parent="." unique_id=1416175500]
+position = Vector2(18, 74)
+stream = ExtResource("11_a527q")
+volume_db = -37.44
+pitch_scale = 0.87
+autoplay = true
+max_distance = 450.0
+
+[node name="ShaderComponent" type="Node2D" parent="." unique_id=536433071]
+script = ExtResource("11_sx1an")
+metadata/_custom_type_script = "uid://2xs7q7s4bipi"
+
+[node name="Waterfall" type="Sprite2D" parent="ShaderComponent" unique_id=1064235155]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0mdhn")
+position = Vector2(14, 68)
+texture = ExtResource("2_rh6qf")

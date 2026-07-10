@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="AnimalResource" format=3 uid="uid://by2x512vkmt1q"]
+
+[ext_resource type="SpriteFrames" uid="uid://bjjovpvdirb5u" path="res://sprites/animals/animation_resources/bird1_frames.tres" id="1_k8me0"]
+[ext_resource type="Script" uid="uid://co07lgyk00dl6" path="res://sprites/animals/animal_resource/animal_resource.gd" id="1_ypmj5"]
+[ext_resource type="Texture2D" uid="uid://btrfqesm8ys40" path="res://sprites/animals/bird_full.png" id="2_ie6em"]
+
+[sub_resource type="Gradient" id="Gradient_k8me0"]
+colors = PackedColorArray(3.5616756e-06, 0, 0.8337567, 1, 0.5480864, 0.0026830006, 0.82900286, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xdk7l"]
+gradient = SubResource("Gradient_k8me0")
+
+[sub_resource type="Gradient" id="Gradient_ie6em"]
+offsets = PackedFloat32Array(0, 0.20288248, 0.40243903, 1)
+colors = PackedColorArray(0.33882627, 0.0010003976, 0.5278779, 1, 0.39468318, 0.83287716, 0.99999994, 1, 0.37628913, 0.0017574462, 0.68479776, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k8me0"]
+gradient = SubResource("Gradient_ie6em")
+
+[resource]
+script = ExtResource("1_ypmj5")
+sprites = ExtResource("2_ie6em")
+animations = ExtResource("1_k8me0")
+dash_colors = SubResource("GradientTexture1D_xdk7l")
+float_colors = SubResource("GradientTexture1D_k8me0")
+metadata/_custom_type_script = "uid://co07lgyk00dl6"

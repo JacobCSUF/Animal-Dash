@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://01eyfv5umjt5"]
+
+[ext_resource type="Texture2D" uid="uid://divl33g07pjqh" path="res://sprites/pipes/pipe_decor_juice.png" id="1_d1rip"]
+[ext_resource type="Texture2D" uid="uid://cbfikn1scktxv" path="res://sprites/pipes/pipe_decor_screen.png" id="2_y7uky"]
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="3_xmrw0"]
+[ext_resource type="Texture2D" uid="uid://cyqg315ftrqke" path="res://sprites/pipes/water_2.png" id="4_paml0"]
+[ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="5_y7uky"]
+[ext_resource type="AudioStream" uid="uid://nntcc43jbkdl" path="res://sounds/sound_effects/water_flow.mp3" id="6_q122q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g28q7"]
+shader = ExtResource("3_xmrw0")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = true
+shader_parameter/uv_speed_x = -0.7399995601500002
+shader_parameter/uv_speed_y = 0.0
+shader_parameter/sway_speed = -12.858998235802504
+shader_parameter/sway_strength = 0.0400000019
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
+size = Vector2(136, 22)
+
+[node name="pipe_juice" type="Node2D" unique_id=2028076395]
+
+[node name="PipeDecorJuice" type="Sprite2D" parent="." unique_id=1645155245]
+texture = ExtResource("1_d1rip")
+
+[node name="PipeDecorScreen" type="Sprite2D" parent="." unique_id=1557861598]
+z_index = 1
+position = Vector2(-3, 7)
+texture = ExtResource("2_y7uky")
+
+[node name="Water2" type="Sprite2D" parent="." unique_id=456589013]
+material = SubResource("ShaderMaterial_g28q7")
+position = Vector2(-1.9999999, 5)
+scale = Vector2(1.4218749, 0.5546875)
+texture = ExtResource("4_paml0")
+
+[node name="kill_area" parent="." unique_id=8564388 instance=ExtResource("5_y7uky")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill_area" unique_id=1062451730]
+position = Vector2(-2, 6)
+shape = SubResource("RectangleShape2D_1sg0x")
+
+[node name="WaterFlow" type="AudioStreamPlayer2D" parent="." unique_id=6565993]
+position = Vector2(106, 74)
+stream = ExtResource("6_q122q")
+volume_db = -25.0
+pitch_scale = 0.55
+autoplay = true
+max_distance = 482.0

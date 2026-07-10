@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b5q8mj0xt4xaj"]
+
+[ext_resource type="PackedScene" uid="uid://dnncyh7xd3cbn" path="res://obstacles/pipes/pipe.tscn" id="1_8xttt"]
+[ext_resource type="Script" uid="uid://qadub7rtqmc7" path="res://scripts/pipes1.gd" id="1_onkcp"]
+[ext_resource type="Script" uid="uid://d28kjhngbvsef" path="res://1triggers/base_object/object_components/movement_component.gd" id="3_onkcp"]
+
+[node name="pipes" type="Node2D" unique_id=2101710733]
+script = ExtResource("1_onkcp")
+
+[node name="pipe" parent="." unique_id=707627036 instance=ExtResource("1_8xttt")]
+position = Vector2(0, 102)
+
+[node name="pipe2" parent="." unique_id=926947995 instance=ExtResource("1_8xttt")]
+position = Vector2(32, -6)
+rotation = -3.1415925
+
+[node name="MovementComponent" type="Node2D" parent="." unique_id=605466977 node_paths=PackedStringArray("moveable_object")]
+script = ExtResource("3_onkcp")
+moveable_object = NodePath("..")
+metadata/_custom_type_script = "uid://d28kjhngbvsef"

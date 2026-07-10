@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://d2kde3vc3x2y5"]
+
+[ext_resource type="Script" uid="uid://bni4vq23tswi6" path="res://scripts/pause_card.gd" id="1_wfkri"]
+[ext_resource type="PackedScene" uid="uid://bqj5gg7tuxrwp" path="res://scenes/UI/base_button.tscn" id="2_mmlo3"]
+
+[node name="pause_card" type="Control" unique_id=36367799]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wfkri")
+
+[node name="Panel" type="Panel" parent="." unique_id=1139156964]
+layout_mode = 0
+offset_left = 214.36656
+offset_top = 51.477036
+offset_right = 423.5879
+offset_bottom = 235.58528
+
+[node name="resume" parent="." unique_id=1570557467 instance=ExtResource("2_mmlo3")]
+layout_mode = 0
+offset_left = 283.36627
+offset_top = 98.962845
+offset_right = 349.36627
+offset_bottom = 128.07564
+text = "Resume"
+to_menu = 7
+
+[node name="redo" parent="." unique_id=526568820 instance=ExtResource("2_mmlo3")]
+layout_mode = 0
+offset_left = 277.17093
+offset_top = 139.73358
+offset_right = 358.17093
+offset_bottom = 164.73358
+text = "Start Over"
+to_menu = 8
+
+[node name="level_select" parent="." unique_id=868569932 instance=ExtResource("2_mmlo3")]
+layout_mode = 0
+offset_left = 256.40997
+offset_top = 175.69392
+offset_right = 380.40997
+offset_bottom = 209.79167
+text = "Level Select"
+to_menu = 5
+
+[connection signal="b_pressed" from="resume" to="." method="_on_resume_b_pressed"]
+[connection signal="b_pressed" from="redo" to="." method="_on_redo_b_pressed"]
+[connection signal="b_pressed" from="level_select" to="." method="_on_level_select_b_pressed"]

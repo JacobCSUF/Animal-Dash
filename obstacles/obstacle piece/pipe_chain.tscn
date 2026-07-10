@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cjye0trlpp7mk"]
+
+[ext_resource type="Script" uid="uid://ctbooldyhiyef" path="res://scripts/pipe_chain.gd" id="1_amn14"]
+
+[node name="pipe_chain" type="Node2D" unique_id=1940304484]
+script = ExtResource("1_amn14")
+
+[node name="Timer" type="Timer" parent="." unique_id=1432133677]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

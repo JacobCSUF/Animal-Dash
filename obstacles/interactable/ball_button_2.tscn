@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://d0taebpt6ypul"]
+
+[ext_resource type="Script" uid="uid://j33dqpjxw4pv" path="res://scripts/ball_button_2.gd" id="1_31mvf"]
+[ext_resource type="Texture2D" uid="uid://b7qp1kkpltma2" path="res://sprites/ball_trigger_2.png" id="1_xd2tt"]
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="2_luhxi"]
+[ext_resource type="Texture2D" uid="uid://cedeyj3mnhx4b" path="res://sprites/ctr3.png" id="3_luhxi"]
+[ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="5_dqplr"]
+[ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="6_cc63o"]
+[ext_resource type="AudioStream" uid="uid://cm4eowfqlqx2w" path="res://sounds/area/beep.mp3" id="6_dqplr"]
+[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://managers/sound_inc_manager/sound_inc_component.tscn" id="7_ptho1"]
+[ext_resource type="Script" uid="uid://e8yw2hruql0h" path="res://1triggers/response_resource/r_route_resource.gd" id="7_wo3gy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pvsc"]
+atlas = ExtResource("1_xd2tt")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luhxi"]
+atlas = ExtResource("1_xd2tt")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1sg0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pvsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luhxi")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtty4"]
+shader = ExtResource("2_luhxi")
+shader_parameter/top_down_move = true
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = -0.19999953449999985
+shader_parameter/sway_speed = -1.0
+shader_parameter/sway_strength = 0.0
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="Resource" id="Resource_jvp1d"]
+script = ExtResource("7_wo3gy")
+target_path = NodePath("..")
+metadata/_custom_type_script = "uid://e8yw2hruql0h"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
+size = Vector2(18, 12)
+
+[node name="ball_button_2" type="Node2D" unique_id=1567855183 node_paths=PackedStringArray("sound_inc_component")]
+z_index = 1
+script = ExtResource("1_31mvf")
+sound_inc_component = NodePath("SoundIncComponent")
+
+[node name="ball_trigger" type="AnimatedSprite2D" parent="." unique_id=1551566666]
+sprite_frames = SubResource("SpriteFrames_1sg0x")
+
+[node name="Ctr" type="Sprite2D" parent="." unique_id=1079120181]
+z_index = 3
+texture_repeat = 2
+material = SubResource("ShaderMaterial_vtty4")
+position = Vector2(0, 5)
+texture = ExtResource("3_luhxi")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 10)
+
+[node name="direct_area" parent="." unique_id=1000805726 instance=ExtResource("5_dqplr")]
+collision_layer = 0
+collision_mask = 1
+responses = Array[ExtResource("6_cc63o")]([SubResource("Resource_jvp1d")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="direct_area" unique_id=42253381]
+shape = SubResource("RectangleShape2D_1sg0x")
+
+[node name="Beep" type="AudioStreamPlayer2D" parent="." unique_id=455381875]
+position = Vector2(-1, 7)
+stream = ExtResource("6_dqplr")
+volume_db = -15.0
+
+[node name="SoundIncComponent" parent="." unique_id=786669208 node_paths=PackedStringArray("sound", "area") instance=ExtResource("7_ptho1")]
+sound = NodePath("../Beep")
+area = NodePath("../direct_area")
+sound_type = 4
+
+[connection signal="area_entered" from="direct_area" to="." method="_on_direct_area_area_entered"]

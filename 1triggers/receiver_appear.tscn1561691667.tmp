@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dypeca3fu16tv"]
+
+[ext_resource type="Script" uid="uid://bk6p8f8qi81ts" path="res://1triggers/receiver_appear.gd" id="1_w3pp3"]
+[ext_resource type="AudioStream" uid="uid://dj46xh6ybldof" path="res://sounds/sound_effects/appear.mp3" id="2_adlsq"]
+[ext_resource type="AudioStream" uid="uid://co3e7e5ylald7" path="res://sounds/sound_effects/sergequadrado-christals-467298.mp3" id="3_0lm6q"]
+[ext_resource type="Texture2D" uid="uid://bebi5wius10ke" path="res://sprites/textures/shimmer.png" id="4_j1toc"]
+[ext_resource type="Texture2D" uid="uid://cu3u5dcpv5sus" path="res://sprites/textures/smoke_shimmer.png" id="5_7nydy"]
+[ext_resource type="Material" uid="uid://s0ru0l5genka" path="res://resources/smoke.tres" id="6_fsytl"]
+[ext_resource type="Texture2D" uid="uid://sy5w56awfl6m" path="res://sprites/textures/water_drop_texture.png" id="7_uwsbn"]
+
+[sub_resource type="Curve" id="Curve_6xsip"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pxms0"]
+curve = SubResource("Curve_6xsip")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yk6hu"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 13.0
+angle_min = -19.99999
+angle_max = 20.000011
+spread = 180.0
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+angular_velocity_min = -30.000015
+angular_velocity_max = 29.999983
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.84999996
+scale_curve = SubResource("CurveTexture_pxms0")
+
+[node name="Receiver" type="Node2D" unique_id=1054869441]
+script = ExtResource("1_w3pp3")
+
+[node name="Appear" type="AudioStreamPlayer" parent="." unique_id=909829604]
+stream = ExtResource("2_adlsq")
+volume_db = -30.0
+pitch_scale = 2.0
+
+[node name="FairyDustSoundEffect" type="AudioStreamPlayer2D" parent="." unique_id=747751220]
+position = Vector2(5, 48)
+stream = ExtResource("3_0lm6q")
+volume_db = -25.0
+pitch_scale = 1.2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2126577566]
+physics_interpolation_mode = 2
+modulate = Color(0.44799036, 0.95067364, 0.9999997, 1)
+z_index = 1
+position = Vector2(1, -1)
+emitting = false
+amount = 150
+texture = ExtResource("4_j1toc")
+lifetime = 0.45
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_yk6hu")
+
+[node name="smoke" type="GPUParticles2D" parent="." unique_id=1566493181]
+physics_interpolation_mode = 2
+modulate = Color(0.88326967, 0.86566114, 0.89203954, 1)
+z_index = -1
+position = Vector2(1, -1)
+emitting = false
+amount = 10
+texture = ExtResource("5_7nydy")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = ExtResource("6_fsytl")
+
+[node name="WaterDropTexture" type="Sprite2D" parent="." unique_id=2030689561]
+visible = false
+position = Vector2(0, 1)
+texture = ExtResource("7_uwsbn")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://5fa3361fhpty"]
+
+[ext_resource type="Texture2D" uid="uid://b73malr7w0m7t" path="res://sprites/flap_boost.png" id="1_46nui"]
+[ext_resource type="PackedScene" uid="uid://c5gt5brgrdhr6" path="res://areas/dash_area.tscn" id="2_k700s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_46nui"]
+radius = 16.0
+
+[node name="dash_flap_down" type="Node2D" unique_id=1399103353]
+z_index = -1
+
+[node name="FlapBoost" type="Sprite2D" parent="." unique_id=1135562379]
+position = Vector2(1, 1)
+rotation = 3.1415927
+texture = ExtResource("1_46nui")
+
+[node name="dash_area" parent="." unique_id=891716452 instance=ExtResource("2_k700s")]
+time = 0.15
+dir = Vector2(0.35, -1)
+speed = 350
+auto_dash = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dash_area" unique_id=1767592401]
+shape = SubResource("CircleShape2D_46nui")
+
+[connection signal="body_exited" from="dash_area" to="dash_area" method="_on_body_exited"]

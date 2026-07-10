@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d2g1sewab5l8u"]
+
+[ext_resource type="Texture2D" uid="uid://bx0x2huilis61" path="res://sprites/pipes/medium_pipe.png" id="1_vxo8q"]
+[ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="2_g7lyj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
+size = Vector2(70, 21)
+
+[node name="medium_pipe" type="Sprite2D" unique_id=1309404762]
+texture = ExtResource("1_vxo8q")
+
+[node name="kill_area" parent="." unique_id=8564388 instance=ExtResource("2_g7lyj")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill_area" unique_id=154238078]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_1sg0x")

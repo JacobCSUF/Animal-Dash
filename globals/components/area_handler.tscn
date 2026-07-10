@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dsi7byfnrch8g"]
+
+[ext_resource type="Script" uid="uid://c8lj68420l25h" path="res://globals/components/area_handler.gd" id="1_lflpx"]
+
+[node name="AreaHandler" type="Node2D" unique_id=1169549112]
+script = ExtResource("1_lflpx")

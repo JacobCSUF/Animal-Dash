@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://bxjjoffjws3of"]
+
+[ext_resource type="Script" uid="uid://dsxx8cd6rdx15" path="res://scripts/player_follower.gd" id="1_524xx"]
+[ext_resource type="Texture2D" uid="uid://dyx0wpxxknpjr" path="res://sprites/animals/bat_full.png" id="2_524xx"]
+[ext_resource type="Texture2D" uid="uid://buwypyylesv1m" path="res://sprites/gpu_particles/shimmer4.png" id="3_a6ky2"]
+
+[sub_resource type="Gradient" id="Gradient_a6ky2"]
+offsets = PackedFloat32Array(0.0029702971, 0.16998012, 0.3687873, 0.52584493)
+colors = PackedColorArray(0.92955375, 2.7627051e-05, 0.6543482, 1, 0, 1, 1, 1, 0.57606715, 0.002493173, 0.8309943, 1, 0.26666668, 0, 0.7294118, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_boiwf"]
+gradient = SubResource("Gradient_a6ky2")
+
+[sub_resource type="Curve" id="Curve_tefeu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.74181813, 0.48722547), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_o6xl0"]
+curve = SubResource("Curve_tefeu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tefeu"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 10, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_o6xl0")
+color_ramp = SubResource("GradientTexture1D_boiwf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6ky2"]
+atlas = ExtResource("2_524xx")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="Gradient" id="Gradient_524xx"]
+offsets = PackedFloat32Array(0, 0.75346535, 1)
+colors = PackedColorArray(1, 0.4862745, 1, 1, 0.5533877, 0.22869346, 0.8296642, 1, 0.15686275, 0, 0.6784314, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a6ky2"]
+gradient = SubResource("Gradient_524xx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a6ky2"]
+particle_flag_disable_z = true
+spread = 0.0
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_a6ky2")
+
+[sub_resource type="Curve" id="Curve_boiwf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.014925361), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6lcb6"]
+curve = SubResource("Curve_boiwf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1sg0x"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(10, 4, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+scale_max = 0.35
+scale_curve = SubResource("CurveTexture_6lcb6")
+
+[node name="player_follower" type="Node2D" unique_id=1013513177]
+physics_interpolation_mode = 2
+script = ExtResource("1_524xx")
+
+[node name="float_particles" type="GPUParticles2D" parent="." unique_id=1385012739]
+light_mask = 0
+emitting = false
+amount = 240
+lifetime = 2.0
+fixed_fps = 120
+process_material = SubResource("ParticleProcessMaterial_tefeu")
+
+[node name="dash_particle" type="GPUParticles2D" parent="." unique_id=701132027]
+position = Vector2(-15, 1)
+emitting = false
+amount = 5
+texture = SubResource("AtlasTexture_a6ky2")
+lifetime = 0.2
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_a6ky2")
+
+[node name="ball_hit_particle" type="GPUParticles2D" parent="." unique_id=1162225963]
+modulate = Color(0.99000305, 0.298962, 0.9999998, 1)
+z_index = 3
+position = Vector2(12, 0)
+emitting = false
+amount = 30
+texture = ExtResource("3_a6ky2")
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1sg0x")

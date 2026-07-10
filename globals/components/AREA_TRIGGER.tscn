@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cwce22ml12n0g"]
+
+[ext_resource type="Script" uid="uid://dtus6gh5ewhnl" path="res://scripts/trigger_area.gd" id="1_cvayu"]
+
+[node name="AREA_TRIGGER" type="Area2D" unique_id=1200709446]
+collision_layer = 0
+script = ExtResource("1_cvayu")
+disappear = null
+loc1 = null
+distance = null
+speed = null
+rand_pitch = null
+rand_pitch2 = null
+play_at_body = null
+one_shot = null
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

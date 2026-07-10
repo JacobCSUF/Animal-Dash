@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://c2tg4oovd8jxt"]
+
+[node name="DefaultTrigger" type="Node2D" unique_id=501722905 groups=["trigger"]]

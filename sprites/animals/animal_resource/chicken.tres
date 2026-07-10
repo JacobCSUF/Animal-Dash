@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="AnimalResource" format=3 uid="uid://r0x1p0kov2xq"]
+
+[ext_resource type="Script" uid="uid://co07lgyk00dl6" path="res://sprites/animals/animal_resource/animal_resource.gd" id="1_c5dmk"]
+[ext_resource type="SpriteFrames" uid="uid://b47wadem5x5tk" path="res://sprites/animals/animation_resources/chicken_frames.tres" id="1_n7xky"]
+[ext_resource type="Texture2D" uid="uid://cwexct148c18q" path="res://sprites/animals/chicken_full.png" id="3_8p3s2"]
+
+[sub_resource type="Gradient" id="Gradient_n4v4g"]
+offsets = PackedFloat32Array(0, 0.17374006, 0.28514588, 0.39124668, 0.5530504, 0.7387268)
+colors = PackedColorArray(1, 1, 1, 1, 0.52680016, 0.5268002, 0.52680016, 1, 0.71, 0, 0, 1, 1, 1, 1, 1, 0.91638416, 0.5857343, 3.85046e-07, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v35on"]
+gradient = SubResource("Gradient_n4v4g")
+
+[resource]
+script = ExtResource("1_c5dmk")
+sprites = ExtResource("3_8p3s2")
+animations = ExtResource("1_n7xky")
+dash_colors = SubResource("GradientTexture1D_v35on")
+float_colors = SubResource("GradientTexture1D_v35on")
+metadata/_custom_type_script = "uid://co07lgyk00dl6"

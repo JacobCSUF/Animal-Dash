@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dk5uyd3ncdtqd"]
+
+[ext_resource type="PackedScene" uid="uid://bap6ofsij3477" path="res://scenes/background.tscn" id="2_gf641"]
+[ext_resource type="Script" uid="uid://c3nbhfhjpls2a" path="res://scenes/levels/bg_resource.gd" id="2_yybwy"]
+
+[sub_resource type="Gradient" id="Gradient_tparg"]
+offsets = PackedFloat32Array(0.14006025, 0.44728917, 0.66114455)
+colors = PackedColorArray(0.09071997, 0.060900003, 0.21, 0.3647059, 0.1445033, 0.06380001, 0.22, 0.4392157, 0.009666657, 0, 0.29, 0.5019608)
+
+[sub_resource type="Resource" id="Resource_0tskb"]
+script = ExtResource("2_yybwy")
+p_color = Color(0.5291068, 0.50103915, 1, 1)
+bg_gradient = SubResource("Gradient_tparg")
+fog_color = Color(0.34237495, 0.2655, 0.45, 0.20392157)
+metadata/_custom_type_script = "uid://c3nbhfhjpls2a"
+
+[node name="Level4Display" type="Node2D" unique_id=1428031925]
+
+[node name="background2" parent="." unique_id=1318822552 instance=ExtResource("2_gf641")]
+bg = SubResource("Resource_0tskb")

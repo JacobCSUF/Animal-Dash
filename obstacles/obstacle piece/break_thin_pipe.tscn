@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://5hcw5h8bcgyk"]
+
+[ext_resource type="Script" uid="uid://cmuo5w6p87vdk" path="res://scripts/break_thin_pipe.gd" id="1_yxrye"]
+[ext_resource type="Texture2D" uid="uid://7q1heyx2q23m" path="res://sprites/pipes/break_thin.png" id="2_cj1y2"]
+[ext_resource type="AudioStream" uid="uid://b8yg6pk2jcyxj" path="res://sounds/area/pipe_break.mp3" id="4_o150j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdyrd"]
+size = Vector2(13, 105)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tu5u7"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 30, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+initial_velocity_min = 80.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 100, 0)
+
+[node name="break_thin_pipe" type="Node2D" unique_id=1160704464]
+script = ExtResource("1_yxrye")
+
+[node name="BreakThin" type="Sprite2D" parent="." unique_id=365641726]
+position = Vector2(83, 35)
+texture = ExtResource("2_cj1y2")
+
+[node name="PipeBreak" type="AudioStreamPlayer2D" parent="." unique_id=754110709]
+position = Vector2(16, 93)
+stream = ExtResource("4_o150j")
+volume_db = -18.283
+pitch_scale = 1.51
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1402606691]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=901525529]
+position = Vector2(83, 36)
+shape = SubResource("RectangleShape2D_gdyrd")
+
+[node name="particles" type="GPUParticles2D" parent="." unique_id=1575844684]
+position = Vector2(103, 90)
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_tu5u7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

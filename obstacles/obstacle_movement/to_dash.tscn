@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://cklkth1hr5wj4"]
+
+[ext_resource type="Script" uid="uid://b4vbiehf4ep6n" path="res://scripts/to_dash.gd" id="1_e5l7p"]
+[ext_resource type="PackedScene" uid="uid://c5gt5brgrdhr6" path="res://areas/dash_area.tscn" id="3_u7y1g"]
+[ext_resource type="AudioStream" uid="uid://cj5r84ag13klg" path="res://sounds/sound_effects/blow-dryer-.mp3" id="4_w75gl"]
+[ext_resource type="Texture2D" uid="uid://dqielpfdx6yv2" path="res://sprites/fan_boost_left.png" id="5_e5l7p"]
+[ext_resource type="Texture2D" uid="uid://crquh48wew7hn" path="res://sprites/fan_boost_right.png" id="6_0a1jn"]
+[ext_resource type="Shader" uid="uid://be42h35uukedg" path="res://shaders/move.gdshader" id="7_ago56"]
+[ext_resource type="Texture2D" uid="uid://bhls2ficuurd1" path="res://sprites/textures/dash_flash_fan.png" id="7_w75gl"]
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="9_e5l7p"]
+[ext_resource type="Texture2D" uid="uid://c334kyx84x0ya" path="res://sprites/textures/dash_flash.png" id="10_0a1jn"]
+[ext_resource type="PackedScene" uid="uid://sgp52s1sda5g" path="res://globals/components/sway.tscn" id="10_e5l7p"]
+[ext_resource type="Texture2D" uid="uid://cjshedwi8yxh7" path="res://sprites/signs/to_dash.png" id="10_w75gl"]
+[ext_resource type="AudioStream" uid="uid://dojc7nt2c2xgf" path="res://sounds/area/magic_woosh.mp3" id="12_0a1jn"]
+[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://managers/sound_inc_manager/sound_inc_component.tscn" id="13_ago56"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mwfud"]
+height = 54.0
+
+[sub_resource type="Gradient" id="Gradient_j84bc"]
+offsets = PackedFloat32Array(0, 0.5014451, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1c73u"]
+gradient = SubResource("Gradient_j84bc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j84bc"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 15, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 0.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+radial_velocity_min = -30.000021
+radial_velocity_max = -20.000021
+gravity = Vector3(98, 0, 0)
+scale_min = 0.25
+scale_max = 0.29999998
+color_ramp = SubResource("GradientTexture1D_1c73u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ehc3o"]
+shader = ExtResource("7_ago56")
+shader_parameter/top_down_move = false
+shader_parameter/uv_speed_x = -4.977999761455
+shader_parameter/uv_speed_y = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ago56"]
+shader = ExtResource("9_e5l7p")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = -1.5109995967724998
+shader_parameter/uv_speed_y = 0.0
+shader_parameter/sway_speed = -1.0
+shader_parameter/sway_strength = 0.01
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[node name="to_dash" type="Node2D" unique_id=1820477666 node_paths=PackedStringArray("sound_inc_component")]
+light_mask = 0
+script = ExtResource("1_e5l7p")
+sound_inc_component = NodePath("SoundIncComponent")
+
+[node name="dash_area" parent="." unique_id=891716452 instance=ExtResource("3_u7y1g")]
+light_mask = 0
+position = Vector2(6, 28)
+time = 0.4
+dir = Vector2(1, 1)
+speed = 450
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dash_area" unique_id=1501599741]
+light_mask = 0
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_mwfud")
+
+[node name="BlowDryer" type="AudioStreamPlayer2D" parent="." unique_id=763400491]
+light_mask = 0
+position = Vector2(5, 28)
+stream = ExtResource("4_w75gl")
+volume_db = -28.0
+pitch_scale = 1.3
+autoplay = true
+max_distance = 228.0
+
+[node name="wind" type="GPUParticles2D" parent="." unique_id=909104748]
+light_mask = 0
+position = Vector2(-22, 20)
+lifetime = 0.5
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_j84bc")
+
+[node name="wind2" type="GPUParticles2D" parent="." unique_id=442432200]
+light_mask = 0
+position = Vector2(-21, 37)
+lifetime = 0.5
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_j84bc")
+
+[node name="FanBoostLeft" type="Sprite2D" parent="." unique_id=1500516437]
+light_mask = 0
+z_index = -1
+position = Vector2(14, 28)
+texture = ExtResource("5_e5l7p")
+
+[node name="FanBoostRight" type="Sprite2D" parent="." unique_id=736680681]
+light_mask = 0
+position = Vector2(14, 28)
+texture = ExtResource("6_0a1jn")
+
+[node name="FanBoostFlashy" type="Sprite2D" parent="." unique_id=947767279]
+light_mask = 0
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ehc3o")
+position = Vector2(1.5753517, 29.287676)
+texture = ExtResource("7_w75gl")
+
+[node name="ToDash" type="Sprite2D" parent="." unique_id=1939247919]
+light_mask = 0
+position = Vector2(7, -1)
+texture = ExtResource("10_w75gl")
+
+[node name="DashFlash" type="Sprite2D" parent="ToDash" unique_id=320344173]
+light_mask = 0
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ago56")
+position = Vector2(-0.8782959, -2.5474882)
+texture = ExtResource("10_0a1jn")
+
+[node name="Sway" parent="." unique_id=1104285113 instance=ExtResource("10_e5l7p")]
+light_mask = 0
+sway = true
+
+[node name="speed" type="AudioStreamPlayer2D" parent="." unique_id=1085323520]
+position = Vector2(-1, 30)
+stream = ExtResource("12_0a1jn")
+volume_db = -15.0
+max_distance = 442.0
+
+[node name="SoundIncComponent" parent="." unique_id=786669208 node_paths=PackedStringArray("sound", "area") instance=ExtResource("13_ago56")]
+sound = NodePath("../speed")
+area = NodePath("../dash_area")
+sound_type = 4
+
+[connection signal="area_entered" from="dash_area" to="." method="_on_dash_area_area_entered"]

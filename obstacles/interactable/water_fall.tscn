@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dtd52l2v1w8jv"]
+
+[ext_resource type="Script" uid="uid://cql1oofl8wqj6" path="res://scripts/water_fall.gd" id="1_06tmy"]
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="2_nvust"]
+[ext_resource type="Texture2D" uid="uid://cbxyve1mu71n3" path="res://sprites/waterfall.png" id="3_8vywk"]
+[ext_resource type="AudioStream" uid="uid://dp1gusbhm77n" path="res://sounds/sound_effects/water_splash_1.mp3" id="4_jahk2"]
+[ext_resource type="AudioStream" uid="uid://qkha8vsawcl5" path="res://sounds/sound_effects/water_fall_small.mp3" id="5_8bqp2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1wmpo"]
+shader = ExtResource("2_nvust")
+shader_parameter/top_down_move = true
+shader_parameter/wave_top_down = true
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = -0.41999954495000047
+shader_parameter/sway_speed = -2.743997755339997
+shader_parameter/sway_strength = 0.042000001995
+shader_parameter/noise_scale = 10.0000004275
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
+size = Vector2(20, 361)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_06tmy"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(8, 8, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 30.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 250, 0)
+
+[node name="water_fall" type="Node2D" unique_id=439761495]
+script = ExtResource("1_06tmy")
+
+[node name="Waterfall" type="Sprite2D" parent="." unique_id=2040964671]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_1wmpo")
+position = Vector2(14, 68)
+texture = ExtResource("3_8vywk")
+
+[node name="WaterSplash1" type="AudioStreamPlayer2D" parent="Waterfall" unique_id=487185509]
+position = Vector2(4, -16)
+stream = ExtResource("4_jahk2")
+volume_db = -11.556
+pitch_scale = 1.07
+
+[node name="waterfall" type="AudioStreamPlayer2D" parent="Waterfall" unique_id=575246722]
+position = Vector2(1, -31)
+stream = ExtResource("5_8bqp2")
+volume_db = -30.0
+pitch_scale = 0.87
+autoplay = true
+max_distance = 500.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=311135741]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=523931246]
+visible = false
+position = Vector2(16, 68.5)
+shape = SubResource("RectangleShape2D_1sg0x")
+
+[node name="particles" type="GPUParticles2D" parent="." unique_id=1520069518]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(18, 39)
+emitting = false
+amount = 80
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_06tmy")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

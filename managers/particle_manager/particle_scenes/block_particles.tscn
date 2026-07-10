@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://do2jvpda8ly46"]
+
+[ext_resource type="Texture2D" uid="uid://0pore0i2dbln" path="res://sprites/gpu_particles/shimmersheet.png" id="1_frmd5"]
+
+[sub_resource type="Gradient" id="Gradient_pb25d"]
+offsets = PackedFloat32Array(0, 0.6476923, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sujut"]
+gradient = SubResource("Gradient_pb25d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aockb"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 30, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 60.0
+initial_velocity_min = 100.0
+initial_velocity_max = 250.0
+angular_velocity_min = -50.000015
+angular_velocity_max = 49.99998
+gravity = Vector3(0, 100, 0)
+scale_min = 0.099999994
+scale_max = 0.19999999
+color_ramp = SubResource("GradientTexture1D_sujut")
+
+[node name="block_particles" type="GPUParticles2D" unique_id=1911826222]
+modulate = Color(7.315874e-06, 0.9854862, 0.5241879, 1)
+emitting = false
+amount = 20
+texture = ExtResource("1_frmd5")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_aockb")

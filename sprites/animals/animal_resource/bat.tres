@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="AnimalResource" format=3 uid="uid://bc18ongnd283q"]
+
+[ext_resource type="SpriteFrames" uid="uid://b5oas7vd18qh3" path="res://sprites/animals/animation_resources/bat_frames.tres" id="1_iijbt"]
+[ext_resource type="Script" uid="uid://co07lgyk00dl6" path="res://sprites/animals/animal_resource/animal_resource.gd" id="1_rih18"]
+[ext_resource type="Texture2D" uid="uid://dyx0wpxxknpjr" path="res://sprites/animals/bat_full.png" id="3_l46di"]
+
+[sub_resource type="Gradient" id="Gradient_524xx"]
+offsets = PackedFloat32Array(0, 0.7149123, 1)
+colors = PackedColorArray(1, 0.4862745, 1, 1, 0.5533877, 0.22869346, 0.8296642, 1, 0.66870093, 0.8660705, 0.9983764, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0huys"]
+gradient = SubResource("Gradient_524xx")
+
+[sub_resource type="Gradient" id="Gradient_a6ky2"]
+offsets = PackedFloat32Array(0.0029702971, 0.16998012, 0.3687873, 0.52584493)
+colors = PackedColorArray(0.92955375, 2.7627051e-05, 0.6543482, 1, 0, 1, 1, 1, 0.57606715, 0.002493173, 0.8309943, 1, 0.26666668, 0, 0.7294118, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_boiwf"]
+gradient = SubResource("Gradient_a6ky2")
+
+[resource]
+script = ExtResource("1_rih18")
+sprites = ExtResource("3_l46di")
+animations = ExtResource("1_iijbt")
+dash_colors = SubResource("GradientTexture1D_0huys")
+float_colors = SubResource("GradientTexture1D_boiwf")
+metadata/_custom_type_script = "uid://co07lgyk00dl6"

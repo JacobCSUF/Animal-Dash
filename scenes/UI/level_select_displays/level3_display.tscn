@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://ib4gqkuisr50"]
+
+[ext_resource type="PackedScene" uid="uid://bap6ofsij3477" path="res://scenes/background.tscn" id="2_f3p5w"]
+[ext_resource type="Resource" uid="uid://ov53kiya5xl4" path="res://scenes/UI/level_bg_resource/level3_bg.tres" id="3_i1gv5"]
+[ext_resource type="PackedScene" uid="uid://bfyiivycn0hip" path="res://managers/particle_manager/particle_scenes/snow_particles.tscn" id="5_8eosy"]
+[ext_resource type="Texture2D" uid="uid://dfesdas45bjh3" path="res://sprites/lvl snow decorations/ice_pillar.png" id="7_lfe5w"]
+[ext_resource type="Texture2D" uid="uid://bas6w5jlusqcs" path="res://sprites/lvl snow decorations/massive_ice_spike.png" id="9_d6o7e"]
+
+[node name="Level2Display" type="Node2D" unique_id=1428031925]
+
+[node name="MassiveIceSpike" type="Sprite2D" parent="." unique_id=1035622956]
+position = Vector2(150, 345)
+rotation = 0.15882497
+texture = ExtResource("9_d6o7e")
+
+[node name="MassiveIceSpike2" type="Sprite2D" parent="." unique_id=694128200]
+position = Vector2(466.99994, 381)
+rotation = -0.24958208
+texture = ExtResource("9_d6o7e")
+
+[node name="MassiveIceSpike3" type="Sprite2D" parent="." unique_id=2135089335]
+position = Vector2(239.00002, 395.00003)
+rotation = -0.06806784
+texture = ExtResource("9_d6o7e")
+
+[node name="MassiveIceSpike4" type="Sprite2D" parent="." unique_id=669837011]
+position = Vector2(540.5146, 416.28268)
+rotation = -0.045378562
+texture = ExtResource("9_d6o7e")
+
+[node name="background" parent="." unique_id=1318822552 instance=ExtResource("2_f3p5w")]
+bg = ExtResource("3_i1gv5")
+particles_packed = ExtResource("5_8eosy")
+
+[node name="-75" type="Parallax2D" parent="background" unique_id=1205848855]
+modulate = Color(0.36767125, 0.36767122, 0.36767116, 1)
+z_index = -70
+scroll_scale = Vector2(0.75, 1)
+repeat_size = Vector2(592, 0)
+
+[node name="ice1" type="Sprite2D" parent="background/-75" unique_id=363424923]
+modulate = Color(0.65543026, 0.53056127, 0.94793385, 0.6509804)
+z_index = -1
+position = Vector2(106.000015, 171)
+rotation = -0.10995574
+texture = ExtResource("7_lfe5w")
+
+[node name="ice2" type="Sprite2D" parent="background/-75" unique_id=1873342642]
+modulate = Color(0.65543026, 0.53056127, 0.94793385, 0.6509804)
+z_index = -1
+position = Vector2(343, 204)
+rotation = 0.13613568
+texture = ExtResource("7_lfe5w")
+
+[node name="-60" type="Parallax2D" parent="background" unique_id=128263535]
+z_index = -60
+scroll_scale = Vector2(0.87, 1)
+repeat_size = Vector2(592, 0)
+
+[node name="ice2" type="Sprite2D" parent="background/-60" unique_id=483066047]
+modulate = Color(0.35993558, 0.48968625, 0.75361705, 0.6156863)
+position = Vector2(147, 150)
+rotation = 0.16406095
+texture = ExtResource("7_lfe5w")
+
+[node name="ice" type="Sprite2D" parent="background/-60" unique_id=1791311351]
+modulate = Color(0.35993558, 0.48968625, 0.75361705, 0.6156863)
+position = Vector2(410.00003, 149.00002)
+rotation = -0.10995574
+texture = ExtResource("7_lfe5w")

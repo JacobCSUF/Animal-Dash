@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dadnyeowthygk"]
+
+[ext_resource type="Texture2D" uid="uid://fudkbgxgn0fc" path="res://sprites/mine_cart/tracks.png" id="1_vjytm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
+size = Vector2(128, 1)
+
+[node name="tracks_base" type="Node2D" unique_id=624871557]
+
+[node name="Tracks" type="Sprite2D" parent="." unique_id=1231641583]
+z_index = -1
+texture = ExtResource("1_vjytm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=547169064]
+position = Vector2(-12, -23)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1308362502]
+position = Vector2(12, 35.5)
+shape = SubResource("RectangleShape2D_1sg0x")

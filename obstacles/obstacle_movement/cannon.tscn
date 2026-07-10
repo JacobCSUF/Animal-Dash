@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://ddhq2isj8wu4x"]
+
+[ext_resource type="Script" uid="uid://73ycuspel86x" path="res://scripts/cannon.gd" id="1_bf682"]
+[ext_resource type="Texture2D" uid="uid://bh5p6ysyqs6wr" path="res://sprites/pipes/pipe_launcher-Sheet.png" id="1_uxaj4"]
+[ext_resource type="AudioStream" uid="uid://bhly1jkae4lsk" path="res://sounds/player_sounds/cannon_shoot.mp3" id="3_bf682"]
+[ext_resource type="Script" uid="uid://d28kjhngbvsef" path="res://1triggers/base_object/object_components/movement_component.gd" id="4_80isy"]
+[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://managers/sound_inc_manager/sound_inc_component.tscn" id="5_gasl0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80isy"]
+atlas = ExtResource("1_uxaj4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cj44m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80isy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_80isy"]
+radius = 25.0
+
+[sub_resource type="Animation" id="Animation_bf682"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_80isy"]
+resource_name = "shoot"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.067, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gasl0"]
+_data = {
+&"RESET": SubResource("Animation_bf682"),
+&"shoot": SubResource("Animation_80isy")
+}
+
+[sub_resource type="Gradient" id="Gradient_gasl0"]
+offsets = PackedFloat32Array(0, 0.5014451, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1c73u"]
+gradient = SubResource("Gradient_gasl0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ekcj7"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 15, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 0.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+radial_velocity_min = -30.000021
+radial_velocity_max = -20.000021
+gravity = Vector3(98, 0, 0)
+scale_min = 0.25
+scale_max = 0.29999998
+color_ramp = SubResource("GradientTexture1D_1c73u")
+
+[node name="cannon" type="Node2D" unique_id=392632572 node_paths=PackedStringArray("movement_component", "sound_inc_component")]
+z_index = 2
+script = ExtResource("1_bf682")
+movement_component = NodePath("MovementComponent")
+sound_inc_component = NodePath("SoundIncComponent2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=632047982]
+sprite_frames = SubResource("SpriteFrames_cj44m")
+offset = Vector2(-2, 2)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=354821959]
+position = Vector2(-2, 3)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=834017233]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_80isy")
+
+[node name="CannonShoot" type="AudioStreamPlayer2D" parent="." unique_id=416431829]
+position = Vector2(2, 45)
+stream = ExtResource("3_bf682")
+volume_db = -20.0
+pitch_scale = 1.7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=229487535]
+libraries/ = SubResource("AnimationLibrary_gasl0")
+
+[node name="MovementComponent" type="Node2D" parent="." unique_id=1905089156 node_paths=PackedStringArray("moveable_object")]
+position = Vector2(0, -1)
+script = ExtResource("4_80isy")
+moveable_object = NodePath("../AnimatedSprite2D")
+metadata/_custom_type_script = "uid://d28kjhngbvsef"
+
+[node name="SoundIncComponent2" parent="." unique_id=786669208 node_paths=PackedStringArray("sound", "signal1") instance=ExtResource("5_gasl0")]
+position = Vector2(0, -1)
+sound = NodePath("../CannonShoot")
+sound_type = 1
+signal1 = NodePath("..")
+
+[node name="wind" type="GPUParticles2D" parent="." unique_id=1609096969]
+modulate = Color(1, 0.92156863, 0.8980392, 0.48235294)
+light_mask = 0
+position = Vector2(-45, -1)
+lifetime = 0.3
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_ekcj7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

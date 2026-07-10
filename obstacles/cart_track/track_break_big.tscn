@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://ctutpeuns3wup"]
+
+[ext_resource type="Script" uid="uid://ltiyfubgys2i" path="res://scripts/track_break.gd" id="1_btcv8"]
+[ext_resource type="Texture2D" uid="uid://fudkbgxgn0fc" path="res://sprites/mine_cart/tracks.png" id="2_726rn"]
+[ext_resource type="Texture2D" uid="uid://dns4rkgbi66kd" path="res://sprites/mine_cart/track_wood.png" id="3_6ynya"]
+[ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="4_tbawy"]
+[ext_resource type="PackedScene" uid="uid://2h1dgwveo75j" path="res://obstacles/cart_track/track_pillar.tscn" id="5_ui0e3"]
+[ext_resource type="AudioStream" uid="uid://b8yg6pk2jcyxj" path="res://sounds/area/pipe_break.mp3" id="6_eogbc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pxqp1"]
+bounce = 0.35
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
+size = Vector2(335, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lcb6"]
+size = Vector2(281, 20)
+
+[node name="track_break" type="Node2D" unique_id=204563763 node_paths=PackedStringArray("left_pillars", "right_pillars")]
+z_index = -1
+script = ExtResource("1_btcv8")
+left_pillars = [NodePath("track_pillar"), NodePath("track_pillar2"), NodePath("track_pillar3"), NodePath("track_pillar4")]
+right_pillars = [NodePath("track_pillar5"), NodePath("track_pillar6"), NodePath("track_pillar7"), NodePath("track_pillar8")]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1448926292]
+z_index = 2
+collision_layer = 4
+collision_mask = 4
+mass = 50.0
+physics_material_override = SubResource("PhysicsMaterial_pxqp1")
+can_sleep = false
+
+[node name="Tracks" type="Sprite2D" parent="RigidBody2D" unique_id=2044672110]
+z_index = 1
+position = Vector2(64, -10)
+texture = ExtResource("2_726rn")
+
+[node name="Tracks2" type="Sprite2D" parent="RigidBody2D" unique_id=214091477]
+z_index = 1
+position = Vector2(192, -10)
+texture = ExtResource("2_726rn")
+
+[node name="Tracks3" type="Sprite2D" parent="RigidBody2D" unique_id=416805461]
+z_index = 1
+position = Vector2(272, -10)
+texture = ExtResource("2_726rn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=2080474138]
+z_index = 1
+position = Vector2(168.5, 6.5)
+shape = SubResource("RectangleShape2D_1sg0x")
+
+[node name="TrackWood" type="Sprite2D" parent="RigidBody2D" unique_id=1691497789]
+position = Vector2(128, 9)
+texture = ExtResource("3_6ynya")
+
+[node name="TrackWood2" type="Sprite2D" parent="RigidBody2D" unique_id=572529846]
+position = Vector2(208, 9)
+texture = ExtResource("3_6ynya")
+
+[node name="direct_area" parent="RigidBody2D" unique_id=1000805726 instance=ExtResource("4_tbawy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/direct_area" unique_id=277318256]
+position = Vector2(175.5, -4)
+shape = SubResource("RectangleShape2D_6lcb6")
+
+[node name="track_pillar" parent="." unique_id=718476815 instance=ExtResource("5_ui0e3")]
+z_index = 2
+position = Vector2(27, 42)
+
+[node name="track_pillar2" parent="." unique_id=79647347 instance=ExtResource("5_ui0e3")]
+z_index = 2
+position = Vector2(27, 111)
+
+[node name="track_pillar3" parent="." unique_id=340930549 instance=ExtResource("5_ui0e3")]
+z_index = 2
+position = Vector2(27, 180)
+
+[node name="track_pillar4" parent="." unique_id=1338287861 instance=ExtResource("5_ui0e3")]
+z_index = 2
+position = Vector2(27, 249)
+
+[node name="track_pillar5" parent="." unique_id=841206736 instance=ExtResource("5_ui0e3")]
+z_index = 2
+position = Vector2(311, 42)
+
+[node name="track_pillar6" parent="." unique_id=193281509 instance=ExtResource("5_ui0e3")]
+z_index = 2
+position = Vector2(311, 111)
+
+[node name="track_pillar7" parent="." unique_id=110432811 instance=ExtResource("5_ui0e3")]
+z_index = 2
+position = Vector2(311, 180)
+
+[node name="track_pillar8" parent="." unique_id=785068136 instance=ExtResource("5_ui0e3")]
+z_index = 2
+position = Vector2(311, 249)
+
+[node name="CrateBreak" type="AudioStreamPlayer2D" parent="." unique_id=518306832]
+position = Vector2(126, 3)
+stream = ExtResource("6_eogbc")
+volume_db = -14.0
+pitch_scale = 0.8
+
+[connection signal="area_entered" from="RigidBody2D/direct_area" to="." method="_on_direct_area_area_entered"]

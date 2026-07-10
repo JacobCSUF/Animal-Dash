@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cwr67a64vb8a5"]
+
+[ext_resource type="Texture2D" uid="uid://l1un2irb4w1" path="res://sprites/lvl snow decorations/frozen_pipe.png" id="1_uc4ny"]
+[ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="2_bpjp8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfvvv"]
+size = Vector2(30, 234)
+
+[node name="frozen_pipe_single" type="Node2D" unique_id=1330777790]
+position = Vector2(-1, 94)
+
+[node name="Pipe" type="Sprite2D" parent="." unique_id=1996585472]
+position = Vector2(33, 138)
+texture = ExtResource("1_uc4ny")
+
+[node name="kill_area" parent="Pipe" unique_id=8564388 instance=ExtResource("2_bpjp8")]
+position = Vector2(-10, -109)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe/kill_area" unique_id=193523243]
+position = Vector2(1, 116)
+shape = SubResource("RectangleShape2D_hfvvv")

@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cgvpqh6is77fc"]
+
+[ext_resource type="Script" uid="uid://dhgvbutep8u1a" path="res://scripts/lantern_chain.gd" id="1_h5ht8"]
+[ext_resource type="Script" uid="uid://b2shq2gjd4fvt" path="res://addons/ropesim/Rope.gd" id="1_n5trc"]
+[ext_resource type="Texture2D" uid="uid://dxid6fl1y4nj5" path="res://sprites/textures/chain_segment.png" id="2_tcf6o"]
+[ext_resource type="Script" uid="uid://dfppmnngy2wx4" path="res://addons/ropesim/RopeRendererLine2D.gd" id="3_537rq"]
+[ext_resource type="Script" uid="uid://brklaoabvl73l" path="res://addons/ropesim/RopeAnchor.gd" id="4_537rq"]
+[ext_resource type="PackedScene" uid="uid://cvhnjxcd6w8ad" path="res://obstacles/interactable/lantern.tscn" id="5_h5ht8"]
+[ext_resource type="AudioStream" uid="uid://bkns7wx8ubhsk" path="res://sounds/area/chains.mp3" id="7_ud0xt"]
+[ext_resource type="Script" uid="uid://p7agqkyx3kru" path="res://addons/ropesim/RopeCollisionShapeGenerator.gd" id="8_cdim7"]
+
+[sub_resource type="Curve" id="Curve_pimiy"]
+_data = [Vector2(0, 0.8510938), 0.0, 0.0, 0, 0, Vector2(1, 0.42634505), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_cdim7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.3886642), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="lantern_chain" type="Node2D" unique_id=945369682 node_paths=PackedStringArray("lantern") groups=["lantern"]]
+script = ExtResource("1_h5ht8")
+lantern = NodePath("RopeAnchor/Lantern")
+
+[node name="RopeRendererLine2D" type="Line2D" parent="." unique_id=251922748]
+position = Vector2(-0.05192566, -77.12572)
+points = PackedVector2Array(2.7947845, -11.320923, 2.7947845, 8.137238, 2.7947845, 27.061852, 2.7947845, 45.180496, 2.7947845, 62.288815, 2.7947845, 78.25056, 2.7947845, 92.99754, 2.7947845, 106.52971, 2.7947845, 118.91506, 2.7947845, 130.2897, 2.7947845, 140.85786, 2.7947845, 150.89182, 2.7947845, 160.73198)
+width = 4.0
+texture = ExtResource("2_tcf6o")
+texture_mode = 1
+script = ExtResource("3_537rq")
+target_rope_path = NodePath("../Rope")
+position_mode = 1
+metadata/_custom_type_script = "uid://dfppmnngy2wx4"
+
+[node name="Rope" type="Node2D" parent="." unique_id=2141906098]
+position = Vector2(2.742859, -88.44664)
+script = ExtResource("1_n5trc")
+num_segments = 12
+rope_length = 172.0
+segment_length_distribution = SubResource("Curve_pimiy")
+gravity = 25.0
+damping = 2.0
+damping_curve = SubResource("Curve_cdim7")
+num_constraint_iterations = 100
+render_line = false
+metadata/_custom_type_script = "uid://b2shq2gjd4fvt"
+
+[node name="RopeAnchor" type="Marker2D" parent="." unique_id=1411787210]
+position = Vector2(2.742859, 78.64682)
+rotation = 1.5707964
+script = ExtResource("4_537rq")
+apply_angle = true
+rope_path = NodePath("../Rope")
+rope_position = 0.958
+precise = true
+metadata/_custom_type_script = "uid://brklaoabvl73l"
+
+[node name="Lantern" parent="RopeAnchor" unique_id=1054843461 instance=ExtResource("5_h5ht8")]
+position = Vector2(7.9554787, -0.4569084)
+rotation = -1.5707964
+
+[node name="Timer" type="Timer" parent="." unique_id=834591415]
+wait_time = 2.0
+autostart = true
+
+[node name="Chains" type="AudioStreamPlayer2D" parent="." unique_id=1963284312]
+position = Vector2(10, 169)
+stream = ExtResource("7_ud0xt")
+volume_db = -33.0
+pitch_scale = 2.14
+autoplay = true
+max_distance = 350.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=256269078]
+collision_layer = 0
+
+[node name="RopeCollisionShapeGenerator" type="Node" parent="Area2D" unique_id=1736830360]
+script = ExtResource("8_cdim7")
+rope_path = NodePath("../../Rope")
+metadata/_custom_type_script = "uid://p7agqkyx3kru"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,47 @@
+shader_type canvas_item;
+uniform float outline_size = 1.0;
+uniform float speed = 1.0;
+uniform vec4 color1 : source_color = vec4(1.0, 0.2, 0.2, 1.0);
+uniform vec4 color2 : source_color = vec4(0.2, 0.2, 1.0, 1.0);
+
+float rand(vec2 co) {
+    return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+float sample_alpha(sampler2D tex, vec2 uv) {
+    if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
+        return 0.0;
+    }
+    return texture(tex, uv).a;
+}
+
+void fragment() {
+    vec4 tex = texture(TEXTURE, UV);
+    if (tex.a == 0.0) {
+        discard;
+    }
+
+    vec2 pixel_size = TEXTURE_PIXEL_SIZE * outline_size;
+
+    float alpha_up    = sample_alpha(TEXTURE, UV + vec2(0.0, -pixel_size.y));
+    float alpha_down  = sample_alpha(TEXTURE, UV + vec2(0.0,  pixel_size.y));
+    float alpha_left  = sample_alpha(TEXTURE, UV + vec2(-pixel_size.x, 0.0));
+    float alpha_right = sample_alpha(TEXTURE, UV + vec2( pixel_size.x, 0.0));
+
+    bool is_edge = (
+        alpha_up    == 0.0 ||
+        alpha_down  == 0.0 ||
+        alpha_left  == 0.0 ||
+        alpha_right == 0.0
+    );
+
+    float random_offset = rand(vec2(floor(TIME * 0.001), 0.0));
+    float t = fract(UV.x + UV.y + TIME * speed + random_offset);
+    vec4 grad_color = mix(color1, color2, t);
+
+    if (is_edge) {
+        COLOR = grad_color;
+    } else {
+        COLOR = tex;
+    }
+}

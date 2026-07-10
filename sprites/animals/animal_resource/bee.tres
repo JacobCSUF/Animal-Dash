@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="AnimalResource" format=3 uid="uid://51vbx1d6od0m"]
+
+[ext_resource type="SpriteFrames" uid="uid://bfjxfebyik1ns" path="res://sprites/animals/animation_resources/bee_frames.tres" id="1_wywk8"]
+[ext_resource type="Texture2D" uid="uid://dedwx1u0yympp" path="res://sprites/animals/bee_full.png" id="2_203bc"]
+[ext_resource type="Script" uid="uid://co07lgyk00dl6" path="res://sprites/animals/animal_resource/animal_resource.gd" id="2_wywk8"]
+
+[sub_resource type="Gradient" id="Gradient_2qd3h"]
+offsets = PackedFloat32Array(0, 0.38046876, 1)
+colors = PackedColorArray(0.74231815, 0.9701968, 0, 1, 1, 1, 0, 1, 1, 0.50980395, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8ymi2"]
+gradient = SubResource("Gradient_2qd3h")
+width = 238
+
+[sub_resource type="Gradient" id="Gradient_egqw7"]
+offsets = PackedFloat32Array(0, 0.13671875, 0.18359375, 0.27890626, 0.39453125, 0.42421874, 0.5289062, 0.6539062, 0.67890626, 0.78515625, 0.89140624, 0.91328126, 1)
+colors = PackedColorArray(1, 0.99607843, 0, 1, 1, 1, 1, 1, 0.2509804, 0.69803923, 0, 1, 0.99607843, 1, 0, 1, 1, 1, 1, 1, 0.6392157, 0.9607843, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0.30980393, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0.2, 1, 0.011764706, 1, 1, 1, 0.06666667, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_phkpo"]
+gradient = SubResource("Gradient_egqw7")
+
+[resource]
+script = ExtResource("2_wywk8")
+sprites = ExtResource("2_203bc")
+animations = ExtResource("1_wywk8")
+dash_colors = SubResource("GradientTexture1D_8ymi2")
+float_colors = SubResource("GradientTexture1D_phkpo")
+metadata/_custom_type_script = "uid://co07lgyk00dl6"

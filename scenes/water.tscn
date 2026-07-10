@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d2e1mst32aoql"]
+
+[ext_resource type="Texture2D" uid="uid://dud76fcknifq" path="res://sprites/water.png" id="1_bdk6y"]
+[ext_resource type="PackedScene" uid="uid://cwce22ml12n0g" path="res://globals/components/AREA_TRIGGER.tscn" id="2_s3811"]
+[ext_resource type="AudioStream" uid="uid://dp1gusbhm77n" path="res://sounds/sound_effects/water_splash_1.mp3" id="4_ewrsg"]
+[ext_resource type="Texture2D" uid="uid://bjp6tnsebikgv" path="res://sprites/gpu_particles/shimmer2.png" id="4_fiwy5"]
+[ext_resource type="Material" uid="uid://cdxuljwfidsyp" path="res://resources/particles/water.tres" id="5_fiwy5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1n2c"]
+size = Vector2(9, 12)
+
+[node name="Water" type="Sprite2D" unique_id=1570609007]
+texture = ExtResource("1_bdk6y")
+
+[node name="AREA_TRIGGER" parent="." unique_id=1200709446 node_paths=PackedStringArray("audio_player", "particles") instance=ExtResource("2_s3811")]
+position = Vector2(2, 0)
+audio_player = NodePath("../WaterSplash1")
+particles = NodePath("../particles")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AREA_TRIGGER" unique_id=895964222]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_p1n2c")
+
+[node name="WaterSplash1" type="AudioStreamPlayer2D" parent="." unique_id=38772667]
+position = Vector2(3, 46)
+stream = ExtResource("4_ewrsg")
+volume_db = -17.729
+pitch_scale = 3.96
+
+[node name="particles" type="GPUParticles2D" parent="." unique_id=704759079]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(1, -1)
+emitting = false
+amount = 20
+texture = ExtResource("4_fiwy5")
+lifetime = 1.5
+explosiveness = 1.0
+fixed_fps = 60
+process_material = ExtResource("5_fiwy5")

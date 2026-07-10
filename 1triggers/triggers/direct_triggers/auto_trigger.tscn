@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dcygygacmet41"]
+
+[ext_resource type="Script" uid="uid://c1t01y3dqtf4a" path="res://1triggers/triggers/direct_triggers/auto_trigger.gd" id="1_iob1x"]
+
+[node name="AutoTrigger" type="Node2D" unique_id=2059882014]
+script = ExtResource("1_iob1x")

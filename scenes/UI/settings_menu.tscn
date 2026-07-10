@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c1or5oxs5dj65"]
+
+[ext_resource type="Script" uid="uid://btfird367j2ve" path="res://scripts/settings_menu.gd" id="1_yk8t3"]
+[ext_resource type="Theme" uid="uid://ve7bfujv5tqo" path="res://scenes/UI/global_theme.tres" id="2_son7u"]
+
+[node name="Settings Menu" type="Control" unique_id=257281012]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yk8t3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=54388526]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 4.0
+offset_right = 214.0
+offset_bottom = 284.0
+
+[node name="Settings Title" type="Label" parent="VBoxContainer" unique_id=185163379]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_son7u")
+theme_override_font_sizes/font_size = 32
+text = "Settings
+"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=364230309]
+layout_mode = 2
+text = "Back"
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=698822521]
+layout_mode = 2
+text = "Music"
+
+[node name="Music volume" type="HSlider" parent="VBoxContainer" unique_id=220141288]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -30.0
+max_value = 15.0
+value = -10.0
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1374153878]
+layout_mode = 2
+text = "Sound Effects"
+
+[node name="Sound effects volume" type="HSlider" parent="VBoxContainer" unique_id=288055206]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -30.0
+max_value = 15.0
+value = -10.0
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Music volume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Sound effects volume" to="." method="_on_sound_effects_volume_value_changed"]

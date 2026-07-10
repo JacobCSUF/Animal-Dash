@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://cm4b0ifiy8nn5"]
+
+[ext_resource type="Texture2D" uid="uid://bt0khj6jlnt3t" path="res://sprites/mine_cart/cart_end.png" id="1_x3iwy"]
+[ext_resource type="Texture2D" uid="uid://dimuqs610dtq1" path="res://sprites/mine_cart/train_end_plasma-Sheet.png" id="1_xwm5m"]
+[ext_resource type="PackedScene" uid="uid://c5gt5brgrdhr6" path="res://areas/dash_area.tscn" id="3_qm536"]
+[ext_resource type="AudioStream" uid="uid://42butiuhchf" path="res://sounds/rr_cross.mp3" id="4_22x5l"]
+[ext_resource type="Texture2D" uid="uid://bupd24tq5pvu0" path="res://sprites/mine_cart/end_warning.png" id="5_qm536"]
+[ext_resource type="AudioStream" uid="uid://cst8omqqdihk4" path="res://sounds/denied.mp3" id="6_xwm5m"]
+[ext_resource type="PackedScene" uid="uid://dsi7byfnrch8g" path="res://globals/components/area_handler.tscn" id="7_31auh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31auh"]
+atlas = ExtResource("1_xwm5m")
+region = Rect2(0, 0, 16, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hnv1"]
+atlas = ExtResource("1_xwm5m")
+region = Rect2(16, 0, 16, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7omaw"]
+atlas = ExtResource("1_xwm5m")
+region = Rect2(32, 0, 16, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1sg0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31auh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hnv1")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_7omaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hnv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31auh")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
+size = Vector2(25, 358)
+
+[sub_resource type="Animation" id="Animation_shj08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndWarning:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xwm5m"]
+resource_name = "flash"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndWarning:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_31auh"]
+_data = {
+&"RESET": SubResource("Animation_shj08"),
+&"flash": SubResource("Animation_xwm5m")
+}
+
+[sub_resource type="Animation" id="Animation_5hnv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndWarning2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.17129534, 0.17129537, 0.17129534, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7omaw"]
+resource_name = "flash"
+length = 0.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndWarning2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4svap"]
+_data = {
+&"RESET": SubResource("Animation_5hnv1"),
+&"flash": SubResource("Animation_7omaw")
+}
+
+[node name="train_end" type="Node2D" unique_id=820800091]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=540783362]
+position = Vector2(109, -37)
+sprite_frames = SubResource("SpriteFrames_1sg0x")
+frame = 4
+frame_progress = 1.0
+
+[node name="CartEnd" type="Sprite2D" parent="." unique_id=1164260010]
+position = Vector2(1, 74)
+texture = ExtResource("1_x3iwy")
+
+[node name="dash_area" parent="." unique_id=891716452 instance=ExtResource("3_qm536")]
+position = Vector2(117, 132)
+state = "train_end"
+auto_dash = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dash_area" unique_id=439268476]
+position = Vector2(-10.5, -170)
+shape = SubResource("RectangleShape2D_1sg0x")
+
+[node name="RrCross" type="AudioStreamPlayer2D" parent="." unique_id=761066017]
+position = Vector2(1, -31)
+stream = ExtResource("4_22x5l")
+volume_db = -20.0
+autoplay = true
+max_distance = 500.0
+
+[node name="EndWarning" type="Sprite2D" parent="." unique_id=596872126]
+position = Vector2(-9, -77)
+texture = ExtResource("5_qm536")
+
+[node name="EndWarning2" type="Sprite2D" parent="." unique_id=831759913]
+modulate = Color(0.17129534, 0.17129537, 0.17129534, 1)
+position = Vector2(10, -77)
+texture = ExtResource("5_qm536")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1927958804]
+libraries/ = SubResource("AnimationLibrary_31auh")
+autoplay = &"flash"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1635095966]
+libraries/ = SubResource("AnimationLibrary_4svap")
+autoplay = &"flash"
+
+[node name="Denied" type="AudioStreamPlayer2D" parent="." unique_id=234904217]
+position = Vector2(117, -50)
+stream = ExtResource("6_xwm5m")
+volume_db = -15.0
+
+[node name="AreaHandler" parent="." unique_id=1169549112 node_paths=PackedStringArray("area", "audio_player", "sprite") instance=ExtResource("7_31auh")]
+area = NodePath("../dash_area")
+audio_player = NodePath("../Denied")
+sprite = NodePath("../AnimatedSprite2D")

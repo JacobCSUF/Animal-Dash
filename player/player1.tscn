@@ -1,0 +1,242 @@
+[gd_scene format=3 uid="uid://blk1wa8unedc4"]
+
+[ext_resource type="Script" uid="uid://c60dbvryxencn" path="res://player/state_machine/player.gd" id="1_uef0s"]
+[ext_resource type="SpriteFrames" uid="uid://cofo1ne87oloo" path="res://sprites/animals/animation_resources/parrot_frames.tres" id="2_ikikr"]
+[ext_resource type="Resource" uid="uid://bc18ongnd283q" path="res://sprites/animals/animal_resource/bat.tres" id="2_qfajp"]
+[ext_resource type="Script" uid="uid://cmiccfy3kd8cd" path="res://player/state_machine/flappy.gd" id="3_qvdwi"]
+[ext_resource type="AudioStream" uid="uid://4rftf3sg1wff" path="res://sounds/player_sounds/jumpp.mp3" id="4_fcbal"]
+[ext_resource type="Script" uid="uid://b5vy1stk8juby" path="res://player/state_machine/dash.gd" id="5_bndlp"]
+[ext_resource type="Script" uid="uid://bccdiduwpvjps" path="res://player/state_machine/dash_recoil.gd" id="6_0wt6p"]
+[ext_resource type="Script" uid="uid://dr0kfndvbbf8o" path="res://player/state_machine/float.gd" id="7_vtxbe"]
+[ext_resource type="Script" uid="uid://dcicvts76sxd" path="res://player/state_machine/stop.gd" id="8_yccbe"]
+[ext_resource type="Script" uid="uid://bqadgr3nrfcvq" path="res://player/state_machine/float_glide.gd" id="9_no58m"]
+[ext_resource type="Script" uid="uid://bwdmavgb2g4j7" path="res://player/state_machine/throw.gd" id="10_k2qjf"]
+[ext_resource type="Script" uid="uid://bjdbn34kw7lqg" path="res://player/state_machine/ball.gd" id="11_5ako0"]
+[ext_resource type="AudioStream" uid="uid://dny5gng20wljr" path="res://sounds/player_sounds/ball_impact.mp3" id="12_vjas8"]
+[ext_resource type="Script" uid="uid://64tht0tflope" path="res://player/state_machine/angled_movement.gd" id="13_ns8b8"]
+[ext_resource type="PackedScene" uid="uid://xuwiexuyjr6s" path="res://player/cart/cart.tscn" id="14_flu0l"]
+[ext_resource type="Script" uid="uid://bim1ugijk4ahb" path="res://player/state_machine/train_end.gd" id="15_0myvv"]
+[ext_resource type="Script" uid="uid://bfs1emvbtks26" path="res://player/animation_sounds.gd" id="16_8u37r"]
+[ext_resource type="AudioStream" uid="uid://cue63oontuwvk" path="res://sounds/sound_effects/float_wind.mp3" id="17_i7u44"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1sg0x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_anojk"]
+radius = 8.000004
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqiix"]
+size = Vector2(7, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7oew"]
+size = Vector2(6, 5.319682)
+
+[sub_resource type="Gradient" id="Gradient_j8ps2"]
+offsets = PackedFloat32Array(0, 0.71525884, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j8ps2"]
+gradient = SubResource("Gradient_j8ps2")
+width = 150
+height = 150
+fill = 1
+fill_from = Vector2(0.50183153, 0.4896215)
+fill_to = Vector2(0.85243905, 0.14756097)
+
+[sub_resource type="Animation" id="Animation_eljev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite/Icon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite/Icon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j8ps2"]
+resource_name = "spin"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite/Icon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite/Icon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dokml"]
+_data = {
+&"RESET": SubResource("Animation_eljev"),
+&"spin": SubResource("Animation_j8ps2")
+}
+
+[node name="player" type="CharacterBody2D" unique_id=1431000598 node_paths=PackedStringArray("icon") groups=["player"]]
+process_mode = 1
+collision_layer = 6
+collision_mask = 6
+floor_snap_length = 5.0
+platform_on_leave = 2
+script = ExtResource("1_uef0s")
+anim_text = ExtResource("2_qfajp")
+is_test = false
+icon = NodePath("sprite/Icon")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=584217918]
+collision_mask = 0
+
+[node name="a_col" type="CollisionShape2D" parent="Area2D" unique_id=1138852992]
+shape = SubResource("CircleShape2D_1sg0x")
+
+[node name="sprite" type="Node2D" parent="." unique_id=746325541]
+
+[node name="Icon" type="AnimatedSprite2D" parent="sprite" unique_id=1461536373]
+physics_interpolation_mode = 2
+light_mask = 0
+sprite_frames = ExtResource("2_ikikr")
+animation = &"flappy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1883544562]
+position = Vector2(-3.8146973e-06, 0)
+shape = SubResource("CircleShape2D_anojk")
+
+[node name="cart_col" type="CollisionShape2D" parent="." unique_id=816901980]
+unique_name_in_owner = true
+position = Vector2(0, 19.5)
+shape = SubResource("RectangleShape2D_tqiix")
+disabled = true
+
+[node name="boat_col" type="CollisionShape2D" parent="." unique_id=1347023097]
+unique_name_in_owner = true
+position = Vector2(0.5, 6)
+shape = SubResource("RectangleShape2D_e7oew")
+disabled = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1378479681]
+unique_name_in_owner = true
+target_position = Vector2(0, 26)
+collision_mask = 6
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2129297825]
+energy = 0.5
+texture = SubResource("GradientTexture2D_j8ps2")
+
+[node name="state_animations" type="AnimationPlayer" parent="." unique_id=456608742]
+libraries/ = SubResource("AnimationLibrary_dokml")
+
+[node name="is_dash_timer" type="Timer" parent="." unique_id=1006797109]
+wait_time = 0.2
+
+[node name="states" type="Node2D" parent="." unique_id=1790844954]
+
+[node name="flappy" type="Node2D" parent="states" unique_id=994941595]
+script = ExtResource("3_qvdwi")
+
+[node name="Jumpp" type="AudioStreamPlayer2D" parent="states/flappy" unique_id=1455359955]
+position = Vector2(1, 48)
+stream = ExtResource("4_fcbal")
+volume_db = -8.0
+pitch_scale = 0.87
+
+[node name="dash_timer" type="Timer" parent="states/flappy" unique_id=463272543]
+wait_time = 0.35
+
+[node name="dash" type="Node2D" parent="states" unique_id=1374513439]
+script = ExtResource("5_bndlp")
+
+[node name="dash_recoil" type="Node2D" parent="states" unique_id=1517724464]
+script = ExtResource("6_0wt6p")
+
+[node name="float" type="Node2D" parent="states" unique_id=2038523230]
+script = ExtResource("7_vtxbe")
+state_type = 1
+
+[node name="stop" type="Node2D" parent="states" unique_id=1708061194]
+script = ExtResource("8_yccbe")
+state_type = 1
+
+[node name="float_glide" type="Node2D" parent="states" unique_id=1671792312]
+script = ExtResource("9_no58m")
+state_type = 1
+
+[node name="throw" type="Node2D" parent="states" unique_id=721096058]
+script = ExtResource("10_k2qjf")
+state_type = 1
+
+[node name="ball" type="Node2D" parent="states" unique_id=356321056]
+script = ExtResource("11_5ako0")
+state_type = 2
+
+[node name="BallImpact" type="AudioStreamPlayer2D" parent="states/ball" unique_id=1182741461]
+position = Vector2(-1, -2)
+stream = ExtResource("12_vjas8")
+volume_db = -25.0
+pitch_scale = 1.2
+
+[node name="Timer" type="Timer" parent="states/ball" unique_id=499571042]
+wait_time = 0.545
+one_shot = true
+
+[node name="cannon_movement" type="Node2D" parent="states" unique_id=2105839787]
+script = ExtResource("13_ns8b8")
+state_type = 2
+
+[node name="cart" parent="states" unique_id=2051295419 node_paths=PackedStringArray("cart_col", "boat_col", "sprite", "ray") instance=ExtResource("14_flu0l")]
+visible = false
+position = Vector2(3, 24)
+cart_col = NodePath("../../cart_col")
+boat_col = NodePath("../../boat_col")
+sprite = NodePath("../../sprite/Icon")
+ray = NodePath("../../RayCast2D")
+state_type = 3
+
+[node name="train_end" type="Node2D" parent="states" unique_id=355541070]
+script = ExtResource("15_0myvv")
+
+[node name="AnimationSounds" type="Node2D" parent="." unique_id=963824632 node_paths=PackedStringArray("player")]
+script = ExtResource("16_8u37r")
+player = NodePath("..")
+metadata/_custom_type_script = "uid://bfs1emvbtks26"
+
+[node name="FloatWind" type="AudioStreamPlayer2D" parent="AnimationSounds" unique_id=2029180770]
+position = Vector2(5, 45)
+stream = ExtResource("17_i7u44")
+volume_db = -20.0
+pitch_scale = 1.53
+
+[connection signal="timeout" from="is_dash_timer" to="." method="_on_is_dash_timer_timeout"]
+[connection signal="timeout" from="states/flappy/dash_timer" to="states/flappy" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="states/ball/Timer" to="states/ball" method="_on_timer_timeout"]

@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://ch8rondokopf3"]
+
+[ext_resource type="Script" uid="uid://b2re7tkqsjq23" path="res://scripts/water_burst.gd" id="1_7kngm"]
+[ext_resource type="Texture2D" uid="uid://og2et56egt1l" path="res://sprites/gpu_particles/water_shimmer.png" id="1_b2f0j"]
+[ext_resource type="Texture2D" uid="uid://b6o5kn6yecrry" path="res://sprites/pipe_crack_burst.png" id="2_s14bl"]
+[ext_resource type="AudioStream" uid="uid://nntcc43jbkdl" path="res://sounds/sound_effects/water_flow.mp3" id="3_xeuq5"]
+[ext_resource type="AudioStream" uid="uid://ctrl511h64mx" path="res://sounds/burst.mp3" id="5_4wsvr"]
+
+[sub_resource type="Gradient" id="Gradient_s14bl"]
+offsets = PackedFloat32Array(0, 0.6396552, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xeuq5"]
+gradient = SubResource("Gradient_s14bl")
+
+[sub_resource type="Curve" id="Curve_7kngm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4wsvr"]
+curve = SubResource("Curve_7kngm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gck28"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 2.5
+initial_velocity_min = 185.0
+initial_velocity_max = 185.0
+gravity = Vector3(0, 800, 0)
+scale_min = 0.29999998
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_4wsvr")
+color_ramp = SubResource("GradientTexture1D_xeuq5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
+size = Vector2(18.18753, 644.9999)
+
+[node name="water_burst" type="Node2D" unique_id=1705795019]
+script = ExtResource("1_7kngm")
+
+[node name="PipeCrackBurst" type="Sprite2D" parent="." unique_id=2035708869]
+z_index = 1
+position = Vector2(0.9994888, -0.031971633)
+texture = ExtResource("2_s14bl")
+
+[node name="water" type="GPUParticles2D" parent="." unique_id=1926162423]
+modulate = Color(0.323, 0.8148666, 0.85, 0.52156866)
+z_index = 1
+scale = Vector2(1.0000001, 1.0000001)
+amount = 50
+texture = ExtResource("1_b2f0j")
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_gck28")
+
+[node name="WaterFlow" type="AudioStreamPlayer2D" parent="." unique_id=1260649321]
+position = Vector2(3.9979515, -0.12788391)
+stream = ExtResource("3_xeuq5")
+volume_db = -25.0
+pitch_scale = 1.2
+autoplay = true
+max_distance = 500.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1774649653]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1005824120]
+position = Vector2(-169.09377, -5.4999847)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_1sg0x")
+
+[node name="Burst" type="AudioStreamPlayer2D" parent="." unique_id=343177141]
+position = Vector2(72.85004, 56.699867)
+stream = ExtResource("5_4wsvr")
+volume_db = -25.0
+pitch_scale = 1.75
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

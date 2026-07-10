@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://55jpe8lb0dfo"]
+
+[ext_resource type="Texture2D" uid="uid://c7kq0hvk85cct" path="res://sprites/lvl snow decorations/ice_break.png" id="2_df78f"]
+[ext_resource type="Script" uid="uid://5w62tf2n352h" path="res://components/animated_sprite_signal.gd" id="2_u3m4h"]
+[ext_resource type="Script" uid="uid://dxwu6r7f865an" path="res://1triggers/base_object/object_components/breakable.gd" id="5_12dop"]
+[ext_resource type="Script" uid="uid://ruit31hratsc" path="res://1triggers/triggers/direct_triggers/func_trigger.gd" id="6_351n4"]
+[ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="6_o7jof"]
+[ext_resource type="Script" uid="uid://ca3kmxodgic3d" path="res://1triggers/response_resource/r_particle_resource.gd" id="7_o7jof"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_351n4"]
+atlas = ExtResource("2_df78f")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7jof"]
+atlas = ExtResource("2_df78f")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u3m4h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_351n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7jof")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df78f"]
+size = Vector2(9, 92)
+
+[sub_resource type="Resource" id="Resource_u3m4h"]
+script = ExtResource("7_o7jof")
+particle_type = 1
+position = NodePath("../pos")
+metadata/_custom_type_script = "uid://ca3kmxodgic3d"
+
+[node name="ice_break" type="Node2D" unique_id=780628656]
+
+[node name="ice1" type="AnimatedSprite2D" parent="." unique_id=1819361721 node_paths=PackedStringArray("signaler")]
+sprite_frames = SubResource("SpriteFrames_u3m4h")
+script = ExtResource("2_u3m4h")
+signaler = NodePath("../breakable")
+metadata/_custom_type_script = "uid://5w62tf2n352h"
+
+[node name="ice2" type="AnimatedSprite2D" parent="." unique_id=1157663334 node_paths=PackedStringArray("signaler")]
+position = Vector2(-1, -40)
+rotation = 3.1415927
+sprite_frames = SubResource("SpriteFrames_u3m4h")
+script = ExtResource("2_u3m4h")
+signaler = NodePath("../breakable")
+metadata/_custom_type_script = "uid://5w62tf2n352h"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1917361006]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=693584407]
+position = Vector2(-1.5, -21)
+shape = SubResource("RectangleShape2D_df78f")
+
+[node name="breakable" type="Node2D" parent="." unique_id=1911970648 node_paths=PackedStringArray("area_detection", "trigger")]
+script = ExtResource("5_12dop")
+area_detection = NodePath("../Area2D")
+trigger = NodePath("../func_trigger")
+audio = 8
+metadata/_custom_type_script = "uid://dxwu6r7f865an"
+
+[node name="func_trigger" type="Node2D" parent="." unique_id=1660646427]
+script = ExtResource("6_351n4")
+responses = Array[ExtResource("6_o7jof")]([SubResource("Resource_u3m4h")])
+metadata/_custom_type_script = "uid://ruit31hratsc"
+
+[node name="pos" type="Node2D" parent="." unique_id=1042721265]
+position = Vector2(-1, -19)

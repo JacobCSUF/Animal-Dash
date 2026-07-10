@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cu3aadyktwbg1"]
+
+[ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="1_r5p1u"]
+[ext_resource type="Texture2D" uid="uid://db1phwb71s76j" path="res://sprites/pipes/thin_long_pipe_decor.png" id="2_n1kah"]
+
+[node name="pipe_thin_long" type="Sprite2D" unique_id=1640087411]
+texture = ExtResource("2_n1kah")
+
+[node name="kill_area" parent="." unique_id=8564388 instance=ExtResource("1_r5p1u")]
+position = Vector2(0, -21)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="kill_area" unique_id=1628666548]
+z_index = 1
+polygon = PackedVector2Array(-5, -37, 5, -37, 5, 84, -5, 84)

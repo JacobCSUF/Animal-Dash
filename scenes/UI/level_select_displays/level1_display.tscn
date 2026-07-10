@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://disgsoafkm0u"]
+
+[ext_resource type="PackedScene" uid="uid://bap6ofsij3477" path="res://scenes/background.tscn" id="1_2a2rk"]
+[ext_resource type="Texture2D" uid="uid://dai53m56ac1i1" path="res://sprites/pipes/thin_pipe.png" id="2_cd2n4"]
+[ext_resource type="Resource" uid="uid://cxl0oq66coi2c" path="res://scenes/UI/level_bg_resource/level1_bg.tres" id="2_v2foe"]
+[ext_resource type="Texture2D" uid="uid://0pore0i2dbln" path="res://sprites/gpu_particles/shimmersheet.png" id="3_v2foe"]
+[ext_resource type="PackedScene" uid="uid://dnncyh7xd3cbn" path="res://obstacles/pipes/pipe.tscn" id="4_x0ci2"]
+[ext_resource type="PackedScene" uid="uid://daduexh2nx1fq" path="res://obstacles/interactable/sign.tscn" id="5_cd2n4"]
+
+[sub_resource type="Gradient" id="Gradient_c2eyl"]
+offsets = PackedFloat32Array(0, 0.25156575, 0.7192067, 0.9976526, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nm6kf"]
+gradient = SubResource("Gradient_c2eyl")
+
+[sub_resource type="Curve" id="Curve_6ic7f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.6728946), -0.92358685, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_oub7f"]
+curve = SubResource("Curve_6ic7f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r0ply"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(300, 200, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 60.00001
+spread = 180.0
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+angular_velocity_min = -10.000016
+angular_velocity_max = 9.999984
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_oub7f")
+color = Color(0.7176471, 0.9254902, 0.9529412, 1)
+color_ramp = SubResource("GradientTexture1D_nm6kf")
+hue_variation_min = 0.029999977
+hue_variation_max = 0.089999974
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 32
+sub_emitter_keep_velocity = true
+
+[node name="Level1Display" type="Node2D" unique_id=1370404187]
+
+[node name="background" parent="." unique_id=1318822552 instance=ExtResource("1_2a2rk")]
+bg = ExtResource("2_v2foe")
+
+[node name="-76" type="Parallax2D" parent="background" unique_id=1425316428]
+modulate = Color(0.36767125, 0.36767122, 0.36767116, 1)
+z_index = -70
+scroll_scale = Vector2(0.75, 1)
+repeat_size = Vector2(592, 0)
+
+[node name="Pipe3" type="Sprite2D" parent="background/-76" unique_id=1934012091]
+modulate = Color(0.65543026, 0.53056127, 0.94793385, 0.6509804)
+z_index = -1
+position = Vector2(149, -32)
+rotation = -3.1415925
+texture = ExtResource("2_cd2n4")
+
+[node name="Pipe4" type="Sprite2D" parent="background/-76" unique_id=74034190]
+modulate = Color(0.65543026, 0.53056127, 0.94793385, 0.6509804)
+z_index = -1
+position = Vector2(353, 353)
+texture = ExtResource("2_cd2n4")
+
+[node name="-61" type="Parallax2D" parent="background" unique_id=1756902186]
+z_index = -60
+scroll_scale = Vector2(0.87, 1)
+repeat_size = Vector2(592, 0)
+
+[node name="Pipe2" type="Sprite2D" parent="background/-61" unique_id=763876120]
+modulate = Color(0.35993558, 0.48968625, 0.75361705, 0.6156863)
+position = Vector2(338, -97)
+rotation = -3.1415925
+texture = ExtResource("2_cd2n4")
+
+[node name="Pipe" type="Sprite2D" parent="background/-61" unique_id=1132483867]
+modulate = Color(0.35993558, 0.48968625, 0.75361705, 0.6156863)
+position = Vector2(55, 371)
+texture = ExtResource("2_cd2n4")
+
+[node name="background_particles" type="GPUParticles2D" parent="background/-61" unique_id=6138688]
+modulate = Color(0.6304396, 0.51252365, 0.8659435, 0.4745098)
+z_index = 1
+position = Vector2(336, 178)
+amount = 17
+texture = ExtResource("3_v2foe")
+lifetime = 4.0
+fixed_fps = 60
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_r0ply")
+
+[node name="pipe" parent="." unique_id=1899843357 instance=ExtResource("4_x0ci2")]
+position = Vector2(160, 264)
+
+[node name="pipe3" parent="." unique_id=2063510499 instance=ExtResource("4_x0ci2")]
+position = Vector2(420, 227)
+
+[node name="sign" parent="." unique_id=2022114262 instance=ExtResource("5_cd2n4")]
+position = Vector2(217, 212)
+rotation = -0.1134464

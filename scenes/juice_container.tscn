@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bggyvl5p6x37a"]
+
+[ext_resource type="Script" uid="uid://h2pwnfcxeg8k" path="res://scripts/juice_container.gd" id="1_jrbur"]
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="2_6no68"]
+[ext_resource type="Texture2D" uid="uid://ngjkp051arux" path="res://sprites/lvl1 decorations/energy_tank.png" id="2_eudb8"]
+[ext_resource type="Texture2D" uid="uid://bxkxsqtasf71l" path="res://sprites/lvl1 decorations/juice.png" id="4_m3e6v"]
+[ext_resource type="AudioStream" uid="uid://cv06y3r8emiyl" path="res://sounds/sound_effects/water_pump.mp3" id="5_eudb8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jrbur"]
+shader = ExtResource("2_6no68")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = true
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 0.0
+shader_parameter/sway_speed = -4.452997836517497
+shader_parameter/sway_strength = 0.030000001425
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3e6v"]
+size = Vector2(20, 254)
+
+[sub_resource type="Curve2D" id="Curve2D_eudb8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 28, 80, 0, 0, 0, 0, 28, 95, 0, 0, 0, 0, 31, 102, 0, 0, 0, 0, 35, 105, 0, 0, 0, 0, 49, 105, 0, 0, 0, 0, 56, 105, 0, 0, 0, 0, 200, 105)
+}
+point_count = 7
+
+[sub_resource type="Gradient" id="Gradient_m3e6v"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w2afb"]
+gradient = SubResource("Gradient_m3e6v")
+fill = 1
+fill_from = Vector2(0.4945055, 0.50427353)
+fill_to = Vector2(0.8705739, 0.103785105)
+
+[node name="juice_container" type="Node2D" unique_id=1258356568]
+script = ExtResource("1_jrbur")
+
+[node name="EnergyTank" type="Sprite2D" parent="." unique_id=1569386918]
+light_mask = 3
+position = Vector2(108, 64)
+texture = ExtResource("2_eudb8")
+
+[node name="Juice" type="Sprite2D" parent="." unique_id=15082375]
+light_mask = 3
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jrbur")
+position = Vector2(27.000002, 58.000004)
+scale = Vector2(0.703125, 0.49894956)
+texture = ExtResource("4_m3e6v")
+
+[node name="Juice2" type="Sprite2D" parent="." unique_id=947066298]
+light_mask = 3
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jrbur")
+position = Vector2(27.000002, 58)
+scale = Vector2(0.703125, 0.45955887)
+texture = ExtResource("4_m3e6v")
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1806231438]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1243140431]
+position = Vector2(-63, 133)
+shape = SubResource("RectangleShape2D_m3e6v")
+
+[node name="WaterPump" type="AudioStreamPlayer2D" parent="Area2D" unique_id=641378192]
+position = Vector2(33, 90)
+stream = ExtResource("5_eudb8")
+volume_db = -15.0
+pitch_scale = 1.36
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1571950107]
+curve = SubResource("Curve2D_eudb8")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=335192033]
+position = Vector2(28, 80)
+rotation = 1.5707964
+rotates = false
+
+[node name="PointLight2D" type="PointLight2D" parent="Path2D/PathFollow2D" unique_id=1528597402]
+visible = false
+light_mask = 2
+position = Vector2(-4.3711385e-08, 1.7881393e-07)
+rotation = -1.5707964
+scale = Vector2(0.21569829, -0.23931892)
+color = Color(0, 0.73333335, 1, 1)
+energy = 5.5
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_w2afb")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

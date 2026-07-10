@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://df2i6ibsjslf7"]
+
+[ext_resource type="Script" uid="uid://daxf6fnwb7v3" path="res://1triggers/base_object/base_object.gd" id="1_1foct"]
+[ext_resource type="Texture2D" uid="uid://vwvyjcmj8jfp" path="res://sprites/pipes/blue_thin_curve.png" id="4_cgh1c"]
+[ext_resource type="Texture2D" uid="uid://3nf1bm0p0wwn" path="res://sprites/pipes/break_pipe_2.png" id="4_l7khr"]
+[ext_resource type="PackedScene" uid="uid://5hcw5h8bcgyk" path="res://obstacles/obstacle piece/break_thin_pipe.tscn" id="5_67tjd"]
+
+[node name="breaking_thin_combined" type="Node2D" unique_id=1409293011]
+z_index = -1
+script = ExtResource("1_1foct")
+metadata/_custom_type_script = "uid://daxf6fnwb7v3"
+
+[node name="BreakPipe3" type="Sprite2D" parent="." unique_id=883878343]
+position = Vector2(155, 82)
+texture = ExtResource("4_l7khr")
+
+[node name="break_thin_pipe" parent="." unique_id=1160704464 instance=ExtResource("5_67tjd")]
+position = Vector2(77, 64)
+
+[node name="BlueThinCurve" type="Sprite2D" parent="." unique_id=1888988566]
+position = Vector2(23, 150)
+texture = ExtResource("4_cgh1c")

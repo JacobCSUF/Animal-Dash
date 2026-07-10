@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundResource" format=3 uid="uid://dycwn72ij7e3"]
+
+[ext_resource type="Script" uid="uid://de16u0mha72wi" path="res://managers/AudioManager/audio_resources/sound_resource.gd" id="1_j235p"]
+[ext_resource type="AudioStream" uid="uid://bhly1jkae4lsk" path="res://sounds/player_sounds/cannon_shoot.mp3" id="2_iyp5c"]
+
+[resource]
+script = ExtResource("1_j235p")
+sound = ExtResource("2_iyp5c")
+volume = -23.0
+pitch = 1.7
+metadata/_custom_type_script = "uid://de16u0mha72wi"

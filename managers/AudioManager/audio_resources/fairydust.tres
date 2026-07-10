@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundResource" format=3 uid="uid://bctppa48lugdt"]
+
+[ext_resource type="Script" uid="uid://de16u0mha72wi" path="res://managers/AudioManager/audio_resources/sound_resource.gd" id="1_wll87"]
+[ext_resource type="AudioStream" uid="uid://co3e7e5ylald7" path="res://sounds/sound_effects/sergequadrado-christals-467298.mp3" id="2_xhamr"]
+
+[resource]
+script = ExtResource("1_wll87")
+sound = ExtResource("2_xhamr")
+volume = -30.0
+pitch = 1.2
+metadata/_custom_type_script = "uid://de16u0mha72wi"

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c5gt5brgrdhr6"]
+
+[ext_resource type="Script" uid="uid://b0cif5sbxmc3y" path="res://scripts/dash_area.gd" id="1_1sbdk"]
+
+[node name="dash_area" type="Area2D" unique_id=891716452]
+collision_layer = 0
+script = ExtResource("1_1sbdk")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

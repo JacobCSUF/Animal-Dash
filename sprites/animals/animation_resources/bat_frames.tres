@@ -1,0 +1,56 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b5oas7vd18qh3"]
+
+[ext_resource type="Texture2D" uid="uid://dyx0wpxxknpjr" path="res://sprites/animals/bat_full.png" id="1_yl6be"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2hx6"]
+atlas = ExtResource("1_yl6be")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxji2"]
+atlas = ExtResource("1_yl6be")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blbfu"]
+atlas = ExtResource("1_yl6be")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3fhk"]
+atlas = ExtResource("1_yl6be")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1yqy"]
+atlas = ExtResource("1_yl6be")
+region = Rect2(64, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2hx6")
+}],
+"loop": 1,
+"name": &"ball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxji2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blbfu")
+}],
+"loop": 1,
+"name": &"flappy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3fhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1yqy")
+}],
+"loop": 1,
+"name": &"float",
+"speed": 7.0
+}]

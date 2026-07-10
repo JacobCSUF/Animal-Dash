@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cd5hiaxg1c0sq"]
+
+[ext_resource type="Script" uid="uid://bs8jexm0ero6v" path="res://scripts/snowball.gd" id="1_xsgkx"]
+[ext_resource type="Texture2D" uid="uid://4ol1quk4n4at" path="res://sprites/lvl snow decorations/snowball.png" id="2_dnn3y"]
+[ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="3_dnn3y"]
+
+[sub_resource type="Animation" id="Animation_svv1h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Snowball:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_i4rw7"]
+resource_name = "spin"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Snowball:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8kbcc"]
+_data = {
+&"RESET": SubResource("Animation_svv1h"),
+&"spin": SubResource("Animation_i4rw7")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_svv1h"]
+radius = 7.0
+
+[node name="snowball" type="CharacterBody2D" unique_id=1031709470]
+script = ExtResource("1_xsgkx")
+
+[node name="Snowball" type="Sprite2D" parent="." unique_id=444790015]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_dnn3y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1386748625]
+libraries/ = SubResource("AnimationLibrary_8kbcc")
+autoplay = &"spin"
+
+[node name="kill_area" parent="." unique_id=8564388 instance=ExtResource("3_dnn3y")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill_area" unique_id=1628071236]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_svv1h")
+
+[connection signal="body_entered" from="kill_area" to="." method="_on_kill_area_body_entered"]
