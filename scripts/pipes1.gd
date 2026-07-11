@@ -1,4 +1,4 @@
-@tool
+
 extends BaseObject
 
 @export var distance:= 0

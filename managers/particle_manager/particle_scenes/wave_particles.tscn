@@ -34,10 +34,12 @@ scale_curve = SubResource("CurveTexture_44uos")
 color_ramp = SubResource("GradientTexture1D_lsvi0")
 
 [node name="wave" type="GPUParticles2D" unique_id=1911826222]
+physics_interpolation_mode = 2
 modulate = Color(0.32156864, 0.8156863, 0.8509804, 1)
 amount = 50
 texture = ExtResource("1_qsig0")
 lifetime = 0.35000000000000003
 randomness = 0.38
 fixed_fps = 60
+trail_lifetime = 0.2
 process_material = SubResource("ParticleProcessMaterial_yjgtf")

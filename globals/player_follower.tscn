@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dsxx8cd6rdx15" path="res://scripts/player_follower.gd" id="1_524xx"]
 [ext_resource type="Texture2D" uid="uid://dyx0wpxxknpjr" path="res://sprites/animals/bat_full.png" id="2_524xx"]
 [ext_resource type="Texture2D" uid="uid://buwypyylesv1m" path="res://sprites/gpu_particles/shimmer4.png" id="3_a6ky2"]
+[ext_resource type="PackedScene" uid="uid://cdsgxus8ex8xi" path="res://managers/particle_manager/particle_scenes/wave_particles.tscn" id="4_boiwf"]
 
 [sub_resource type="Gradient" id="Gradient_a6ky2"]
 offsets = PackedFloat32Array(0.0029702971, 0.16998012, 0.3687873, 0.52584493)
@@ -102,3 +103,7 @@ lifetime = 0.75
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_1sg0x")
+
+[node name="wave" parent="." unique_id=1911826222 instance=ExtResource("4_boiwf")]
+position = Vector2(-6, 10)
+emitting = false

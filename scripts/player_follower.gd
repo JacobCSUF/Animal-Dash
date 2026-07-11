@@ -3,6 +3,8 @@ extends Node2D
 @onready var float_particles: GPUParticles2D = $float_particles
 @onready var dash_particle: GPUParticles2D = $dash_particle
 @onready var ball_hit_particle: GPUParticles2D = $ball_hit_particle
+@onready var wave: GPUParticles2D = $wave
+
 
 
 func reset():
@@ -48,7 +50,13 @@ func play_float_trail():
 func stop_float_trail():
 	float_particles.emitting= false
 	
+	
+func start_cart_particles():
+	wave.emitting = true
 
+	
+func stop_cart_particles():
+	wave.emitting = false
 
 func play_dash(num: int = 5, time: float = 0.2):
 	if num == 0:

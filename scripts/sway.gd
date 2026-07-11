@@ -13,4 +13,8 @@ extends Node2D
 func _ready() -> void:
 	var p = get_parent()
 	if sway:
-		AnimationUtils.start_sway(p,width,duration,speed)
+		var x = SwayParams.new()
+		x.width = width
+		x.duration = duration
+		x.speed = speed
+		AnimationUtils.start_sway(p,x)

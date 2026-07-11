@@ -1,5 +1,5 @@
 extends PlayerState
-var speed = 500
+var speed = 450
 
 const state = Player.player_states.THROW
 
@@ -19,7 +19,8 @@ func enter_state(player_node,data = {}):
 #
 	super(player_node)
 	dash_timer = .45
-	player.velocity = Vector2(450,-450*dir*.8)
+	var s = player.get_partial_mult(speed,0.5)
+	player.velocity = Vector2(s,-speed*dir*.8)
 
 
 func handle_input(delta):
@@ -32,7 +33,6 @@ func handle_input(delta):
 
 func exit_state():
 	
-	speed = 500
 	dir = 1
 	dash_timer = 0.0
 	

@@ -157,8 +157,9 @@ texture = SubResource("GradientTexture2D_j8ps2")
 [node name="state_animations" type="AnimationPlayer" parent="." unique_id=456608742]
 libraries/ = SubResource("AnimationLibrary_dokml")
 
-[node name="is_dash_timer" type="Timer" parent="." unique_id=1006797109]
-wait_time = 0.2
+[node name="dash_cd" type="Timer" parent="." unique_id=1006797109]
+wait_time = 0.36
+one_shot = true
 
 [node name="states" type="Node2D" parent="." unique_id=1790844954]
 
@@ -171,11 +172,12 @@ stream = ExtResource("4_fcbal")
 volume_db = -8.0
 pitch_scale = 0.87
 
-[node name="dash_timer" type="Timer" parent="states/flappy" unique_id=463272543]
-wait_time = 0.35
-
 [node name="dash" type="Node2D" parent="states" unique_id=1374513439]
 script = ExtResource("5_bndlp")
+
+[node name="dash_coyote" type="Timer" parent="states/dash" unique_id=1714409001]
+wait_time = 0.2
+one_shot = true
 
 [node name="dash_recoil" type="Node2D" parent="states" unique_id=1517724464]
 script = ExtResource("6_0wt6p")
@@ -237,6 +239,6 @@ stream = ExtResource("17_i7u44")
 volume_db = -20.0
 pitch_scale = 1.53
 
-[connection signal="timeout" from="is_dash_timer" to="." method="_on_is_dash_timer_timeout"]
-[connection signal="timeout" from="states/flappy/dash_timer" to="states/flappy" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="dash_cd" to="." method="_on_dash_cd_timeout"]
+[connection signal="timeout" from="states/dash/dash_coyote" to="states/dash" method="_on_dash_coyote_timeout"]
 [connection signal="timeout" from="states/ball/Timer" to="states/ball" method="_on_timer_timeout"]

@@ -10,7 +10,7 @@ func enter_state(player_node, data = {}):
 
 	super(player_node)
 	#Vector2( 250.0 ,-220.0)*player.speed_mult
-	player.velocity = player.get_partial_mult_vector(Vector2(250,-220),.5)
+	player.velocity = player.get_partial_mult_vector(Vector2(245,-220),.5)
 	
 func handle_input(delta):
 	player.velocity += player.get_gravity() * delta
@@ -19,4 +19,5 @@ func handle_input(delta):
 		player.velocity.y = flappy.JUMP_VELOCITY
 		player.icon.scale = Vector2(1.20,0.8)
 		GameState.change_state("flappy")
-	
+	elif Input.is_action_just_pressed("e"):
+		player.start_dash()

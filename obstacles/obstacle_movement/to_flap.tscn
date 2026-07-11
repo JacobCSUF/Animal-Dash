@@ -67,7 +67,7 @@ animations = [{
 
 [node name="dash_area" parent="." unique_id=891716452 instance=ExtResource("3_spcx3")]
 position = Vector2(6, 28)
-time = 0.05
+time = 0.1
 state = "train_end"
 dir = Vector2(1, 0)
 speed = 450

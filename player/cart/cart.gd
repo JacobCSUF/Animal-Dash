@@ -32,9 +32,10 @@ var curr_state: states
 var m_state = move_states.MOVE
 var cart_data: CartResource
 var sprite1: AnimatedSprite2D
-var move_particle: GPUParticles2D
+
 var can_change:= true
 var in_state := false
+
 func enter_state(player_node, data = {}):
 	ray.target_position = Vector2(0,28)
 	in_state = true
@@ -120,7 +121,7 @@ func handle_input(delta):
 				boat_col.call_deferred("set_disabled",true)
 				m_state = move_states.PAUSE
 				cart_anis.play("water_down")
-				move_particle.emitting = false
+				PlayerFollower.stop_cart_particles()
 			
 			elif Input.is_action_just_pressed("jump"):
 				can_change = true
@@ -148,18 +149,13 @@ func handle_input(delta):
 				AudioManager.play_cart_sound(cart_data.land_sound)
 				move_sound.play() 
 				
-				if move_particle:
-					move_particle.queue_free()
-				move_particle = ParticleManager.return_particle(cart_data.move_particle)
-				if move_particle:
-					add_child(move_particle)
-					move_particle.global_position += Vector2(-20,-10)
-					move_particle.emitting= true
+				
+				if curr_state == states.BOAT:
+					PlayerFollower.start_cart_particles()
 				m_state = move_states.MOVE
 
 		move_states.JUMP:
-			if move_particle:
-				move_particle.emitting = false
+			PlayerFollower.stop_cart_particles()
 			#AudioManager.play_cart_sound(cart_data.land_sound)
 			player.velocity.y = JUMP_VELOCITY
 			m_state = move_states.FALL
@@ -206,7 +202,7 @@ func _on_cart_anis_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "plunge":
 		cart_anis.play("bob")
 	elif anim_name == "water_down":
-		move_particle.emitting = true
+		PlayerFollower.start_cart_particles()
 		m_state= move_states.MOVE
 		boat_col.call_deferred("set_disabled",false)
 		cart_anis.play("bob")

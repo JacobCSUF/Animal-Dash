@@ -16,6 +16,7 @@ var can_spin = false
 var is_spin = false
 var player: CharacterBody2D
 
+var mult := 1.0
 
 func _ready() -> void:
 	super()
@@ -34,11 +35,8 @@ func _process(delta: float) -> void:
 		spin_setup()
 	
 		
-	
 	if is_spin:
 		circle()
-
-
 
 
 var angle = 0.0
@@ -57,13 +55,15 @@ func spin_setup():
 	
 	angle += start_angle
 	is_spin = true
+	
+	mult = GameState.player.get_partial_mult(16.5,.4)
 
 func circle():
 	
 	if up:
-		angle  -= 16.5 * get_process_delta_time()
+		angle  -= mult * get_process_delta_time()
 	else:
-		angle += 16.5 * get_process_delta_time()
+		angle += mult * get_process_delta_time()
 	
 	if !up:
 		if rad_to_deg(angle) >= 640:

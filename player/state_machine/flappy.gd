@@ -1,9 +1,9 @@
 extends PlayerState
 @onready var jumpp: AudioStreamPlayer2D = $Jumpp
-@onready var dash_timer: Timer = $dash_timer
+
 
 const state = Player.player_states.FLAPPY
-const SPEED = 150.0    
+const SPEED = 160.0    
 const JUMP_VELOCITY = -270.0
 
 func enter_state(player_node, data = {}):
@@ -23,7 +23,7 @@ func handle_input(delta):
 	
 	if not player.is_on_floor():
 		
-		player.velocity += player.get_gravity() * delta
+		player.velocity += player.get_gravity() * delta * .95
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
@@ -42,21 +42,13 @@ func handle_input(delta):
 			player.velocity.x = move_toward(player.velocity.x, 0, SPEED * delta * 60)
 			
 	else:
+		print(player.speed_mult)
 		player.velocity.x = move_toward(player.velocity.x,SPEED * player.speed_mult,75* delta * 60)
 	
 		
 		
 	if Input.is_action_just_pressed("e"):
-		
-		if can_dash:
-			can_dash = false
-			dash_timer.start()
-			player.change_state("dash")
+		player.start_dash()
 
 func exit_state():
 	player.icon.scale = Vector2(1,1)
-
-
-func _on_dash_timer_timeout() -> void:
-	
-	can_dash = true

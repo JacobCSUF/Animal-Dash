@@ -22,21 +22,22 @@ static func start_bob(node: Node2D, data: BobParams) -> Tween:
 	return tween
 
 
-static func start_sway(node: Node2D, width := 5.0, duration := 0.75, speed := 1.0) -> Tween:
+static func start_sway(node: Node2D, data:SwayParams) -> Tween:
 	var center_x = node.position.x
 	var tween = node.create_tween()
 	tween.set_loops()
 
-	tween.tween_property(node, "position:x", center_x - width, duration / speed)\
+	tween.tween_property(node, "position:x", center_x - data.width,data.duration / data.speed)\
 		.set_trans(Tween.TRANS_SINE)\
 		.set_ease(Tween.EASE_IN_OUT)
 
-	tween.tween_property(node, "position:x", center_x + width, duration / speed)\
+	tween.tween_property(node, "position:x", center_x + data.width, data.duration / data.speed)\
 		.set_trans(Tween.TRANS_SINE)\
 		.set_ease(Tween.EASE_IN_OUT)
 
-	var total_time = (duration / speed) * 2.0
-	tween.custom_step(randf() * total_time)
+	var total_time = (data.duration / data.speed) * 2.0
+	if data.random:
+		tween.custom_step(randf() * total_time)
 
 	return tween
 

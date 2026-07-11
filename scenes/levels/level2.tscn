@@ -1563,7 +1563,8 @@ texture = ExtResource("5_yhrca")
 11:3/0/terrains_peering_bit/top_side = 2
 
 [sub_resource type="TileSet" id="TileSet_tbgi4"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Base"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -1651,13 +1652,11 @@ script = ExtResource("1_b4tpv")
 lr = SubResource("Resource_6d4iq")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("1_hgky1")]
-position = Vector2(66, 112)
-speed_mult_start = null
-selection = null
-is_test = null
+position = Vector2(17212, 119)
+speed_mult_start = 2.0
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("2_b4tpv")]
-position = Vector2(66, 112)
+position = Vector2(17212, 119)
 limit_left = -9999993
 limit_top = 1
 limit_right = 10000007

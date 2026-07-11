@@ -8,6 +8,7 @@ class_name BaseObject
 @export var bob: BobParams
 @export var shrink: ShrinkParams
 @export var spin: SpinParams
+@export var sway: SwayParams
 
 @export_group("components")
 @export var shader_component: ShaderComponent
@@ -26,6 +27,9 @@ func _ready() -> void:
 	
 	if spin:
 		alter_movement(MovementComponent.MovementType.SPIN,spin)
+	
+	if sway:
+		alter_movement(MovementComponent.MovementType.SWAY,sway)
 	
 	if sound_inc_component and (sound_group_number != 0):
 		sound_inc_component.set_number(sound_group_number)

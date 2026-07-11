@@ -115,6 +115,7 @@ volume_db = -2.5
 pitch_scale = 2.08
 
 [node name="particles" type="GPUParticles2D" parent="." unique_id=442104425]
+physics_interpolation_mode = 2
 modulate = Color(0, 1, 1, 1)
 light_mask = 0
 position = Vector2(17, 192)

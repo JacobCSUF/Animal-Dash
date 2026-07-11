@@ -34,6 +34,10 @@ func spin(data: SpinParams):
 	stop_ani()
 	current_animation = AnimationUtils.spin(moveable_object,data)
 	
+func sway(data: SwayParams):
+	stop_ani()
+	current_animation = AnimationUtils.start_sway(moveable_object,data)
+	
 func stop_ani():
 	if current_animation:
 		current_animation.kill()

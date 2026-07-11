@@ -42,6 +42,8 @@ func play_particle(particle: particles, pos: Vector2, tex_overide: Texture2D = n
 	ptcl.emitting = true
 	ptcl.finished.connect(ptcl.queue_free)
 	
+func get_particle_packed(particle: particles):
+	return particle_dict[particle]
 	
 func return_particle(particle: particles):
 	if particle == particles.BLANK:

@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="4_5e1ep"]
 [ext_resource type="Texture2D" uid="uid://cmpf1bt2bxox7" path="res://sprites/tiles/ball_thing.png" id="5_23uvl"]
 [ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="6_4rlpu"]
+[ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="7_y45xs"]
 
 [sub_resource type="Resource" id="Resource_u0151"]
 script = ExtResource("2_pyxcd")
@@ -108,6 +109,9 @@ size = Vector2(112, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lcb6"]
 size = Vector2(110, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0151"]
+size = Vector2(11, 23)
+
 [node name="ball_platform_high" type="Node2D" unique_id=2100361934]
 script = ExtResource("1_yg632")
 bob = SubResource("Resource_u0151")
@@ -144,3 +148,13 @@ rotation = 3.1415927
 position = Vector2(56, 2)
 rotation = 3.1415927
 shape = SubResource("RectangleShape2D_6lcb6")
+
+[node name="kill_area" parent="." unique_id=8564388 instance=ExtResource("7_y45xs")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill_area" unique_id=1561365952]
+position = Vector2(1, 12)
+shape = SubResource("RectangleShape2D_u0151")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="kill_area" unique_id=64301532]
+position = Vector2(108, 12)
+shape = SubResource("RectangleShape2D_u0151")

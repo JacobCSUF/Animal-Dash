@@ -1,5 +1,5 @@
 extends PlayerState
-const SPEED = 180.0     
+const SPEED = 190.0     
 const FLOAT_VELOCITY = -20.0
 
 
@@ -16,14 +16,14 @@ func enter_state(player_node, data = {}):
 	
 func handle_input(delta):
 	
-	if not player.is_on_floor() and not Input.is_action_pressed("jump"):
+	if not Input.is_action_pressed("jump"):
 		
 		player.icon.rotation_degrees = lerp(player.icon.rotation_degrees,15.0, .05 * delta * 60)
 		
 		player.velocity.y += -FLOAT_VELOCITY * delta * 60
 		player.velocity.y = min(player.velocity.y,300)
 	
-	if Input.is_action_pressed("jump"):
+	elif Input.is_action_pressed("jump"):
 		player.icon.rotation_degrees = lerp(player.icon.rotation_degrees,-15.0, .05 * delta * 60)
 		player.velocity.y += FLOAT_VELOCITY * delta * 60
 		player.velocity.y = max(player.velocity.y,-300)

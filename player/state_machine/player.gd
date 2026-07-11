@@ -30,13 +30,10 @@ var current_state1= player_states.FLAPPY
 
 
 var waiting_for_jump := true
-var is_dash = false
+
 
 var speed_mult = 1.0
 
-
-
-@onready var is_dash_timer: Timer = $is_dash_timer
 
 func _ready():
 	speed_mult = speed_mult_start
@@ -48,8 +45,6 @@ func _ready():
 
 func change_state(new_state_name: String, data: Dictionary = {}):
 	if current_state:
-		if current_state_name == "dash":
-			is_dash_timer.start()
 		current_state.exit_state()
 	#print('new_state: ',new_state_name)
 	
@@ -87,8 +82,6 @@ func _on_changed_state(state, dict):
 	change_state(state, dict)
 
 
-func _on_is_dash_timer_timeout() -> void:
-	is_dash = false
 	
 	
 func modify_speed(added_speed: float):
@@ -117,18 +110,17 @@ func get_partial_mult_vector(speed_v,weight):
 	return Vector2(x,y)
 	
 	
+var can_dash = true
+var is_dash = false
+@onready var dash_cd: Timer = $dash_cd
+func start_dash():
+	if !can_dash:
+		return
+	can_dash = false
+	
+	dash_cd.start()
+	change_state("dash")
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+func _on_dash_cd_timeout() -> void:
+	can_dash = true

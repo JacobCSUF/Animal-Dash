@@ -6,13 +6,12 @@ var dash_timer = 0.0
 
 const state = Player.player_states.DASH
 
-@onready var is_dash_timer: Timer = $"../../is_dash_timer"
-
+@onready var dash_coyote: Timer = $dash_coyote
 
 
 var end_state: = "flappy"
 func enter_state(player_node,data: Dictionary = {}):
-	
+	dash_coyote.stop()
 	var amount = 5
 	var time = 0.2
 	end_state = "flappy"
@@ -20,13 +19,11 @@ func enter_state(player_node,data: Dictionary = {}):
 	
 #	dict: {"time":0, "end_state", "dir":Vector2(0,0)
 	super(player_node)
-	
-	
-	AudioManager.play_sound(AudioManager.Sound.DASH)
-	is_dash_timer.stop()
-	
 	player.is_dash = true
 	
+	AudioManager.play_sound(AudioManager.Sound.DASH)
+
+
 	if data.has("time"):
 		duration  = data["time"]
 		
@@ -46,7 +43,7 @@ func enter_state(player_node,data: Dictionary = {}):
 		end_state = data["end_state"]
 	
 	else:
-		player.velocity = Vector2(speed + (player.speed_mult-1)*100,0)
+		player.velocity = Vector2(player.get_partial_mult(speed,0.2),0)
 		
 	dash_timer = duration
 	
@@ -65,8 +62,12 @@ func handle_input(delta):
 		player.change_state(end_state)
 
 func exit_state():
-	
+	dash_coyote.start()
 	speed = 500
 	duration = 0.165
 	dash_timer = 0.0
 	
+
+
+func _on_dash_coyote_timeout() -> void:
+	player.is_dash = false

@@ -21,7 +21,7 @@ func enter_state(player_node, data = {}):
 	match_state(states.LANDED,0)
 	
 	
-var ray_len = 15.0
+var ray_len = 22.0
 var n = Vector2(0,-1)
 var flip =0
 var a = 0.0
