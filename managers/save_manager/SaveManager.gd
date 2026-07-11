@@ -44,6 +44,14 @@ func get_level_coins(name: String):
 	else:
 		return 0
 	
+func is_level_complete(name: String):
+	if saved_data.has(name):
+		if saved_data[name].has("complete"):
+			return saved_data[name]["complete"]
+	else:
+		return false
+		
+
 	
 func load_level_data(name: String):
 	if saved_data.has(name):

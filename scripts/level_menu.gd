@@ -16,11 +16,17 @@ extends Control
 const PAGE_DOT = preload("uid://cihhs64uxc1ot")
 @onready var pagnation: HBoxContainer = $pagnation
 
+@onready var cleared_panel: Panel = $cleared_panel
+@onready var clear_no: Label = $cleared_panel/clear_no
+@onready var clear_yes: Label = $cleared_panel/clear_yes
+
+
 signal level_select(level: PackedScene)
 signal button_pressed(menu: MenuHandler.Menus)
 
 var level_index = 0
 var dis
+var page_dots = []
 
 var level_dict = {
 	0:{
@@ -41,6 +47,12 @@ var level_dict = {
 		"display": preload("uid://dk5uyd3ncdtqd")
 		}
 		
+	,
+	4:{
+		"level":preload("uid://56iwvm0o1mvm") ,
+		"display": preload("uid://dk5uyd3ncdtqd")
+		}
+		
 	}
 	
 
@@ -51,6 +63,7 @@ func _ready():
 		var d = PAGE_DOT.instantiate()
 		print(i)
 		pagnation.add_child(d)
+		page_dots.append(d)
 		if i == 0:
 			d.toggle_on()
 	set_level()
@@ -72,7 +85,11 @@ func set_level():
 	var c = lr.ui_color
 	var l = lr.lantern_color
 	
-
+	for i in range(page_dots.size()):
+		if i == level_index:
+			page_dots[i].toggle_on()
+		else:
+			page_dots[i].toggle_off()
 	
 	lantern_chain.set_lantern_color(l)
 
@@ -80,6 +97,15 @@ func set_level():
 	level_title.text = lr.level_name
 
 	var num_coins = SaveManager.get_level_coins(lr.level_name)
+	var lev_data = SaveManager.load_level_data(lr.level_name)
+	var complete = SaveManager.is_level_complete(lr.level_name)
+	
+	if complete:
+		clear_no.visible = false
+		clear_yes.visible = true
+	else:
+		clear_no.visible = true
+		clear_yes.visible = false
 	
 	set_coins(lr,num_coins)
 
@@ -88,7 +114,12 @@ func set_level():
 	var stylebox1 := panel.get_theme_stylebox("panel").duplicate() as StyleBoxFlat
 	stylebox1.border_color = c
 	panel.add_theme_stylebox_override("panel", stylebox1)
-
+	
+	var stylebox2 := cleared_panel.get_theme_stylebox("panel").duplicate() as StyleBoxFlat
+	stylebox2.border_color = c
+	cleared_panel.add_theme_stylebox_override("panel", stylebox2)
+	
+	
 	# Button border
 	for state in ["normal", "hover", "pressed", "focus", "disabled"]:
 		var stylebox := play.get_theme_stylebox(state).duplicate() as StyleBoxFlat
@@ -100,6 +131,7 @@ func set_level():
 
 	dis = leve["display"].instantiate()
 	add_child(dis)
+	lev.queue_free()
 
 
 func set_coins(lr: LevelResource,num: int):

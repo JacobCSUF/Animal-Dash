@@ -110,7 +110,7 @@ corner_radius_bottom_left = 3
 corner_detail = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_od4ud"]
-bg_color = Color(0, 0, 0, 0.8627451)
+bg_color = Color(0, 0, 0, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -154,12 +154,12 @@ is_on = true
 [node name="up" type="Button" parent="." unique_id=442521195]
 z_index = 4
 layout_mode = 0
-offset_left = 248.0
-offset_top = 139.0
-offset_right = 274.0
-offset_bottom = 192.0
+offset_left = 249.0
+offset_top = 150.0
+offset_right = 271.0
+offset_bottom = 183.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_60uxb")
 text = "<
 "
@@ -167,14 +167,31 @@ text = "<
 [node name="down" type="Button" parent="." unique_id=1458613079]
 z_index = 4
 layout_mode = 0
-offset_left = 376.0
-offset_top = 139.0
-offset_right = 402.0
-offset_bottom = 192.0
+offset_left = 375.0
+offset_top = 150.0
+offset_right = 397.0
+offset_bottom = 183.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_60uxb")
 text = ">"
+
+[node name="play" parent="." unique_id=1570557467 instance=ExtResource("4_od4ud")]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 152.0
+offset_right = 368.0
+offset_bottom = 178.0
+text = "Play"
+
+[node name="back" parent="." unique_id=1843884100 instance=ExtResource("4_od4ud")]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 2.0
+offset_right = 78.0
+offset_bottom = 34.0
+text = "Back"
+to_menu = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1862169873]
 layout_mode = 0
@@ -194,23 +211,6 @@ theme_override_constants/shadow_outline_size = 4
 theme_override_font_sizes/font_size = 22
 text = "Place Holder"
 
-[node name="play" parent="." unique_id=1570557467 instance=ExtResource("4_od4ud")]
-layout_mode = 0
-offset_left = 280.0
-offset_top = 152.0
-offset_right = 368.0
-offset_bottom = 178.0
-text = "Play"
-
-[node name="back" parent="." unique_id=1843884100 instance=ExtResource("4_od4ud")]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 2.0
-offset_right = 78.0
-offset_bottom = 34.0
-text = "Back"
-to_menu = 4
-
 [node name="Panel" type="Panel" parent="." unique_id=460227857]
 z_index = -1
 layout_mode = 0
@@ -222,7 +222,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4qxtg")
 
 [node name="Coin2" parent="." unique_id=1270067473 instance=ExtResource("8_4qxtg")]
-position = Vector2(228, 127)
+position = Vector2(231, 128)
 
 [node name="coin_label" type="Label" parent="Coin2" unique_id=213829073]
 offset_left = 10.0
@@ -264,31 +264,21 @@ scale = Vector2(1.4, 1.4)
 
 [node name="pagnation" type="HBoxContainer" parent="." unique_id=2033358976]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 192.0
-offset_right = 416.0
-offset_bottom = 224.0
+offset_left = 246.0
+offset_top = 187.0
+offset_right = 414.0
+offset_bottom = 219.0
 alignment = 1
 
-[node name="Panel2" type="Panel" parent="." unique_id=1597081017]
+[node name="cleared_panel" type="Panel" parent="." unique_id=1597081017]
 layout_mode = 0
-offset_left = 368.0
-offset_top = 63.0
-offset_right = 434.0
-offset_bottom = 78.0
+offset_left = 372.0
+offset_top = 61.0
+offset_right = 438.0
+offset_bottom = 76.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_od4ud")
 
-[node name="Label" type="Label" parent="Panel2" unique_id=1656370607]
-visible = false
-layout_mode = 0
-offset_left = 4.0
-offset_top = 5.0
-offset_right = 89.0
-offset_bottom = 28.0
-theme_override_font_sizes/font_size = 8
-text = "Completed"
-
-[node name="Label2" type="Label" parent="Panel2" unique_id=560409594]
+[node name="clear_no" type="Label" parent="cleared_panel" unique_id=560409594]
 z_index = 1
 layout_mode = 0
 offset_left = 4.0
@@ -305,11 +295,27 @@ theme_override_constants/shadow_outline_size = 2
 theme_override_font_sizes/font_size = 10
 text = "Cleared x"
 
-[node name="ImgbinB6a6e1Dcc386Cd2c37Cef87794Eaaf7d" type="Sprite2D" parent="." unique_id=232763736]
-visible = false
+[node name="clear_yes" type="Label" parent="cleared_panel" unique_id=228036182]
+z_index = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 58.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0.11870638, 0.24683493, 0.003262904, 1)
+theme_override_colors/font_shadow_color = Color(0.06553377, 0.18359771, 1.2032688e-08, 0.5176471)
+theme_override_colors/font_outline_color = Color(0, 1, 0.3882353, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "Cleared "
+
+[node name="check" type="Sprite2D" parent="cleared_panel/clear_yes" unique_id=232763736]
 modulate = Color(0.8899135, 1.8984075, 0, 1)
-position = Vector2(422, 74)
-scale = Vector2(0.015, 0.015)
+position = Vector2(50.99999, 4.999997)
+scale = Vector2(0.006835938, 0.006679689)
 texture = ExtResource("7_60uxb")
 
 [connection signal="pressed" from="up" to="." method="_on_up_pressed"]

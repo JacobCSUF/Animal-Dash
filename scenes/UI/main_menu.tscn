@@ -130,6 +130,7 @@ offset_left = 3.0
 offset_top = 112.0
 offset_right = 642.0
 offset_bottom = 432.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Levels_Menu" type="Button" parent="main_block/main_menu/VBoxContainer" unique_id=1314491866]
 custom_minimum_size = Vector2(100, 40)
@@ -170,6 +171,7 @@ theme_override_font_sizes/font_size = 36
 text = "Animal Dash"
 horizontal_alignment = 1
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="pipes" parent="main_block/main_menu" unique_id=2101710733 instance=ExtResource("11_d6l81")]
 z_index = -1
@@ -237,6 +239,7 @@ offset_bottom = 329.0
 [node name="shop_menu" parent="main_block" unique_id=1831306848 instance=ExtResource("21_dqbul")]
 offset_left = -618.0
 offset_right = -618.0
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1860112981]
 libraries/ = SubResource("AnimationLibrary_d0t0a")

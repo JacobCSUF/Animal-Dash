@@ -37,6 +37,7 @@ func _ready() -> void:
 	win_card.button_pressed.connect(change_menu)
 	
 func change_menu(type1):
+	print_orphan_nodes()
 	if type1 == Menus.PAUSE or type1 == Menus.RESUME:
 		pass
 	else:

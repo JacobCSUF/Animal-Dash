@@ -107,6 +107,8 @@ func get_partial_mult(speed,weight):
 	print(s)
 	return s
 	
+func end_level():
+	process_mode = Node.PROCESS_MODE_DISABLED
 	
 func get_partial_mult_vector(speed_v,weight):
 	var x = speed_v.x +((speed_v.x*speed_mult)-speed_v.x)*weight
