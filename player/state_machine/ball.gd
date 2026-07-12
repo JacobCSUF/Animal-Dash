@@ -25,7 +25,7 @@ var ray_len = 22.0
 var n = Vector2(0,-1)
 var flip =0
 var a = 0.0
-var vel = Vector2(0,0)
+var vel = Vector2(1,0)
 
 var old_ray_angle = 0
 
@@ -62,43 +62,76 @@ func match_state(state: states,delta):
 				#print('WEEEEEEEEE',player.velocity)
 				curr_state = states.LANDED
 				print('NOOOOOHA')
+			
 			if Input.is_action_just_pressed("jump"):
 				curr_state = states.JUMP
 		
 	
 		states.JUMP:
-			
+			ray_cast_2d.target_position *= -1
 			player.velocity += n* gravity
 			vel = player.velocity
 			curr_state = states.LANDED
 			
 			
 		states.LANDED:
-			if player.is_on_floor() or player.is_on_ceiling() or player.is_on_wall():
-				var v = player.velocity.normalized()
-				if player.is_on_floor():
-					print('YEEEHAAA')
-					if v <= -1:
-						get_flip()
-					ray_cast_2d.target_position = Vector2(0,1) *ray_len
+			
+			if (player.is_on_floor() or player.is_on_ceiling() or player.is_on_wall()):
+				var v = vel.normalized()
+			
 				
-				elif player.is_on_ceiling():
-					print('YEEE222222')
-					if -1*n.y == 1:
-						get_flip()
-					ray_cast_2d.target_position = Vector2(0,-1) *ray_len
+				if player.is_on_floor():
 					
-					
-				elif player.is_on_wall():
-					print('YEEE222222')
-					if vel.x >= 0:
-						if -1*n.x == -1:
-							get_flip()
-						ray_cast_2d.target_position = Vector2(1,0) *ray_len
+					ray_cast_2d.target_position = Vector2(0,1)*ray_len
+					#right
+					if v.x > 0:
+						player.velocity = Vector2.RIGHT *SPEED
+						flip = 0
 					else:
-						if -1*n.x == 1:
-							get_flip()
-						ray_cast_2d.target_position = Vector2(-1,0) *ray_len
+						player.velocity = Vector2.LEFT *SPEED
+						flip = 1
+						
+						
+				elif player.is_on_ceiling():
+					
+					ray_cast_2d.target_position = Vector2(0,-1)*ray_len
+					if v.x > 0:
+						player.velocity = Vector2.RIGHT *SPEED
+						flip = 1
+				
+					else:
+						player.velocity = Vector2.LEFT *SPEED
+						flip = 0
+				
+				elif player.is_on_wall():
+					
+					
+					####right wall
+					if v.x >= 0:
+						ray_cast_2d.target_position = Vector2(1,0)*ray_len
+						### going up
+						if v.y <= 0:
+							
+							player.velocity = Vector2.UP *SPEED
+							flip = 0
+						else:
+						
+							player.velocity = Vector2.DOWN *SPEED
+							flip = 1
+					
+					###left wall
+					else:
+						ray_cast_2d.target_position = Vector2(-1,0)*ray_len
+						if v.y <= 0:
+							player.velocity = Vector2.UP *SPEED
+							flip = 1
+						else:
+							player.velocity = Vector2.DOWN *SPEED
+							flip = 0
+						
+				var r = ray_cast_2d.get_collision_normal()
+				
+			
 						
 			
 				ball_impact.play()
