@@ -42,7 +42,7 @@ func handle_input(delta):
 			player.velocity.x = move_toward(player.velocity.x, 0, SPEED * delta * 60)
 			
 	else:
-		print(player.speed_mult)
+		
 		player.velocity.x = move_toward(player.velocity.x,SPEED * player.speed_mult,75* delta * 60)
 	
 		

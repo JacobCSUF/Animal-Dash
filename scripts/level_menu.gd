@@ -49,8 +49,8 @@ var level_dict = {
 		
 	,
 	4:{
-		"level":preload("uid://56iwvm0o1mvm") ,
-		"display": preload("uid://dk5uyd3ncdtqd")
+		"level": preload("uid://cyyl1oxo6aylr"),
+		"display": preload("uid://c18vgg0cwph63")
 		}
 		
 	}

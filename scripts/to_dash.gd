@@ -1,6 +1,7 @@
 extends BaseObject
 
 @export var quiet:= false
+
 @onready var blow_dryer: AudioStreamPlayer2D = $BlowDryer
 
 

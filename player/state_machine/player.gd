@@ -97,7 +97,7 @@ func die():
 	
 func get_partial_mult(speed,weight):
 	var s = speed +((speed*speed_mult)-speed)*weight
-	print(s)
+	
 	return s
 	
 func end_level():

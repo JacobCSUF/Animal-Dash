@@ -43,10 +43,18 @@ static func start_sway(node: Node2D, data:SwayParams) -> Tween:
 
 
 
+
+static func obj_start_pos(node: Node2D, distance,direction):
+	node.global_position += -1* direction * distance 
+	print('AM I WORK')
+
 static func move_in_line(node: Node2D, data: MoveLineParams) -> Tween:
 	var start_pos = node.position
 	var target_pos = start_pos + data.direction.normalized() * data.distance
 
+		
+	print(start_pos)
+	print('taget: ',target_pos)
 	var tween = node.create_tween()
 
 	if data.loop:
@@ -85,8 +93,8 @@ static func shrink_stretch(node: Node2D, data: ShrinkParams) -> Tween:
 	
 	
 static func spin(node: Node2D, data: SpinParams) -> Tween:
-	var start =  node.rotation_degrees + data.start_angle
-	var end =  node.rotation_degrees + data.end_angle
+	var start =  node.rotation_degrees + data.degrees
+	var end =  node.rotation_degrees - data.degrees
 	node.rotation_degrees = start
 	
 
@@ -100,5 +108,7 @@ static func spin(node: Node2D, data: SpinParams) -> Tween:
 	# stretch
 	tween.tween_property(node, "rotation_degrees", start, data.speed)
 		
-
+	var total_time = (data.speed) * 2.0
+	if data.random:
+		tween.custom_step(randf() * total_time)
 	return tween

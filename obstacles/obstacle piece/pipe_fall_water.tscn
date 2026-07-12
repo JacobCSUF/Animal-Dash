@@ -83,7 +83,7 @@ size = 112
 
 [node name="arrow" type="AnimatedSprite2D" parent="pipe/stretch pipe" unique_id=930998578]
 z_index = 1
-position = Vector2(-1, -63)
+position = Vector2(16, -85)
 sprite_frames = SubResource("SpriteFrames_b06db")
 autoplay = "default"
 

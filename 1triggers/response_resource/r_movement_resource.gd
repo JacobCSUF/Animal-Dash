@@ -18,6 +18,7 @@ class_name MovementResource
 @export var distance:= 100
 @export var duration1:= 1.0
 @export var loop:= false
+@export var reverse:= false
 
 @export_group("Sound")
 @export var play_sound:= false
@@ -32,6 +33,16 @@ func _init():
 
 func set_up():
 	set_group(group,group_delay)
+	
+
+
+func set_up_group(objects: Array[BaseObject]):
+	print('WOOOO')
+	for i in objects:
+		target_node = i
+		set_up()
+		if reverse:
+			AnimationUtils.obj_start_pos(i,distance,direction)
 		
 func execute(ctx: Context,pos):
 	
@@ -50,6 +61,7 @@ func execute(ctx: Context,pos):
 		m.distance = distance
 		m.duration = duration1
 		m.loop = loop
+		m.reverse = reverse
 		target_node.alter_movement(MovementComponent.MovementType.MOVE,m)
 		
 		

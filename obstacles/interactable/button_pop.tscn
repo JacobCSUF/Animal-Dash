@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://b8yachq0c5cpq" path="res://scripts/button_pop.gd" id="1_b4uod"]
 [ext_resource type="Script" uid="uid://cr2i8t0ytv6fg" path="res://components/movement_component/shrink_params.gd" id="2_b4uod"]
 [ext_resource type="Texture2D" uid="uid://s4baycwex3s1" path="res://sprites/button-Sheet.png" id="2_m8o1b"]
+[ext_resource type="PackedScene" uid="uid://dsi7byfnrch8g" path="res://globals/components/area_handler.tscn" id="3_pgghr"]
 [ext_resource type="Texture2D" uid="uid://6k75kh5rnw8o" path="res://sprites/gpu_particles/shimmer3.png" id="4_xcp46"]
 [ext_resource type="AudioStream" uid="uid://dg8wd2w6v721" path="res://sounds/area/button12.mp3" id="5_manbq"]
 [ext_resource type="PackedScene" uid="uid://6gfubqrnl8yg" path="res://1triggers/triggers/multi_triggers/multi_area.tscn" id="7_165yp"]
-[ext_resource type="PackedScene" uid="uid://cwce22ml12n0g" path="res://globals/components/AREA_TRIGGER.tscn" id="7_xcp46"]
 [ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="8_b4uod"]
 [ext_resource type="Script" uid="uid://e8yw2hruql0h" path="res://1triggers/response_resource/r_route_resource.gd" id="9_6e1wx"]
 [ext_resource type="Script" uid="uid://clgxy4enti5s5" path="res://managers/background_manager/bg_params.gd" id="10_f1sjo"]
@@ -48,9 +48,6 @@ height = 32
 fill = 1
 fill_from = Vector2(0.4871795, 0.52869356)
 fill_to = Vector2(0.8119658, 0.10866911)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_165yp"]
-radius = 11.0
 
 [sub_resource type="Curve" id="Curve_f1sjo"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -95,38 +92,19 @@ metadata/_custom_type_script = "uid://ceabpejx0in8f"
 [sub_resource type="CircleShape2D" id="CircleShape2D_b4uod"]
 radius = 11.0
 
-[sub_resource type="Gradient" id="Gradient_pgghr"]
-offsets = PackedFloat32Array(0, 0.6396552, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_pgghr"]
-gradient = SubResource("Gradient_pgghr")
-
-[sub_resource type="Curve" id="Curve_a8mmm"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_f1sjo"]
-curve = SubResource("Curve_a8mmm")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fhx8f"]
-particle_flag_align_y = true
-particle_flag_disable_z = true
-angle_min = 1.0728835e-05
-angle_max = 360.00003
-spread = 180.0
-initial_velocity_min = 450.0
-initial_velocity_max = 450.0
-angular_velocity_min = -1.6093254e-05
-angular_velocity_max = 359.99997
-gravity = Vector3(0, 30, 0)
-scale_curve = SubResource("CurveTexture_f1sjo")
-color_ramp = SubResource("GradientTexture1D_pgghr")
-
 [node name="button_pop" type="Node2D" unique_id=1209009567]
 scale = Vector2(1.1, 1.1)
 script = ExtResource("1_b4uod")
 shrink = SubResource("Resource_6e1wx")
+
+[node name="AreaHandler" parent="." unique_id=1169549112 node_paths=PackedStringArray("area", "dis_target", "audio_player", "particles") instance=ExtResource("3_pgghr")]
+area = NodePath("../TArea")
+disappear = true
+dis_target = NodePath("../Button")
+audio_player = NodePath("../Button12")
+play_at_body = true
+particles = NodePath("../GPUParticles2D2")
+one_shot = true
 
 [node name="Button" type="AnimatedSprite2D" parent="." unique_id=1002170595]
 position = Vector2(1, -1)
@@ -141,18 +119,7 @@ color = Color(0.015686275, 0.56078434, 1, 1)
 energy = 3.0
 texture = SubResource("GradientTexture2D_pgghr")
 
-[node name="AREA_TRIGGER" parent="." unique_id=1200709446 node_paths=PackedStringArray("dis_target", "audio_player", "particles") instance=ExtResource("7_xcp46")]
-disappear = true
-dis_target = NodePath("../Button")
-audio_player = NodePath("Button12")
-particles = NodePath("../GPUParticles2D")
-one_shot = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AREA_TRIGGER" unique_id=1845228927]
-position = Vector2(1, -1)
-shape = SubResource("CircleShape2D_165yp")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="AREA_TRIGGER" unique_id=206686232]
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=206686232]
 physics_interpolation_mode = 2
 modulate = Color(0.44799036, 0.95067364, 0.9999997, 1)
 z_index = 1
@@ -161,7 +128,7 @@ amount = 15
 texture = ExtResource("4_xcp46")
 process_material = SubResource("ParticleProcessMaterial_a8mmm")
 
-[node name="Button12" type="AudioStreamPlayer2D" parent="AREA_TRIGGER" unique_id=973887990]
+[node name="Button12" type="AudioStreamPlayer2D" parent="." unique_id=973887990]
 position = Vector2(4, 46)
 scale = Vector2(0.5, 0.5)
 stream = ExtResource("5_manbq")
@@ -173,13 +140,3 @@ responses = Array[ExtResource("8_b4uod")]([SubResource("Resource_b4uod"), SubRes
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TArea" unique_id=1518000888]
 position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_b4uod")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=880388495]
-modulate = Color(0, 1, 1, 0.5411765)
-position = Vector2(0.9090909, -0.9090909)
-emitting = false
-amount = 200
-one_shot = true
-explosiveness = 1.0
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_fhx8f")

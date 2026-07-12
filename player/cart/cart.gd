@@ -95,7 +95,7 @@ func handle_input(delta):
 	
 	if ray.is_colliding() and player.is_on_floor():
 		var n = ray.get_collision_normal()
-		print(n)
+		
 		
 		player.rotation = lerp(player.rotation ,atan2(n.y, n.x) +(PI/2),.2)
 	

@@ -370,7 +370,7 @@ position = Vector2(1201, 157)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=2091587887]
-position = Vector2(1185, 146)
+position = Vector2(1283, 149)
 shape = SubResource("RectangleShape2D_wqwmt")
 
 [node name="Area2D5" type="Area2D" parent="." unique_id=729641202]
@@ -378,7 +378,7 @@ position = Vector2(-250, 184)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5" unique_id=970484395]
-position = Vector2(1272, -14)
+position = Vector2(880, -20)
 shape = SubResource("RectangleShape2D_xbuto")
 
 [node name="SwitchOn" type="AudioStreamPlayer2D" parent="." unique_id=20185483]

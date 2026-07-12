@@ -40,8 +40,8 @@ func fade_out(volume:= 0.0, time:= 1.0):
 	
 func play_drop():
 	var tween = create_tween()
-	curr_song.seek(49.0) 
-	tween.tween_property(curr_song, "volume_db", -15.0, 1.00)
+	curr_song.seek(47.2) 
+	tween.tween_property(curr_song, "volume_db", -13.5, 1.8)
 	
 	
 	

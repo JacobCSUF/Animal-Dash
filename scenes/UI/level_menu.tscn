@@ -264,9 +264,9 @@ scale = Vector2(1.4, 1.4)
 
 [node name="pagnation" type="HBoxContainer" parent="." unique_id=2033358976]
 layout_mode = 0
-offset_left = 246.0
+offset_left = 244.0
 offset_top = 187.0
-offset_right = 414.0
+offset_right = 412.0
 offset_bottom = 219.0
 alignment = 1
 

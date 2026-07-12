@@ -50,7 +50,7 @@ var loop_sounds= []
 
 func route_sound(sound: Sound,pos: Vector2 = Vector2(0,0),data: SoundParams = null):
 	var s_data: SoundResource = sound_map[sound]
-	print('SDNijhsdfbsdjhk')
+
 	if s_data.cooldown == 0:
 		play_sound(sound,pos,data)
 		return

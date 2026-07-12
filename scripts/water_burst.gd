@@ -2,10 +2,13 @@ extends Node2D
 
 @export var is_burst:= false
 @export_range(0,360) var angle:= 90
+@export var volume_overide:= 0
 
 @onready var water: GPUParticles2D = $water
 @onready var water_flow: AudioStreamPlayer2D = $WaterFlow
 @onready var burst: AudioStreamPlayer2D = $Burst
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +19,8 @@ func _ready() -> void:
 		water.emitting = false
 		water_flow.stop()
 
+	if volume_overide!= 0:
+		water_flow.volume_db = volume_overide
 
 
 		

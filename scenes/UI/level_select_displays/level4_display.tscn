@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bap6ofsij3477" path="res://scenes/background.tscn" id="2_gf641"]
 [ext_resource type="Script" uid="uid://c3nbhfhjpls2a" path="res://scenes/levels/bg_resource.gd" id="2_yybwy"]
+[ext_resource type="PackedScene" uid="uid://dnncyh7xd3cbn" path="res://obstacles/pipes/pipe.tscn" id="3_ur71r"]
+[ext_resource type="Material" uid="uid://d2cj0shnowuoe" path="res://resources/base_outline_shader.tres" id="4_2cmph"]
+[ext_resource type="Script" uid="uid://cvxnelhw3tch3" path="res://components/movement_component/bob_params.gd" id="4_ur71r"]
 
 [sub_resource type="Gradient" id="Gradient_tparg"]
 offsets = PackedFloat32Array(0.14006025, 0.44728917, 0.66114455)
@@ -14,7 +17,31 @@ bg_gradient = SubResource("Gradient_tparg")
 fog_color = Color(0.34237495, 0.2655, 0.45, 0.20392157)
 metadata/_custom_type_script = "uid://c3nbhfhjpls2a"
 
+[sub_resource type="Resource" id="Resource_gf641"]
+script = ExtResource("4_ur71r")
+metadata/_custom_type_script = "uid://cvxnelhw3tch3"
+
 [node name="Level4Display" type="Node2D" unique_id=1428031925]
 
 [node name="background2" parent="." unique_id=1318822552 instance=ExtResource("2_gf641")]
 bg = SubResource("Resource_0tskb")
+
+[node name="pipe" parent="." unique_id=1899843357 instance=ExtResource("3_ur71r")]
+position = Vector2(120, 224)
+bob = SubResource("Resource_gf641")
+shader = ExtResource("4_2cmph")
+
+[node name="pipe2" parent="." unique_id=2034964789 instance=ExtResource("3_ur71r")]
+position = Vector2(369, 254)
+bob = SubResource("Resource_gf641")
+shader = ExtResource("4_2cmph")
+
+[node name="pipe3" parent="." unique_id=1041603157 instance=ExtResource("3_ur71r")]
+position = Vector2(241, 254)
+bob = SubResource("Resource_gf641")
+shader = ExtResource("4_2cmph")
+
+[node name="pipe4" parent="." unique_id=556834418 instance=ExtResource("3_ur71r")]
+position = Vector2(489, 230)
+bob = SubResource("Resource_gf641")
+shader = ExtResource("4_2cmph")

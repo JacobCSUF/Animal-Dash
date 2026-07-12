@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://c18vgg0cwph63"]
+
+[ext_resource type="PackedScene" uid="uid://bap6ofsij3477" path="res://scenes/background.tscn" id="1_brtod"]
+[ext_resource type="Script" uid="uid://c3nbhfhjpls2a" path="res://scenes/levels/bg_resource.gd" id="2_hae6j"]
+[ext_resource type="PackedScene" uid="uid://b0t4urxjrfulk" path="res://managers/particle_manager/particle_scenes/rain_particles.tscn" id="3_7jaka"]
+[ext_resource type="AudioStream" uid="uid://qkha8vsawcl5" path="res://sounds/sound_effects/water_fall_small.mp3" id="4_reb47"]
+[ext_resource type="PackedScene" uid="uid://dtd52l2v1w8jv" path="res://obstacles/interactable/water_fall.tscn" id="5_wjaoy"]
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="6_wjaoy"]
+[ext_resource type="Texture2D" uid="uid://dojen12h2ru5n" path="res://sprites/water_fill.png" id="7_2bl4r"]
+[ext_resource type="PackedScene" uid="uid://ch8rondokopf3" path="res://scenes/water_burst.tscn" id="8_2bl4r"]
+
+[sub_resource type="Gradient" id="Gradient_2eb3b"]
+colors = PackedColorArray(0, 0.031500034, 0.27, 0.53333336, 0.15910001, 0.310245, 0.37, 0.6039216)
+
+[sub_resource type="Resource" id="Resource_2bl4r"]
+script = ExtResource("2_hae6j")
+bg_gradient = SubResource("Gradient_2eb3b")
+fog_color = Color(0, 0.36425215, 0.84714556, 0.08627451)
+metadata/_custom_type_script = "uid://c3nbhfhjpls2a"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gxw3i"]
+shader = ExtResource("6_wjaoy")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = true
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 0.0
+shader_parameter/sway_speed = -7.513997981914997
+shader_parameter/sway_strength = 0.0050000002375
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[node name="Level5Display" type="Node2D" unique_id=1428031925]
+
+[node name="background" parent="." unique_id=1318822552 instance=ExtResource("1_brtod")]
+bg = SubResource("Resource_2bl4r")
+particles_packed = ExtResource("3_7jaka")
+
+[node name="waterfall" type="AudioStreamPlayer" parent="background" unique_id=1392620852]
+stream = ExtResource("4_reb47")
+volume_db = -50.0
+pitch_scale = 0.87
+autoplay = true
+
+[node name="Parallax2D" type="Parallax2D" parent="background" unique_id=375806079]
+z_index = -85
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(640, 0)
+
+[node name="water_fall" parent="background/Parallax2D" unique_id=439761495 instance=ExtResource("5_wjaoy")]
+position = Vector2(199, 274)
+is_bg = true
+location = 2
+
+[node name="water_fall3" parent="background/Parallax2D" unique_id=1286976115 instance=ExtResource("5_wjaoy")]
+position = Vector2(315, 131)
+is_bg = true
+location = 2
+
+[node name="water_fall2" parent="background/Parallax2D" unique_id=41856889 instance=ExtResource("5_wjaoy")]
+position = Vector2(446, 284)
+is_bg = true
+location = 2
+
+[node name="Parallax2D2" type="Parallax2D" parent="background" unique_id=576224019]
+z_index = -75
+scroll_scale = Vector2(0.75, 0.75)
+repeat_size = Vector2(500, 0)
+
+[node name="water_fall" parent="background/Parallax2D2" unique_id=419605164 instance=ExtResource("5_wjaoy")]
+position = Vector2(155, 108)
+is_bg = true
+location = 1
+
+[node name="water_fall3" parent="background/Parallax2D2" unique_id=1768400083 instance=ExtResource("5_wjaoy")]
+position = Vector2(402, 85)
+is_bg = true
+location = 1
+
+[node name="WaterFill" type="Sprite2D" parent="." unique_id=1427211644]
+z_index = 2
+material = SubResource("ShaderMaterial_gxw3i")
+position = Vector2(321, 348)
+texture = ExtResource("7_2bl4r")
+region_enabled = true
+region_rect = Rect2(700, 100, 700, 300)
+
+[node name="water_burst" parent="." unique_id=1705795019 instance=ExtResource("8_2bl4r")]
+position = Vector2(202, -19.000004)
+rotation = 0.6265732
+volume_overide = -35
+
+[node name="water_burst2" parent="." unique_id=673934521 instance=ExtResource("8_2bl4r")]
+position = Vector2(433.00006, -20)
+rotation = -0.7644542
+volume_overide = -35

@@ -15,6 +15,10 @@ class_name BaseObject
 @export var movement_component: MovementComponent
 @export var sound_inc_component: SoundIncComponent
 
+@export var shader: ShaderMaterial
+
+var overide_pos:Vector2 = Vector2(0,0)
+
 
 func _ready() -> void:
 	
@@ -34,8 +38,11 @@ func _ready() -> void:
 	if sound_inc_component and (sound_group_number != 0):
 		sound_inc_component.set_number(sound_group_number)
 		
+	if overide_pos != Vector2(0,0):
+		self.position += overide_pos
 	
-		
+	if shader:
+		set_shader(shader)
 ############SETS UP TRIGGER ROUTES ####################################
 var triggers: Array[Trigger]
 # Called when the node enters the scene tree for the first time.

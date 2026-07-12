@@ -54,10 +54,14 @@ func match_state(state: states,delta):
 				
 			elif !player.is_on_ceiling() and !player.is_on_wall() and !player.is_on_floor() and ! ray_cast_2d.is_colliding():
 				
-				player.velocity = (vel.normalized()+ ray_cast_2d.target_position.normalized()).normalized()* gravity
+				#print(ray_cast_2d.target_position)
+				a = atan2(n.y, n.x)
+				player.velocity =Vector2.from_angle(a+ (PI/2)+flip*PI)* SPEED  *player.speed_mult   
+				player.velocity += -1*n*gravity
+				
 				#print('WEEEEEEEEE',player.velocity)
 				curr_state = states.LANDED
-			
+				print('NOOOOOHA')
 			if Input.is_action_just_pressed("jump"):
 				curr_state = states.JUMP
 		
@@ -71,21 +75,22 @@ func match_state(state: states,delta):
 			
 		states.LANDED:
 			if player.is_on_floor() or player.is_on_ceiling() or player.is_on_wall():
-				#print('YEEEHAAA')
+				var v = player.velocity.normalized()
 				if player.is_on_floor():
-					
-					if -1*n.y == -1:
+					print('YEEEHAAA')
+					if v <= -1:
 						get_flip()
 					ray_cast_2d.target_position = Vector2(0,1) *ray_len
 				
 				elif player.is_on_ceiling():
+					print('YEEE222222')
 					if -1*n.y == 1:
 						get_flip()
 					ray_cast_2d.target_position = Vector2(0,-1) *ray_len
 					
 					
 				elif player.is_on_wall():
-			
+					print('YEEE222222')
 					if vel.x >= 0:
 						if -1*n.x == -1:
 							get_flip()

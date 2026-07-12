@@ -32,4 +32,4 @@ bus = &"Music"
 
 [node name="WaterMusic" type="AudioStreamPlayer" parent="." unique_id=1272966813]
 stream = ExtResource("6_5mwxm")
-volume_db = -33.0
+volume_db = -30.0

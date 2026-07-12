@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://cvbb6wplrd4"]
+
+[ext_resource type="Texture2D" uid="uid://bbsvqf5nouv1e" path="res://sprites/pipes/break_small_pipe.png" id="1_taahr"]
+[ext_resource type="Texture2D" uid="uid://c1pg2lpdiy8q6" path="res://sprites/pipes/small_break_left.png" id="1_xm5wn"]
+[ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="2_taahr"]
+[ext_resource type="AudioStream" uid="uid://b8yg6pk2jcyxj" path="res://sounds/area/pipe_break.mp3" id="3_12r86"]
+[ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="3_xm5wn"]
+[ext_resource type="Script" uid="uid://ca3kmxodgic3d" path="res://1triggers/response_resource/r_particle_resource.gd" id="4_gv2ln"]
+[ext_resource type="Script" uid="uid://dxwu6r7f865an" path="res://1triggers/base_object/object_components/breakable.gd" id="5_kff4b"]
+[ext_resource type="Texture2D" uid="uid://osh4pgvailbr" path="res://sprites/pipes/broken_pipe_shard.png" id="5_oxlls"]
+[ext_resource type="PackedScene" uid="uid://dsi7byfnrch8g" path="res://globals/components/area_handler.tscn" id="6_8hpq8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ysjb"]
+
+[sub_resource type="Gradient" id="Gradient_hcimd"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mrgjy"]
+gradient = SubResource("Gradient_hcimd")
+width = 128
+height = 128
+
+[sub_resource type="Animation" id="Animation_mrgjy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BrokenPipe/PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+
+[sub_resource type="Animation" id="Animation_fd51x"]
+resource_name = "glow"
+length = 0.2
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BrokenPipe/PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.7, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2di6c"]
+_data = {
+&"RESET": SubResource("Animation_mrgjy"),
+&"glow": SubResource("Animation_fd51x")
+}
+
+[sub_resource type="Resource" id="Resource_1sg0x"]
+script = ExtResource("4_gv2ln")
+position = NodePath("CollisionShape2D")
+metadata/_custom_type_script = "uid://ca3kmxodgic3d"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhesx"]
+size = Vector2(29, 74)
+
+[sub_resource type="Gradient" id="Gradient_mrgjy"]
+offsets = PackedFloat32Array(0, 0.6396552, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fd51x"]
+gradient = SubResource("Gradient_mrgjy")
+
+[sub_resource type="Curve" id="Curve_mrgjy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fd51x"]
+curve = SubResource("Curve_mrgjy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mrgjy"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(10, 40, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+spread = 30.0
+initial_velocity_min = 225.0
+initial_velocity_max = 320.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 359.99997
+gravity = Vector3(0, 300, 0)
+scale_min = 0.099999994
+scale_curve = SubResource("CurveTexture_fd51x")
+color_ramp = SubResource("GradientTexture1D_fd51x")
+hue_variation_min = -0.25000003
+hue_variation_max = 0.24999997
+
+[node name="breaking_pipe_small" type="Node2D" unique_id=1182489173]
+
+[node name="SmallBreakLeft" type="Sprite2D" parent="." unique_id=1611717079]
+z_index = 1
+position = Vector2(15, 32)
+texture = ExtResource("1_xm5wn")
+
+[node name="SmallBreakLeft2" type="Sprite2D" parent="." unique_id=1390413507]
+z_index = 1
+position = Vector2(17, 89)
+rotation = -3.1415925
+texture = ExtResource("1_xm5wn")
+
+[node name="BrokenPipe" type="Sprite2D" parent="." unique_id=370866980]
+light_mask = 524289
+z_index = 1
+material = SubResource("ShaderMaterial_0ysjb")
+position = Vector2(16, 55)
+texture = ExtResource("1_taahr")
+
+[node name="PointLight2D" type="PointLight2D" parent="BrokenPipe" unique_id=355183709]
+position = Vector2(-0.50000095, 5.500002)
+scale = Vector2(0.22656249, 0.57031256)
+energy = 0.5
+range_item_cull_mask = 524288
+texture = SubResource("GradientTexture2D_mrgjy")
+
+[node name="glow_ani" type="AnimationPlayer" parent="BrokenPipe/PointLight2D" unique_id=962675620]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_2di6c")
+autoplay = &"glow"
+
+[node name="direct_area" parent="." unique_id=1000805726 instance=ExtResource("2_taahr")]
+responses = Array[ExtResource("3_xm5wn")]([SubResource("Resource_1sg0x")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="direct_area" unique_id=59557809]
+position = Vector2(15.5, 61)
+shape = SubResource("RectangleShape2D_qhesx")
+
+[node name="PipeBreak" type="AudioStreamPlayer2D" parent="." unique_id=1855267461]
+position = Vector2(16, 93)
+stream = ExtResource("3_12r86")
+volume_db = -23.615
+pitch_scale = 1.06
+
+[node name="shard" type="GPUParticles2D" parent="." unique_id=1800813017]
+modulate = Color(0.61861694, 0.618617, 0.6186167, 1)
+position = Vector2(14, 59)
+emitting = false
+amount = 20
+texture = ExtResource("5_oxlls")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_mrgjy")
+
+[node name="Breakable" type="Node2D" parent="." unique_id=1273373393 node_paths=PackedStringArray("area_detection")]
+script = ExtResource("5_kff4b")
+area_detection = NodePath("../direct_area")
+metadata/_custom_type_script = "uid://dxwu6r7f865an"
+
+[node name="AreaHandler" parent="." unique_id=1169549112 node_paths=PackedStringArray("area", "dis_target", "audio_player", "particles") instance=ExtResource("6_8hpq8")]
+area = NodePath("../direct_area")
+disappear = true
+dis_target = NodePath("../BrokenPipe")
+audio_player = NodePath("../PipeBreak")
+rand_pitch = 0.1
+play_at_body = true
+particles = NodePath("../shard")
+one_shot = true
