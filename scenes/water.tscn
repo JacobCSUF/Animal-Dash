@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dud76fcknifq" path="res://sprites/water.png" id="1_bdk6y"]
 [ext_resource type="PackedScene" uid="uid://cwce22ml12n0g" path="res://globals/components/AREA_TRIGGER.tscn" id="2_s3811"]
-[ext_resource type="AudioStream" uid="uid://dp1gusbhm77n" path="res://sounds/sound_effects/water_splash_1.mp3" id="4_ewrsg"]
+[ext_resource type="AudioStream" uid="uid://dp1gusbhm77n" path="res://audio/sounds/sound_effects/water_splash_1.mp3" id="4_ewrsg"]
 [ext_resource type="Texture2D" uid="uid://bjp6tnsebikgv" path="res://sprites/gpu_particles/shimmer2.png" id="4_fiwy5"]
 [ext_resource type="Material" uid="uid://cdxuljwfidsyp" path="res://resources/particles/water.tres" id="5_fiwy5"]
 

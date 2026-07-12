@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundResource" format=3 uid="uid://csa2wm55qi436"]
+
+[ext_resource type="Script" uid="uid://de16u0mha72wi" path="res://audio/AudioManager/audio_resources/sound_resource.gd" id="1_c1xjn"]
+[ext_resource type="AudioStream" uid="uid://b3c54ijpuj4hv" path="res://audio/sounds/sound_effects/universfield-swoosh-027-454865.mp3" id="2_ouxv5"]
+
+[resource]
+script = ExtResource("1_c1xjn")
+sound = ExtResource("2_ouxv5")
+volume = -10.0
+pitch = 2.11
+metadata/_custom_type_script = "uid://de16u0mha72wi"

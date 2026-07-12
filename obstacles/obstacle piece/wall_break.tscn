@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://dxwu6r7f865an" path="res://1triggers/base_object/object_components/breakable.gd" id="3_g036k"]
 [ext_resource type="Script" uid="uid://ruit31hratsc" path="res://1triggers/triggers/direct_triggers/func_trigger.gd" id="4_an18i"]
 [ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="5_xh8l8"]
-[ext_resource type="AudioStream" uid="uid://cxjdghmpijkas" path="res://sounds/area/dropping.mp3" id="6_an18i"]
+[ext_resource type="AudioStream" uid="uid://cxjdghmpijkas" path="res://audio/sounds/area/dropping.mp3" id="6_an18i"]
 [ext_resource type="Script" uid="uid://ca3kmxodgic3d" path="res://1triggers/response_resource/r_particle_resource.gd" id="6_jk8rt"]
 [ext_resource type="Texture2D" uid="uid://3dybx78mxd3i" path="res://sprites/gpu_particles/block_particle.png" id="7_xh8l8"]
+[ext_resource type="Texture2D" uid="uid://cbtmeld50o7i7" path="res://sprites/tiles/wall_break_shard.png" id="8_jk8rt"]
+[ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="9_ikyy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rwnq4"]
 texture = ExtResource("2_an18i")
@@ -100,6 +102,98 @@ texture = ExtResource("2_an18i")
 [sub_resource type="TileSet" id="TileSet_va1br"]
 sources/0 = SubResource("TileSetAtlasSource_rwnq4")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikyy4"]
+texture = ExtResource("2_an18i")
+0:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+1:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+1:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+5:17/0 = 0
+5:18/0 = 0
+5:19/0 = 0
+7:19/0 = 0
+7:18/0 = 0
+7:17/0 = 0
+5:14/0 = 0
+4:12/0 = 0
+4:11/0 = 0
+1:7/0 = 0
+0:6/0 = 0
+0:5/0 = 0
+0:4/0 = 0
+4:8/0 = 0
+4:7/0 = 0
+4:9/0 = 0
+7:3/0 = 0
+7:4/0 = 0
+5:21/0 = 0
+5:20/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rwnq4"]
+sources/0 = SubResource("TileSetAtlasSource_ikyy4")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf0h2"]
 size = Vector2(16.75, 95.75)
 
@@ -110,6 +204,9 @@ position = NodePath(".")
 texture = ExtResource("7_xh8l8")
 metadata/_custom_type_script = "uid://ca3kmxodgic3d"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
+size = Vector2(12, 4)
+
 [node name="wall_break" type="Node2D" unique_id=672021238]
 
 [node name="front" type="TileMapLayer" parent="." unique_id=1739305730]
@@ -117,6 +214,13 @@ light_mask = 262145
 z_index = 1
 tile_map_data = PackedByteArray("AAAAAP//AAAFABAAAAAAAAAAAAAFABEAAAAAAAEAAAAFABIAAAAAAAIAAAAFABMAAAAAAAMAAAAFABQAAAAAAAQAAAAFABUAAAA=")
 tile_set = SubResource("TileSet_va1br")
+collision_enabled = false
+
+[node name="front2" type="TileMapLayer" parent="." unique_id=435745615]
+light_mask = 262145
+z_index = 1
+tile_map_data = PackedByteArray("AAAAAP7/AAAFAA8AAAAAAAUAAAAFAA8AAAA=")
+tile_set = SubResource("TileSet_rwnq4")
 collision_enabled = false
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1009473754]
@@ -137,7 +241,6 @@ max_distance = 313.0
 script = ExtResource("3_g036k")
 area_detection = NodePath("../Area2D")
 trigger = NodePath("../FuncTrigger")
-audio = 5
 audio_stream = NodePath("../Dropping")
 make_invis = [NodePath("../front")]
 metadata/_custom_type_script = "uid://dxwu6r7f865an"
@@ -147,5 +250,24 @@ position = Vector2(3, 29)
 script = ExtResource("4_an18i")
 responses = Array[ExtResource("5_xh8l8")]([SubResource("Resource_ikyy4")])
 metadata/_custom_type_script = "uid://ruit31hratsc"
+
+[node name="WallBreakShard" type="Sprite2D" parent="." unique_id=342272159]
+position = Vector2(16, -16)
+texture = ExtResource("8_jk8rt")
+
+[node name="WallBreakShard2" type="Sprite2D" parent="." unique_id=661713650]
+position = Vector2(0, 80)
+rotation = 3.1415927
+texture = ExtResource("8_jk8rt")
+
+[node name="kill_area" parent="." unique_id=8564388 instance=ExtResource("9_ikyy4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill_area" unique_id=1827065217]
+position = Vector2(8, -31)
+shape = SubResource("RectangleShape2D_1sg0x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="kill_area" unique_id=219236724]
+position = Vector2(8, 92)
+shape = SubResource("RectangleShape2D_1sg0x")
 
 [connection signal="area_entered" from="Area2D" to="Breakable" method="_on_area_2d_area_entered"]

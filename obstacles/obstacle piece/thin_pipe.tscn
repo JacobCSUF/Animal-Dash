@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://2xs7q7s4bipi" path="res://scripts/shader_component.gd" id="5_cdkbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfvvv"]
-size = Vector2(14, 234)
+size = Vector2(9, 227)
 
 [node name="thin_pipe" type="Node2D" unique_id=1833568758 node_paths=PackedStringArray("shader_component")]
 script = ExtResource("1_mmjw3")
@@ -21,7 +21,7 @@ texture = ExtResource("2_j7d0g")
 position = Vector2(0, -109)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe/kill_area" unique_id=193523243]
-position = Vector2(-6, 90)
+position = Vector2(-6.5, 93.5)
 shape = SubResource("RectangleShape2D_hfvvv")
 
 [node name="ShaderComponent" type="Node2D" parent="." unique_id=1619957606 node_paths=PackedStringArray("sprites")]

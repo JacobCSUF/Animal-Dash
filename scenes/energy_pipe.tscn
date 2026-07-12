@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bq8nio2psfg0r"]
 
 [ext_resource type="Texture2D" uid="uid://bh3twxf62us3c" path="res://sprites/pipes/energy_pipe.png" id="1_t23ef"]
-[ext_resource type="AudioStream" uid="uid://cpcj2qa3qx5qn" path="res://sounds/charge3.mp3" id="2_fed7f"]
+[ext_resource type="AudioStream" uid="uid://d0q2hl7lvurug" path="res://audio/sounds/sound_effects/charge10.mp3" id="2_uxubk"]
 [ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="5_6ttkg"]
 [ext_resource type="Texture2D" uid="uid://djs82in5ncxul" path="res://sprites/textures/charge_texture.png" id="6_n3gba"]
+[ext_resource type="Script" uid="uid://dnfsfg3bn84o3" path="res://audio/sound_helper.gd" id="6_uxubk"]
 [ext_resource type="Texture2D" uid="uid://despy15iv7ioe" path="res://sprites/ctr.png" id="7_axfri"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2w7ws"]
@@ -11,7 +12,7 @@ shader = ExtResource("5_6ttkg")
 shader_parameter/top_down_move = true
 shader_parameter/wave_top_down = false
 shader_parameter/uv_speed_x = 0.0
-shader_parameter/uv_speed_y = -0.37699954290749993
+shader_parameter/uv_speed_y = 2.4310005904725003
 shader_parameter/sway_speed = -1.0
 shader_parameter/sway_strength = 0.01
 shader_parameter/noise_scale = 5.0
@@ -31,24 +32,33 @@ shader_parameter/time_offset = 0.0
 [node name="energy_pipe" type="Node2D" unique_id=187965468]
 
 [node name="EnergyPipe" type="Sprite2D" parent="." unique_id=583440494]
+light_mask = 0
 position = Vector2(2, -10)
 texture = ExtResource("1_t23ef")
 
 [node name="Charge3" type="AudioStreamPlayer2D" parent="." unique_id=831264541]
-position = Vector2(10, 40)
-stream = ExtResource("2_fed7f")
-volume_db = -20.0
+position = Vector2(3, -36)
+stream = ExtResource("2_uxubk")
+volume_db = -24.0
+pitch_scale = 1.5
 autoplay = true
-max_distance = 400.0
+max_distance = 500.0
 
 [node name="ChargeTexture" type="Sprite2D" parent="." unique_id=750038133]
-z_index = -1
+light_mask = 0
 material = SubResource("ShaderMaterial_2w7ws")
 position = Vector2(3, -33)
 texture = ExtResource("6_n3gba")
 
 [node name="Ctr" type="Sprite2D" parent="." unique_id=1878426158]
+light_mask = 0
 material = SubResource("ShaderMaterial_jnbn5")
 position = Vector2(3, -32.5)
 scale = Vector2(0.875, 0.7916666)
 texture = ExtResource("7_axfri")
+
+[node name="SoundHelper" type="Node2D" parent="." unique_id=1939440572 node_paths=PackedStringArray("sound")]
+script = ExtResource("6_uxubk")
+sound = NodePath("../Charge3")
+audio_length = 20.0
+metadata/_custom_type_script = "uid://dnfsfg3bn84o3"

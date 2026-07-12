@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bcjh36ewmb5j6" path="res://sprites/ctr_light.png" id="6_orxrr"]
 [ext_resource type="PackedScene" uid="uid://dntngraxq82x6" path="res://managers/particle_manager/particle_scenes/wall_particles.tscn" id="10_cgkdl"]
 [ext_resource type="Texture2D" uid="uid://metjb87flxmc" path="res://sprites/gpu_particles/sign_shard.png" id="11_n1q4e"]
-[ext_resource type="AudioStream" uid="uid://601xx0j3ae6b" path="res://sounds/area/floraphonic-wood-smash-1-170410.mp3" id="11_yrh08"]
-[ext_resource type="AudioStream" uid="uid://bnowitjwpuq4o" path="res://sounds/electric.mp3" id="13_s6vml"]
+[ext_resource type="AudioStream" uid="uid://601xx0j3ae6b" path="res://audio/sounds/area/floraphonic-wood-smash-1-170410.mp3" id="11_yrh08"]
+[ext_resource type="AudioStream" uid="uid://bnowitjwpuq4o" path="res://audio/sounds/electric.mp3" id="13_s6vml"]
 [ext_resource type="PackedScene" uid="uid://cwce22ml12n0g" path="res://globals/components/AREA_TRIGGER.tscn" id="13_yrh08"]
 
 [sub_resource type="Resource" id="Resource_hrpho"]

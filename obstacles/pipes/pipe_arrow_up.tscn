@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://bpmk80j1qy0bc" path="res://1triggers/response_resource/r_audio1_resource.gd" id="9_umusm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfvvv"]
-size = Vector2(30, 234)
+size = Vector2(24, 229)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhh42"]
 atlas = ExtResource("5_j6y2i")
@@ -62,7 +62,7 @@ texture = ExtResource("3_saivf")
 position = Vector2(-10, -109)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe/kill_area" unique_id=193523243]
-position = Vector2(1, 116)
+position = Vector2(1, 118.5)
 shape = SubResource("RectangleShape2D_hfvvv")
 
 [node name="arrow" type="AnimatedSprite2D" parent="." unique_id=821126126]

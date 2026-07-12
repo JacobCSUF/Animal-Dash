@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://73ycuspel86x" path="res://scripts/cannon.gd" id="1_bf682"]
 [ext_resource type="Texture2D" uid="uid://bh5p6ysyqs6wr" path="res://sprites/pipes/pipe_launcher-Sheet.png" id="1_uxaj4"]
-[ext_resource type="AudioStream" uid="uid://bhly1jkae4lsk" path="res://sounds/player_sounds/cannon_shoot.mp3" id="3_bf682"]
+[ext_resource type="AudioStream" uid="uid://bhly1jkae4lsk" path="res://audio/sounds/player_sounds/cannon_shoot.mp3" id="3_bf682"]
 [ext_resource type="Script" uid="uid://d28kjhngbvsef" path="res://1triggers/base_object/object_components/movement_component.gd" id="4_80isy"]
-[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://managers/sound_inc_manager/sound_inc_component.tscn" id="5_gasl0"]
+[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://audio/sound_inc_manager/sound_inc_component.tscn" id="5_gasl0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80isy"]
 atlas = ExtResource("1_uxaj4")

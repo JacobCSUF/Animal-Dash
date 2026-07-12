@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cql1oofl8wqj6" path="res://scripts/water_fall.gd" id="1_06tmy"]
 [ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="2_nvust"]
 [ext_resource type="Texture2D" uid="uid://cbxyve1mu71n3" path="res://sprites/waterfall.png" id="3_8vywk"]
-[ext_resource type="AudioStream" uid="uid://dp1gusbhm77n" path="res://sounds/sound_effects/water_splash_1.mp3" id="4_jahk2"]
-[ext_resource type="AudioStream" uid="uid://qkha8vsawcl5" path="res://sounds/sound_effects/water_fall_small.mp3" id="5_8bqp2"]
+[ext_resource type="AudioStream" uid="uid://dp1gusbhm77n" path="res://audio/sounds/sound_effects/water_splash_1.mp3" id="4_jahk2"]
+[ext_resource type="AudioStream" uid="uid://qkha8vsawcl5" path="res://audio/sounds/sound_effects/water_fall_small.mp3" id="5_8bqp2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1wmpo"]
 shader = ExtResource("2_nvust")

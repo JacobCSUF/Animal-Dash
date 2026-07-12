@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://hw5mjaaw0d20"]
 
-[ext_resource type="AudioStream" uid="uid://cj5r84ag13klg" path="res://sounds/sound_effects/blow-dryer-.mp3" id="3_s7yta"]
+[ext_resource type="AudioStream" uid="uid://cj5r84ag13klg" path="res://audio/sounds/sound_effects/blow-dryer-.mp3" id="3_s7yta"]
 [ext_resource type="PackedScene" uid="uid://c5gt5brgrdhr6" path="res://areas/dash_area.tscn" id="3_spcx3"]
 [ext_resource type="Texture2D" uid="uid://dqielpfdx6yv2" path="res://sprites/fan_boost_left.png" id="4_erts2"]
 [ext_resource type="Texture2D" uid="uid://crquh48wew7hn" path="res://sprites/fan_boost_right.png" id="5_3chn4"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SoundResource" format=3 uid="uid://6fbyuiyvroe1"]
+
+[ext_resource type="Script" uid="uid://de16u0mha72wi" path="res://audio/AudioManager/audio_resources/sound_resource.gd" id="1_ceit6"]
+[ext_resource type="AudioStream" uid="uid://dkpb8eoay5ihj" path="res://audio/sounds/sound_effects/glass_break.mp3" id="2_wvgny"]
+
+[resource]
+script = ExtResource("1_ceit6")
+sound = ExtResource("2_wvgny")
+volume = -26.0
+pitch = 0.75
+random_pitch = 0.12
+metadata/_custom_type_script = "uid://de16u0mha72wi"

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cewdldx5canfm"]
+
+[ext_resource type="Script" uid="uid://bixojjq1rguff" path="res://audio/sound_inc_manager/sound_inc_component.gd" id="1_ctief"]
+
+[node name="SoundIncComponent" type="Node2D" unique_id=786669208 groups=["sound_inc"]]
+script = ExtResource("1_ctief")
+metadata/_custom_type_script = "uid://bixojjq1rguff"

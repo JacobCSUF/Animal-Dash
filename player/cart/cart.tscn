@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d33aucrrmyhnl" path="res://sprites/mine_cart/cart.png" id="1_474ei"]
 [ext_resource type="Script" uid="uid://di67rwl8lf3wa" path="res://player/cart/cart.gd" id="1_ml0nl"]
 [ext_resource type="Texture2D" uid="uid://diqncbiciobdm" path="res://sprites/mine_cart/cart_wheel.png" id="2_ml0nl"]
-[ext_resource type="AudioStream" uid="uid://bmcpwpqrnwbaf" path="res://sounds/sound_effects/water-pump_short.mp3" id="4_yrxms"]
+[ext_resource type="AudioStream" uid="uid://bmcpwpqrnwbaf" path="res://audio/sounds/sound_effects/water-pump_short.mp3" id="4_yrxms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
 size = Vector2(21, 25)

@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="2_6no68"]
 [ext_resource type="Texture2D" uid="uid://ngjkp051arux" path="res://sprites/lvl1 decorations/energy_tank.png" id="2_eudb8"]
 [ext_resource type="Texture2D" uid="uid://bxkxsqtasf71l" path="res://sprites/lvl1 decorations/juice.png" id="4_m3e6v"]
-[ext_resource type="AudioStream" uid="uid://cv06y3r8emiyl" path="res://sounds/sound_effects/water_pump.mp3" id="5_eudb8"]
+[ext_resource type="AudioStream" uid="uid://cv06y3r8emiyl" path="res://audio/sounds/sound_effects/water_pump.mp3" id="5_eudb8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jrbur"]
 shader = ExtResource("2_6no68")

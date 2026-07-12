@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cb2ggcfkd5bxp" path="res://scripts/spin_flip.gd" id="1_cjeeq"]
 [ext_resource type="Texture2D" uid="uid://b8k672b7ne8rx" path="res://sprites/spin_flip.png" id="1_lalqp"]
-[ext_resource type="AudioStream" uid="uid://q2hu4ep1p75q" path="res://sounds/area/wind_up_spin.mp3" id="3_kmy5o"]
+[ext_resource type="AudioStream" uid="uid://q2hu4ep1p75q" path="res://audio/sounds/area/wind_up_spin.mp3" id="3_kmy5o"]
 [ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="4_iqow0"]
 [ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="5_q6e1c"]
 [ext_resource type="Script" uid="uid://e8yw2hruql0h" path="res://1triggers/response_resource/r_route_resource.gd" id="6_dllu4"]
 [ext_resource type="Texture2D" uid="uid://bmeo244anl5c7" path="res://sprites/spin_flip_circle.png" id="7_dllu4"]
-[ext_resource type="AudioStream" uid="uid://jjygoi0pp6j4" path="res://sounds/windup.mp3" id="8_iqow0"]
-[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://managers/sound_inc_manager/sound_inc_component.tscn" id="9_lumvx"]
+[ext_resource type="AudioStream" uid="uid://jjygoi0pp6j4" path="res://audio/sounds/windup.mp3" id="8_iqow0"]
+[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://audio/sound_inc_manager/sound_inc_component.tscn" id="9_lumvx"]
 
 [sub_resource type="Gradient" id="Gradient_eljev"]
 offsets = PackedFloat32Array(0, 0.71525884, 1)

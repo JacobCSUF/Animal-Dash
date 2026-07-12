@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bap6ofsij3477" path="res://scenes/background.tscn" id="1_brtod"]
 [ext_resource type="Script" uid="uid://c3nbhfhjpls2a" path="res://scenes/levels/bg_resource.gd" id="2_hae6j"]
 [ext_resource type="PackedScene" uid="uid://b0t4urxjrfulk" path="res://managers/particle_manager/particle_scenes/rain_particles.tscn" id="3_7jaka"]
-[ext_resource type="AudioStream" uid="uid://qkha8vsawcl5" path="res://sounds/sound_effects/water_fall_small.mp3" id="4_reb47"]
+[ext_resource type="AudioStream" uid="uid://qkha8vsawcl5" path="res://audio/sounds/sound_effects/water_fall_small.mp3" id="4_reb47"]
 [ext_resource type="PackedScene" uid="uid://dtd52l2v1w8jv" path="res://obstacles/interactable/water_fall.tscn" id="5_wjaoy"]
 [ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="6_wjaoy"]
 [ext_resource type="Texture2D" uid="uid://dojen12h2ru5n" path="res://sprites/water_fill.png" id="7_2bl4r"]

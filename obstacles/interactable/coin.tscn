@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://7u7iatu3w6p" path="res://1triggers/base_object/object_components/shader_component.tscn" id="7_qn4ut"]
 [ext_resource type="Script" uid="uid://e8yw2hruql0h" path="res://1triggers/response_resource/r_route_resource.gd" id="7_r20mg"]
 [ext_resource type="Script" uid="uid://cdojrf8j4lvru" path="res://1triggers/response_resource/r_movement_resource.gd" id="7_st55x"]
-[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://managers/sound_inc_manager/sound_inc_component.tscn" id="9_st55x"]
-[ext_resource type="AudioStream" uid="uid://b3axi8mm0xebf" path="res://sounds/sound_effects/drop-coin-384921.mp3" id="11_s5xbs"]
+[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://audio/sound_inc_manager/sound_inc_component.tscn" id="9_st55x"]
+[ext_resource type="AudioStream" uid="uid://b3axi8mm0xebf" path="res://audio/sounds/sound_effects/drop-coin-384921.mp3" id="11_s5xbs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qn4ut"]
 atlas = ExtResource("2_g30d2")

@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dpgjpg2frjva8" path="res://sprites/textures/water_drop_texture_bright.png" id="5_13my7"]
 [ext_resource type="PackedScene" uid="uid://cwce22ml12n0g" path="res://globals/components/AREA_TRIGGER.tscn" id="6_l247p"]
 [ext_resource type="Texture2D" uid="uid://cgq361m1okpcj" path="res://sprites/panel.png" id="8_a527q"]
-[ext_resource type="AudioStream" uid="uid://dp1gusbhm77n" path="res://sounds/sound_effects/water_splash_1.mp3" id="9_a527q"]
+[ext_resource type="AudioStream" uid="uid://dp1gusbhm77n" path="res://audio/sounds/sound_effects/water_splash_1.mp3" id="9_a527q"]
 [ext_resource type="Texture2D" uid="uid://cfj338uh0gpjo" path="res://sprites/waterdrop.png" id="10_sx1an"]
-[ext_resource type="AudioStream" uid="uid://qkha8vsawcl5" path="res://sounds/sound_effects/water_fall_small.mp3" id="11_a527q"]
+[ext_resource type="AudioStream" uid="uid://qkha8vsawcl5" path="res://audio/sounds/sound_effects/water_fall_small.mp3" id="11_a527q"]
 [ext_resource type="Script" uid="uid://2xs7q7s4bipi" path="res://scripts/shader_component.gd" id="11_sx1an"]
 
 [sub_resource type="Resource" id="Resource_4x4hb"]

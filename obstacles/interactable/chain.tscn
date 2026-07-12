@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b2shq2gjd4fvt" path="res://addons/ropesim/Rope.gd" id="2_bj707"]
 [ext_resource type="Texture2D" uid="uid://dxid6fl1y4nj5" path="res://sprites/textures/chain_segment.png" id="3_ny2ed"]
 [ext_resource type="Script" uid="uid://dfppmnngy2wx4" path="res://addons/ropesim/RopeRendererLine2D.gd" id="4_lyjai"]
-[ext_resource type="AudioStream" uid="uid://bkns7wx8ubhsk" path="res://sounds/area/chains.mp3" id="7_h3ejj"]
+[ext_resource type="AudioStream" uid="uid://bkns7wx8ubhsk" path="res://audio/sounds/area/chains.mp3" id="7_h3ejj"]
 [ext_resource type="Script" uid="uid://p7agqkyx3kru" path="res://addons/ropesim/RopeCollisionShapeGenerator.gd" id="8_pmm4o"]
 
 [sub_resource type="Curve" id="Curve_cdim7"]

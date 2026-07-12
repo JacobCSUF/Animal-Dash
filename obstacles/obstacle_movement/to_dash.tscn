@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4vbiehf4ep6n" path="res://scripts/to_dash.gd" id="1_e5l7p"]
 [ext_resource type="PackedScene" uid="uid://c5gt5brgrdhr6" path="res://areas/dash_area.tscn" id="3_u7y1g"]
-[ext_resource type="AudioStream" uid="uid://cj5r84ag13klg" path="res://sounds/sound_effects/blow-dryer-.mp3" id="4_w75gl"]
+[ext_resource type="AudioStream" uid="uid://cj5r84ag13klg" path="res://audio/sounds/sound_effects/blow-dryer-.mp3" id="4_w75gl"]
 [ext_resource type="Texture2D" uid="uid://dqielpfdx6yv2" path="res://sprites/fan_boost_left.png" id="5_e5l7p"]
 [ext_resource type="Texture2D" uid="uid://crquh48wew7hn" path="res://sprites/fan_boost_right.png" id="6_0a1jn"]
 [ext_resource type="Shader" uid="uid://be42h35uukedg" path="res://shaders/move.gdshader" id="7_ago56"]
@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://c334kyx84x0ya" path="res://sprites/textures/dash_flash.png" id="10_0a1jn"]
 [ext_resource type="PackedScene" uid="uid://sgp52s1sda5g" path="res://globals/components/sway.tscn" id="10_e5l7p"]
 [ext_resource type="Texture2D" uid="uid://cjshedwi8yxh7" path="res://sprites/signs/to_dash.png" id="10_w75gl"]
-[ext_resource type="AudioStream" uid="uid://dojc7nt2c2xgf" path="res://sounds/area/magic_woosh.mp3" id="12_0a1jn"]
-[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://managers/sound_inc_manager/sound_inc_component.tscn" id="13_ago56"]
+[ext_resource type="AudioStream" uid="uid://dojc7nt2c2xgf" path="res://audio/sounds/area/magic_woosh.mp3" id="12_0a1jn"]
+[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://audio/sound_inc_manager/sound_inc_component.tscn" id="13_ago56"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mwfud"]
 height = 54.0

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="6_wax1t"]
 [ext_resource type="PackedScene" uid="uid://1p26alf41aod" path="res://managers/background_manager/bg_manager.tscn" id="7_1tmhi"]
 [ext_resource type="PackedScene" uid="uid://dse0r4s003x37" path="res://managers/particle_manager/particle_scenes/bg_particles.tscn" id="7_8efq7"]
-[ext_resource type="Script" uid="uid://b2txqab1v23q1" path="res://managers/sound_inc_manager/sound_inc_manager.gd" id="8_l5f8m"]
+[ext_resource type="Script" uid="uid://b2txqab1v23q1" path="res://audio/sound_inc_manager/sound_inc_manager.gd" id="8_l5f8m"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3oqy1"]
 frequency = 0.0183

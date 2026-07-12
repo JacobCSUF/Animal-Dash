@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cedeyj3mnhx4b" path="res://sprites/ctr3.png" id="3_luhxi"]
 [ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="5_dqplr"]
 [ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="6_cc63o"]
-[ext_resource type="AudioStream" uid="uid://cm4eowfqlqx2w" path="res://sounds/area/beep.mp3" id="6_dqplr"]
-[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://managers/sound_inc_manager/sound_inc_component.tscn" id="7_ptho1"]
+[ext_resource type="AudioStream" uid="uid://cm4eowfqlqx2w" path="res://audio/sounds/area/beep.mp3" id="6_dqplr"]
+[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://audio/sound_inc_manager/sound_inc_component.tscn" id="7_ptho1"]
 [ext_resource type="Script" uid="uid://e8yw2hruql0h" path="res://1triggers/response_resource/r_route_resource.gd" id="7_wo3gy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7pvsc"]
@@ -69,8 +69,6 @@ region_enabled = true
 region_rect = Rect2(0, 0, 32, 10)
 
 [node name="direct_area" parent="." unique_id=1000805726 instance=ExtResource("5_dqplr")]
-collision_layer = 0
-collision_mask = 1
 responses = Array[ExtResource("6_cc63o")]([SubResource("Resource_jvp1d")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="direct_area" unique_id=42253381]

@@ -25,10 +25,10 @@ buses/default_bus_layout="uid://bwgsvg5jw1qgs"
 GameState="*uid://bsrlu7oykjtie"
 SongManager="*uid://bais6bdh5c0hm"
 PlayerFollower="*uid://bxjjoffjws3of"
-AudioManager="*uid://dk46gwrksu2ij"
 TriggerHandler="*uid://cvqcb1bccm2hy"
 SaveManager="*uid://dfh7c7mg0s30t"
 ParticleManager="*uid://or6wn166kcu"
+AudioManager="*uid://dk46gwrksu2ij"
 
 [display]
 

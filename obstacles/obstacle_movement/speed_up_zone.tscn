@@ -9,9 +9,9 @@
 [ext_resource type="Script" uid="uid://clgxy4enti5s5" path="res://managers/background_manager/bg_params.gd" id="8_8bfnv"]
 [ext_resource type="Script" uid="uid://ceabpejx0in8f" path="res://1triggers/response_resource/r_bg_resource.gd" id="8_wce4i"]
 [ext_resource type="Script" uid="uid://ca3kmxodgic3d" path="res://1triggers/response_resource/r_particle_resource.gd" id="9_a23yf"]
-[ext_resource type="AudioStream" uid="uid://jnojsbfk3edn" path="res://sounds/area/speedup.mp3" id="10_obmvn"]
+[ext_resource type="AudioStream" uid="uid://jnojsbfk3edn" path="res://audio/sounds/area/speedup.mp3" id="10_obmvn"]
 [ext_resource type="Texture2D" uid="uid://0pore0i2dbln" path="res://sprites/gpu_particles/shimmersheet.png" id="12_b88fr"]
-[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://managers/sound_inc_manager/sound_inc_component.tscn" id="13_a23yf"]
+[ext_resource type="PackedScene" uid="uid://cewdldx5canfm" path="res://audio/sound_inc_manager/sound_inc_component.tscn" id="13_a23yf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kmkdj"]
 shader = ExtResource("2_kmkdj")

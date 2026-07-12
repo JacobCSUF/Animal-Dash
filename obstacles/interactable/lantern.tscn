@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://blilh2jtj73q0" path="res://sprites/lantern_blink.png" id="1_hhuhv"]
 [ext_resource type="Script" uid="uid://b0yjwk8au5dr2" path="res://scripts/lantern.gd" id="1_sv276"]
 [ext_resource type="Texture2D" uid="uid://kxlgfbtfum3m" path="res://sprites/lantern_fire.png" id="3_qw4cd"]
-[ext_resource type="AudioStream" uid="uid://bvh7w01df027j" path="res://sounds/area/fire_on.mp3" id="4_sv276"]
-[ext_resource type="AudioStream" uid="uid://b6tdtnegxiawr" path="res://sounds/area/campfire.mp3" id="5_wp3cx"]
+[ext_resource type="AudioStream" uid="uid://bvh7w01df027j" path="res://audio/sounds/area/fire_on.mp3" id="4_sv276"]
+[ext_resource type="AudioStream" uid="uid://b6tdtnegxiawr" path="res://audio/sounds/area/campfire.mp3" id="5_wp3cx"]
 [ext_resource type="Texture2D" uid="uid://bgpeiwiughsv4" path="res://sprites/gpu_particles/fire_particle-Sheet.png" id="6_iou8t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ph1qh"]

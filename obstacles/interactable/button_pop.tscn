@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://s4baycwex3s1" path="res://sprites/button-Sheet.png" id="2_m8o1b"]
 [ext_resource type="PackedScene" uid="uid://dsi7byfnrch8g" path="res://globals/components/area_handler.tscn" id="3_pgghr"]
 [ext_resource type="Texture2D" uid="uid://6k75kh5rnw8o" path="res://sprites/gpu_particles/shimmer3.png" id="4_xcp46"]
-[ext_resource type="AudioStream" uid="uid://dg8wd2w6v721" path="res://sounds/area/button12.mp3" id="5_manbq"]
+[ext_resource type="AudioStream" uid="uid://dg8wd2w6v721" path="res://audio/sounds/area/button12.mp3" id="5_manbq"]
 [ext_resource type="PackedScene" uid="uid://6gfubqrnl8yg" path="res://1triggers/triggers/multi_triggers/multi_area.tscn" id="7_165yp"]
 [ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="8_b4uod"]
 [ext_resource type="Script" uid="uid://e8yw2hruql0h" path="res://1triggers/response_resource/r_route_resource.gd" id="9_6e1wx"]

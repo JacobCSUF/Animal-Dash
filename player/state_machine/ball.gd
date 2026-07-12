@@ -6,6 +6,7 @@ extends PlayerState
 @onready var sprite: Node2D = $"../../sprite"
 @onready var timer: Timer = $Timer
 @onready var ray_cast_2d: RayCast2D = %RayCast2D
+@onready var squish: AnimationPlayer = $"../../squish"
 
 const state = Player.player_states.BALL
 
@@ -78,7 +79,7 @@ func match_state(state: states,delta):
 			
 			if (player.is_on_floor() or player.is_on_ceiling() or player.is_on_wall()):
 				var v = vel.normalized()
-			
+				squish.play("squish")
 				
 				if player.is_on_floor():
 					
@@ -146,6 +147,7 @@ func get_flip():
 		flip = 0
 
 func exit_state():
+	squish.play("RESET")
 	player.velocity = Vector2(0,0)
 	flip =0
 	n = Vector2(0,-1)

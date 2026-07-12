@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bcie6t0a621dk" path="res://sprites/crane_lift.png" id="4_lqehd"]
 [ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="6_ybgtq"]
 [ext_resource type="PackedScene" uid="uid://cwce22ml12n0g" path="res://globals/components/AREA_TRIGGER.tscn" id="7_c3yqf"]
-[ext_resource type="AudioStream" uid="uid://c2p0bfnq7xpll" path="res://sounds/sound_effects/crane_lift.mp3" id="7_lqehd"]
+[ext_resource type="AudioStream" uid="uid://c2p0bfnq7xpll" path="res://audio/sounds/sound_effects/crane_lift.mp3" id="7_lqehd"]
 [ext_resource type="Script" uid="uid://b2shq2gjd4fvt" path="res://addons/ropesim/Rope.gd" id="7_m4fct"]
 [ext_resource type="Script" uid="uid://1xluodkpnre3" path="res://addons/ropesim/RopeHandle.gd" id="8_x3h11"]
 

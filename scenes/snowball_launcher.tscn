@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://66lk2f27m8is" path="res://scripts/snowball_launcher.gd" id="1_0foau"]
 [ext_resource type="Texture2D" uid="uid://l6okdgw1eprx" path="res://sprites/lvl snow decorations/snow_ball_launcher.png" id="2_0foau"]
-[ext_resource type="AudioStream" uid="uid://dd6wloo4b7xja" path="res://sounds/sound_effects/snow_ball_shot.mp3" id="3_dx6o4"]
+[ext_resource type="AudioStream" uid="uid://dd6wloo4b7xja" path="res://audio/sounds/sound_effects/snow_ball_shot.mp3" id="3_dx6o4"]
 
 [sub_resource type="Animation" id="Animation_0foau"]
 length = 0.001

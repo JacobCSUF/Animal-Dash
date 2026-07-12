@@ -24,7 +24,7 @@
 [ext_resource type="Script" uid="uid://cdojrf8j4lvru" path="res://1triggers/response_resource/r_movement_resource.gd" id="25_lsxft"]
 [ext_resource type="PackedScene" uid="uid://6gfubqrnl8yg" path="res://1triggers/triggers/multi_triggers/multi_area.tscn" id="26_lsxft"]
 [ext_resource type="PackedScene" uid="uid://o4sq7h8i7h38" path="res://obstacles/ball_curves/ball_curve_U.tscn" id="27_ojkn5"]
-[ext_resource type="Script" uid="uid://cn5psabiv8dep" path="res://managers/AudioManager/sound_params.gd" id="27_rfqup"]
+[ext_resource type="Script" uid="uid://cn5psabiv8dep" path="res://audio/AudioManager/sound_params.gd" id="27_rfqup"]
 [ext_resource type="PackedScene" uid="uid://evt7yw62xe28" path="res://scenes/big_ice_spike.tscn" id="28_0qxt0"]
 [ext_resource type="PackedScene" uid="uid://bfyiivycn0hip" path="res://managers/particle_manager/particle_scenes/snow_particles.tscn" id="28_6vxnv"]
 [ext_resource type="Texture2D" uid="uid://udsl8olr4m7o" path="res://sprites/signs/wind_sign.png" id="28_flme0"]

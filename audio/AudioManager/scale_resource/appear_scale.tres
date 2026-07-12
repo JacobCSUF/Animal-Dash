@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ScaleResource" format=3 uid="uid://cpvs0v0upf3rw"]
+
+[ext_resource type="Script" uid="uid://cfvvtbgfccs2t" path="res://audio/AudioManager/scale_resource/scale_resource.gd" id="1_y08lh"]
+[ext_resource type="AudioStream" uid="uid://dj46xh6ybldof" path="res://audio/sounds/sound_effects/appear.mp3" id="2_0tlfb"]
+
+[resource]
+script = ExtResource("1_y08lh")
+sound = ExtResource("2_0tlfb")
+volume = -32.0
+start_pitch = 1.782
+steps = 5
+metadata/_custom_type_script = "uid://cfvvtbgfccs2t"

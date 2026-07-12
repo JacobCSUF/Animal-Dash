@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dypeca3fu16tv"]
 
 [ext_resource type="Script" uid="uid://do01xxqagww6i" path="res://1triggers/receiver_components/receiver_appear.gd" id="1_7lurl"]
-[ext_resource type="AudioStream" uid="uid://dj46xh6ybldof" path="res://sounds/sound_effects/appear.mp3" id="2_adlsq"]
+[ext_resource type="AudioStream" uid="uid://dj46xh6ybldof" path="res://audio/sounds/sound_effects/appear.mp3" id="2_adlsq"]
 [ext_resource type="Texture2D" uid="uid://0pore0i2dbln" path="res://sprites/gpu_particles/shimmersheet.png" id="3_7lurl"]
 [ext_resource type="Material" uid="uid://bukxx4o22k4tp" path="res://resources/particles/appear.tres" id="4_m77wt"]
 [ext_resource type="Texture2D" uid="uid://cu3u5dcpv5sus" path="res://sprites/gpu_particles/smoke_shimmer.png" id="5_7nydy"]
@@ -22,13 +22,14 @@ pitch_scale = 2.0
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2126577566]
 physics_interpolation_mode = 2
 visible = false
-z_index = 1
+z_index = 3
 material = SubResource("CanvasItemMaterial_7lurl")
 position = Vector2(58, 21)
 amount = 80
 texture = ExtResource("3_7lurl")
 lifetime = 0.7
 fixed_fps = 60
+visibility_rect = Rect2(-800, -100, 1200, 200)
 trail_lifetime = 0.16
 process_material = ExtResource("4_m77wt")
 

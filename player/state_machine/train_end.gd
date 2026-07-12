@@ -10,7 +10,7 @@ func enter_state(player_node, data = {}):
 
 	super(player_node)
 	#Vector2( 250.0 ,-220.0)*player.speed_mult
-	player.velocity = player.get_partial_mult_vector(Vector2(245,-220),.5)
+	player.velocity = player.get_partial_mult_vector(Vector2(245,-160),.5)
 	
 func handle_input(delta):
 	player.velocity += player.get_gravity() * delta

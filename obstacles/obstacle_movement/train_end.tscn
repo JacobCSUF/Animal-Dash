@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bt0khj6jlnt3t" path="res://sprites/mine_cart/cart_end.png" id="1_x3iwy"]
 [ext_resource type="Texture2D" uid="uid://dimuqs610dtq1" path="res://sprites/mine_cart/train_end_plasma-Sheet.png" id="1_xwm5m"]
 [ext_resource type="PackedScene" uid="uid://c5gt5brgrdhr6" path="res://areas/dash_area.tscn" id="3_qm536"]
-[ext_resource type="AudioStream" uid="uid://42butiuhchf" path="res://sounds/rr_cross.mp3" id="4_22x5l"]
+[ext_resource type="AudioStream" uid="uid://42butiuhchf" path="res://audio/sounds/rr_cross.mp3" id="4_22x5l"]
 [ext_resource type="Texture2D" uid="uid://bupd24tq5pvu0" path="res://sprites/mine_cart/end_warning.png" id="5_qm536"]
-[ext_resource type="AudioStream" uid="uid://dwoh8vxlo5gs4" path="res://sounds/denied2.mp3" id="6_31auh"]
+[ext_resource type="AudioStream" uid="uid://dwoh8vxlo5gs4" path="res://audio/sounds/denied2.mp3" id="6_31auh"]
 [ext_resource type="PackedScene" uid="uid://dsi7byfnrch8g" path="res://globals/components/area_handler.tscn" id="7_31auh"]
 [ext_resource type="PackedScene" uid="uid://bofowndomeiut" path="res://managers/particle_manager/particle_scenes/death_particle.tscn" id="8_31auh"]
 

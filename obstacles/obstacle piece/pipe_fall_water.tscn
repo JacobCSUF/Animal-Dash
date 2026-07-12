@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bln7re1rgpwyo" path="res://scripts/pipe_fall.gd" id="1_4405t"]
 [ext_resource type="PackedScene" uid="uid://ccpykyobc3qdv" path="res://obstacles/obstacle piece/stretch_pipe.tscn" id="1_x5t7e"]
-[ext_resource type="AudioStream" uid="uid://11jfmiy56m88" path="res://sounds/sound_effects/splash2.mp3" id="2_8pxn3"]
+[ext_resource type="AudioStream" uid="uid://11jfmiy56m88" path="res://audio/sounds/sound_effects/splash2.mp3" id="2_8pxn3"]
 [ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="3_4405t"]
 [ext_resource type="Texture2D" uid="uid://4vjr3xo23mmi" path="res://sprites/arrow-Sheet.png" id="4_2blny"]
 [ext_resource type="Texture2D" uid="uid://crvpfrexohg8d" path="res://sprites/gpu_particles/fire_particle.png" id="4_gheg7"]

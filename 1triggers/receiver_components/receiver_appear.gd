@@ -33,6 +33,7 @@ func _on_tween_finished(target):
 	smoke.emitting = true
 	smoke.global_position = target_pos
 	appear.play()
+	AudioManager.play_scale(AudioManager.Scale.APPEAR)
 	if target:
 		
 		target.visible = true

@@ -34,7 +34,7 @@ func _on_area_entered(area: Node2D):
 			trigger.start_trigger()
 			signaled.emit()
 			
-		if audio:
+		if audio and audio!= AudioManager.Sound.DASH:
 			AudioManager.play_sound(audio)
 		
 		if audio_stream:

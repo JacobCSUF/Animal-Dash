@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://khv3j4kefump" path="res://sprites/signs/to_wind_sheet.png" id="3_0tycm"]
 [ext_resource type="PackedScene" uid="uid://c5gt5brgrdhr6" path="res://areas/dash_area.tscn" id="3_ouk8y"]
 [ext_resource type="Texture2D" uid="uid://dqielpfdx6yv2" path="res://sprites/fan_boost_left.png" id="5_1c73u"]
-[ext_resource type="AudioStream" uid="uid://cj5r84ag13klg" path="res://sounds/sound_effects/blow-dryer-.mp3" id="5_j84bc"]
+[ext_resource type="AudioStream" uid="uid://cj5r84ag13klg" path="res://audio/sounds/sound_effects/blow-dryer-.mp3" id="5_j84bc"]
 [ext_resource type="Texture2D" uid="uid://crquh48wew7hn" path="res://sprites/fan_boost_right.png" id="6_f7e81"]
 [ext_resource type="Shader" uid="uid://be42h35uukedg" path="res://shaders/move.gdshader" id="7_binwg"]
 [ext_resource type="PackedScene" uid="uid://sgp52s1sda5g" path="res://globals/components/sway.tscn" id="8_binwg"]

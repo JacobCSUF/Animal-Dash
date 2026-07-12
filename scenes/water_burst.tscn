@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://b2re7tkqsjq23" path="res://scripts/water_burst.gd" id="1_7kngm"]
 [ext_resource type="Texture2D" uid="uid://og2et56egt1l" path="res://sprites/gpu_particles/water_shimmer.png" id="1_b2f0j"]
 [ext_resource type="Texture2D" uid="uid://b6o5kn6yecrry" path="res://sprites/pipe_crack_burst.png" id="2_s14bl"]
-[ext_resource type="AudioStream" uid="uid://nntcc43jbkdl" path="res://sounds/sound_effects/water_flow.mp3" id="3_xeuq5"]
-[ext_resource type="AudioStream" uid="uid://ctrl511h64mx" path="res://sounds/burst.mp3" id="5_4wsvr"]
+[ext_resource type="AudioStream" uid="uid://nntcc43jbkdl" path="res://audio/sounds/sound_effects/water_flow.mp3" id="3_xeuq5"]
+[ext_resource type="AudioStream" uid="uid://ctrl511h64mx" path="res://audio/sounds/burst.mp3" id="5_4wsvr"]
 
 [sub_resource type="Gradient" id="Gradient_s14bl"]
 offsets = PackedFloat32Array(0, 0.6396552, 1)

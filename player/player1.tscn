@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cofo1ne87oloo" path="res://sprites/animals/animation_resources/parrot_frames.tres" id="2_ikikr"]
 [ext_resource type="Resource" uid="uid://bc18ongnd283q" path="res://sprites/animals/animal_resource/bat.tres" id="2_qfajp"]
 [ext_resource type="Script" uid="uid://cmiccfy3kd8cd" path="res://player/state_machine/flappy.gd" id="3_qvdwi"]
-[ext_resource type="AudioStream" uid="uid://4rftf3sg1wff" path="res://sounds/player_sounds/jumpp.mp3" id="4_fcbal"]
+[ext_resource type="AudioStream" uid="uid://4rftf3sg1wff" path="res://audio/sounds/player_sounds/jumpp.mp3" id="4_fcbal"]
 [ext_resource type="Script" uid="uid://b5vy1stk8juby" path="res://player/state_machine/dash.gd" id="5_bndlp"]
 [ext_resource type="Script" uid="uid://bccdiduwpvjps" path="res://player/state_machine/dash_recoil.gd" id="6_0wt6p"]
 [ext_resource type="Script" uid="uid://dr0kfndvbbf8o" path="res://player/state_machine/float.gd" id="7_vtxbe"]
@@ -12,12 +12,12 @@
 [ext_resource type="Script" uid="uid://bqadgr3nrfcvq" path="res://player/state_machine/float_glide.gd" id="9_no58m"]
 [ext_resource type="Script" uid="uid://bwdmavgb2g4j7" path="res://player/state_machine/throw.gd" id="10_k2qjf"]
 [ext_resource type="Script" uid="uid://bjdbn34kw7lqg" path="res://player/state_machine/ball.gd" id="11_5ako0"]
-[ext_resource type="AudioStream" uid="uid://dny5gng20wljr" path="res://sounds/player_sounds/ball_impact.mp3" id="12_vjas8"]
+[ext_resource type="AudioStream" uid="uid://dny5gng20wljr" path="res://audio/sounds/player_sounds/ball_impact.mp3" id="12_vjas8"]
 [ext_resource type="Script" uid="uid://64tht0tflope" path="res://player/state_machine/angled_movement.gd" id="13_ns8b8"]
 [ext_resource type="PackedScene" uid="uid://xuwiexuyjr6s" path="res://player/cart/cart.tscn" id="14_flu0l"]
 [ext_resource type="Script" uid="uid://bim1ugijk4ahb" path="res://player/state_machine/train_end.gd" id="15_0myvv"]
 [ext_resource type="Script" uid="uid://bfs1emvbtks26" path="res://player/animation_sounds.gd" id="16_8u37r"]
-[ext_resource type="AudioStream" uid="uid://cue63oontuwvk" path="res://sounds/sound_effects/float_wind.mp3" id="17_i7u44"]
+[ext_resource type="AudioStream" uid="uid://cue63oontuwvk" path="res://audio/sounds/sound_effects/float_wind.mp3" id="17_i7u44"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1sg0x"]
 
@@ -104,6 +104,43 @@ _data = {
 &"spin": SubResource("Animation_j8ps2")
 }
 
+[sub_resource type="Animation" id="Animation_f5isc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qfajp"]
+resource_name = "squish"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.4, 0.7), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f5isc"]
+_data = {
+&"RESET": SubResource("Animation_f5isc"),
+&"squish": SubResource("Animation_qfajp")
+}
+
 [node name="player" type="CharacterBody2D" unique_id=1431000598 node_paths=PackedStringArray("icon") groups=["player"]]
 process_mode = 1
 collision_layer = 6
@@ -127,7 +164,7 @@ shape = SubResource("CircleShape2D_1sg0x")
 physics_interpolation_mode = 2
 light_mask = 0
 sprite_frames = ExtResource("2_ikikr")
-animation = &"flappy"
+animation = &"ball"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1883544562]
 position = Vector2(-3.8146973e-06, 0)
@@ -156,6 +193,9 @@ texture = SubResource("GradientTexture2D_j8ps2")
 
 [node name="state_animations" type="AnimationPlayer" parent="." unique_id=456608742]
 libraries/ = SubResource("AnimationLibrary_dokml")
+
+[node name="squish" type="AnimationPlayer" parent="." unique_id=1520595963]
+libraries/ = SubResource("AnimationLibrary_f5isc")
 
 [node name="dash_cd" type="Timer" parent="." unique_id=1006797109]
 wait_time = 0.36

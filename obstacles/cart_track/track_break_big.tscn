@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dns4rkgbi66kd" path="res://sprites/mine_cart/track_wood.png" id="3_6ynya"]
 [ext_resource type="PackedScene" uid="uid://bupxkt74fqop" path="res://1triggers/triggers/direct_triggers/direct_area.tscn" id="4_tbawy"]
 [ext_resource type="PackedScene" uid="uid://2h1dgwveo75j" path="res://obstacles/cart_track/track_pillar.tscn" id="5_ui0e3"]
-[ext_resource type="AudioStream" uid="uid://b8yg6pk2jcyxj" path="res://sounds/area/pipe_break.mp3" id="6_eogbc"]
+[ext_resource type="AudioStream" uid="uid://b8yg6pk2jcyxj" path="res://audio/sounds/area/pipe_break.mp3" id="6_eogbc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pxqp1"]
 bounce = 0.35

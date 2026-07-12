@@ -5,7 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="3_yyfmg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfvvv"]
-size = Vector2(30, 234)
+size = Vector2(22, 228)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1h4cx"]
+size = Vector2(21.999992, 228)
 
 [node name="frozen_pipe_spike" type="Node2D" unique_id=1330777790]
 position = Vector2(-1, 94)
@@ -22,7 +25,7 @@ texture = ExtResource("2_rmi0h")
 position = Vector2(-10, -109)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe/kill_area" unique_id=193523243]
-position = Vector2(1, 116)
+position = Vector2(1, 119)
 shape = SubResource("RectangleShape2D_hfvvv")
 
 [node name="Pipe2" type="Sprite2D" parent="." unique_id=1167348722]
@@ -35,5 +38,5 @@ texture = ExtResource("2_rmi0h")
 position = Vector2(-10, -109)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe2/kill_area" unique_id=575583051]
-position = Vector2(1, 116)
-shape = SubResource("RectangleShape2D_hfvvv")
+position = Vector2(0.9999924, 119)
+shape = SubResource("RectangleShape2D_1h4cx")
