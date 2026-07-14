@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://7ab641pmak4m" path="res://scenes/UI/lantern_group_ui.tscn" id="6_vl0d2"]
 [ext_resource type="Texture2D" uid="uid://bpt786awdytar" path="res://sprites/imgbin_b6a6e1dcc386cd2c37cef87794eaaf7d.png" id="7_60uxb"]
 [ext_resource type="PackedScene" uid="uid://ftfnkrmwb02f" path="res://obstacles/interactable/coin.tscn" id="8_4qxtg"]
-[ext_resource type="Texture2D" uid="uid://bquffrw44nnb7" path="res://sprites/Star.png" id="8_vl0d2"]
-[ext_resource type="Texture2D" uid="uid://btapk310oqpo7" path="res://sprites/gray_star.png" id="9_e7gcb"]
+[ext_resource type="PackedScene" uid="uid://bmfn8wqulw2vm" path="res://scenes/UI/difficulty_ui.tscn" id="8_vl0d2"]
+[ext_resource type="Texture2D" uid="uid://cok67dik24s0m" path="res://sprites/coin-Sheet-Sheet.png" id="9_vl0d2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u2ndr"]
 texture = ExtResource("5_u2ndr")
@@ -122,6 +122,21 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7gcb"]
+atlas = ExtResource("9_vl0d2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v87q7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7gcb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="level_menu" type="Control" unique_id=795183383]
 layout_mode = 3
@@ -324,38 +339,14 @@ theme_override_constants/shadow_outline_size = 2
 theme_override_font_sizes/font_size = 6
 text = "Difficulty"
 
-[node name="Star" type="Sprite2D" parent="difficulty" unique_id=637021057]
-position = Vector2(10.600007, 7.5999985)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("8_vl0d2")
+[node name="difficulty_ui" parent="difficulty" unique_id=811840475 instance=ExtResource("8_vl0d2")]
+position = Vector2(11, 8)
 
-[node name="Star2" type="Sprite2D" parent="difficulty" unique_id=1072927337]
-position = Vector2(19.600006, 7.5999985)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("8_vl0d2")
-
-[node name="Star3" type="Sprite2D" parent="difficulty" unique_id=1927349659]
-position = Vector2(28.600006, 7.5999985)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("8_vl0d2")
-
-[node name="Star4" type="Sprite2D" parent="difficulty" unique_id=1340362389]
-modulate = Color(0.40233153, 0.40233156, 0.40233153, 1)
-position = Vector2(37.600006, 7.5999985)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("9_e7gcb")
-
-[node name="Star5" type="Sprite2D" parent="difficulty" unique_id=977038769]
-modulate = Color(0.40233153, 0.40233156, 0.40233153, 1)
-position = Vector2(46.600006, 7.5999985)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("9_e7gcb")
-
-[node name="Star6" type="Sprite2D" parent="difficulty" unique_id=1403378465]
-modulate = Color(0.40233153, 0.40233156, 0.40233153, 1)
-position = Vector2(55.600006, 7.5999985)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("9_e7gcb")
+[node name="CoinSheetSheet" type="AnimatedSprite2D" parent="." unique_id=521100896]
+visible = false
+position = Vector2(231, 128)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_v87q7")
 
 [connection signal="pressed" from="up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="down" to="." method="_on_down_pressed"]

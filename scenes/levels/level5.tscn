@@ -41,6 +41,7 @@
 script = ExtResource("2_vnf24")
 level_name = "Water Breakout"
 level_number = 5
+difficulty = 3
 outline_flame_color = Color(0, 0.9138015, 1, 1)
 flame_color = Color(0.25819302, 0.378207, 0.8319876, 1)
 ui_color = Color(0, 0.83137256, 1, 1)

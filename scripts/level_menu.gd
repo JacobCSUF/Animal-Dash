@@ -20,7 +20,7 @@ const PAGE_DOT = preload("uid://cihhs64uxc1ot")
 @onready var clear_no: Label = $cleared_panel/clear_no
 @onready var clear_yes: Label = $cleared_panel/clear_yes
 @onready var difficulty: Panel = $difficulty
-@onready var diff_text: Label = $difficulty/diff_text
+@onready var difficulty_ui: Node2D = $difficulty/difficulty_ui
 
 @onready var lantern_ui: LanternGroupUI = $lantern_ui
 
@@ -97,7 +97,7 @@ func set_level():
 			page_dots[i].toggle_off()
 	
 	lantern_chain.set_lantern_color(f,o)
-
+	difficulty_ui.set_difficulty(lr.difficulty)
 	lantern_chain_2.set_lantern_color(f,o)
 	level_title.text = lr.level_name
 

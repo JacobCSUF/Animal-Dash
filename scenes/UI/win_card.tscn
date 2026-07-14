@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dpftlcpx8awj8" path="res://scripts/win_card.gd" id="1_8ec7x"]
 [ext_resource type="PackedScene" uid="uid://bqj5gg7tuxrwp" path="res://scenes/UI/base_button.tscn" id="2_0mqbr"]
+[ext_resource type="PackedScene" uid="uid://7ab641pmak4m" path="res://scenes/UI/lantern_group_ui.tscn" id="3_5acy6"]
+[ext_resource type="Texture2D" uid="uid://cok67dik24s0m" path="res://sprites/coin-Sheet-Sheet.png" id="4_lkqta"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ec7x"]
 content_margin_left = 0.0
@@ -14,6 +16,21 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7gcb"]
+atlas = ExtResource("4_lkqta")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i3qis"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7gcb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="win_card" type="Control" unique_id=635528446]
 layout_mode = 3
@@ -60,12 +77,35 @@ theme_override_font_sizes/font_size = 64
 text = "YOU WON"
 
 [node name="Coin_label" type="Label" parent="." unique_id=1178414093]
+visible = false
 layout_mode = 0
-offset_left = 324.0
-offset_top = 110.0
+offset_left = 296.0
+offset_top = 97.0
 offset_right = 364.0
-offset_bottom = 127.0
+offset_bottom = 114.0
 text = "Coins: "
+
+[node name="lantern_group_ui" parent="." unique_id=1510897796 instance=ExtResource("3_5acy6")]
+position = Vector2(345, 175)
+
+[node name="coin_label" type="Label" parent="." unique_id=1075463208]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 112.0
+offset_right = 438.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.59607846, 0.59607846, 0.40392157, 0.4745098)
+theme_override_constants/line_spacing = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 16
+text = "15/40"
+
+[node name="CoinSheetSheet" type="AnimatedSprite2D" parent="." unique_id=1413619844]
+position = Vector2(361, 119)
+sprite_frames = SubResource("SpriteFrames_i3qis")
 
 [connection signal="b_pressed" from="redo" to="." method="_on_redo_b_pressed"]
 [connection signal="b_pressed" from="level_select" to="." method="_on_level_select_b_pressed"]

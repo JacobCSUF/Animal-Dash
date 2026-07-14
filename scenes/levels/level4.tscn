@@ -56,6 +56,7 @@
 script = ExtResource("2_8toe1")
 level_name = "Night Party"
 level_number = 4
+difficulty = 3
 outline_flame_color = Color(0.8883946, 0.8379575, 0.999999, 1)
 flame_color = Color(0.45544332, 0.3164593, 1, 1)
 ui_color = Color(0.50368273, 0.34682462, 1.3488225, 1)

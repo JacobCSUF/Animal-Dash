@@ -49,6 +49,7 @@
 script = ExtResource("2_0qxt0")
 level_name = "Snow Town"
 level_number = 3
+difficulty = 2
 outline_flame_color = Color(0.67158127, 0.91852224, 0.9999998, 1)
 flame_color = Color(0.44411117, 0.63194025, 0.824761, 1)
 ui_color = Color(0.87058824, 1, 1, 1)
