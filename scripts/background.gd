@@ -12,8 +12,10 @@ const SHIMMERSHEET = preload("uid://0pore0i2dbln")
 @onready var bg_manager: BG_manager = $managers/bg_manager
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	var particles: Array[GPUParticles2D] = [bg_p1,bg_p2]
 	for p in particles:
 		if bg.particle_texture:

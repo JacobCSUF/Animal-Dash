@@ -16,13 +16,21 @@ class_name BaseObject
 @export var sound_inc_component: SoundIncComponent
 
 @export var shader: ShaderMaterial
+const OBJECT_ENABLER = preload("uid://b0baha740wdqu")
 
 var overide_pos:Vector2 = Vector2(0,0)
 
 
 func _ready() -> void:
 	
+	var x: VisibleOnScreenEnabler2D = OBJECT_ENABLER.instantiate()
+	x.enable_node_path = get_path()
+	x.global_position = global_position
+	add_child(x)
+	
 	add_to_group("base_object")
+	
+	
 	if bob:
 		alter_movement(MovementComponent.MovementType.BOB,bob)
 	

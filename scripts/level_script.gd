@@ -9,14 +9,14 @@ var lanterns: Array[LanternChain]
 signal level_end
 
 func _ready() -> void:
-	
+	GameState.start_level()
 	for coin: Coin in get_tree().get_nodes_in_group("coin"):
 		if coin.coin_index == 0:
 			continue
 		coins.append(coin)
 	
 	for lan: LanternChain in get_tree().get_nodes_in_group("lantern"):
-		lan.set_lantern_color(lr.lantern_color)
+		lan.set_lantern_color(lr.flame_color,lr.outline_flame_color)
 		if lan.lantern_index == 0:
 			continue
 

@@ -113,6 +113,7 @@ position = Vector2(13, 140.5)
 shape = SubResource("RectangleShape2D_bb5tm")
 
 [node name="particles" type="GPUParticles2D" parent="." unique_id=1187034020]
+physics_interpolation_mode = 2
 modulate = Color(0.50854594, 0.97408897, 0, 1)
 light_mask = 0
 position = Vector2(33, 372)

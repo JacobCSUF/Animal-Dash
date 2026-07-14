@@ -37,7 +37,7 @@ func set_up():
 
 
 func set_up_group(objects: Array[BaseObject]):
-	print('WOOOO')
+	
 	for i in objects:
 		target_node = i
 		set_up()

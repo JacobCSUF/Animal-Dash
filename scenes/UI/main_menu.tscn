@@ -15,6 +15,17 @@
 [ext_resource type="PackedScene" uid="uid://c5gwqo05u7t84" path="res://scenes/UI/shop_menu.tscn" id="21_dqbul"]
 [ext_resource type="PackedScene" uid="uid://c1or5oxs5dj65" path="res://scenes/UI/settings_menu.tscn" id="21_nu0op"]
 
+[sub_resource type="Gradient" id="Gradient_sfthw"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1sg0x"]
+gradient = SubResource("Gradient_sfthw")
+width = 240
+height = 240
+fill = 1
+fill_from = Vector2(0.4890244, 0.4817073)
+fill_to = Vector2(0.845122, 0.12317073)
+
 [sub_resource type="Animation" id="Animation_n3ahy"]
 length = 0.4
 tracks/0/type = "value"
@@ -123,6 +134,12 @@ tile_map_data = PackedByteArray("AAAbABQAAQAJAAIAAAAbABMAAQAJAAIAAAAaAA4AAQALAAI
 
 [node name="main_menu" type="Node2D" parent="main_block" unique_id=651578711]
 
+[node name="PointLight2D" type="PointLight2D" parent="main_block/main_menu" unique_id=578596259]
+position = Vector2(321, 54)
+color = Color(0, 0.6689225, 1, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_1sg0x")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="main_block/main_menu" unique_id=1384945305]
 z_index = 1
 custom_minimum_size = Vector2(200, 100)
@@ -196,14 +213,14 @@ position = Vector2(526, 258)
 rotation = 2.974041
 
 [node name="pipe_curve" parent="main_block/main_menu" unique_id=1078158950 instance=ExtResource("15_mtd5q")]
-position = Vector2(357, 449)
+position = Vector2(386, 453)
 
 [node name="pipe_curve2" parent="main_block/main_menu" unique_id=1614640390 instance=ExtResource("15_mtd5q")]
-position = Vector2(358, 504)
+position = Vector2(386, 505)
 
 [node name="pipe_curve3" parent="main_block/main_menu" unique_id=790086147 instance=ExtResource("15_mtd5q")]
 z_index = -1
-position = Vector2(358, 550)
+position = Vector2(386, 550)
 
 [node name="Settings" type="Node2D" parent="main_block" unique_id=2032200485]
 
@@ -221,10 +238,12 @@ z_index = -1
 position = Vector2(446, 500)
 
 [node name="firework" parent="main_block/Settings/decor" unique_id=1585871213 instance=ExtResource("19_mtd5q")]
-position = Vector2(473, 560)
+z_index = 0
+position = Vector2(474, 541)
 
 [node name="firework2" parent="main_block/Settings/decor" unique_id=1953529861 instance=ExtResource("19_mtd5q")]
-position = Vector2(561, 570)
+z_index = 0
+position = Vector2(562, 551)
 
 [node name="Settings Menu" parent="main_block/Settings" unique_id=257281012 instance=ExtResource("21_nu0op")]
 offset_left = 4.0

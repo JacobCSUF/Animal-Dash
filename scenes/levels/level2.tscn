@@ -55,7 +55,8 @@
 script = ExtResource("2_77got")
 level_name = "Spin Sewers"
 level_number = 2
-lantern_color = Color(0.74509805, 0.9372549, 0, 1)
+outline_flame_color = Color(0.7034221, 0.9838243, 1.540184e-06, 1)
+flame_color = Color(0.29428425, 0.5786525, 3.85046e-07, 1)
 ui_color = Color(0, 0.9529412, 0, 1)
 total_coins = 36
 metadata/_custom_type_script = "uid://5nmavtap5ybn"
@@ -1697,10 +1698,10 @@ script = ExtResource("1_b4tpv")
 lr = SubResource("Resource_6d4iq")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("1_hgky1")]
-position = Vector2(5116, 147)
+position = Vector2(53, 154)
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("2_b4tpv")]
-position = Vector2(5116, 147)
+position = Vector2(53, 154)
 limit_left = -9999993
 limit_top = 1
 limit_right = 10000007

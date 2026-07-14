@@ -55,7 +55,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		charge2.pitch_scale += 0.6
 		await get_tree().create_timer(0.4).timeout
 	charge2.stop()
-	charge.play()
+	
 	var tween = create_tween()
 	var target = PackedVector2Array([line_2d.points[0], Vector2(line_2d.points[1].x + 246.0, line_2d.points[1].y)])
 	tween.tween_property(line_2d, "points", target, 1.0)
@@ -77,7 +77,7 @@ func _on_area_2d_2_area_entered(area: Area2D) -> void:
 
 func _on_area_2d_4_area_entered(area: Area2D) -> void:
 	var tween = create_tween()
-	tween.tween_property(point_light_2d, "energy", 0, 0.05)
+	tween.tween_property(point_light_2d, "energy", 0, 0.2)
 
 
 func _on_area_2d_5_area_entered(area: Area2D) -> void:

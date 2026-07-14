@@ -29,9 +29,11 @@ layer = 0
 
 [node name="pause_card" parent="menu_handler/CanvasLayer" unique_id=36367799 instance=ExtResource("3_5paq6")]
 visible = false
+light_mask = 0
 
 [node name="pause_button" parent="menu_handler/CanvasLayer" unique_id=677821903 instance=ExtResource("3_orlg7")]
 visible = false
+light_mask = 0
 offset_left = 594.0
 offset_top = 11.0
 offset_right = 622.0
@@ -39,6 +41,7 @@ offset_bottom = 36.0
 
 [node name="win_card" parent="menu_handler/CanvasLayer" unique_id=635528446 instance=ExtResource("5_a7jsp")]
 visible = false
+light_mask = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="menu_handler/CanvasLayer" unique_id=1139692350]
 environment = SubResource("Environment_xc5wj")

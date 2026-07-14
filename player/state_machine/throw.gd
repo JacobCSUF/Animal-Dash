@@ -18,7 +18,7 @@ func enter_state(player_node,data = {}):
 
 #
 	super(player_node)
-	dash_timer = .45
+	dash_timer = .40
 	var s = player.get_partial_mult(speed,0.5)
 	player.velocity = Vector2(s,-speed*dir*.8)
 

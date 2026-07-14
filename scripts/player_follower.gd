@@ -9,6 +9,7 @@ extends Node2D
 
 func reset():
 	float_particles.emitting= false
+	wave.emitting = false
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:

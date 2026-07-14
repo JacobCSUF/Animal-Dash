@@ -46,15 +46,12 @@ static func start_sway(node: Node2D, data:SwayParams) -> Tween:
 
 static func obj_start_pos(node: Node2D, distance,direction):
 	node.global_position += -1* direction * distance 
-	print('AM I WORK')
+
 
 static func move_in_line(node: Node2D, data: MoveLineParams) -> Tween:
 	var start_pos = node.position
 	var target_pos = start_pos + data.direction.normalized() * data.distance
 
-		
-	print(start_pos)
-	print('taget: ',target_pos)
 	var tween = node.create_tween()
 
 	if data.loop:

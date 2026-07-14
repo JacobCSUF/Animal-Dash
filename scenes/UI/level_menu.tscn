@@ -3,10 +3,12 @@
 [ext_resource type="Script" uid="uid://baqibqxldayge" path="res://scripts/level_menu.gd" id="1_6yacc"]
 [ext_resource type="PackedScene" uid="uid://bqj5gg7tuxrwp" path="res://scenes/UI/base_button.tscn" id="4_od4ud"]
 [ext_resource type="Texture2D" uid="uid://uhsapvolwmgv" path="res://sprites/tiles/grass.png" id="5_u2ndr"]
+[ext_resource type="Texture2D" uid="uid://d4cvgryygmrgh" path="res://sprites/lantern_ui.png" id="6_e7gcb"]
 [ext_resource type="PackedScene" uid="uid://cgvpqh6is77fc" path="res://obstacles/interactable/lantern_chain.tscn" id="6_od4ud"]
-[ext_resource type="Texture2D" uid="uid://bpt786awdytar" path="res://imgbin_b6a6e1dcc386cd2c37cef87794eaaf7d.png" id="7_60uxb"]
+[ext_resource type="Texture2D" uid="uid://bpt786awdytar" path="res://sprites/imgbin_b6a6e1dcc386cd2c37cef87794eaaf7d.png" id="7_60uxb"]
 [ext_resource type="PackedScene" uid="uid://ftfnkrmwb02f" path="res://obstacles/interactable/coin.tscn" id="8_4qxtg"]
-[ext_resource type="PackedScene" uid="uid://cvhnjxcd6w8ad" path="res://obstacles/interactable/lantern.tscn" id="9_vl0d2"]
+[ext_resource type="Texture2D" uid="uid://bquffrw44nnb7" path="res://sprites/Star.png" id="8_vl0d2"]
+[ext_resource type="Texture2D" uid="uid://btapk310oqpo7" path="res://sprites/gray_star.png" id="9_e7gcb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u2ndr"]
 texture = ExtResource("5_u2ndr")
@@ -196,9 +198,9 @@ to_menu = 4
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1862169873]
 layout_mode = 0
 offset_left = 115.0
-offset_top = 71.0
+offset_top = 75.0
 offset_right = 531.0
-offset_bottom = 111.0
+offset_bottom = 115.0
 
 [node name="level_title" type="Label" parent="HBoxContainer" unique_id=933197796]
 layout_mode = 2
@@ -242,25 +244,56 @@ text = "15/40"
 position = Vector2(277, 114)
 scale = Vector2(0.4, 0.4)
 
-[node name="Lantern" parent="Node2D" unique_id=1054843461 instance=ExtResource("9_vl0d2")]
-position = Vector2(232, 18.000004)
-scale = Vector2(1.4, 1.4)
+[node name="Line2D" type="Line2D" parent="Node2D" unique_id=1441832665]
+modulate = Color(0.62397295, 0.7443614, 0.87101096, 1)
+z_index = 1
+position = Vector2(230.94975, 18)
+scale = Vector2(1.4118185, 1.3999999)
+points = PackedVector2Array(-7.7557983, -5.714279, 91.407104, -5.714279)
+width = 0.75
 
-[node name="Lantern2" parent="Node2D" unique_id=2038003612 instance=ExtResource("9_vl0d2")]
-position = Vector2(262.00006, 18.000004)
-scale = Vector2(1.4, 1.4)
+[node name="Line2D2" type="Line2D" parent="Node2D" unique_id=280143764]
+visible = false
+modulate = Color(0.62397295, 0.7443614, 0.87101096, 1)
+z_index = 1
+position = Vector2(230.94975, 18)
+scale = Vector2(1.4118185, 1.3999999)
+points = PackedVector2Array(-7.7557983, -7.4999847, -7.7557983, -3.9285583)
+width = 1.25
 
-[node name="Lantern3" parent="Node2D" unique_id=1426573083 instance=ExtResource("9_vl0d2")]
-position = Vector2(292.00006, 18.000004)
-scale = Vector2(1.4, 1.4)
+[node name="Line2D3" type="Line2D" parent="Node2D" unique_id=1477726948]
+visible = false
+modulate = Color(0.62397295, 0.7443614, 0.87101096, 1)
+z_index = 1
+position = Vector2(377.5, 17.5)
+scale = Vector2(1.4118185, 1.3999999)
+points = PackedVector2Array(-12.395386, -7.142853, -12.395386, -3.5714264)
+width = 1.25
 
-[node name="Lantern4" parent="Node2D" unique_id=1806112350 instance=ExtResource("9_vl0d2")]
-position = Vector2(322.00006, 18.000004)
+[node name="LanternUi" type="Sprite2D" parent="Node2D" unique_id=1623844997]
+position = Vector2(230, 32.5)
 scale = Vector2(1.4, 1.4)
+texture = ExtResource("6_e7gcb")
 
-[node name="Lantern5" parent="Node2D" unique_id=1383363099 instance=ExtResource("9_vl0d2")]
-position = Vector2(352.00006, 18.000004)
+[node name="LanternUi2" type="Sprite2D" parent="Node2D" unique_id=1222612811]
+position = Vector2(260, 32.5)
 scale = Vector2(1.4, 1.4)
+texture = ExtResource("6_e7gcb")
+
+[node name="LanternUi3" type="Sprite2D" parent="Node2D" unique_id=768896008]
+position = Vector2(290, 32.5)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("6_e7gcb")
+
+[node name="LanternUi4" type="Sprite2D" parent="Node2D" unique_id=1946537895]
+position = Vector2(320, 32.5)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("6_e7gcb")
+
+[node name="LanternUi5" type="Sprite2D" parent="Node2D" unique_id=1825590344]
+position = Vector2(350, 32.5)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("6_e7gcb")
 
 [node name="pagnation" type="HBoxContainer" parent="." unique_id=2033358976]
 layout_mode = 0
@@ -272,10 +305,10 @@ alignment = 1
 
 [node name="cleared_panel" type="Panel" parent="." unique_id=1597081017]
 layout_mode = 0
-offset_left = 372.0
-offset_top = 61.0
-offset_right = 438.0
-offset_bottom = 76.0
+offset_left = 370.0
+offset_top = 64.0
+offset_right = 436.0
+offset_bottom = 79.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_od4ud")
 
 [node name="clear_no" type="Label" parent="cleared_panel" unique_id=560409594]
@@ -317,6 +350,63 @@ modulate = Color(0.8899135, 1.8984075, 0, 1)
 position = Vector2(50.99999, 4.999997)
 scale = Vector2(0.006835938, 0.006679689)
 texture = ExtResource("7_60uxb")
+
+[node name="difficulty" type="Panel" parent="." unique_id=949519773]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 64.0
+offset_right = 277.0
+offset_bottom = 79.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_od4ud")
+
+[node name="diff_text" type="Label" parent="difficulty" unique_id=1668385763]
+z_index = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = -3.0
+offset_right = 51.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.22629228, 0.22077334, 0.22499454, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/font_size = 6
+text = "Difficulty"
+
+[node name="Star" type="Sprite2D" parent="difficulty" unique_id=637021057]
+position = Vector2(10.600007, 7.5999985)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("8_vl0d2")
+
+[node name="Star2" type="Sprite2D" parent="difficulty" unique_id=1072927337]
+position = Vector2(19.600006, 7.5999985)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("8_vl0d2")
+
+[node name="Star3" type="Sprite2D" parent="difficulty" unique_id=1927349659]
+position = Vector2(28.600006, 7.5999985)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("8_vl0d2")
+
+[node name="Star4" type="Sprite2D" parent="difficulty" unique_id=1340362389]
+modulate = Color(0.40233153, 0.40233156, 0.40233153, 1)
+position = Vector2(37.600006, 7.5999985)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("9_e7gcb")
+
+[node name="Star5" type="Sprite2D" parent="difficulty" unique_id=977038769]
+modulate = Color(0.40233153, 0.40233156, 0.40233153, 1)
+position = Vector2(46.600006, 7.5999985)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("9_e7gcb")
+
+[node name="Star6" type="Sprite2D" parent="difficulty" unique_id=1403378465]
+modulate = Color(0.40233153, 0.40233156, 0.40233153, 1)
+position = Vector2(55.600006, 7.5999985)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("9_e7gcb")
 
 [connection signal="pressed" from="up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="down" to="." method="_on_down_pressed"]

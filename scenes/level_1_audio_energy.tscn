@@ -247,14 +247,14 @@ pitch_scale = 1.17
 [node name="FreesoundCommunityPowerUp35839" type="AudioStreamPlayer2D" parent="charge" unique_id=702914302]
 position = Vector2(235, 160)
 stream = ExtResource("6_loaxv")
-volume_db = -10.0
+volume_db = -8.0
 pitch_scale = 2.0
 
 [node name="Charge" type="AudioStreamPlayer2D" parent="." unique_id=592627554]
 light_mask = 0
 position = Vector2(85, -24)
 stream = ExtResource("6_fmauc")
-volume_db = -25.0
+volume_db = -28.0
 
 [node name="Ctr" type="Sprite2D" parent="Charge" unique_id=1164789502]
 z_index = 3
@@ -370,7 +370,7 @@ position = Vector2(1201, 157)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=2091587887]
-position = Vector2(1283, 149)
+position = Vector2(1155, 154)
 shape = SubResource("RectangleShape2D_wqwmt")
 
 [node name="Area2D5" type="Area2D" parent="." unique_id=729641202]
@@ -378,7 +378,7 @@ position = Vector2(-250, 184)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5" unique_id=970484395]
-position = Vector2(880, -20)
+position = Vector2(861, -21)
 shape = SubResource("RectangleShape2D_xbuto")
 
 [node name="SwitchOn" type="AudioStreamPlayer2D" parent="." unique_id=20185483]

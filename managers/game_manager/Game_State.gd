@@ -10,6 +10,8 @@ var main_menu = false
 signal died
 signal changed_state(state: String, dict: Dictionary)
 
+
+
 func set_animal_resource(anim: AnimalResource):
 	animal_resource = anim
 
@@ -22,6 +24,13 @@ func change_state(state: String, dict: Dictionary = {}):
 	emit_signal("changed_state", state, dict)
 
 
+func start_level():
+	AudioManager.reset_sound()
+	PlayerFollower.reset()
+	player_location = Vector2(0,0)
+	player_col_loc= Vector2(0,0)
+	
+	
 func die():
 	AudioManager.reset_sound()
 	player.die()
@@ -30,7 +39,7 @@ func die():
 	PlayerFollower.reset()
 	TriggerHandler.reset()
 	SongManager.stop_s()
-	
+	player_location = Vector2(0,0)
 	player_col_loc= Vector2(0,0)
 	await get_tree().create_timer(2.0).timeout
 	if !main_menu:

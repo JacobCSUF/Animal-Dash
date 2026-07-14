@@ -37,8 +37,16 @@ var speed_mult = 1.0
 
 func _ready():
 	speed_mult = speed_mult_start
-	GameState.set_player(self,anim_text)
+	
+	if GameState.animal_resource:
+		GameState.set_player(self,GameState.animal_resource)
+	
+	else:
+		
+		GameState.set_player(self,anim_text)
+	
 	icon.sprite_frames = GameState.animal_resource.animations
+	
 	GameState.connect("changed_state", Callable(self, "_on_changed_state"))
 	if !current_state:
 		change_state(selection)

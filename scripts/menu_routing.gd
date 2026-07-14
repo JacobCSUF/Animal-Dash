@@ -43,8 +43,13 @@ func change_menu(type1):
 	else:
 		if curr_menu:
 			curr_menu.queue_free()
-		if curr_level:
+		if curr_level != null:
+			
 			curr_level.queue_free()
+			await curr_level.tree_exited
+			curr_level = null
+			
+			
 	win_card.visible = false
 	match type1:
 		
@@ -64,13 +69,16 @@ func change_menu(type1):
 			#instance settings
 			pass
 	
+		####going back from level menu
 		Menus.BACK:
 			curr_menu = MAIN_MENU.instantiate()
 			curr_menu.button_pressed.connect(_on_pressed)
 			add_child(curr_menu)
 
+		####going back from pause
 		Menus.LEVELBACK:
 			get_tree().paused = false
+			pause_button.visible = false
 			pause_card.visible = false
 			menu_theme.play()
 			SongManager.stop_s()
@@ -80,6 +88,7 @@ func change_menu(type1):
 			curr_menu.level_select.connect(_on_level)
 			add_child(curr_menu)
 	
+		
 		Menus.PAUSE:
 			pause_button.visible = false
 			pause_card.visible = true
@@ -109,9 +118,11 @@ func _on_level(level: PackedScene):
 	if curr_menu:
 		level_counter = curr_menu.get_counter()
 		curr_menu.queue_free()
-	if curr_level:
+	if curr_level != null:
 		curr_level.queue_free()
 		await curr_level.tree_exited
+		curr_level = null
+	
 	menu_theme.stop()
 	curr_level = level.instantiate()
 	curr_level_packed = level
@@ -131,4 +142,6 @@ func _on_level_end(t_coin,n_coin):
 	
 
 func _on_died():
-	_on_level(curr_level_packed)
+	if curr_level:
+		
+		_on_level(curr_level_packed)

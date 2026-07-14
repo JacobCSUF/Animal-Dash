@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://blilh2jtj73q0" path="res://sprites/lantern_blink.png" id="1_hhuhv"]
 [ext_resource type="Script" uid="uid://b0yjwk8au5dr2" path="res://scripts/lantern.gd" id="1_sv276"]
+[ext_resource type="Texture2D" uid="uid://cb650ykpv5l6e" path="res://sprites/flame_back.png" id="3_6nmko"]
 [ext_resource type="Texture2D" uid="uid://kxlgfbtfum3m" path="res://sprites/lantern_fire.png" id="3_qw4cd"]
 [ext_resource type="AudioStream" uid="uid://bvh7w01df027j" path="res://audio/sounds/area/fire_on.mp3" id="4_sv276"]
 [ext_resource type="AudioStream" uid="uid://b6tdtnegxiawr" path="res://audio/sounds/area/campfire.mp3" id="5_wp3cx"]
@@ -40,6 +41,49 @@ height = 256
 fill = 1
 fill_from = Vector2(0.50671554, 0.4945055)
 fill_to = Vector2(0.8168498, 0.11111111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adkte"]
+atlas = ExtResource("3_6nmko")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laqmw"]
+atlas = ExtResource("3_6nmko")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t8xm"]
+atlas = ExtResource("3_6nmko")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyqlf"]
+atlas = ExtResource("3_6nmko")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwntt"]
+atlas = ExtResource("3_6nmko")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1sg0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adkte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_laqmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t8xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyqlf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwntt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sv276"]
 atlas = ExtResource("3_qw4cd")
@@ -128,18 +172,27 @@ sprite_frames = SubResource("SpriteFrames_y6stn")
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=45493777]
 visible = false
 position = Vector2(0, 12)
-energy = 1.5
+energy = 1.75
 texture = SubResource("GradientTexture2D_5omvi")
 
-[node name="fire" type="AnimatedSprite2D" parent="." unique_id=1187348522]
+[node name="fire" type="Node2D" parent="." unique_id=381801313]
 visible = false
+
+[node name="flame" type="AnimatedSprite2D" parent="fire" unique_id=1327340700]
+light_mask = 0
+z_index = -1
+position = Vector2(2, 13)
+sprite_frames = SubResource("SpriteFrames_1sg0x")
+autoplay = "default"
+
+[node name="outline" type="AnimatedSprite2D" parent="fire" unique_id=1187348522]
+light_mask = 0
 z_index = -1
 position = Vector2(2, 13)
 sprite_frames = SubResource("SpriteFrames_ph1qh")
 autoplay = "default"
-frame_progress = 0.0765103
 
-[node name="fire_particle" type="GPUParticles2D" parent="fire" unique_id=731185119]
+[node name="fire_particle" type="GPUParticles2D" parent="fire/outline" unique_id=731185119]
 material = SubResource("CanvasItemMaterial_6nmko")
 position = Vector2(-3, 0)
 texture = ExtResource("6_iou8t")

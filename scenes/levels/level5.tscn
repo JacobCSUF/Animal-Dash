@@ -41,7 +41,8 @@
 script = ExtResource("2_vnf24")
 level_name = "Water Breakout"
 level_number = 5
-lantern_color = Color(1.540184e-06, 0.85469186, 0.7295056, 1)
+outline_flame_color = Color(0, 0.9138015, 1, 1)
+flame_color = Color(0.25819302, 0.378207, 0.8319876, 1)
 ui_color = Color(0, 0.83137256, 1, 1)
 metadata/_custom_type_script = "uid://5nmavtap5ybn"
 
@@ -101,11 +102,11 @@ script = ExtResource("1_4r5lo")
 lr = SubResource("Resource_72xjh")
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("15_lxeoi")]
-position = Vector2(128, 80)
+position = Vector2(24, 72)
 player = NodePath("../player")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("16_q3cny")]
-position = Vector2(128, 80)
+position = Vector2(24, 72)
 
 [node name="background" parent="." unique_id=1318822552 instance=ExtResource("3_pm1y0")]
 bg = SubResource("Resource_2eb3b")
@@ -254,7 +255,7 @@ angle = 270
 position = Vector2(-57, 170.00003)
 
 [node name="pipe2" parent="obstacles/chunk1" unique_id=581801551 instance=ExtResource("14_2eb3b")]
-position = Vector2(1004, 87)
+position = Vector2(1048, 104.000015)
 rotation = -2.8920105
 spin = SubResource("Resource_qyjps")
 

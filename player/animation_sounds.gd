@@ -33,11 +33,8 @@ func handle_new_group():
 			player.icon.play("ball")
 
 		Player.StateType.CART:
-			player.icon.play("flappy")
 			collision_shape_2d.call_deferred("set_disabled",true)
 			a_col.call_deferred("set_disabled",true)
-			
-			
 			player.icon.visible = false
 
 

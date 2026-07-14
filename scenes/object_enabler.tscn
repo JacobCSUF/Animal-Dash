@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b0baha740wdqu"]
+
+[node name="object_enabler" type="VisibleOnScreenEnabler2D" unique_id=1357333776]
+top_level = true
+rect = Rect2(-43, -220, 84, 539)

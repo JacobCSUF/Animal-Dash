@@ -62,7 +62,7 @@ func match_state(state: states,delta):
 				
 				#print('WEEEEEEEEE',player.velocity)
 				curr_state = states.LANDED
-				print('NOOOOOHA')
+			
 			
 			if Input.is_action_just_pressed("jump"):
 				curr_state = states.JUMP
@@ -79,7 +79,7 @@ func match_state(state: states,delta):
 			
 			if (player.is_on_floor() or player.is_on_ceiling() or player.is_on_wall()):
 				var v = vel.normalized()
-				squish.play("squish")
+			
 				
 				if player.is_on_floor():
 					

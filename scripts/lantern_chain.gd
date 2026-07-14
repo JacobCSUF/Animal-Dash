@@ -16,7 +16,7 @@ func _ready() -> void:
 		if lantern:
 			lantern.auto_on()
 	if lantern:
-		lantern.set_color(fire_color)
+		lantern.set_color(fire_color,fire_color)
 		lantern.lantern_hit . connect(_on_lantern_hit)
 	
 	do_tween(.07)
@@ -24,11 +24,11 @@ func _ready() -> void:
 func _on_lantern_hit(body: Node2D):
 	apply_strength(body.global_position,1.0)
 
-func set_lantern_color(c: Color):
-	if c:
-		lantern.set_color(c)
-	else:
-		lantern.set_color(fire_color)
+func set_lantern_color(f: Color,c: Color):
+	if f and c:
+		lantern.set_color(f,c)
+	#else:
+		#lantern.set_color(fire_color)
 
 func _on_timer_timeout() -> void:
 	do_tween()

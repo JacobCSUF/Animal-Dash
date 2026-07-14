@@ -41,6 +41,7 @@ func enter_state(player_node, data = {}):
 	in_state = true
 	sprite1 = sprite.duplicate()
 	sprite1.visible = true
+	sprite1.play("cart")
 	sprite1.z_index -=1
 	sprite1.position = Vector2(-3,-14)
 	body.add_child(sprite1)
@@ -103,11 +104,9 @@ func handle_input(delta):
 		
 		move_states.MOVE:
 			
-			var direction := Input.get_axis("ui_left", "ui_right")
-			if direction:
-				player.velocity.x = direction * SPEED
-			else:
-				player.velocity.x = move_toward(player.velocity.x, 0, SPEED)
+			
+			player.velocity.x =  SPEED
+			
 			
 			if not player.is_on_floor():
 				if move_sound:

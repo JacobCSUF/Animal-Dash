@@ -1,5 +1,7 @@
 @tool
 extends Camera2D
+
+
 @export var player: Player
 
 

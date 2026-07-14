@@ -4,14 +4,19 @@ class_name  Lantern
 
 
 @onready var lantern1: AnimatedSprite2D = $lantern
-@onready var fire: AnimatedSprite2D = $fire
+
+@onready var fire: Node2D = $fire
+@onready var flame: AnimatedSprite2D = $fire/flame
+@onready var outline: AnimatedSprite2D = $fire/outline
+
 
 @onready var point_light_2d: PointLight2D = $PointLight2D
 
 
 @onready var campfire: AudioStreamPlayer2D = $Campfire
 @onready var torch_aura: AudioStreamPlayer2D = $TorchAura
-@onready var fire_particle: GPUParticles2D = $fire/fire_particle
+
+@onready var fire_particle: GPUParticles2D = $fire/outline/fire_particle
 
 
 signal lantern_hit
@@ -23,9 +28,10 @@ var triggered = false
 
 	
 	
-func set_color(color: Color):
-	point_light_2d.color = color
-	fire.modulate = color
+func set_color(f: Color, c: Color):
+	point_light_2d.color = f
+	flame.modulate = f
+	outline.modulate = c
 	
 		
 func set_on(index: int):

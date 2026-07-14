@@ -38,7 +38,8 @@
 [sub_resource type="Resource" id="Resource_7jvlv"]
 script = ExtResource("2_6d4iq")
 level_name = "Flappy Adventure"
-lantern_color = Color(2.3102762e-06, 0.7227985, 0.72007436, 0.6784314)
+outline_flame_color = Color(0.4649247, 1, 0.7240472, 1)
+flame_color = Color(1.2995303e-06, 0.50852597, 0.5142111, 1)
 ui_color = Color(0, 1, 0.9254902, 1)
 total_coins = 39
 metadata/_custom_type_script = "uid://5nmavtap5ybn"
@@ -260,7 +261,6 @@ script = ExtResource("1_idf83")
 lr = SubResource("Resource_7jvlv")
 
 [node name="background" parent="." unique_id=1318822552 instance=ExtResource("6_4fww7")]
-position = Vector2(-1, -1)
 bg = ExtResource("4_y71nm")
 
 [node name="-76" type="Parallax2D" parent="background" unique_id=214808457]
@@ -299,10 +299,10 @@ position = Vector2(55, 371)
 texture = ExtResource("8_igeo0")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("1_025c5")]
-position = Vector2(-389, 81)
+position = Vector2(-459, 101)
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("2_bw3ef")]
-position = Vector2(-389, 81)
+position = Vector2(-459, 101)
 player = NodePath("../player")
 
 [node name="front2" parent="." unique_id=13827966 instance=ExtResource("5_4fww7")]

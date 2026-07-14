@@ -19,6 +19,8 @@ const PAGE_DOT = preload("uid://cihhs64uxc1ot")
 @onready var cleared_panel: Panel = $cleared_panel
 @onready var clear_no: Label = $cleared_panel/clear_no
 @onready var clear_yes: Label = $cleared_panel/clear_yes
+@onready var difficulty: Panel = $difficulty
+@onready var diff_text: Label = $difficulty/diff_text
 
 
 signal level_select(level: PackedScene)
@@ -61,7 +63,7 @@ func _ready():
 	for i in range(level_dict.size()):
 		
 		var d = PAGE_DOT.instantiate()
-		print(i)
+
 		pagnation.add_child(d)
 		page_dots.append(d)
 		if i == 0:
@@ -83,7 +85,8 @@ func set_level():
 	var lev: Level = leve["level"].instantiate()
 	var lr = lev.lr
 	var c = lr.ui_color
-	var l = lr.lantern_color
+	var f = lr.flame_color
+	var o  = lr.outline_flame_color
 	
 	for i in range(page_dots.size()):
 		if i == level_index:
@@ -91,9 +94,9 @@ func set_level():
 		else:
 			page_dots[i].toggle_off()
 	
-	lantern_chain.set_lantern_color(l)
+	lantern_chain.set_lantern_color(f,o)
 
-	lantern_chain_2.set_lantern_color(l)
+	lantern_chain_2.set_lantern_color(f,o)
 	level_title.text = lr.level_name
 
 	var num_coins = SaveManager.get_level_coins(lr.level_name)
@@ -118,7 +121,7 @@ func set_level():
 	var stylebox2 := cleared_panel.get_theme_stylebox("panel").duplicate() as StyleBoxFlat
 	stylebox2.border_color = c
 	cleared_panel.add_theme_stylebox_override("panel", stylebox2)
-	
+	difficulty.add_theme_stylebox_override("panel", stylebox2)
 	
 	# Button border
 	for state in ["normal", "hover", "pressed", "focus", "disabled"]:
@@ -128,8 +131,12 @@ func set_level():
 
 	# Title outline color
 	level_title.add_theme_color_override("font_outline_color", c)
+	
+
 
 	dis = leve["display"].instantiate()
+	print(self.global_position,' SELF POS')
+	print(dis.global_position)
 	add_child(dis)
 	lev.queue_free()
 
