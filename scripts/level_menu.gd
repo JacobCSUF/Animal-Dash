@@ -22,6 +22,8 @@ const PAGE_DOT = preload("uid://cihhs64uxc1ot")
 @onready var difficulty: Panel = $difficulty
 @onready var diff_text: Label = $difficulty/diff_text
 
+@onready var lantern_ui: LanternGroupUI = $lantern_ui
+
 
 signal level_select(level: PackedScene)
 signal button_pressed(menu: MenuHandler.Menus)
@@ -101,7 +103,10 @@ func set_level():
 
 	var num_coins = SaveManager.get_level_coins(lr.level_name)
 	var lev_data = SaveManager.load_level_data(lr.level_name)
+	var lan_data = SaveManager.load_lantern_data(lr.level_name)
 	var complete = SaveManager.is_level_complete(lr.level_name)
+	
+	lantern_ui.set_lanterns(lan_data,o,o)
 	
 	if complete:
 		clear_no.visible = false

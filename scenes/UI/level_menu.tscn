@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://baqibqxldayge" path="res://scripts/level_menu.gd" id="1_6yacc"]
 [ext_resource type="PackedScene" uid="uid://bqj5gg7tuxrwp" path="res://scenes/UI/base_button.tscn" id="4_od4ud"]
 [ext_resource type="Texture2D" uid="uid://uhsapvolwmgv" path="res://sprites/tiles/grass.png" id="5_u2ndr"]
-[ext_resource type="Texture2D" uid="uid://d4cvgryygmrgh" path="res://sprites/lantern_ui.png" id="6_e7gcb"]
 [ext_resource type="PackedScene" uid="uid://cgvpqh6is77fc" path="res://obstacles/interactable/lantern_chain.tscn" id="6_od4ud"]
+[ext_resource type="PackedScene" uid="uid://7ab641pmak4m" path="res://scenes/UI/lantern_group_ui.tscn" id="6_vl0d2"]
 [ext_resource type="Texture2D" uid="uid://bpt786awdytar" path="res://sprites/imgbin_b6a6e1dcc386cd2c37cef87794eaaf7d.png" id="7_60uxb"]
 [ext_resource type="PackedScene" uid="uid://ftfnkrmwb02f" path="res://obstacles/interactable/coin.tscn" id="8_4qxtg"]
 [ext_resource type="Texture2D" uid="uid://bquffrw44nnb7" path="res://sprites/Star.png" id="8_vl0d2"]
@@ -240,60 +240,9 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 10
 text = "15/40"
 
-[node name="Node2D" type="Node2D" parent="." unique_id=761732082]
-position = Vector2(277, 114)
-scale = Vector2(0.4, 0.4)
-
-[node name="Line2D" type="Line2D" parent="Node2D" unique_id=1441832665]
-modulate = Color(0.62397295, 0.7443614, 0.87101096, 1)
-z_index = 1
-position = Vector2(230.94975, 18)
-scale = Vector2(1.4118185, 1.3999999)
-points = PackedVector2Array(-7.7557983, -5.714279, 91.407104, -5.714279)
-width = 0.75
-
-[node name="Line2D2" type="Line2D" parent="Node2D" unique_id=280143764]
-visible = false
-modulate = Color(0.62397295, 0.7443614, 0.87101096, 1)
-z_index = 1
-position = Vector2(230.94975, 18)
-scale = Vector2(1.4118185, 1.3999999)
-points = PackedVector2Array(-7.7557983, -7.4999847, -7.7557983, -3.9285583)
-width = 1.25
-
-[node name="Line2D3" type="Line2D" parent="Node2D" unique_id=1477726948]
-visible = false
-modulate = Color(0.62397295, 0.7443614, 0.87101096, 1)
-z_index = 1
-position = Vector2(377.5, 17.5)
-scale = Vector2(1.4118185, 1.3999999)
-points = PackedVector2Array(-12.395386, -7.142853, -12.395386, -3.5714264)
-width = 1.25
-
-[node name="LanternUi" type="Sprite2D" parent="Node2D" unique_id=1623844997]
-position = Vector2(230, 32.5)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("6_e7gcb")
-
-[node name="LanternUi2" type="Sprite2D" parent="Node2D" unique_id=1222612811]
-position = Vector2(260, 32.5)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("6_e7gcb")
-
-[node name="LanternUi3" type="Sprite2D" parent="Node2D" unique_id=768896008]
-position = Vector2(290, 32.5)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("6_e7gcb")
-
-[node name="LanternUi4" type="Sprite2D" parent="Node2D" unique_id=1946537895]
-position = Vector2(320, 32.5)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("6_e7gcb")
-
-[node name="LanternUi5" type="Sprite2D" parent="Node2D" unique_id=1825590344]
-position = Vector2(350, 32.5)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("6_e7gcb")
+[node name="lantern_ui" parent="." unique_id=1510897796 instance=ExtResource("6_vl0d2")]
+position = Vector2(366, 125)
+scale = Vector2(0.6, 0.6)
 
 [node name="pagnation" type="HBoxContainer" parent="." unique_id=2033358976]
 layout_mode = 0

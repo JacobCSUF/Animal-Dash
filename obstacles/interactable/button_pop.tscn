@@ -92,6 +92,34 @@ metadata/_custom_type_script = "uid://ceabpejx0in8f"
 [sub_resource type="CircleShape2D" id="CircleShape2D_b4uod"]
 radius = 11.0
 
+[sub_resource type="Gradient" id="Gradient_pgghr"]
+offsets = PackedFloat32Array(0, 0.6396552, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_76fd3"]
+gradient = SubResource("Gradient_pgghr")
+
+[sub_resource type="Curve" id="Curve_a8mmm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_blxxt"]
+curve = SubResource("Curve_a8mmm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_25ta0"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 450.0
+initial_velocity_max = 450.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 359.99997
+gravity = Vector3(0, 30, 0)
+scale_curve = SubResource("CurveTexture_blxxt")
+color_ramp = SubResource("GradientTexture1D_76fd3")
+
 [node name="button_pop" type="Node2D" unique_id=1209009567]
 scale = Vector2(1.1, 1.1)
 script = ExtResource("1_b4uod")
@@ -140,3 +168,19 @@ responses = Array[ExtResource("8_b4uod")]([SubResource("Resource_b4uod"), SubRes
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TArea" unique_id=1518000888]
 position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_b4uod")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1724213129]
+modulate = Color(0, 1, 1, 0.5411765)
+position = Vector2(0.9090909, -0.9090909)
+emitting = false
+amount = 200
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_25ta0")
+
+[node name="AreaHandler2" parent="." unique_id=1825616423 node_paths=PackedStringArray("area", "particles") instance=ExtResource("3_pgghr")]
+area = NodePath("../TArea")
+play_at_body = true
+particles = NodePath("../GPUParticles2D")
+one_shot = true

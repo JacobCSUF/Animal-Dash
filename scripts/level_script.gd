@@ -22,28 +22,45 @@ func _ready() -> void:
 
 		lanterns.append(lan)
 	
+	lanterns.sort_custom(func(a,b): return a.lantern_index < b.lantern_index)
+	print(lanterns)
 	SongManager.set_song(lr.level_number)
 	load_level_data()
 	
 
 
 func load_level_data():
-	return
+	
 	var data = SaveManager.load_level_data(lr.level_name)
 	if !data:
 		return
 	var cs = data["coins"]
+	var ls = data["lanterns"]
+	
 	for c in cs:
-		if c <= cs.size():
+		if c < coins.size():
 			coins[c].set_taken()
+			
+	for l in ls:
+		print('WHATTTT')
+		
+		if l  < lanterns.size():
+			print('WHATTTT222222')
+			lanterns[l].set_lantern_on()
+		
 
 func save_level_data():
 	var coins1 = []
+	var lans1 = []
 	for c in coins:
 		if c is Coin and c.is_taken:
 			coins1.append(c.coin_index - 1)
 
-	SaveManager.save_level_data(lr.level_name,coins1,true)
+	for l in lanterns:
+		if l is LanternChain and l.is_on:
+			lans1.append(l.lantern_index - 1)
+	print(lans1)
+	SaveManager.save_level_data(lr.level_name,coins1,lans1,true)
 		
 		
 

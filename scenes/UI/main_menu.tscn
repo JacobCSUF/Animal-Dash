@@ -136,7 +136,7 @@ tile_map_data = PackedByteArray("AAAbABQAAQAJAAIAAAAbABMAAQAJAAIAAAAaAA4AAQALAAI
 
 [node name="PointLight2D" type="PointLight2D" parent="main_block/main_menu" unique_id=578596259]
 position = Vector2(321, 54)
-color = Color(0, 0.6689225, 1, 1)
+color = Color(1, 0.44297108, 1, 1)
 energy = 2.0
 texture = SubResource("GradientTexture2D_1sg0x")
 

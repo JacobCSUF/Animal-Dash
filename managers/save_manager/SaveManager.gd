@@ -31,9 +31,10 @@ func load_game():
 	
 	
 	
-func save_level_data(name: String,coins,complete):
+func save_level_data(name: String,coins,lanterns,complete):
 	saved_data[name] = {}
 	saved_data[name]["coins"] = coins
+	saved_data[name]["lanterns"] = lanterns
 	saved_data[name]["complete"] = complete
 	
 
@@ -59,6 +60,16 @@ func load_level_data(name: String):
 	else:
 		return null
 	
+func load_lantern_data(name: String):
+	if !saved_data.has(name):
+		return []
+	
+	if !saved_data[name].has("lanterns"):
+		return []
+	
+	return saved_data[name]["lanterns"]
+	
+
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save_game()

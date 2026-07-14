@@ -191,7 +191,7 @@ metadata/_custom_type_script = "uid://cvxnelhw3tch3"
 
 [sub_resource type="Resource" id="Resource_6lcb6"]
 script = ExtResource("33_agrr7")
-target_path = NodePath("../lantern_chain7")
+target_path = NodePath("../lanoff3")
 move_in_line = true
 direction = Vector2(0, 1)
 distance = 125
@@ -212,7 +212,7 @@ metadata/_custom_type_script = "uid://cvxnelhw3tch3"
 
 [sub_resource type="Resource" id="Resource_a21j6"]
 script = ExtResource("33_agrr7")
-target_path = NodePath("../lantern_chain8")
+target_path = NodePath("../lanoff4")
 move_in_line = true
 direction = Vector2(0, 1)
 distance = 175
@@ -299,10 +299,11 @@ position = Vector2(55, 371)
 texture = ExtResource("8_igeo0")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("1_025c5")]
-position = Vector2(-459, 101)
+position = Vector2(3833, 131)
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("2_bw3ef")]
-position = Vector2(-459, 101)
+position = Vector2(3833, 131)
+position_smoothing_speed = 10.0
 player = NodePath("../player")
 
 [node name="front2" parent="." unique_id=13827966 instance=ExtResource("5_4fww7")]
@@ -433,8 +434,9 @@ position = Vector2(2912, 112)
 coin_index = 9
 sound_group_number = 2
 
-[node name="lantern_chain3" parent="obstacles/chunk2" unique_id=1595990185 instance=ExtResource("21_c2nc4")]
-position = Vector2(3073, -32)
+[node name="lanoff2" parent="obstacles/chunk2" unique_id=1595990185 instance=ExtResource("21_c2nc4")]
+position = Vector2(16480, 18)
+lantern_index = 2
 fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
 
 [node name="pipe_curve" parent="obstacles/chunk2" unique_id=397017065 instance=ExtResource("11_07dy8")]
@@ -759,8 +761,9 @@ is_on = true
 position = Vector2(6621, -41)
 is_on = true
 
-[node name="lantern_chain7" parent="obstacles/chunk4" unique_id=26139755 instance=ExtResource("21_c2nc4")]
-position = Vector2(7439, -119)
+[node name="lanoff3" parent="obstacles/chunk4" unique_id=26139755 instance=ExtResource("21_c2nc4")]
+position = Vector2(16524, 12)
+lantern_index = 3
 fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
 
 [node name="direct_area" parent="obstacles/chunk4" unique_id=2097865557 instance=ExtResource("16_db1r7")]
@@ -807,8 +810,9 @@ bob = SubResource("Resource_tsudw")
 position = Vector2(8595, 63)
 area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_a21j6")])
 
-[node name="lantern_chain8" parent="obstacles/chunk5" unique_id=1534262142 instance=ExtResource("21_c2nc4")]
-position = Vector2(8914, -150)
+[node name="lanoff4" parent="obstacles/chunk5" unique_id=1534262142 instance=ExtResource("21_c2nc4")]
+position = Vector2(16622, 63)
+lantern_index = 4
 fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
 group_number = 12
 
@@ -1220,7 +1224,7 @@ position = Vector2(14176, -1)
 is_on = true
 
 [node name="lantern_chain7" parent="obstacles/9" unique_id=1546245901 instance=ExtResource("21_c2nc4")]
-position = Vector2(14741, 32)
+position = Vector2(14836, -51)
 is_on = true
 
 [node name="lantern_chain8" parent="obstacles/9" unique_id=411861379 instance=ExtResource("21_c2nc4")]
@@ -1440,12 +1444,14 @@ position = Vector2(2260, 275)
 
 [node name="lanterns" type="Node" parent="visuals" unique_id=1759003694]
 
-[node name="lantern_chain" parent="visuals/lanterns" unique_id=193647597 instance=ExtResource("21_c2nc4")]
+[node name="lan_off" parent="visuals/lanterns" unique_id=193647597 instance=ExtResource("21_c2nc4")]
 position = Vector2(1421, 4)
+lantern_index = 1
 fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
 
-[node name="lantern_chain3" parent="visuals/lanterns" unique_id=1658372685 instance=ExtResource("21_c2nc4")]
-position = Vector2(15144, -39)
+[node name="lan_off5" parent="visuals/lanterns" unique_id=1658372685 instance=ExtResource("21_c2nc4")]
+position = Vector2(16577, 24)
+lantern_index = 5
 fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
 
 [node name="lantern_chain2" parent="visuals/lanterns" unique_id=1331834167 instance=ExtResource("21_c2nc4")]

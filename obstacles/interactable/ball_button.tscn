@@ -68,14 +68,14 @@ size = Vector2(45, 12)
 offsets = PackedFloat32Array(0, 0.6396552, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_76fd3"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mmpky"]
 gradient = SubResource("Gradient_mmpky")
 
 [sub_resource type="Curve" id="Curve_hfbeb"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_blxxt"]
+[sub_resource type="CurveTexture" id="CurveTexture_hfbeb"]
 curve = SubResource("Curve_hfbeb")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_76fd3"]
@@ -89,8 +89,8 @@ initial_velocity_max = 450.0
 angular_velocity_min = -1.6093254e-05
 angular_velocity_max = 359.99997
 gravity = Vector3(0, 30, 0)
-scale_curve = SubResource("CurveTexture_blxxt")
-color_ramp = SubResource("GradientTexture1D_76fd3")
+scale_curve = SubResource("CurveTexture_hfbeb")
+color_ramp = SubResource("GradientTexture1D_mmpky")
 
 [node name="BallButton" type="Node2D" unique_id=1752648477]
 z_index = 1

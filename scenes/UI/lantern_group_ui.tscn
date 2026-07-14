@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://7ab641pmak4m"]
+
+[ext_resource type="Script" uid="uid://bnhm4rymu530c" path="res://scripts/lantern_group_ui.gd" id="1_xcl7s"]
+[ext_resource type="PackedScene" uid="uid://baastwtcm8qi6" path="res://scenes/UI/lantern_ui.tscn" id="2_dwif7"]
+
+[node name="lantern_group_ui" type="Node2D" unique_id=1510897796]
+script = ExtResource("1_xcl7s")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=749430728]
+modulate = Color(0.18623447, 0.24972996, 0.30254537, 1)
+z_index = 1
+position = Vector2(0, -10)
+points = PackedVector2Array(-7.7557983, -5.714279, 96, -6)
+width = 1.0
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=605012376]
+visible = false
+modulate = Color(0.62397295, 0.7443614, 0.87101096, 1)
+z_index = 1
+position = Vector2(230.94975, 18)
+points = PackedVector2Array(-7.7557983, -7.4999847, -7.7557983, -3.9285583)
+width = 1.25
+
+[node name="Line2D3" type="Line2D" parent="." unique_id=1111049212]
+visible = false
+modulate = Color(0.62397295, 0.7443614, 0.87101096, 1)
+z_index = 1
+position = Vector2(377.5, 17.5)
+points = PackedVector2Array(-12.395386, -7.142853, -12.395386, -3.5714264)
+width = 1.25
+
+[node name="lantern_ui" parent="." unique_id=110133261 instance=ExtResource("2_dwif7")]
+
+[node name="lantern_ui2" parent="." unique_id=1437446426 instance=ExtResource("2_dwif7")]
+position = Vector2(22, 0)
+
+[node name="lantern_ui3" parent="." unique_id=975311419 instance=ExtResource("2_dwif7")]
+position = Vector2(44, 0)
+
+[node name="lantern_ui4" parent="." unique_id=1898124798 instance=ExtResource("2_dwif7")]
+position = Vector2(66, 0)
+
+[node name="lantern_ui5" parent="." unique_id=903113145 instance=ExtResource("2_dwif7")]
+position = Vector2(88, 0)

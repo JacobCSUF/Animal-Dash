@@ -34,8 +34,8 @@ func set_color(f: Color, c: Color):
 	outline.modulate = c
 	
 		
-func set_on(index: int):
-	lantern_index = 0
+func set_on():
+	
 	fire.visible = true
 	campfire.play()
 	point_light_2d.visible = true
@@ -62,7 +62,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	lantern_hit.emit(area)
 	if !triggered:
 		torch_aura.play()
-		set_on(0)
+		set_on()
 	else:
 		torch_aura.volume_db -= 5
 		torch_aura.pitch_scale = 2.5

@@ -21,7 +21,12 @@ func _ready() -> void:
 	
 	do_tween(.07)
 
+func set_lantern_on():
+	
+	lantern.set_on()
+
 func _on_lantern_hit(body: Node2D):
+	is_on = true
 	apply_strength(body.global_position,1.0)
 
 func set_lantern_color(f: Color,c: Color):
