@@ -1,8 +1,9 @@
 extends Control
 class_name  WinCard
 
-@onready var new_coins: Label = $new_coins
-@onready var coin_total: Label = $coin_total
+
+@onready var curr_coins: Label = $curr_coins
+@onready var total_coins: Label = $total_coins
 @onready var coin_increase: Label = $coin_increase
 
 
@@ -32,6 +33,7 @@ func set_coins(total:int,num:int,l:Array,f:Color,tc: int,oc: int):
 	var tween = create_tween()
 	tween.tween_property(self,"modulate",Color(1.0, 1.0, 1.0, 1.0),1)
 	
-	new_coins.text = str(nc)
-	#coin_label.text =str(num)+"/" + str(total)
+	curr_coins.text = str(tc)+"/" + str(total)
+	coin_increase.text ="+"+str(oc)
+	total_coins.text ="Total: "+str(num)+"/" + str(total)
 	lantern_group_ui.set_lanterns(l,f,f)

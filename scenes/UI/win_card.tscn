@@ -130,17 +130,17 @@ text = "Total: 30/40"
 
 [node name="coin_increase" type="Label" parent="." unique_id=1739989155]
 layout_mode = 0
-offset_left = 410.0
-offset_top = 138.0
-offset_right = 448.0
-offset_bottom = 167.0
-theme_override_colors/font_color = Color(1, 1, 0, 1)
+offset_left = 420.0
+offset_top = 143.0
+offset_right = 458.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(0.9974155, 0.9424915, 0.9543124, 1)
 theme_override_colors/font_shadow_color = Color(0.59607846, 0.59607846, 0.40392157, 0.4745098)
 theme_override_constants/line_spacing = 3
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/outline_size = 1
 theme_override_constants/shadow_outline_size = 0
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "+15
 "
 
