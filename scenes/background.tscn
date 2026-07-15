@@ -93,6 +93,16 @@ distance = -111.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l5f8m"]
 
+[sub_resource type="Environment" id="Environment_8efq7"]
+background_mode = 3
+background_canvas_max_layer = 1
+glow_enabled = true
+glow_intensity = 1.2
+glow_strength = 1.2
+glow_blend_mode = 0
+glow_hdr_threshold = 0.7
+adjustment_enabled = true
+
 [node name="background" type="Node2D" unique_id=1318822552]
 z_index = -6
 script = ExtResource("1_8efq7")
@@ -218,3 +228,6 @@ shape = SubResource("WorldBoundaryShape2D_l5f8m")
 
 [node name="sound_increment_manager" type="Node2D" parent="managers" unique_id=1378223757]
 script = ExtResource("8_l5f8m")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=778469169]
+environment = SubResource("Environment_8efq7")

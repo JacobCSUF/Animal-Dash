@@ -22,7 +22,7 @@ func _ready() -> void:
 	do_tween(.07)
 
 func set_lantern_on():
-	
+	is_on = true
 	lantern.set_on()
 
 func _on_lantern_hit(body: Node2D):

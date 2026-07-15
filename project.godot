@@ -35,8 +35,7 @@ SongManager="*uid://bais6bdh5c0hm"
 window/size/viewport_width=640
 window/size/viewport_height=320
 window/stretch/mode="canvas_items"
-window/physics_interpolation=false
-window/physics_ticks_per_second=120
+window/physics_interpolation=true
 window/physics_jitter_fix=0.0
 
 [editor_plugins]

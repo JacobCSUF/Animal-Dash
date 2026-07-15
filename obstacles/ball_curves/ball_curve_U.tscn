@@ -15,6 +15,7 @@ texture_mode = 2
 position = Vector2(-2.1510048, -1.7985382)
 collision_layer = 2
 collision_mask = 0
+collision_priority = 4.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1409833167]
 position = Vector2(61.699875, -18.902704)
