@@ -56,5 +56,6 @@ func set_bg(bg: BG_manager):
 	bg_manager = bg
 	
 func handle_bg(p: BGParams):
-	bg_manager.handle_input(p)
+	if bg_manager:
+		bg_manager.handle_input(p)
 	

@@ -2,6 +2,8 @@ extends Node2D
 
 class_name LanternGroupUI
 
+@onready var sound_inc: SoundIncLocalComponent = $SoundIncLocalComponent
+
 @onready var l1: LanternUI = $lantern_ui
 @onready var l2: LanternUI = $lantern_ui2
 @onready var l3: LanternUI = $lantern_ui3
@@ -17,5 +19,12 @@ func set_lanterns(l_array: Array,f: Color, outline: Color):
 		i.turn_off()
 	
 	for i in l_array:
-		print(lans[i])
-		lans[i].set_colors(f,outline)
+		
+		lans[i-1].set_colors(f,outline)
+		
+func turn_on_group(l_array: Array,f: Color, outline: Color):
+	sound_inc.setup_inc()
+	for i in l_array:
+		sound_inc.play_inc()
+		
+	sound_inc.reset_inc()

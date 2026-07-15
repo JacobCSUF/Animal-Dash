@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundResource" format=3 uid="uid://kuppi602fiod"]
+
+[ext_resource type="Script" uid="uid://de16u0mha72wi" path="res://audio/AudioManager/audio_resources/sound_resource.gd" id="1_473tg"]
+[ext_resource type="AudioStream" uid="uid://bvh7w01df027j" path="res://audio/sounds/area/fire_on.mp3" id="2_0jlpl"]
+
+[resource]
+script = ExtResource("1_473tg")
+sound = ExtResource("2_0jlpl")
+volume = -12.0
+pitch = 2.0
+metadata/_custom_type_script = "uid://de16u0mha72wi"

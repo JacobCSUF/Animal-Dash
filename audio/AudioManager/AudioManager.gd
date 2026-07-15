@@ -3,7 +3,8 @@ extends Node
 const MAX_HEIGHT = -18.0
 const MIN_HEIGHT = 273.0
 
-enum Sound{DASH,FIREWORK,SWOOSH1,WATER,FAIRYD,UIBUTTON,SWOOSHLOOP1,COIN,ICE,CANNON, SWOOSH2,DEATH, SWOOSH3,CREAK}
+enum Sound{DASH,FIREWORK,SWOOSH1,WATER,FAIRYD,UIBUTTON
+,SWOOSHLOOP1,COIN,ICE,CANNON, SWOOSH2,DEATH, SWOOSH3,CREAK, TORCH}
 
 
 var sound_map ={
@@ -20,7 +21,8 @@ var sound_map ={
 	Sound.SWOOSH2: preload("uid://bh8xokceh11bm"),
 	Sound.DEATH: preload("uid://cb5lxf61pcvvo"),
 	Sound.SWOOSH3:preload("uid://c2x6uvjn2vvv8"),
-	Sound.CREAK:preload("uid://djio8lxrvnadh")
+	Sound.CREAK:preload("uid://djio8lxrvnadh"),
+	Sound.TORCH: preload("uid://kuppi602fiod")
 	
 }
 

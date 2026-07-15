@@ -24,7 +24,7 @@ func _ready() -> void:
 func set_lantern_on():
 	is_on = true
 	lantern.set_on()
-
+	
 func _on_lantern_hit(body: Node2D):
 	is_on = true
 	apply_strength(body.global_position,1.0)

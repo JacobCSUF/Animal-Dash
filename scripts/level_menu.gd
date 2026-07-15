@@ -34,7 +34,8 @@ var page_dots = []
 
 var level_dict = {
 	0:{
-		"level": preload("uid://dbqh6h7t28qom"),
+		#"level": preload("uid://dbqh6h7t28qom")
+		"level": preload("uid://dqc4ta6txr3o4"),
 		"display": preload("uid://disgsoafkm0u")
 		},
 	1:{

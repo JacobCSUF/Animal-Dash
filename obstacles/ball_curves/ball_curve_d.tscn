@@ -23,11 +23,12 @@ width = 5.0
 texture = ExtResource("2_b6vt0")
 texture_mode = 2
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=798964095]
+[node name="StaticBody2D" type="AnimatableBody2D" parent="." unique_id=669416433]
 position = Vector2(-2.1510048, -1.7985382)
-collision_layer = 2
+collision_layer = 3
 collision_mask = 0
 collision_priority = 4.0
+sync_to_physics = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=99094970]
 position = Vector2(61.860004, 18.939823)

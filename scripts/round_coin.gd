@@ -22,6 +22,12 @@ func set_taken():
 
 func _on_direct_area_area_entered(area: Area2D) -> void:
 	if !entered1:
+		#coin hasnt been taken before on completed level
+		if is_taken:
+			new_take.emit(true)
+		else:
+		#coin has been taken before on completed level
+			new_take.emit(false)
 		is_taken = true
 		entered1 = true
 		particles.emitting= false

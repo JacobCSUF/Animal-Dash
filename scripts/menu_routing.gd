@@ -54,6 +54,7 @@ func change_menu(type1):
 	match type1:
 		
 		Menus.MAIN:
+			pause_button.visible = false
 			curr_menu = MAIN_MENU.instantiate()
 			curr_menu.button_pressed.connect(_on_pressed)
 			add_child(curr_menu)
@@ -135,10 +136,10 @@ func _on_level(level: PackedScene):
 
 	
 	
-func _on_level_end(t_coin,n_coin):
+func _on_level_end(t_coin,n_coin,l_array,f,taken_c,new_c):
 	
 	win_card.visible = true
-	win_card.set_coins(t_coin,n_coin)
+	win_card.set_coins(t_coin,n_coin,l_array,f,taken_c,new_c)
 	
 
 func _on_died():

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bqj5gg7tuxrwp"]
 
+[ext_resource type="Theme" uid="uid://ve7bfujv5tqo" path="res://scenes/UI/global_theme.tres" id="1_s3tuk"]
 [ext_resource type="Script" uid="uid://cvqxmagdeq065" path="res://scenes/UI/base_button.gd" id="1_so061"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_so061"]
@@ -22,6 +23,7 @@ corner_detail = 5
 [node name="base" type="Button" unique_id=1570557467]
 offset_right = 8.0
 offset_bottom = 8.0
+theme = ExtResource("1_s3tuk")
 theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_so061")
 script = ExtResource("1_so061")

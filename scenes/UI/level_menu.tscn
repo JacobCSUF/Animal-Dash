@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://baqibqxldayge" path="res://scripts/level_menu.gd" id="1_6yacc"]
 [ext_resource type="PackedScene" uid="uid://bqj5gg7tuxrwp" path="res://scenes/UI/base_button.tscn" id="4_od4ud"]
 [ext_resource type="Texture2D" uid="uid://uhsapvolwmgv" path="res://sprites/tiles/grass.png" id="5_u2ndr"]
+[ext_resource type="Texture2D" uid="uid://bhbtf6w4k5rwc" path="res://sprites/lock.png" id="6_e7gcb"]
 [ext_resource type="PackedScene" uid="uid://cgvpqh6is77fc" path="res://obstacles/interactable/lantern_chain.tscn" id="6_od4ud"]
 [ext_resource type="PackedScene" uid="uid://7ab641pmak4m" path="res://scenes/UI/lantern_group_ui.tscn" id="6_vl0d2"]
 [ext_resource type="Texture2D" uid="uid://bpt786awdytar" path="res://sprites/imgbin_b6a6e1dcc386cd2c37cef87794eaaf7d.png" id="7_60uxb"]
@@ -254,6 +255,13 @@ theme_override_constants/outline_size = 1
 theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 10
 text = "15/40"
+
+[node name="Lock" type="Sprite2D" parent="Coin2" unique_id=472654817]
+modulate = Color(1, 1, 1, 0.8117647)
+z_index = 6
+position = Vector2(112, 53)
+scale = Vector2(0.734375, 0.74999994)
+texture = ExtResource("6_e7gcb")
 
 [node name="lantern_ui" parent="." unique_id=1510897796 instance=ExtResource("6_vl0d2")]
 position = Vector2(366, 125)

@@ -7,6 +7,7 @@ class_name Coin
 
 @export var area_entered: Array[ResponseResource]
 
+signal new_take(x: bool)
 
 var is_taken = false
 var entered1 := false

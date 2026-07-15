@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bbr1erf6575hi" path="res://scripts/end_area.gd" id="1_43d2s"]
 [ext_resource type="PackedScene" uid="uid://co8mupe6t3dnn" path="res://scenes/tilemap_base.tscn" id="1_gddop"]
 [ext_resource type="Texture2D" uid="uid://0pore0i2dbln" path="res://sprites/gpu_particles/shimmersheet.png" id="3_k7apg"]
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="4_gbbwy"]
+[ext_resource type="Texture2D" uid="uid://cc8qkophgojp5" path="res://sprites/slow_line.png" id="5_4t1n2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
 size = Vector2(20, 426)
@@ -32,8 +34,20 @@ color_ramp = SubResource("GradientTexture1D_gbbwy")
 hue_variation_min = 0.51
 hue_variation_max = 0.99999994
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ybw2l"]
+shader = ExtResource("4_gbbwy")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = false
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 0.0
+shader_parameter/sway_speed = -1.0
+shader_parameter/sway_strength = 0.01
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
 [node name="level_end" type="Area2D" unique_id=1117045117 groups=["end"]]
-collision_layer = 0
+collision_layer = 2147483648
+collision_mask = 2147483649
 script = ExtResource("1_43d2s")
 
 [node name="tiles" parent="." unique_id=13827966 instance=ExtResource("1_gddop")]
@@ -47,7 +61,6 @@ shape = SubResource("RectangleShape2D_1sg0x")
 
 [node name="particles" type="GPUParticles2D" parent="." unique_id=2113936338]
 light_mask = 0
-z_index = 3
 position = Vector2(7, 131)
 amount = 500
 texture = ExtResource("3_k7apg")
@@ -55,5 +68,19 @@ lifetime = 3.5
 fixed_fps = 60
 visibility_rect = Rect2(-1000, -150, 2000, 300)
 process_material = SubResource("ParticleProcessMaterial_4t1n2")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1871524148]
+z_index = 1
+texture_repeat = 2
+points = PackedVector2Array(0, -80, 0, 335)
+width = 2.0
+default_color = Color(0, 1, 1, 1)
+
+[node name="SlowLine" type="Sprite2D" parent="." unique_id=1318113902]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_ybw2l")
+position = Vector2(0, 101)
+texture = ExtResource("5_4t1n2")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

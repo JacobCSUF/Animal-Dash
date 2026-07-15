@@ -11,6 +11,11 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.84755445, 0.8777885, 0.9096931, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -39,61 +44,66 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("1_8ec7x")
 
 [node name="Panel" type="Panel" parent="." unique_id=54984865]
-layout_mode = 0
-offset_left = 141.0
-offset_top = -2.0
-offset_right = 470.0
-offset_bottom = 242.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 40.0
+offset_right = 169.0
+offset_bottom = 284.0
+grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8ec7x")
 
 [node name="redo" parent="." unique_id=1750113617 instance=ExtResource("2_0mqbr")]
 layout_mode = 0
-offset_left = 184.0
-offset_top = 107.0
-offset_right = 265.0
-offset_bottom = 132.0
+offset_left = 196.5
+offset_top = 120.0
+offset_right = 300.5
+offset_bottom = 152.0
 text = "Start Over"
 to_menu = 8
 
 [node name="level_select" parent="." unique_id=841753528 instance=ExtResource("2_0mqbr")]
 layout_mode = 0
-offset_left = 162.0
-offset_top = 143.0
-offset_right = 286.0
-offset_bottom = 177.09775
+offset_left = 196.5
+offset_top = 160.0
+offset_right = 299.5
+offset_bottom = 192.0
 text = "Level Select"
 to_menu = 5
 
+[node name="level_select2" parent="." unique_id=1570557467 instance=ExtResource("2_0mqbr")]
+layout_mode = 0
+offset_left = 196.5
+offset_top = 200.0
+offset_right = 299.5
+offset_bottom = 228.0
+text = "Main Menu"
+
 [node name="Label" type="Label" parent="." unique_id=1841955345]
 layout_mode = 0
-offset_left = 161.0
-offset_top = 14.0
-offset_right = 461.0
-offset_bottom = 81.38962
-theme_override_font_sizes/font_size = 64
-text = "YOU WON"
-
-[node name="Coin_label" type="Label" parent="." unique_id=1178414093]
-visible = false
-layout_mode = 0
-offset_left = 296.0
-offset_top = 97.0
-offset_right = 364.0
-offset_bottom = 114.0
-text = "Coins: "
+offset_left = 180.5
+offset_top = 68.0
+offset_right = 718.5
+offset_bottom = 133.0
+theme_override_font_sizes/font_size = 32
+text = "LEVEL COMPLETE"
 
 [node name="lantern_group_ui" parent="." unique_id=1510897796 instance=ExtResource("3_5acy6")]
-position = Vector2(345, 175)
+z_index = 2
+position = Vector2(354, 209)
 
-[node name="coin_label" type="Label" parent="." unique_id=1075463208]
+[node name="curr_coins" type="Label" parent="." unique_id=1075463208]
 layout_mode = 0
-offset_left = 390.0
-offset_top = 112.0
-offset_right = 438.0
-offset_bottom = 129.0
+offset_left = 410.0
+offset_top = 120.0
+offset_right = 458.0
+offset_bottom = 137.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.59607846, 0.59607846, 0.40392157, 0.4745098)
 theme_override_constants/line_spacing = 3
@@ -103,9 +113,42 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 16
 text = "15/40"
 
+[node name="total_coins" type="Label" parent="." unique_id=1581381552]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 152.0
+offset_right = 392.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.59607846, 0.59607846, 0.40392157, 0.4745098)
+theme_override_constants/line_spacing = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 16
+text = "Total: 30/40"
+
+[node name="coin_increase" type="Label" parent="." unique_id=1739989155]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 138.0
+offset_right = 448.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.59607846, 0.59607846, 0.40392157, 0.4745098)
+theme_override_constants/line_spacing = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 12
+text = "+15
+"
+
 [node name="CoinSheetSheet" type="AnimatedSprite2D" parent="." unique_id=1413619844]
-position = Vector2(361, 119)
+position = Vector2(368, 128.00002)
+scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_i3qis")
 
 [connection signal="b_pressed" from="redo" to="." method="_on_redo_b_pressed"]
 [connection signal="b_pressed" from="level_select" to="." method="_on_level_select_b_pressed"]
+[connection signal="b_pressed" from="level_select2" to="." method="_on_level_select_b_pressed"]

@@ -28,7 +28,9 @@ func load_game():
 	var json = file.get_as_text()
 	if not json.is_empty():
 		saved_data = JSON.parse_string(json)
-	
+		
+
+			
 	
 	
 func save_level_data(name: String,coins,lanterns,complete):
@@ -56,9 +58,13 @@ func is_level_complete(name: String):
 	
 func load_level_data(name: String):
 	if saved_data.has(name):
+		saved_data[name]["coins"] = saved_data[name]["coins"].map(func(element): return int(element))
+		saved_data[name]["lanterns"] = saved_data[name]["lanterns"].map(func(element): return int(element))
 		return saved_data[name]
 	else:
 		return null
+	
+	
 	
 func load_lantern_data(name: String):
 	if !saved_data.has(name):
