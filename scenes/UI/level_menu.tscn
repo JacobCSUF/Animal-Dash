@@ -3,16 +3,13 @@
 [ext_resource type="Script" uid="uid://baqibqxldayge" path="res://scripts/level_menu.gd" id="1_6yacc"]
 [ext_resource type="PackedScene" uid="uid://bqj5gg7tuxrwp" path="res://scenes/UI/base_button.tscn" id="4_od4ud"]
 [ext_resource type="Texture2D" uid="uid://uhsapvolwmgv" path="res://sprites/tiles/grass.png" id="5_u2ndr"]
-[ext_resource type="Texture2D" uid="uid://bhbtf6w4k5rwc" path="res://sprites/lock.png" id="6_e7gcb"]
 [ext_resource type="PackedScene" uid="uid://cgvpqh6is77fc" path="res://obstacles/interactable/lantern_chain.tscn" id="6_od4ud"]
 [ext_resource type="PackedScene" uid="uid://7ab641pmak4m" path="res://scenes/UI/lantern_group_ui.tscn" id="6_vl0d2"]
 [ext_resource type="Texture2D" uid="uid://bpt786awdytar" path="res://sprites/imgbin_b6a6e1dcc386cd2c37cef87794eaaf7d.png" id="7_60uxb"]
-[ext_resource type="Texture2D" uid="uid://d4cvgryygmrgh" path="res://sprites/lantern_ui.png" id="7_qyxl1"]
 [ext_resource type="PackedScene" uid="uid://ftfnkrmwb02f" path="res://obstacles/interactable/coin.tscn" id="8_4qxtg"]
+[ext_resource type="PackedScene" uid="uid://dosodixfkc4av" path="res://scenes/UI/pagnation.tscn" id="8_6gwu6"]
 [ext_resource type="PackedScene" uid="uid://bmfn8wqulw2vm" path="res://scenes/UI/difficulty_ui.tscn" id="8_vl0d2"]
-[ext_resource type="Texture2D" uid="uid://cb650ykpv5l6e" path="res://sprites/flame_back.png" id="8_x86uh"]
-[ext_resource type="Texture2D" uid="uid://cok67dik24s0m" path="res://sprites/coin-Sheet-Sheet.png" id="9_vl0d2"]
-[ext_resource type="Texture2D" uid="uid://kxlgfbtfum3m" path="res://sprites/lantern_fire.png" id="9_xkumf"]
+[ext_resource type="PackedScene" uid="uid://dkjl10fkw74f3" path="res://scenes/UI/currency.tscn" id="10_e7gcb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u2ndr"]
 texture = ExtResource("5_u2ndr")
@@ -127,139 +124,6 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qyxl1"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.09985284, 0.09985284, 0.09985284, 0.9620001)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.4885021, 0.48850214, 0.48850185, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e7gcb"]
-atlas = ExtResource("9_vl0d2")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_v87q7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e7gcb")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0whyd"]
-atlas = ExtResource("7_qyxl1")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_trtgg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0whyd")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_adkte"]
-atlas = ExtResource("8_x86uh")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_laqmw"]
-atlas = ExtResource("8_x86uh")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7t8xm"]
-atlas = ExtResource("8_x86uh")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uyqlf"]
-atlas = ExtResource("8_x86uh")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gwntt"]
-atlas = ExtResource("8_x86uh")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_d0of7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_adkte")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_laqmw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7t8xm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uyqlf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gwntt")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 15.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sv276"]
-atlas = ExtResource("9_xkumf")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wp3cx"]
-atlas = ExtResource("9_xkumf")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iou8t"]
-atlas = ExtResource("9_xkumf")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6nmko"]
-atlas = ExtResource("9_xkumf")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8twgs"]
-atlas = ExtResource("9_xkumf")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0whyd"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sv276")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wp3cx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iou8t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6nmko")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8twgs")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 15.0
-}]
-
 [node name="level_menu" type="Control" unique_id=795183383]
 layout_mode = 3
 anchors_preset = 15
@@ -292,7 +156,7 @@ position = Vector2(528, 72)
 is_on = true
 turn_off_chains = true
 
-[node name="up" type="Button" parent="." unique_id=442521195]
+[node name="left" type="Button" parent="." unique_id=442521195]
 z_index = 4
 layout_mode = 0
 offset_left = 249.0
@@ -305,7 +169,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_60uxb")
 text = "<
 "
 
-[node name="down" type="Button" parent="." unique_id=1458613079]
+[node name="right" type="Button" parent="." unique_id=1458613079]
 z_index = 4
 layout_mode = 0
 offset_left = 375.0
@@ -379,33 +243,16 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 10
 text = "15/40"
 
-[node name="Lock" type="Sprite2D" parent="Coin2" unique_id=472654817]
-visible = false
-modulate = Color(1, 1, 1, 0.8117647)
-z_index = -1
-position = Vector2(111.5, 53)
-scale = Vector2(0.734375, 0.74999994)
-texture = ExtResource("6_e7gcb")
-
-[node name="Lock2" type="Sprite2D" parent="Coin2" unique_id=922415992]
-visible = false
-modulate = Color(1, 1, 1, 0.8117647)
-z_index = 6
-position = Vector2(125.5, 53)
-scale = Vector2(0.734375, 0.74999994)
-texture = ExtResource("6_e7gcb")
-
 [node name="lantern_ui" parent="." unique_id=1510897796 instance=ExtResource("6_vl0d2")]
 position = Vector2(366, 125)
 scale = Vector2(0.6, 0.6)
 
-[node name="pagnation" type="HBoxContainer" parent="." unique_id=2033358976]
+[node name="pagnation" parent="." unique_id=920470965 instance=ExtResource("8_6gwu6")]
 layout_mode = 0
-offset_left = 244.0
-offset_top = 187.0
-offset_right = 412.0
-offset_bottom = 219.0
-alignment = 1
+offset_left = 262.0
+offset_top = 186.0
+offset_right = 398.0
+offset_bottom = 218.0
 
 [node name="cleared_panel" type="Panel" parent="." unique_id=1597081017]
 layout_mode = 0
@@ -482,74 +329,14 @@ text = "Difficulty"
 [node name="difficulty_ui" parent="difficulty" unique_id=811840475 instance=ExtResource("8_vl0d2")]
 position = Vector2(11, 8)
 
-[node name="Panel2" type="Panel" parent="." unique_id=1308437663]
+[node name="currency" parent="." unique_id=1348172473 instance=ExtResource("10_e7gcb")]
 layout_mode = 0
-offset_left = 528.0
-offset_top = 8.0
-offset_right = 626.0
-offset_bottom = 35.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qyxl1")
+offset_left = 532.0
+offset_top = 7.0
+offset_right = 630.0
+offset_bottom = 34.0
 
-[node name="CoinSheetSheet" type="AnimatedSprite2D" parent="Panel2" unique_id=521100896]
-position = Vector2(56, 13)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_v87q7")
-
-[node name="coin_count" type="Label" parent="Panel2" unique_id=6971502]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.25417438
-anchor_top = -0.037037037
-anchor_right = -0.25417438
-anchor_bottom = -0.037037037
-offset_left = 94.0
-offset_top = 10.0
-offset_right = 145.0
-offset_bottom = 33.0
-theme_override_colors/font_color = Color(1, 1, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.59607846, 0.59607846, 0.40392157, 0.4745098)
-theme_override_constants/line_spacing = 3
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/outline_size = 1
-theme_override_constants/shadow_outline_size = 0
-theme_override_font_sizes/font_size = 10
-text = "x321"
-metadata/_edit_use_anchors_ = true
-
-[node name="LanternUi" type="AnimatedSprite2D" parent="Panel2" unique_id=2068640870]
-z_index = 1
-position = Vector2(11, 13)
-scale = Vector2(0.75, 0.75)
-sprite_frames = SubResource("SpriteFrames_trtgg")
-
-[node name="lan_count" type="Label" parent="Panel2/LanternUi" unique_id=1969734976]
-offset_left = 13.333354
-offset_top = -6.6666665
-offset_right = 68.00004
-offset_bottom = 18.666666
-theme_override_colors/font_color = Color(5.390644e-06, 0.94793993, 0.9217023, 1)
-theme_override_colors/font_shadow_color = Color(0.59607846, 0.59607846, 0.40392157, 0.4745098)
-theme_override_constants/line_spacing = 3
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/outline_size = 1
-theme_override_constants/shadow_outline_size = 0
-theme_override_font_sizes/font_size = 14
-text = "x17"
-metadata/_edit_use_anchors_ = true
-
-[node name="flame" type="AnimatedSprite2D" parent="Panel2/LanternUi" unique_id=1228550364]
-z_index = -1
-position = Vector2(3.3999996, 3.4000015)
-sprite_frames = SubResource("SpriteFrames_d0of7")
-autoplay = "default"
-
-[node name="outline" type="AnimatedSprite2D" parent="Panel2/LanternUi" unique_id=342999199]
-z_index = -1
-position = Vector2(3.3999996, 3.4000015)
-sprite_frames = SubResource("SpriteFrames_0whyd")
-autoplay = "default"
-
-[connection signal="pressed" from="up" to="." method="_on_up_pressed"]
-[connection signal="pressed" from="down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="right" to="." method="_on_right_pressed"]
 [connection signal="b_pressed" from="play" to="." method="_on_play_b_pressed"]
 [connection signal="b_pressed" from="back" to="." method="_on_back_b_pressed"]

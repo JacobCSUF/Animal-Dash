@@ -20,6 +20,8 @@ class_name  Lantern
 
 
 signal lantern_hit
+signal new_hit
+
 var first = true
 var lantern_index = 0
 var triggered = false
@@ -41,6 +43,7 @@ func set_on():
 	point_light_2d.visible = true
 	lantern1.pause()
 	lantern1.frame = 1
+	triggered = true
 
 func auto_on():
 	campfire.play()
@@ -61,6 +64,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	
 	lantern_hit.emit(area)
 	if !triggered:
+		new_hit.emit()
 		torch_aura.play()
 		set_on()
 	else:

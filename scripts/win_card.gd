@@ -70,12 +70,12 @@ func set_coins(total:int,num:int,l:Array,f:Color,tc: int,new: int):
 		i.visible = true
 		await get_tree().create_timer(0.5).timeout
 	
-	
+	await get_tree().create_timer(0.3).timeout
 	for i in range(new):
 		total_coins.text ="Total: "+str(num+i+1)+"/" + str(total)
 		await get_tree().create_timer(0.1).timeout
 		AudioManager.play_sound(AudioManager.Sound.COIN)
-	
+	await get_tree().create_timer(0.3).timeout
 	total_coins.text ="Total: "+str(num+new)+"/" + str(total)
 	
 	lantern_group_ui.turn_on_group(l,f,f)

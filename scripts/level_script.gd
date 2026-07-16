@@ -11,6 +11,7 @@ signal level_end
 var new_coin_counter = 0
 var taken_coin_counter = 0
 var old_taken = 0
+var lan_new = 0
 
 func _ready() -> void:
 	
@@ -27,7 +28,7 @@ func _ready() -> void:
 		if lan.lantern_index == 0:
 			continue
 		lanterns[lan.lantern_index] = lan
-	
+		lan.lan_new_hit.connect(_on_lan_new_hit)
 
 	SongManager.set_song(lr.level_number)
 	load_level_data()
@@ -40,10 +41,13 @@ func _on_new_take(taken: bool):
 		
 		new_coin_counter += 1
 	
+func _on_lan_new_hit():
+	lan_new += 1
+	print("NEW HIT LAN: NOW: ",lan_new)
 
 func load_level_data():
 	
-	var data = SaveManager.load_level_data(lr.level_name)
+	var data = SaveManager.load_level_data(lr.level_number)
 	if !data:
 		return
 	var cs = data["coins"]
@@ -68,7 +72,7 @@ func save_level_data():
 		if lanterns[l] is LanternChain and lanterns[l].is_on:
 			lans1.append(l)
 	print(lans1)
-	SaveManager.save_level_data(lr.level_name,coins1,lans1,true,new_coin_counter)
+	SaveManager.save_level_data(lr.level_number,coins1,lans1,true,new_coin_counter,lan_new)
 		
 		
 

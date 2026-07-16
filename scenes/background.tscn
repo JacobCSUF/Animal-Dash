@@ -41,12 +41,11 @@ shader_parameter/moveDir = Vector2(-1, -0.5)
 shader_parameter/noise = SubResource("NoiseTexture2D_yc10j")
 shader_parameter/noise2 = SubResource("NoiseTexture2D_qg8x4")
 
-[sub_resource type="Gradient" id="Gradient_fhdct"]
-offsets = PackedFloat32Array(0.121987954, 0.537037, 0.8930723)
-colors = PackedColorArray(0.09788772, 0.34250125, 0.4296105, 0.40784314, 0.084256224, 0.2128044, 0.257729, 0.409, 0.041725725, 0.17087737, 0.22461823, 0.44313726)
+[sub_resource type="Gradient" id="Gradient_lxeoi"]
+colors = PackedColorArray(0, 0.031500034, 0.27, 0.53333336, 0.15910001, 0.310245, 0.37, 0.6039216)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yq6so"]
-gradient = SubResource("Gradient_fhdct")
+gradient = SubResource("Gradient_lxeoi")
 width = 640
 height = 320
 fill_from = Vector2(0.5, 0)
@@ -96,6 +95,7 @@ distance = -111.0
 [sub_resource type="Environment" id="Environment_8efq7"]
 background_mode = 3
 background_canvas_max_layer = 1
+glow_enabled = true
 glow_intensity = 1.2
 glow_strength = 1.2
 glow_blend_mode = 0

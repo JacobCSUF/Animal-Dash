@@ -14,7 +14,9 @@ extends Control
 @onready var coin_label: Label = $Coin2/coin_label
 
 const PAGE_DOT = preload("uid://cihhs64uxc1ot")
-@onready var pagnation: HBoxContainer = $pagnation
+
+@onready var pagnation: Pageination = $pagnation
+
 
 @onready var cleared_panel: Panel = $cleared_panel
 @onready var clear_no: Label = $cleared_panel/clear_no
@@ -31,11 +33,11 @@ signal button_pressed(menu: MenuHandler.Menus)
 var level_index = 0
 var dis
 var page_dots = []
-
+var locked_index = 1
 var level_dict = {
 	0:{
-		"level": preload("uid://dbqh6h7t28qom"),
-		#"level": preload("uid://dqc4ta6txr3o4"),
+		#"level": preload("uid://dbqh6h7t28qom"),
+		"level": preload("uid://dqc4ta6txr3o4"),
 		"display": preload("uid://disgsoafkm0u")
 		},
 	1:{
@@ -49,9 +51,8 @@ var level_dict = {
 		,
 	3:{
 		"level":preload("uid://56iwvm0o1mvm") ,
-		"display": preload("uid://dk5uyd3ncdtqd")
+		"display": preload("uid://dk5uyd3ncdtqd"),
 		}
-		
 	,
 	4:{
 		"level": preload("uid://cyyl1oxo6aylr"),
@@ -60,21 +61,24 @@ var level_dict = {
 		
 	}
 	
+var u_dict= {}
+
+func set_unlocked():
+	for i in level_dict:
+		if !SaveManager.is_level_locked(i):
+			u_dict[i] = level_dict[i]
+		else:
+			locked_index = i
+			break
+
 
 func _ready():
-	
-	for i in range(level_dict.size()):
-		
-		var d = PAGE_DOT.instantiate()
-
-		pagnation.add_child(d)
-		page_dots.append(d)
-		if i == 0:
-			d.toggle_on()
+	set_unlocked()
+	pagnation.set_dots(level_dict)
 	set_level()
 	
 func set_counter(ind:= 0):
-	level_index = ind
+	level_index = ind 
 
 func get_counter():
 	return level_index
@@ -83,13 +87,14 @@ func set_level():
 	if dis:
 		dis.queue_free()
 
+	pagnation.toggle_dots(level_index)
 	
-	var leve = level_dict[level_index]
+	var leve = u_dict[level_index]
 	var lev: Level = leve["level"].instantiate()
 	var lr = lev.lr
 	var c = lr.ui_color
 	var f = lr.flame_color
-	var o  = lr.outline_flame_color
+	var o = lr.outline_flame_color
 	
 	for i in range(page_dots.size()):
 		if i == level_index:
@@ -102,10 +107,10 @@ func set_level():
 	lantern_chain_2.set_lantern_color(f,o)
 	level_title.text = lr.level_name
 
-	var num_coins = SaveManager.get_level_coins(lr.level_name)
-	var lev_data = SaveManager.load_level_data(lr.level_name)
-	var lan_data = SaveManager.load_lantern_data(lr.level_name)
-	var complete = SaveManager.is_level_complete(lr.level_name)
+	var num_coins = SaveManager.get_level_coins(lr.level_number)
+	var lev_data = SaveManager.load_level_data(lr.level_number)
+	var lan_data = SaveManager.load_lantern_data(lr.level_number)
+	var complete = SaveManager.is_level_complete(lr.level_number)
 	
 	lantern_ui.set_lanterns(lan_data,o,o)
 	
@@ -161,21 +166,36 @@ func set_coins(lr: LevelResource,num: int):
 	
 
 
-func _on_up_pressed() -> void:
+func _on_left_pressed() -> void:
 	AudioManager.play_sound(AudioManager.Sound.UIBUTTON)
-	level_index = (level_index - 1) % level_dict.size()
+	level_index = (level_index - 1) % u_dict.size()
 	if level_index < 0:
-		level_index = level_dict.size() -1
+		level_index = u_dict.size() -1
 	set_level()
 
 
-func _on_down_pressed() -> void:
+func _on_right_pressed() -> void:
 	AudioManager.play_sound(AudioManager.Sound.UIBUTTON)
-	level_index = (level_index + 1) % level_dict.size()
+	if SaveManager.is_level_locked(level_index + 1):
+	
+		check_locked(level_index + 1)
+		return
+		
+	level_index = (level_index + 1) % u_dict.size()
 	set_level()
 
 
 
+
+func check_locked(ind: int):
+	var c = SaveManager.get_locked_lantern_count(ind)
+	if SaveManager.get_total_lanterns() >= c:
+		pagnation.unlock(ind)
+		SaveManager.unlock_level(ind)
+		set_unlocked()
+		pagnation.toggle_grays()
+	else:
+		pagnation.deny_lock(ind,c)
 
 func _on_back_b_pressed(m: MenuHandler.Menus) -> void:
 	button_pressed.emit(MenuHandler.Menus.BACK)
@@ -183,4 +203,4 @@ func _on_back_b_pressed(m: MenuHandler.Menus) -> void:
 
 func _on_play_b_pressed(m: MenuHandler.Menus) -> void:
 	dis.queue_free()
-	level_select.emit(level_dict[level_index]["level"])
+	level_select.emit(u_dict[level_index]["level"])

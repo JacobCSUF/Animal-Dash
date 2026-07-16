@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://b4wb6efmxuuxv" path="res://sprites/animals/animal_resource/pink_butterfly.tres" id="7_1r7kg"]
 [ext_resource type="SpriteFrames" uid="uid://nxecp61r5lmm" path="res://sprites/animals/animation_resources/pink_butterfly_frames.tres" id="8_5q3dr"]
 [ext_resource type="Resource" uid="uid://r0x1p0kov2xq" path="res://sprites/animals/animal_resource/chicken.tres" id="8_g5lem"]
+[ext_resource type="PackedScene" uid="uid://dkjl10fkw74f3" path="res://scenes/UI/currency.tscn" id="12_me3x7"]
 
 [node name="shop_menu" type="Control" unique_id=1831306848]
 layout_mode = 3
@@ -81,6 +82,9 @@ visible = false
 light_mask = 0
 sprite_frames = ExtResource("8_5q3dr")
 animation = &"flappy"
+
+[node name="currency" parent="." unique_id=1348172473 instance=ExtResource("12_me3x7")]
+layout_mode = 0
 
 [connection signal="button_down" from="change" to="." method="_on_change_button_down"]
 [connection signal="button_down" from="back" to="." method="_on_back_button_down"]

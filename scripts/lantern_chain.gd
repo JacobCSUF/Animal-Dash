@@ -9,6 +9,8 @@ class_name LanternChain
 @onready var rope: Rope = $Rope
 @onready var chains: AudioStreamPlayer2D = $Chains
 
+signal lan_new_hit
+
 func _ready() -> void:
 	if turn_off_chains:
 		chains.stop()
@@ -20,8 +22,11 @@ func _ready() -> void:
 	if lantern:
 		lantern.set_color(fire_color,fire_color)
 		lantern.lantern_hit . connect(_on_lantern_hit)
-	
+		lantern.new_hit.connect(_on_new_hit)
 	do_tween(.07)
+
+func _on_new_hit():
+	lan_new_hit.emit()
 
 func set_lantern_on():
 	is_on = true
