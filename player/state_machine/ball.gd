@@ -16,7 +16,7 @@ var gravity = 475
 enum states{GROUND, JUMP, LANDED}
 var curr_state = states.GROUND
 
-func enter_state(player_node, data = {}):
+func enter_state(player_node, _data = {}):
 	#timer.start()
 	super(player_node)
 	match_state(states.LANDED,0)
@@ -34,7 +34,7 @@ func handle_input(delta):
 	match_state(curr_state,delta)
 
 
-func match_state(state: states,delta):
+func match_state(state: states,_delta):
 	
 	match state:
 		states.GROUND:
@@ -130,7 +130,7 @@ func match_state(state: states,delta):
 							player.velocity = Vector2.DOWN *SPEED
 							flip = 0
 						
-				var r = ray_cast_2d.get_collision_normal()
+		
 				
 			
 						

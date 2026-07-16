@@ -41,7 +41,7 @@ level_name = "Flappy Adventure"
 outline_flame_color = Color(0.4649247, 1, 0.7240472, 1)
 flame_color = Color(1.2995303e-06, 0.50852597, 0.5142111, 1)
 ui_color = Color(0, 1, 0.9254902, 1)
-total_coins = 39
+total_coins = 36
 metadata/_custom_type_script = "uid://5nmavtap5ybn"
 
 [sub_resource type="Resource" id="Resource_j3pel"]
@@ -299,10 +299,10 @@ position = Vector2(55, 371)
 texture = ExtResource("8_igeo0")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("1_025c5")]
-position = Vector2(1221, 127)
+position = Vector2(-367, 125)
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("2_bw3ef")]
-position = Vector2(1221, 127)
+position = Vector2(-367, 125)
 position_smoothing_speed = 10.0
 player = NodePath("../player")
 
@@ -602,13 +602,13 @@ metadata/_custom_type_script = "uid://daxf6fnwb7v3"
 
 [node name="Coin" parent="obstacles/chunk3/BaseObject" unique_id=931501637 instance=ExtResource("24_c2nc4")]
 position = Vector2(-24, 8)
-coin_index = 18
+coin_index = 16
 area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_6d4iq"), SubResource("Resource_agrr7"), SubResource("Resource_b2isc")])
 sound_group_number = 5
 
 [node name="Coin2" parent="obstacles/chunk3/BaseObject" unique_id=1553120851 instance=ExtResource("24_c2nc4")]
 position = Vector2(0, 8)
-coin_index = 19
+coin_index = 17
 area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_6d4iq"), SubResource("Resource_agrr7"), SubResource("Resource_b2isc")])
 sound_group_number = 5
 
@@ -619,12 +619,12 @@ metadata/_custom_type_script = "uid://daxf6fnwb7v3"
 
 [node name="Coin" parent="obstacles/chunk3/BaseObject2" unique_id=468580076 instance=ExtResource("24_c2nc4")]
 position = Vector2(-23, 2)
-coin_index = 21
+coin_index = 18
 sound_group_number = 5
 
 [node name="Coin2" parent="obstacles/chunk3/BaseObject2" unique_id=1363913181 instance=ExtResource("24_c2nc4")]
 position = Vector2(0, 2)
-coin_index = 22
+coin_index = 19
 sound_group_number = 5
 
 [node name="chunk4" type="Node" parent="obstacles" unique_id=1554013879]
@@ -667,12 +667,12 @@ shape = SubResource("RectangleShape2D_db1r7")
 
 [node name="Coin12" parent="obstacles/chunk4/pipes3" unique_id=1415129912 instance=ExtResource("24_c2nc4")]
 position = Vector2(3, 60)
-coin_index = 24
+coin_index = 20
 sound_group_number = 6
 
 [node name="Coin13" parent="obstacles/chunk4/pipes3" unique_id=355605131 instance=ExtResource("24_c2nc4")]
 position = Vector2(27, 60)
-coin_index = 25
+coin_index = 21
 sound_group_number = 6
 
 [node name="pipes4" parent="obstacles/chunk4" unique_id=1658546005 instance=ExtResource("8_7plwd")]
@@ -689,12 +689,12 @@ shape = SubResource("RectangleShape2D_db1r7")
 
 [node name="Coin14" parent="obstacles/chunk4/pipes4" unique_id=1445174998 instance=ExtResource("24_c2nc4")]
 position = Vector2(5, 81)
-coin_index = 26
+coin_index = 22
 sound_group_number = 6
 
 [node name="Coin15" parent="obstacles/chunk4/pipes4" unique_id=267279582 instance=ExtResource("24_c2nc4")]
 position = Vector2(29, 81)
-coin_index = 27
+coin_index = 23
 sound_group_number = 6
 
 [node name="pipes5" parent="obstacles/chunk4" unique_id=868238464 instance=ExtResource("8_7plwd")]
@@ -711,12 +711,12 @@ shape = SubResource("RectangleShape2D_db1r7")
 
 [node name="Coin16" parent="obstacles/chunk4/pipes5" unique_id=1397051462 instance=ExtResource("24_c2nc4")]
 position = Vector2(3, 23)
-coin_index = 28
+coin_index = 24
 sound_group_number = 6
 
 [node name="Coin17" parent="obstacles/chunk4/pipes5" unique_id=387620094 instance=ExtResource("24_c2nc4")]
 position = Vector2(27, 23)
-coin_index = 29
+coin_index = 25
 sound_group_number = 6
 
 [node name="pipes6" parent="obstacles/chunk4" unique_id=516386159 instance=ExtResource("8_7plwd")]
@@ -833,17 +833,17 @@ bob = SubResource("Resource_tsudw")
 
 [node name="Coin" parent="obstacles/chunk5" unique_id=1381465268 instance=ExtResource("24_c2nc4")]
 position = Vector2(8704, 131)
-coin_index = 31
+coin_index = 27
 area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_p5q6g")])
 
 [node name="Coin2" parent="obstacles/chunk5" unique_id=518398672 instance=ExtResource("24_c2nc4")]
 position = Vector2(8730, 131)
-coin_index = 30
+coin_index = 28
 area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_p5q6g")])
 
 [node name="Coin4" parent="obstacles/chunk5" unique_id=1159525819 instance=ExtResource("24_c2nc4")]
 position = Vector2(8680, 130)
-coin_index = 32
+coin_index = 26
 area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_idf83")])
 
 [node name="chunk6" type="Node" parent="obstacles" unique_id=140797382]
@@ -864,10 +864,12 @@ bob = SubResource("Resource_88m6t")
 
 [node name="Coin" parent="obstacles/chunk6/pipes5" unique_id=105629346 instance=ExtResource("24_c2nc4")]
 position = Vector2(0, 60)
+coin_index = 29
 area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_3e3xw")])
 
 [node name="Coin2" parent="obstacles/chunk6/pipes5" unique_id=1701074306 instance=ExtResource("24_c2nc4")]
 position = Vector2(30, 61)
+coin_index = 30
 area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_3e3xw")])
 
 [node name="breaking_pipe_combined" parent="obstacles/chunk6" unique_id=731265902 instance=ExtResource("9_agrr7")]
@@ -898,10 +900,12 @@ metadata/_custom_type_script = "uid://daxf6fnwb7v3"
 
 [node name="Coin" parent="obstacles/chunk7/BaseObject" unique_id=576254117 instance=ExtResource("24_c2nc4")]
 position = Vector2(-41, -1)
+coin_index = 31
 area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_u1mhv")])
 
 [node name="Coin2" parent="obstacles/chunk7/BaseObject" unique_id=1152832114 instance=ExtResource("24_c2nc4")]
 position = Vector2(-1, -1)
+coin_index = 32
 area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_u1mhv")])
 
 [node name="pipe_curve" parent="obstacles/chunk7" unique_id=1999605812 instance=ExtResource("11_07dy8")]
@@ -948,10 +952,12 @@ metadata/_custom_type_script = "uid://daxf6fnwb7v3"
 
 [node name="Coin" parent="obstacles/chunk7/pipes/BaseObject" unique_id=982921445 instance=ExtResource("24_c2nc4")]
 position = Vector2(-14, 2)
+coin_index = 33
 area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_m77wt")])
 
 [node name="Coin2" parent="obstacles/chunk7/pipes/BaseObject" unique_id=1671890767 instance=ExtResource("24_c2nc4")]
 position = Vector2(18, 2)
+coin_index = 34
 area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_m77wt")])
 
 [node name="BaseObject2" type="Node2D" parent="obstacles/chunk7" unique_id=921384825]
@@ -961,9 +967,11 @@ metadata/_custom_type_script = "uid://daxf6fnwb7v3"
 
 [node name="Coin" parent="obstacles/chunk7/BaseObject2" unique_id=1166442613 instance=ExtResource("24_c2nc4")]
 position = Vector2(-13, 1)
+coin_index = 35
 
 [node name="Coin2" parent="obstacles/chunk7/BaseObject2" unique_id=1042599918 instance=ExtResource("24_c2nc4")]
 position = Vector2(19, 1)
+coin_index = 36
 
 [node name="chunk8" type="Node" parent="obstacles" unique_id=1060834045]
 
@@ -1491,6 +1499,6 @@ position = Vector2(12647, -48)
 is_on = true
 
 [node name="level_end" parent="." unique_id=1117045117 instance=ExtResource("30_07dy8")]
-position = Vector2(1790, -11)
+position = Vector2(16799, 42)
 
 [connection signal="area_entered" from="level_end" to="." method="_on_level_end_area_entered"]

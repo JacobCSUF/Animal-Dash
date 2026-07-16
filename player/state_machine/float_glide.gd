@@ -4,7 +4,7 @@ const FLOAT_VELOCITY = -5.0
 
 
 const state = Player.player_states.GLIDE
-func enter_state(player_node, dict = {}):
+func enter_state(player_node, _dict = {}):
 
 	super(player_node)
 	

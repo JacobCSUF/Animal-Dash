@@ -11,11 +11,10 @@
 background_mode = 3
 background_canvas_max_layer = 1
 glow_enabled = true
-glow_intensity = 1.2
-glow_strength = 1.2
+glow_intensity = 1.1
+glow_strength = 1.1
 glow_blend_mode = 0
 glow_hdr_threshold = 0.7
-adjustment_enabled = true
 
 [node name="main" type="Node" unique_id=2016616104]
 script = ExtResource("1_xc5wj")

@@ -8,7 +8,7 @@ const FLOAT_VELOCITY = -20.0
 
 const state = Player.player_states.FLOAT
 
-func enter_state(player_node, data = {}):
+func enter_state(player_node, _data = {}):
  	
 	super(player_node)
 	

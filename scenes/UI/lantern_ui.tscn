@@ -120,14 +120,12 @@ script = ExtResource("1_22vqq")
 sprite_frames = SubResource("SpriteFrames_1sg0x")
 
 [node name="flame" type="AnimatedSprite2D" parent="LanternUi" unique_id=1553739546]
-visible = false
 z_index = -1
 position = Vector2(3.3999996, 3.4000015)
 sprite_frames = SubResource("SpriteFrames_d0of7")
 autoplay = "default"
 
 [node name="outline" type="AnimatedSprite2D" parent="LanternUi" unique_id=858786628]
-visible = false
 z_index = -1
 position = Vector2(3.3999996, 3.4000015)
 sprite_frames = SubResource("SpriteFrames_0whyd")

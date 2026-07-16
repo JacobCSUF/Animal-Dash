@@ -109,9 +109,9 @@ func get_partial_mult(speed,weight):
 	return s
 	
 func end_level():
-	change_state("stop")
+	change_state("stop_flap")
 	var tween = get_tree().create_tween()
-	tween.tween_property(self,"global_position",global_position+Vector2(300,0),2)
+	tween.tween_property(self,"global_position",global_position+Vector2(350,0),2)
 	
 func get_partial_mult_vector(speed_v,weight):
 	var x = speed_v.x +((speed_v.x*speed_mult)-speed_v.x)*weight

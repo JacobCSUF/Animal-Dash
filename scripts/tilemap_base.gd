@@ -3,7 +3,7 @@ class_name BaseTiles
 @export var watch:= true
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !watch or !GameState.player:
 		return
 	

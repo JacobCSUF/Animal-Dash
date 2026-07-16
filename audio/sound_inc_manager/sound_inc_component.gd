@@ -28,7 +28,7 @@ func _on_signaled():
 	handle_sound()
 	
 
-func _on_entered(area: Node2D):
+func _on_entered(_area1: Node2D):
 	handle_sound()
 
 

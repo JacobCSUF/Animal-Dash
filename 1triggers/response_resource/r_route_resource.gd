@@ -13,6 +13,6 @@ func _init():
 func set_up():
 	pass
 
-func execute(ctx: Context,pos):
+func execute(_ctx: Context,_pos):
 	target_node.route(route_index)
 	

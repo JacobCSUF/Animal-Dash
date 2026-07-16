@@ -45,11 +45,10 @@ position = Vector2(66, 0)
 [node name="lantern_ui5" parent="." unique_id=903113145 instance=ExtResource("2_dwif7")]
 position = Vector2(88, 0)
 
-[node name="TorchAura" type="AudioStreamPlayer2D" parent="." unique_id=795870311]
-position = Vector2(0, 12)
+[node name="TorchAura" type="AudioStreamPlayer" parent="." unique_id=1596278166]
 stream = ExtResource("3_2b6t3")
-volume_db = -12.0
-pitch_scale = 1.96
+volume_db = -22.0
+pitch_scale = 3.0
 
 [node name="SoundIncLocalComponent" type="Node2D" parent="." unique_id=496652636 node_paths=PackedStringArray("sound")]
 script = ExtResource("4_xcl7s")

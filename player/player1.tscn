@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://xuwiexuyjr6s" path="res://player/cart/cart.tscn" id="14_flu0l"]
 [ext_resource type="Script" uid="uid://bim1ugijk4ahb" path="res://player/state_machine/train_end.gd" id="15_0myvv"]
 [ext_resource type="Script" uid="uid://bfs1emvbtks26" path="res://player/animation_sounds.gd" id="16_8u37r"]
+[ext_resource type="Script" uid="uid://01uay4nidvvu" path="res://player/state_machine/stop_flap.gd" id="17_f5isc"]
 [ext_resource type="AudioStream" uid="uid://cue63oontuwvk" path="res://audio/sounds/sound_effects/float_wind.mp3" id="17_i7u44"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1sg0x"]
@@ -145,6 +146,7 @@ _data = {
 process_mode = 1
 collision_layer = 6
 collision_mask = 6
+floor_snap_length = 5.0
 platform_on_leave = 2
 platform_wall_layers = 3
 script = ExtResource("1_uef0s")
@@ -267,6 +269,9 @@ state_type = 3
 
 [node name="train_end" type="Node2D" parent="states" unique_id=355541070]
 script = ExtResource("15_0myvv")
+
+[node name="stop_flap" type="Node2D" parent="states" unique_id=1637827217]
+script = ExtResource("17_f5isc")
 
 [node name="AnimationSounds" type="Node2D" parent="." unique_id=963824632 node_paths=PackedStringArray("player")]
 script = ExtResource("16_8u37r")

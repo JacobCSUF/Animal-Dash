@@ -1,7 +1,7 @@
 extends Node2D
 class_name SoundIncLocalComponent
 
-@export var sound: AudioStreamPlayer2D
+@export var sound: AudioStreamPlayer
 @export var reg_sound: AudioManager.Sound
 
 @export var number_of_steps:= 5
@@ -20,6 +20,7 @@ func play_inc():
 	sound.pitch_scale = starting_pitch
 	sound.play()
 	print('playing this pitch: ',sound.pitch_scale)
+	print('playing this volumne: ',sound.volume_db)
 	starting_pitch *= step
 	
 

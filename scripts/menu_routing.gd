@@ -44,7 +44,7 @@ func change_menu(type1):
 		if curr_menu:
 			curr_menu.queue_free()
 		if curr_level != null:
-			
+			print('IM NULL BITCHA')
 			curr_level.queue_free()
 			await curr_level.tree_exited
 			curr_level = null
@@ -54,6 +54,8 @@ func change_menu(type1):
 	match type1:
 		
 		Menus.MAIN:
+			menu_theme.play()
+			SongManager.stop_s()
 			pause_button.visible = false
 			curr_menu = MAIN_MENU.instantiate()
 			curr_menu.button_pressed.connect(_on_pressed)

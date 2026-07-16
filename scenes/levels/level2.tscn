@@ -1698,11 +1698,11 @@ script = ExtResource("1_b4tpv")
 lr = SubResource("Resource_6d4iq")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("1_hgky1")]
-position = Vector2(7176, 176)
+position = Vector2(2965, 217)
 selection = "ball"
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("2_b4tpv")]
-position = Vector2(7176, 176)
+position = Vector2(2965, 217)
 limit_left = -9999993
 limit_top = 1
 limit_right = 10000007

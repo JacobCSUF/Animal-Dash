@@ -36,7 +36,7 @@ var sprite1: AnimatedSprite2D
 var can_change:= true
 var in_state := false
 
-func enter_state(player_node, data = {}):
+func enter_state(player_node, _data = {}):
 	ray.target_position = Vector2(0,28)
 	in_state = true
 	sprite1 = sprite.duplicate()

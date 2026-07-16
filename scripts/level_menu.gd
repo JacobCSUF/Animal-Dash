@@ -34,8 +34,8 @@ var page_dots = []
 
 var level_dict = {
 	0:{
-		#"level": preload("uid://dbqh6h7t28qom")
-		"level": preload("uid://dqc4ta6txr3o4"),
+		"level": preload("uid://dbqh6h7t28qom"),
+		#"level": preload("uid://dqc4ta6txr3o4"),
 		"display": preload("uid://disgsoafkm0u")
 		},
 	1:{
@@ -130,10 +130,18 @@ func set_level():
 	difficulty.add_theme_stylebox_override("panel", stylebox2)
 	
 	# Button border
+	
 	for state in ["normal", "hover", "pressed", "focus", "disabled"]:
 		var stylebox := play.get_theme_stylebox(state).duplicate() as StyleBoxFlat
 		stylebox.border_color = c
 		play.add_theme_stylebox_override(state, stylebox)
+
+	for state in ["hover", "pressed"]:
+		var stylebox := play.get_theme_stylebox(state).duplicate() as StyleBoxFlat
+		stylebox.border_color = c
+		stylebox.bg_color = c/3 + Color(0.153, 0.153, 0.153, 1.0)
+		play.add_theme_stylebox_override(state, stylebox)
+
 
 	# Title outline color
 	level_title.add_theme_color_override("font_outline_color", c)

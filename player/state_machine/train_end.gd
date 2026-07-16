@@ -5,7 +5,7 @@ extends PlayerState
 
 const state = Player.player_states.TRAINEND
 
-func enter_state(player_node, data = {}):
+func enter_state(player_node, _data = {}):
 	jumpp.play()
 
 	super(player_node)

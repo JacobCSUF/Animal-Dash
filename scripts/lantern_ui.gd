@@ -14,6 +14,9 @@ func set_colors(f:Color, c:Color):
 	outline.visible = true
 	flame.modulate = f
 	outline.modulate = c
+	var rng = randi_range(0,4)
+	flame.frame = rng
+	outline.frame = rng
 
 func turn_off():
 	lantern_ui.frame = 0

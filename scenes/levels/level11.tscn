@@ -26,7 +26,6 @@ script = ExtResource("1_4dneo")
 lr = SubResource("Resource_7jvlv")
 
 [node name="background" parent="." unique_id=1318822552 instance=ExtResource("3_eimsr")]
-visible = false
 bg = ExtResource("4_s42k0")
 
 [node name="-76" type="Parallax2D" parent="background" unique_id=214808457]

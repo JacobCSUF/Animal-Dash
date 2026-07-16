@@ -1,16 +1,19 @@
-[gd_scene format=3 uid="uid://vv7twnx5yeo5"]
+[gd_scene format=4 uid="uid://vv7twnx5yeo5"]
 
 [ext_resource type="Script" uid="uid://dpftlcpx8awj8" path="res://scripts/win_card.gd" id="1_8ec7x"]
 [ext_resource type="PackedScene" uid="uid://bqj5gg7tuxrwp" path="res://scenes/UI/base_button.tscn" id="2_0mqbr"]
 [ext_resource type="PackedScene" uid="uid://7ab641pmak4m" path="res://scenes/UI/lantern_group_ui.tscn" id="3_5acy6"]
 [ext_resource type="Texture2D" uid="uid://cok67dik24s0m" path="res://sprites/coin-Sheet-Sheet.png" id="4_lkqta"]
+[ext_resource type="Texture2D" uid="uid://crldiy42jy4mb" path="res://sprites/taken_coin_sheet.png" id="5_i3qis"]
+[ext_resource type="PackedScene" uid="uid://co8mupe6t3dnn" path="res://scenes/tilemap_base.tscn" id="5_lkqta"]
+[ext_resource type="AudioStream" uid="uid://c5rkfubd2nn00" path="res://audio/sounds/sound_effects/poof2.mp3" id="7_pucai"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ec7x"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -37,6 +40,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pucai"]
+atlas = ExtResource("5_i3qis")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v53rc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pucai")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="win_card" type="Control" unique_id=635528446]
 layout_mode = 3
 anchors_preset = 15
@@ -52,36 +70,36 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -160.0
-offset_top = 40.0
-offset_right = 169.0
-offset_bottom = 284.0
+offset_left = -161.0
+offset_top = 47.0
+offset_right = 161.0
+offset_bottom = 289.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8ec7x")
 
 [node name="redo" parent="." unique_id=1750113617 instance=ExtResource("2_0mqbr")]
 layout_mode = 0
-offset_left = 196.5
+offset_left = 180.0
 offset_top = 120.0
-offset_right = 300.5
+offset_right = 284.0
 offset_bottom = 152.0
-text = "Start Over"
+text = "Replay"
 to_menu = 8
 
 [node name="level_select" parent="." unique_id=841753528 instance=ExtResource("2_0mqbr")]
 layout_mode = 0
-offset_left = 196.5
+offset_left = 180.0
 offset_top = 160.0
-offset_right = 299.5
+offset_right = 283.0
 offset_bottom = 192.0
 text = "Level Select"
 to_menu = 5
 
 [node name="level_select2" parent="." unique_id=1570557467 instance=ExtResource("2_0mqbr")]
 layout_mode = 0
-offset_left = 196.5
+offset_left = 180.0
 offset_top = 200.0
-offset_right = 299.5
+offset_right = 283.0
 offset_bottom = 228.0
 text = "Main Menu"
 
@@ -92,18 +110,27 @@ offset_top = 68.0
 offset_right = 718.5
 offset_bottom = 133.0
 theme_override_font_sizes/font_size = 32
-text = "LEVEL COMPLETE"
+text = "LEVEL COMPLETE!"
 
-[node name="lantern_group_ui" parent="." unique_id=1510897796 instance=ExtResource("3_5acy6")]
-z_index = 2
-position = Vector2(354, 209)
+[node name="tiles" parent="." unique_id=13827966 instance=ExtResource("5_lkqta")]
+z_index = -1
+tile_map_data = PackedByteArray("AAAKAAMAAAAEAAMAAAAKAAQAAAAEAAMAAAAKAAUAAAAEAAMAAAAKAAYAAAAEAAMAAAAKAAcAAAAEAAMAAAAKAAgAAAAEAAMAAAAKAAkAAAAEAAMAAAAKAAoAAAAEAAMAAAAKAAsAAAAEAAMAAAAKAAwAAAAEAAMAAAAKAA0AAAAEAAMAAAAKAA4AAAAEAAMAAAAKAA8AAAAEAAMAAAAKABAAAAAEAAMAAAAKABEAAAAEAAMAAAALAAMAAAAEAAMAAAALAAQAAAAEAAMAAAALAAUAAAAEAAMAAAALAAYAAAAEAAMAAAALAAcAAAAEAAMAAAALAAgAAAAEAAMAAAALAAkAAAAEAAMAAAALAAoAAAAEAAMAAAALAAsAAAAEAAMAAAALAAwAAAAEAAMAAAALAA0AAAAEAAMAAAALAA4AAAAEAAMAAAALAA8AAAAEAAMAAAALABAAAAAEAAMAAAALABEAAAAEAAMAAAAMAAMAAAAEAAMAAAAMAAQAAAAEAAMAAAAMAAUAAAAEAAMAAAAMAAYAAAAEAAMAAAAMAAcAAAAEAAMAAAAMAAgAAAAEAAMAAAAMAAkAAAAEAAMAAAAMAAoAAAAEAAMAAAAMAAsAAAAEAAMAAAAMAAwAAAAEAAMAAAAMAA0AAAAEAAMAAAAMAA4AAAAEAAMAAAAMAA8AAAAEAAMAAAAMABAAAAAEAAMAAAAMABEAAAAEAAMAAAANAAMAAAAEAAMAAAANAAQAAAAEAAMAAAANAAUAAAAEAAMAAAANAAYAAAAEAAMAAAANAAcAAAAEAAMAAAANAAgAAAAEAAMAAAANAAkAAAAEAAMAAAANAAoAAAAEAAMAAAANAAsAAAAEAAMAAAANAAwAAAAEAAMAAAANAA0AAAAEAAMAAAANAA4AAAAEAAMAAAANAA8AAAAEAAMAAAANABAAAAAEAAMAAAANABEAAAAEAAMAAAAOAAMAAAAEAAMAAAAOAAQAAAAEAAMAAAAOAAUAAAAEAAMAAAAOAAYAAAAEAAMAAAAOAAcAAAAEAAMAAAAOAAgAAAAEAAMAAAAOAAkAAAAEAAMAAAAOAAoAAAAEAAMAAAAOAAsAAAAEAAMAAAAOAAwAAAAEAAMAAAAOAA0AAAAEAAMAAAAOAA4AAAAEAAMAAAAOAA8AAAAEAAMAAAAOABAAAAAEAAMAAAAOABEAAAAEAAMAAAAPAAMAAAAEAAMAAAAPAAQAAAAEAAMAAAAPAAUAAAAEAAMAAAAPAAYAAAAEAAMAAAAPAAcAAAAEAAMAAAAPAAgAAAAEAAMAAAAPAAkAAAAEAAMAAAAPAAoAAAAEAAMAAAAPAAsAAAAEAAMAAAAPAAwAAAAEAAMAAAAPAA0AAAAEAAMAAAAPAA4AAAAEAAMAAAAPAA8AAAAEAAMAAAAPABAAAAAEAAMAAAAPABEAAAAEAAMAAAAQAAMAAAAEAAMAAAAQAAQAAAAEAAMAAAAQAAUAAAAEAAMAAAAQAAYAAAAEAAMAAAAQAAcAAAAEAAMAAAAQAAgAAAAEAAMAAAAQAAkAAAAEAAMAAAAQAAoAAAAEAAMAAAAQAAsAAAAEAAMAAAAQAAwAAAAEAAMAAAAQAA0AAAAEAAMAAAAQAA4AAAAEAAMAAAAQAA8AAAAEAAMAAAAQABAAAAAEAAMAAAAQABEAAAAEAAMAAAARAAMAAAAEAAMAAAARAAQAAAAEAAMAAAARAAUAAAAEAAMAAAARAAYAAAAEAAMAAAARAAcAAAAEAAMAAAARAAgAAAAEAAMAAAARAAkAAAAEAAMAAAARAAoAAAAEAAMAAAARAAsAAAAEAAMAAAARAAwAAAAEAAMAAAARAA0AAAAEAAMAAAARAA4AAAAEAAMAAAARAA8AAAAEAAMAAAARABAAAAAEAAMAAAARABEAAAAEAAMAAAASAAMAAAAEAAMAAAASAAQAAAAEAAMAAAASAAUAAAAEAAMAAAASAAYAAAAEAAMAAAASAAcAAAAEAAMAAAASAAgAAAAEAAMAAAASAAkAAAAEAAMAAAASAAoAAAAEAAMAAAASAAsAAAAEAAMAAAASAAwAAAAEAAMAAAASAA0AAAAEAAMAAAASAA4AAAAEAAMAAAASAA8AAAAEAAMAAAASABAAAAAEAAMAAAASABEAAAAEAAMAAAATAAMAAAAEAAMAAAATAAQAAAAEAAMAAAATAAUAAAAEAAMAAAATAAYAAAAEAAMAAAATAAcAAAAEAAMAAAATAAgAAAAEAAMAAAATAAkAAAAEAAMAAAATAAoAAAAEAAMAAAATAAsAAAAEAAMAAAATAAwAAAAEAAMAAAATAA0AAAAEAAMAAAATAA4AAAAEAAMAAAATAA8AAAAEAAMAAAATABAAAAAEAAMAAAATABEAAAAEAAMAAAAUAAMAAAAEAAMAAAAUAAQAAAAEAAMAAAAUAAUAAAAEAAMAAAAUAAYAAAAEAAMAAAAUAAcAAAAEAAMAAAAUAAgAAAAEAAMAAAAUAAkAAAAEAAMAAAAUAAoAAAAEAAMAAAAUAAsAAAAEAAMAAAAUAAwAAAAEAAMAAAAUAA0AAAAEAAMAAAAUAA4AAAAEAAMAAAAUAA8AAAAEAAMAAAAUABAAAAAEAAMAAAAUABEAAAAEAAMAAAAVAAMAAAAEAAMAAAAVAAQAAAAEAAMAAAAVAAUAAAAEAAMAAAAVAAYAAAAEAAMAAAAVAAcAAAAEAAMAAAAVAAgAAAAEAAMAAAAVAAkAAAAEAAMAAAAVAAoAAAAEAAMAAAAVAAsAAAAEAAMAAAAVAAwAAAAEAAMAAAAVAA0AAAAEAAMAAAAVAA4AAAAEAAMAAAAVAA8AAAAEAAMAAAAVABAAAAAEAAMAAAAVABEAAAAEAAMAAAAWAAMAAAAEAAMAAAAWAAQAAAAEAAMAAAAWAAUAAAAEAAMAAAAWAAYAAAAEAAMAAAAWAAcAAAAEAAMAAAAWAAgAAAAEAAMAAAAWAAkAAAAEAAMAAAAWAAoAAAAEAAMAAAAWAAsAAAAEAAMAAAAWAAwAAAAEAAMAAAAWAA0AAAAEAAMAAAAWAA4AAAAEAAMAAAAWAA8AAAAEAAMAAAAWABAAAAAEAAMAAAAWABEAAAAEAAMAAAAXAAMAAAAEAAMAAAAXAAQAAAAEAAMAAAAXAAUAAAAEAAMAAAAXAAYAAAAEAAMAAAAXAAcAAAAEAAMAAAAXAAgAAAAEAAMAAAAXAAkAAAAEAAMAAAAXAAoAAAAEAAMAAAAXAAsAAAAEAAMAAAAXAAwAAAAEAAMAAAAXAA0AAAAEAAMAAAAXAA4AAAAEAAMAAAAXAA8AAAAEAAMAAAAXABAAAAAEAAMAAAAXABEAAAAEAAMAAAAYAAMAAAAEAAMAAAAYAAQAAAAEAAMAAAAYAAUAAAAEAAMAAAAYAAYAAAAEAAMAAAAYAAcAAAAEAAMAAAAYAAgAAAAEAAMAAAAYAAkAAAAEAAMAAAAYAAoAAAAEAAMAAAAYAAsAAAAEAAMAAAAYAAwAAAAEAAMAAAAYAA0AAAAEAAMAAAAYAA4AAAAEAAMAAAAYAA8AAAAEAAMAAAAYABAAAAAEAAMAAAAYABEAAAAEAAMAAAAZAAMAAAAEAAMAAAAZAAQAAAAEAAMAAAAZAAUAAAAEAAMAAAAZAAYAAAAEAAMAAAAZAAcAAAAEAAMAAAAZAAgAAAAEAAMAAAAZAAkAAAAEAAMAAAAZAAoAAAAEAAMAAAAZAAsAAAAEAAMAAAAZAAwAAAAEAAMAAAAZAA0AAAAEAAMAAAAZAA4AAAAEAAMAAAAZAA8AAAAEAAMAAAAZABAAAAAEAAMAAAAZABEAAAAEAAMAAAAaAAMAAAAEAAMAAAAaAAQAAAAEAAMAAAAaAAUAAAAEAAMAAAAaAAYAAAAEAAMAAAAaAAcAAAAEAAMAAAAaAAgAAAAEAAMAAAAaAAkAAAAEAAMAAAAaAAoAAAAEAAMAAAAaAAsAAAAEAAMAAAAaAAwAAAAEAAMAAAAaAA0AAAAEAAMAAAAaAA4AAAAEAAMAAAAaAA8AAAAEAAMAAAAaABAAAAAEAAMAAAAaABEAAAAEAAMAAAAbAAMAAAAEAAMAAAAbAAQAAAAEAAMAAAAbAAUAAAAEAAMAAAAbAAYAAAAEAAMAAAAbAAcAAAAEAAMAAAAbAAgAAAAEAAMAAAAbAAkAAAAEAAMAAAAbAAoAAAAEAAMAAAAbAAsAAAAEAAMAAAAbAAwAAAAEAAMAAAAbAA0AAAAEAAMAAAAbAA4AAAAEAAMAAAAbAA8AAAAEAAMAAAAbABAAAAAEAAMAAAAbABEAAAAEAAMAAAAcAAMAAAAEAAMAAAAcAAQAAAAEAAMAAAAcAAUAAAAEAAMAAAAcAAYAAAAEAAMAAAAcAAcAAAAEAAMAAAAcAAgAAAAEAAMAAAAcAAkAAAAEAAMAAAAcAAoAAAAEAAMAAAAcAAsAAAAEAAMAAAAcAAwAAAAEAAMAAAAcAA0AAAAEAAMAAAAcAA4AAAAEAAMAAAAcAA8AAAAEAAMAAAAcABAAAAAEAAMAAAAcABEAAAAEAAMAAAAdAAMAAAAEAAMAAAAdAAQAAAAEAAMAAAAdAAUAAAAEAAMAAAAdAAYAAAAEAAMAAAAdAAcAAAAEAAMAAAAdAAgAAAAEAAMAAAAdAAkAAAAEAAMAAAAdAAoAAAAEAAMAAAAdAAsAAAAEAAMAAAAdAAwAAAAEAAMAAAAdAA0AAAAEAAMAAAAdAA4AAAAEAAMAAAAdAA8AAAAEAAMAAAAdABAAAAAEAAMAAAAdABEAAAAEAAMAAAA=")
+collision_enabled = false
+watch = false
 
-[node name="curr_coins" type="Label" parent="." unique_id=1075463208]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=716968275]
+custom_minimum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(2000, -1)
 layout_mode = 0
-offset_left = 410.0
-offset_top = 120.0
-offset_right = 458.0
-offset_bottom = 137.0
+offset_left = 320.0
+offset_top = 115.0
+offset_right = 436.0
+offset_bottom = 215.0
+
+[node name="curr_coins" type="Label" parent="VBoxContainer" unique_id=1075463208]
+visible = false
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.59607846, 0.59607846, 0.40392157, 0.4745098)
 theme_override_constants/line_spacing = 3
@@ -111,14 +138,35 @@ theme_override_constants/shadow_offset_x = 1
 theme_override_constants/outline_size = 1
 theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 16
-text = "15/40"
+text = "       15/40"
 
-[node name="total_coins" type="Label" parent="." unique_id=1581381552]
-layout_mode = 0
-offset_left = 344.0
-offset_top = 152.0
-offset_right = 392.0
-offset_bottom = 169.0
+[node name="CoinSheetSheet" type="AnimatedSprite2D" parent="VBoxContainer/curr_coins" unique_id=1413619844]
+position = Vector2(27.799988, 8.800003)
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_i3qis")
+
+[node name="taken_coins" type="Label" parent="VBoxContainer" unique_id=399003578]
+visible = false
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.59607846, 0.59607846, 0.40392157, 0.4745098)
+theme_override_constants/line_spacing = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 16
+text = "       15/40"
+
+[node name="CoinSheetSheet2" type="AnimatedSprite2D" parent="VBoxContainer/taken_coins" unique_id=1320911292]
+position = Vector2(28.799988, 9.800003)
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_v53rc")
+
+[node name="total_coins" type="Label" parent="VBoxContainer" unique_id=1581381552]
+visible = false
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.59607846, 0.59607846, 0.40392157, 0.4745098)
 theme_override_constants/line_spacing = 3
@@ -128,26 +176,15 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 16
 text = "Total: 30/40"
 
-[node name="coin_increase" type="Label" parent="." unique_id=1739989155]
-layout_mode = 0
-offset_left = 420.0
-offset_top = 143.0
-offset_right = 458.0
-offset_bottom = 172.0
-theme_override_colors/font_color = Color(0.9974155, 0.9424915, 0.9543124, 1)
-theme_override_colors/font_shadow_color = Color(0.59607846, 0.59607846, 0.40392157, 0.4745098)
-theme_override_constants/line_spacing = 3
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/outline_size = 1
-theme_override_constants/shadow_outline_size = 0
-theme_override_font_sizes/font_size = 10
-text = "+15
-"
+[node name="lantern_group_ui" parent="." unique_id=1510897796 instance=ExtResource("3_5acy6")]
+visible = false
+z_index = 2
+position = Vector2(338, 226)
 
-[node name="CoinSheetSheet" type="AnimatedSprite2D" parent="." unique_id=1413619844]
-position = Vector2(368, 128.00002)
-scale = Vector2(0.65, 0.65)
-sprite_frames = SubResource("SpriteFrames_i3qis")
+[node name="Poof" type="AudioStreamPlayer" parent="." unique_id=1017302548]
+stream = ExtResource("7_pucai")
+volume_db = -11.0
+pitch_scale = 1.2
 
 [connection signal="b_pressed" from="redo" to="." method="_on_redo_b_pressed"]
 [connection signal="b_pressed" from="level_select" to="." method="_on_level_select_b_pressed"]

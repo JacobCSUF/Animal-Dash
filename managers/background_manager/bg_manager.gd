@@ -7,7 +7,7 @@ class_name BG_manager
 func _ready() -> void:
 	GameState.set_bg(self)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	global_position.x = GameState.player_location.x
 
 

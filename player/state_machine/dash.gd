@@ -13,7 +13,7 @@ var end_state: = "flappy"
 func enter_state(player_node,data: Dictionary = {}):
 	dash_coyote.stop()
 	var amount = 5
-	var time = 0.2
+
 	end_state = "flappy"
 	
 	

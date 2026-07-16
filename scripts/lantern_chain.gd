@@ -5,11 +5,13 @@ class_name LanternChain
 @export var is_on:= false
 @export var fire_color:= Color(0.0, 0.675, 1.0, 1.0)
 @export var lantern: Lantern
-
+@export var turn_off_chains:= false
 @onready var rope: Rope = $Rope
 @onready var chains: AudioStreamPlayer2D = $Chains
 
 func _ready() -> void:
+	if turn_off_chains:
+		chains.stop()
 	randomize()
 	super()
 	if is_on:
@@ -84,7 +86,7 @@ func apply_strength(pos: Vector2, strength,is_last= false):
 		if i < 0 or i >= rope.get_num_points():
 			continue
 		# Weight the impulse so it's strongest at the contact point
-		var distance = abs(i - nearest_index)
+	
 		var weight = 1.0
 		var old_points = rope.get_old_points()
 		old_points[i] -= Vector2(strength * weight, 0)

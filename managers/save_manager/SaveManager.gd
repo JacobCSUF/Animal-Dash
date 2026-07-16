@@ -11,7 +11,6 @@ func _ready() -> void:
 	
 func save_game():
 	var file = FileAccess.open("res://savegame.save", FileAccess.WRITE)
-	var json = file.get_as_text()
 	var json_string = JSON.stringify(saved_data)
 	file.store_string(json_string)
 	file.close()
@@ -33,48 +32,59 @@ func load_game():
 			
 	
 	
-func save_level_data(name: String,coins,lanterns,complete):
-	saved_data[name] = {}
-	saved_data[name]["coins"] = coins
-	saved_data[name]["lanterns"] = lanterns
-	saved_data[name]["complete"] = complete
-	
+func save_level_data(name1: String,coins,lanterns,complete,new_coins):
+	if !saved_data.has("total_coins"):
+		saved_data["total_coins"] = new_coins
+	else:
+		saved_data["total_coins"] += new_coins
+		
+	saved_data[name1] = {}
+	saved_data[name1]["coins"] = coins
+	saved_data[name1]["lanterns"] = lanterns
+	saved_data[name1]["complete"] = complete
+	save_game()
 
-func get_level_coins(name: String):
-	if saved_data.has(name):
-		var cs = saved_data[name]["coins"]
+func get_level_coins(name1: String):
+	if saved_data.has(name1):
+		var cs = saved_data[name1]["coins"]
 		return cs.size()
 	else:
 		return 0
 	
-func is_level_complete(name: String):
-	if saved_data.has(name):
-		if saved_data[name].has("complete"):
-			return saved_data[name]["complete"]
+func is_level_complete(name1: String):
+	if saved_data.has(name1):
+		if saved_data[name1].has("complete"):
+			return saved_data[name1]["complete"]
 	else:
 		return false
 		
 
 	
-func load_level_data(name: String):
-	if saved_data.has(name):
-		saved_data[name]["coins"] = saved_data[name]["coins"].map(func(element): return int(element))
-		saved_data[name]["lanterns"] = saved_data[name]["lanterns"].map(func(element): return int(element))
-		return saved_data[name]
+func load_level_data(name1: String):
+	if saved_data.has(name1):
+		saved_data[name1]["coins"] = saved_data[name1]["coins"].map(func(element): return int(element))
+		saved_data[name1]["lanterns"] = saved_data[name1]["lanterns"].map(func(element): return int(element))
+		return saved_data[name1]
 	else:
 		return null
 	
 	
 	
-func load_lantern_data(name: String):
-	if !saved_data.has(name):
+func load_lantern_data(name1: String):
+	if !saved_data.has(name1):
 		return []
 	
-	if !saved_data[name].has("lanterns"):
+	if !saved_data[name1].has("lanterns"):
 		return []
 	
-	return saved_data[name]["lanterns"]
-	
+	return saved_data[name1]["lanterns"]
+
+func get_total_coins():
+	if saved_data.has("total_coins"):
+		return saved_data["total_coins"]
+	else:
+		return 0
+
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

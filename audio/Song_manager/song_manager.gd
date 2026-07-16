@@ -30,7 +30,8 @@ func play_sound(player: AudioStreamPlayer2D):
 	player.play()
 
 func stop_s():
-	curr_song.stop()
+	if curr_song:
+		curr_song.stop()
 
 
 func fade_out(volume:= 0.0, time:= 1.0):
@@ -46,7 +47,7 @@ func play_drop():
 	
 	
 	
-func change_speed(pitch: float):
+func change_speed(_pitch: float):
 	#var tween = get_tree().create_tween()
 	#tween.tween_property(curr_song,"pitch_scale",curr_song.pitch_scale + pitch,0.1)
 	pass

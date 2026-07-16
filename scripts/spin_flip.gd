@@ -87,11 +87,11 @@ func set_pos(start1):
 
 
 
-func _on_direct_area_area_entered(area: Area2D) -> void:
+func _on_direct_area_area_entered(_area: Area2D) -> void:
 	can_spin = true
 	player = GameState.player
 
 
-func _on_direct_area_area_exited(area: Area2D) -> void:
+func _on_direct_area_area_exited(_area: Area2D) -> void:
 	can_spin = false
 	is_spin = false

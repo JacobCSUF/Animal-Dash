@@ -6,7 +6,7 @@ const state = Player.player_states.FLAPPY
 const SPEED = 160.0    
 const JUMP_VELOCITY = -270.0
 
-func enter_state(player_node, data = {}):
+func enter_state(player_node, _data = {}):
 	
 	super(player_node)
 	
