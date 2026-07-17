@@ -135,9 +135,10 @@ angle_max = 360.00003
 spread = 180.0
 initial_velocity_min = 50.0
 initial_velocity_max = 100.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 359.99997
 gravity = Vector3(0, 98, 0)
-scale_min = 0.19999999
-scale_max = 0.39999998
+scale_min = 0.099999994
 scale_curve = SubResource("CurveTexture_v55f4")
 color_ramp = SubResource("GradientTexture1D_xppq5")
 
@@ -216,8 +217,6 @@ metadata/_custom_type_script = "uid://dx4e8ytdikpb7"
 
 [node name="block_particles" parent="." unique_id=1911826222 instance=ExtResource("7_pwdqn")]
 z_index = 3
-position = Vector2(0, -8)
-amount = 40
 process_material = SubResource("ParticleProcessMaterial_f5yf8")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
