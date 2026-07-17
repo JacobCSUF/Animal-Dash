@@ -1,11 +1,18 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://bjjovpvdirb5u"]
 
 [ext_resource type="Texture2D" uid="uid://btrfqesm8ys40" path="res://sprites/animals/bird_full.png" id="1_2m0ar"]
-[ext_resource type="Texture2D" uid="uid://dyx0wpxxknpjr" path="res://sprites/animals/bat_full.png" id="2_fak5s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_65viv"]
 atlas = ExtResource("1_2m0ar")
 region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fak5s"]
+atlas = ExtResource("1_2m0ar")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwidh"]
+atlas = ExtResource("1_2m0ar")
+region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x7c3f"]
 atlas = ExtResource("1_2m0ar")
@@ -15,12 +22,12 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("1_2m0ar")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_875a5"]
-atlas = ExtResource("2_fak5s")
+[sub_resource type="AtlasTexture" id="AtlasTexture_obek2"]
+atlas = ExtResource("1_2m0ar")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6jl07"]
-atlas = ExtResource("2_fak5s")
+[sub_resource type="AtlasTexture" id="AtlasTexture_875a5"]
+atlas = ExtResource("1_2m0ar")
 region = Rect2(64, 32, 32, 32)
 
 [resource]
@@ -35,6 +42,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fak5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwidh")
+}],
+"loop": 1,
+"name": &"cart",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_x7c3f")
 }, {
 "duration": 1.0,
@@ -46,10 +64,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_875a5")
+"texture": SubResource("AtlasTexture_obek2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6jl07")
+"texture": SubResource("AtlasTexture_875a5")
 }],
 "loop": 1,
 "name": &"float",

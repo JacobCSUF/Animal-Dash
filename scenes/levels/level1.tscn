@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://ch6lwsy7qhuyy"]
+[gd_scene format=4 uid="uid://dbqh6h7t28qom"]
 
 [ext_resource type="Script" uid="uid://qjky4x03oopx" path="res://scripts/level_script.gd" id="1_b4tpv"]
 [ext_resource type="PackedScene" uid="uid://blk1wa8unedc4" path="res://player/player1.tscn" id="1_hgky1"]
@@ -1693,7 +1693,7 @@ height = 6.0
 duration = 0.45
 metadata/_custom_type_script = "uid://cvxnelhw3tch3"
 
-[node name="level2" type="Node2D" unique_id=271347830]
+[node name="level1" type="Node2D" unique_id=271347830]
 script = ExtResource("1_b4tpv")
 lr = SubResource("Resource_6d4iq")
 

@@ -6,13 +6,21 @@
 atlas = ExtResource("1_tpg8p")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sqrrv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh55d"]
 atlas = ExtResource("1_tpg8p")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acdu0"]
+atlas = ExtResource("1_tpg8p")
+region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j6h7e"]
 atlas = ExtResource("1_tpg8p")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqrrv"]
+atlas = ExtResource("1_tpg8p")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpg8p"]
 atlas = ExtResource("1_tpg8p")
@@ -34,10 +42,21 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sqrrv")
+"texture": SubResource("AtlasTexture_nh55d")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_acdu0")
+}],
+"loop": 1,
+"name": &"cart",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_j6h7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqrrv")
 }],
 "loop": 1,
 "name": &"flappy",

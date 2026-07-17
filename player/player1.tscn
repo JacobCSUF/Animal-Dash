@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://blk1wa8unedc4"]
 
 [ext_resource type="Script" uid="uid://c60dbvryxencn" path="res://player/state_machine/player.gd" id="1_uef0s"]
-[ext_resource type="SpriteFrames" uid="uid://cofo1ne87oloo" path="res://sprites/animals/animation_resources/parrot_frames.tres" id="2_ikikr"]
-[ext_resource type="Resource" uid="uid://bc18ongnd283q" path="res://sprites/animals/animal_resource/bat.tres" id="2_qfajp"]
+[ext_resource type="Resource" uid="uid://b4wb6efmxuuxv" path="res://sprites/animals/animal_resource/pink_butterfly.tres" id="2_f5isc"]
+[ext_resource type="SpriteFrames" uid="uid://nxecp61r5lmm" path="res://sprites/animals/animation_resources/pink_butterfly_frames.tres" id="3_4h07j"]
 [ext_resource type="Script" uid="uid://cmiccfy3kd8cd" path="res://player/state_machine/flappy.gd" id="3_qvdwi"]
 [ext_resource type="AudioStream" uid="uid://4rftf3sg1wff" path="res://audio/sounds/player_sounds/jumpp.mp3" id="4_fcbal"]
 [ext_resource type="Script" uid="uid://b5vy1stk8juby" path="res://player/state_machine/dash.gd" id="5_bndlp"]
@@ -150,7 +150,7 @@ floor_snap_length = 5.0
 platform_on_leave = 2
 platform_wall_layers = 3
 script = ExtResource("1_uef0s")
-anim_text = ExtResource("2_qfajp")
+anim_text = ExtResource("2_f5isc")
 is_test = false
 icon = NodePath("sprite/Icon")
 
@@ -158,6 +158,7 @@ icon = NodePath("sprite/Icon")
 collision_mask = 0
 
 [node name="a_col" type="CollisionShape2D" parent="Area2D" unique_id=1138852992]
+visible = false
 shape = SubResource("CircleShape2D_1sg0x")
 
 [node name="sprite" type="Node2D" parent="." unique_id=746325541]
@@ -165,27 +166,32 @@ shape = SubResource("CircleShape2D_1sg0x")
 [node name="Icon" type="AnimatedSprite2D" parent="sprite" unique_id=1461536373]
 physics_interpolation_mode = 2
 light_mask = 0
-sprite_frames = ExtResource("2_ikikr")
-animation = &"ball"
+sprite_frames = ExtResource("3_4h07j")
+animation = &"flappy"
+frame_progress = 0.9576264
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1883544562]
+visible = false
 position = Vector2(-3.8146973e-06, 0)
 shape = SubResource("CircleShape2D_anojk")
 
 [node name="cart_col" type="CollisionShape2D" parent="." unique_id=816901980]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, 19.5)
 shape = SubResource("RectangleShape2D_tqiix")
 disabled = true
 
 [node name="boat_col" type="CollisionShape2D" parent="." unique_id=1347023097]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0.5, 6)
 shape = SubResource("RectangleShape2D_e7oew")
 disabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1378479681]
 unique_name_in_owner = true
+visible = false
 target_position = Vector2(0, 26)
 collision_mask = 6
 

@@ -272,7 +272,7 @@ sound = 2
 is_pos = true
 metadata/_custom_type_script = "uid://cdojrf8j4lvru"
 
-[node name="level4" type="Node2D" unique_id=271347830 groups=["Persist"]]
+[node name="level3" type="Node2D" unique_id=271347830 groups=["Persist"]]
 script = ExtResource("1_k4124")
 lr = SubResource("Resource_7pa0d")
 

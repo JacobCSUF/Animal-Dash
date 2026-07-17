@@ -6,6 +6,14 @@
 atlas = ExtResource("1_supjq")
 region = Rect2(0, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrlfb"]
+atlas = ExtResource("1_supjq")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8pyc"]
+atlas = ExtResource("1_supjq")
+region = Rect2(64, 64, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xwxc8"]
 atlas = ExtResource("1_supjq")
 region = Rect2(0, 0, 32, 32)
@@ -13,6 +21,10 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ah27t"]
 atlas = ExtResource("1_supjq")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_supjq"]
+atlas = ExtResource("1_supjq")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3e5ts"]
 atlas = ExtResource("1_supjq")
@@ -30,14 +42,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xwxc8")
+"texture": SubResource("AtlasTexture_yrlfb")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_x8pyc")
+}],
+"loop": 1,
+"name": &"cart",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwxc8")
+}, {
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_ah27t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_supjq")
 }],
 "loop": 1,
 "name": &"flappy",
-"speed": 5.0
+"speed": 5.7
 }, {
 "frames": [{
 "duration": 1.0,

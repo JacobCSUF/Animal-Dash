@@ -174,7 +174,7 @@ script = ExtResource("20_dc8aq")
 target_path = NodePath("../lantern_chain")
 metadata/_custom_type_script = "uid://ckt20tfvnsnec"
 
-[node name="level3" type="Node2D" unique_id=271347830]
+[node name="level2" type="Node2D" unique_id=271347830]
 script = ExtResource("1_k4124")
 lr = SubResource("Resource_fhdct")
 

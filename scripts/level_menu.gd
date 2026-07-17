@@ -41,7 +41,7 @@ var level_dict = {
 		"display": preload("uid://disgsoafkm0u")
 		},
 	1:{
-		"level": preload("uid://ch6lwsy7qhuyy"),
+		"level": preload("uid://dbqh6h7t28qom"),
 		"display": preload("uid://bua33pm7s8osp")
 		},
 	2:{

@@ -6,10 +6,9 @@
 [ext_resource type="Resource" uid="uid://cxl0oq66coi2c" path="res://scenes/UI/level_bg_resource/level1_bg.tres" id="4_s42k0"]
 [ext_resource type="Texture2D" uid="uid://dai53m56ac1i1" path="res://sprites/pipes/thin_pipe.png" id="5_qyr3j"]
 [ext_resource type="PackedScene" uid="uid://blk1wa8unedc4" path="res://player/player1.tscn" id="6_eq6nf"]
+[ext_resource type="Resource" uid="uid://bvjtc1tct7p8" path="res://sprites/animals/animal_resource/parrot.tres" id="7_1jv5e"]
 [ext_resource type="PackedScene" uid="uid://y1mynvv3r5ue" path="res://scenes/player_camera.tscn" id="7_ywgi4"]
 [ext_resource type="PackedScene" uid="uid://co8mupe6t3dnn" path="res://scenes/tilemap_base.tscn" id="8_5g35d"]
-[ext_resource type="PackedScene" uid="uid://cgvpqh6is77fc" path="res://obstacles/interactable/lantern_chain.tscn" id="9_mqt10"]
-[ext_resource type="PackedScene" uid="uid://ftfnkrmwb02f" path="res://obstacles/interactable/coin.tscn" id="14_lj3p4"]
 [ext_resource type="PackedScene" uid="uid://l38tpxvlrf6p" path="res://areas/end_area.tscn" id="34_2pp6p"]
 
 [sub_resource type="Resource" id="Resource_7jvlv"]
@@ -26,6 +25,7 @@ script = ExtResource("1_4dneo")
 lr = SubResource("Resource_7jvlv")
 
 [node name="background" parent="." unique_id=1318822552 instance=ExtResource("3_eimsr")]
+visible = false
 bg = ExtResource("4_s42k0")
 
 [node name="-76" type="Parallax2D" parent="background" unique_id=214808457]
@@ -65,6 +65,7 @@ texture = ExtResource("5_qyr3j")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("6_eq6nf")]
 position = Vector2(-2304, 185)
+anim_text = ExtResource("7_1jv5e")
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("7_ywgi4")]
 position = Vector2(-2304, 185)
@@ -79,78 +80,7 @@ position = Vector2(688, 112)
 
 [node name="lanterns" type="Node" parent="visuals" unique_id=1759003694]
 
-[node name="lan_off" parent="visuals/lanterns" unique_id=193647597 instance=ExtResource("9_mqt10")]
-position = Vector2(-2131, 66)
-lantern_index = 1
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-
-[node name="lan_off5" parent="visuals/lanterns" unique_id=1658372685 instance=ExtResource("9_mqt10")]
-position = Vector2(-2003, 63)
-lantern_index = 2
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-
-[node name="lan_off6" parent="visuals/lanterns" unique_id=945369682 instance=ExtResource("9_mqt10")]
-position = Vector2(-1861, 20)
-lantern_index = 3
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-
-[node name="lan_off7" parent="visuals/lanterns" unique_id=1779592899 instance=ExtResource("9_mqt10")]
-position = Vector2(-1755, 83)
-lantern_index = 4
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-
-[node name="lan_off8" parent="visuals/lanterns" unique_id=300910140 instance=ExtResource("9_mqt10")]
-position = Vector2(-1633, 25)
-lantern_index = 5
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-
 [node name="level_end" parent="." unique_id=1117045117 instance=ExtResource("34_2pp6p")]
-position = Vector2(-1202, 64)
-
-[node name="Coin" type="Node2D" parent="." unique_id=1927444266]
-
-[node name="Coin" parent="Coin" unique_id=1270067473 instance=ExtResource("14_lj3p4")]
-position = Vector2(-2149, 231)
-coin_index = 1
-
-[node name="Coin2" parent="Coin" unique_id=55223984 instance=ExtResource("14_lj3p4")]
-position = Vector2(-2079, 179)
-coin_index = 2
-
-[node name="Coin3" parent="Coin" unique_id=1507425138 instance=ExtResource("14_lj3p4")]
-position = Vector2(-2014, 231)
-coin_index = 3
-
-[node name="Coin4" parent="Coin" unique_id=1519501986 instance=ExtResource("14_lj3p4")]
-position = Vector2(-1945, 186)
-coin_index = 4
-
-[node name="Coin5" parent="Coin" unique_id=782468872 instance=ExtResource("14_lj3p4")]
-position = Vector2(-1885, 231)
-coin_index = 5
-
-[node name="Coin6" parent="Coin" unique_id=1666441429 instance=ExtResource("14_lj3p4")]
-position = Vector2(-1825, 195)
-coin_index = 6
-
-[node name="Coin7" parent="Coin" unique_id=799616199 instance=ExtResource("14_lj3p4")]
-position = Vector2(-1754, 246)
-coin_index = 7
-
-[node name="Coin8" parent="Coin" unique_id=2126874038 instance=ExtResource("14_lj3p4")]
-position = Vector2(-1694, 203)
-coin_index = 8
-
-[node name="Coin9" parent="Coin" unique_id=512621577 instance=ExtResource("14_lj3p4")]
-position = Vector2(-1632, 243)
-coin_index = 9
-
-[node name="Coin10" parent="Coin" unique_id=64048311 instance=ExtResource("14_lj3p4")]
-position = Vector2(-1573, 197)
-coin_index = 10
-
-[node name="Coin11" parent="Coin" unique_id=467587299 instance=ExtResource("14_lj3p4")]
-position = Vector2(-1531, 243)
-coin_index = 11
+position = Vector2(-1360, -520)
 
 [connection signal="area_entered" from="level_end" to="." method="_on_level_end_area_entered"]
