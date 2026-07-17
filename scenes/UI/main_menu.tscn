@@ -75,7 +75,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_6gm0r"]
 resource_name = "shop_back"
-length = 0.4
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -83,7 +83,7 @@ tracks/0/path = NodePath("main_block:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(630, 0), Vector2(0, 0)]
@@ -91,7 +91,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_dqbul"]
 resource_name = "shop_shift"
-length = 0.4
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -99,7 +99,7 @@ tracks/0/path = NodePath("main_block:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(640, 0)]
