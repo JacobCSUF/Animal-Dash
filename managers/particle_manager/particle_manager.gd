@@ -42,6 +42,13 @@ func play_particle(particle: particles, pos: Vector2, tex_overide: Texture2D = n
 	ptcl.emitting = true
 	ptcl.finished.connect(ptcl.queue_free)
 	
+func play_duplicate(particl: GPUParticles2D,pos):
+	var gpu = particl.duplicate()
+	gpu.position = pos
+	get_tree().get_root().add_child(gpu)
+	gpu.emitting = true
+	gpu.finished.connect(gpu.queue_free)
+	
 func get_particle_packed(particle: particles):
 	return particle_dict[particle]
 	

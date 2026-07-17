@@ -40,8 +40,8 @@ func toggle_on():
 @onready var block_particles: GPUParticles2D = $block_particles
 
 func _on_button_pressed() -> void:
-	block_particles.restart()
-	block_particles.emitting = true
+	ParticleManager.play_duplicate(block_particles,block_particles.global_position)
+
 	print('WHAT')
 	animal_skin_frame.frame += 1
 	sound_inc_local_component.play_inc()
