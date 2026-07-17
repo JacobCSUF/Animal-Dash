@@ -12,24 +12,21 @@
 [ext_resource type="SpriteFrames" uid="uid://nxecp61r5lmm" path="res://sprites/animals/animation_resources/pink_butterfly_frames.tres" id="8_5q3dr"]
 [ext_resource type="Resource" uid="uid://r0x1p0kov2xq" path="res://sprites/animals/animal_resource/chicken.tres" id="8_g5lem"]
 [ext_resource type="PackedScene" uid="uid://dkjl10fkw74f3" path="res://scenes/UI/currency.tscn" id="12_me3x7"]
+[ext_resource type="PackedScene" uid="uid://srr2wd5rvthy" path="res://scenes/UI/skin_ui.tscn" id="13_854eh"]
+[ext_resource type="Texture2D" uid="uid://x6l8qtkmq61g" path="res://sprites/shop_background.png" id="14_mq6cw"]
 
-[node name="shop_menu" type="Control" unique_id=1831306848]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="shop_menu" type="Node2D" unique_id=98029773]
 script = ExtResource("1_se1m4")
 animal_skins = Array[ExtResource("2_5q3dr")]([ExtResource("3_7qhmt"), ExtResource("4_1r7kg"), ExtResource("5_g5lem"), ExtResource("6_me3x7"), ExtResource("8_g5lem"), ExtResource("7_1r7kg")])
 
+[node name="currency" parent="." unique_id=1348172473 instance=ExtResource("12_me3x7")]
+
 [node name="Settings Title" type="Label" parent="." unique_id=1401021270]
 z_index = 1
-layout_mode = 0
-offset_left = 252.0
-offset_top = 29.0
-offset_right = 406.0
-offset_bottom = 134.0
+offset_left = 275.0
+offset_top = 11.0
+offset_right = 429.0
+offset_bottom = 116.0
 size_flags_vertical = 0
 theme = ExtResource("2_8vm3j")
 theme_override_font_sizes/font_size = 32
@@ -39,37 +36,48 @@ text = "Shop
 
 [node name="Settings Title2" type="Label" parent="." unique_id=2023422043]
 z_index = 1
-layout_mode = 0
-offset_left = 233.0
-offset_top = 90.0
-offset_right = 387.0
-offset_bottom = 195.0
+offset_left = 136.0
+offset_top = 16.0
+offset_right = 265.0
+offset_bottom = 121.0
 size_flags_vertical = 0
 theme = ExtResource("2_8vm3j")
 theme_override_font_sizes/font_size = 16
-text = "Change Character
+text = "Equip
 
 "
 
-[node name="character" type="AnimatedSprite2D" parent="." unique_id=299874872]
+[node name="character" type="AnimatedSprite2D" parent="Settings Title2" unique_id=299874872]
 physics_interpolation_mode = 2
 light_mask = 0
-position = Vector2(296, 132)
+position = Vector2(29.000004, 37.4)
 scale = Vector2(1.4, 1.4)
 sprite_frames = ExtResource("3_8vm3j")
 animation = &"float"
 autoplay = "flappy"
 
-[node name="change" type="Button" parent="." unique_id=551353299]
+[node name="change" type="Button" parent="Settings Title2" unique_id=551353299]
 layout_mode = 0
-offset_left = 260.0
-offset_top = 154.0
-offset_right = 326.0
-offset_bottom = 179.0
+offset_left = -7.0
+offset_top = 59.4
+offset_right = 59.0
+offset_bottom = 84.4
 text = "Change"
 
+[node name="buy_text" type="Label" parent="." unique_id=1720237492]
+z_index = 1
+offset_left = 272.0
+offset_top = 128.0
+offset_right = 368.0
+offset_bottom = 185.0
+size_flags_vertical = 0
+theme = ExtResource("2_8vm3j")
+theme_override_font_sizes/font_size = 16
+text = "Tap To Buy
+
+"
+
 [node name="back" type="Button" parent="." unique_id=933180142]
-layout_mode = 0
 offset_left = 20.0
 offset_top = 10.0
 offset_right = 82.0
@@ -83,8 +91,60 @@ light_mask = 0
 sprite_frames = ExtResource("8_5q3dr")
 animation = &"flappy"
 
-[node name="currency" parent="." unique_id=1348172473 instance=ExtResource("12_me3x7")]
-layout_mode = 0
+[node name="skin_frames" type="Node2D" parent="." unique_id=964145659]
 
-[connection signal="button_down" from="change" to="." method="_on_change_button_down"]
+[node name="skin_ui" parent="skin_frames" unique_id=1545742205 instance=ExtResource("13_854eh")]
+offset_left = 80.0
+offset_top = 184.0
+offset_right = 80.0
+offset_bottom = 184.0
+
+[node name="skin_ui2" parent="skin_frames" unique_id=1001168626 instance=ExtResource("13_854eh")]
+offset_left = 200.0
+offset_top = 184.0
+offset_right = 200.0
+offset_bottom = 184.0
+
+[node name="skin_ui3" parent="skin_frames" unique_id=250519307 instance=ExtResource("13_854eh")]
+offset_left = 320.0
+offset_top = 184.0
+offset_right = 320.0
+offset_bottom = 184.0
+
+[node name="skin_ui4" parent="skin_frames" unique_id=435901278 instance=ExtResource("13_854eh")]
+offset_left = 440.0
+offset_top = 184.0
+offset_right = 440.0
+offset_bottom = 184.0
+
+[node name="skin_ui5" parent="skin_frames" unique_id=112011458 instance=ExtResource("13_854eh")]
+offset_left = 560.0
+offset_top = 184.0
+offset_right = 560.0
+offset_bottom = 184.0
+
+[node name="ShopBackground" type="Sprite2D" parent="." unique_id=1809136720]
+z_index = 2
+position = Vector2(320, 160)
+texture = ExtResource("14_mq6cw")
+
+[node name="right" type="Button" parent="." unique_id=315675686]
+offset_left = 304.0
+offset_top = 248.0
+offset_right = 336.0
+offset_bottom = 280.0
+text = ">"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=109460839]
+position = Vector2(80, 184)
+
+[node name="skin_ui" parent="Node2D" unique_id=1457312828 instance=ExtResource("13_854eh")]
+visible = false
+z_index = 3
+anchors_preset = 10
+anchor_bottom = 0.0
+grow_vertical = 1
+
+[connection signal="button_down" from="Settings Title2/change" to="." method="_on_change_button_down"]
 [connection signal="button_down" from="back" to="." method="_on_back_button_down"]
+[connection signal="button_down" from="right" to="." method="_on_right_button_down"]

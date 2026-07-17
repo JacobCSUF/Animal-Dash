@@ -38,7 +38,6 @@
 [sub_resource type="Resource" id="Resource_7jvlv"]
 script = ExtResource("2_6d4iq")
 level_name = "Flappy Adventure"
-level_number = 0
 outline_flame_color = Color(0.4649247, 1, 0.7240472, 1)
 flame_color = Color(1.2995303e-06, 0.50852597, 0.5142111, 1)
 ui_color = Color(0, 1, 0.9254902, 1)

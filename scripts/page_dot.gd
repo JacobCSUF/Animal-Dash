@@ -39,6 +39,7 @@ func open_lock():
 	locked = false
 	
 func deny_lock(count: int):
+	animation_player.stop()
 	lan_count.text = "x"+str(count)
 	animation_player.play("lock_bob")
 	denied.play()

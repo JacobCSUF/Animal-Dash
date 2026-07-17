@@ -45,7 +45,36 @@ var ini_saved_data = {
 		"locked": false,
 		"coins": [],
 		"lanterns": []
-		}
+		},
+	
+	"skins":{
+		"0":
+			{
+			"bought":true,
+			"cost": 0
+			},
+		"1":{
+			"bought":false,
+			"cost": 20
+		},
+		"2":{
+			"bought":false,
+			"cost": 20
+		},
+		"3":{
+			"bought":false,
+			"cost": 20
+		},
+		"4":{
+			"bought":false,
+			"cost": 20
+		},
+		"5":{
+			"bought":false,
+			"cost": 20
+		},
+		
+	}
 	}
 
 func _ready() -> void:
@@ -159,7 +188,13 @@ func unlock_level(n1: int):
 	saved_data[name1]["locked"] = false
 
 
-
+func has_bought_skin(n1: int):
+	var name1 = str(n1)
+	return saved_data["skins"][name1]["bought"]
+	
+func get_skin_cost(n1: int):
+	var name1 = str(n1)
+	return saved_data["skins"][name1]["cost"]
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

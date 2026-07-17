@@ -54,6 +54,7 @@
 [sub_resource type="Resource" id="Resource_6d4iq"]
 script = ExtResource("2_77got")
 level_name = "Spin Sewers"
+level_number = 1
 outline_flame_color = Color(0.7034221, 0.9838243, 1.540184e-06, 1)
 flame_color = Color(0.29428425, 0.5786525, 3.85046e-07, 1)
 ui_color = Color(0, 0.9529412, 0, 1)

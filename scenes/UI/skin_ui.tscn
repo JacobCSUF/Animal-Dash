@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://srr2wd5rvthy"]
+
+[ext_resource type="Script" uid="uid://de7hrq0j60vq0" path="res://scripts/skin_ui.gd" id="1_uun8y"]
+[ext_resource type="SpriteFrames" uid="uid://b5oas7vd18qh3" path="res://sprites/animals/animation_resources/bat_frames.tres" id="2_q7gmp"]
+[ext_resource type="Texture2D" uid="uid://c6yjdvtsjg842" path="res://sprites/animal_skin_frame.png" id="3_c4xyw"]
+[ext_resource type="Texture2D" uid="uid://cok67dik24s0m" path="res://sprites/coin-Sheet-Sheet.png" id="4_q7gmp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7gcb"]
+atlas = ExtResource("4_q7gmp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4xyw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7gcb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="skin_ui" type="Control" unique_id=1545742205]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uun8y")
+
+[node name="frame" type="Node2D" parent="." unique_id=1532971348]
+
+[node name="animal" type="AnimatedSprite2D" parent="frame" unique_id=267474189]
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("2_q7gmp")
+animation = &"flappy"
+
+[node name="AnimalSkinFrame" type="Sprite2D" parent="frame" unique_id=1129719759]
+z_index = 1
+texture = ExtResource("3_c4xyw")
+
+[node name="cost" type="Label" parent="frame" unique_id=1783923166]
+offset_left = -2.0
+offset_top = 40.0
+offset_right = 49.000015
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.59607846, 0.59607846, 0.40392157, 0.4745098)
+theme_override_constants/line_spacing = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 10
+text = "x321"
+
+[node name="CoinSheetSheet" type="AnimatedSprite2D" parent="frame/cost" unique_id=1217966919]
+position = Vector2(-10, 5)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_c4xyw")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=876311503]
+points = PackedVector2Array(-80, 0, -32, 0)
+width = 3.0
+default_color = Color(0.59140736, 0.68814844, 0.7367566, 1)
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=1060519784]
+position = Vector2(126, 0)
+points = PackedVector2Array(-94, 0, -46, 0)
+width = 3.0
+default_color = Color(0.59140736, 0.68814844, 0.7367566, 1)
