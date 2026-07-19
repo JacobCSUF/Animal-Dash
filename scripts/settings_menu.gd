@@ -14,7 +14,8 @@ func _on_music_volume_value_changed(value: float) -> void:
 
 
 func _on_sound_effects_volume_value_changed(value: float) -> void:
-	pass # Replace with function body.
+	AudioServer.set_bus_volume_db(0,value)
+
 
 
 func _on_button_pressed() -> void:

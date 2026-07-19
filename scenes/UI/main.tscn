@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c0ttd04415ov" path="res://audio/sounds/music/menu_theme.mp3" id="3_xc5wj"]
 [ext_resource type="Script" uid="uid://xjm5nrw176ga" path="res://scripts/menu_routing.gd" id="4_5paq6"]
 [ext_resource type="PackedScene" uid="uid://vv7twnx5yeo5" path="res://scenes/UI/win_card.tscn" id="5_a7jsp"]
+[ext_resource type="Script" uid="uid://r4rc7fqjli71" path="res://scripts/scene_trans.gd" id="6_v06ru"]
 
 [sub_resource type="Environment" id="Environment_xc5wj"]
 background_mode = 3
@@ -15,6 +16,15 @@ glow_intensity = 1.2
 glow_strength = 1.2
 glow_blend_mode = 0
 glow_hdr_threshold = 0.7
+
+[sub_resource type="Gradient" id="Gradient_v06ru"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.016219461, 0.016219458, 0.016219467, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1sg0x"]
+gradient = SubResource("Gradient_v06ru")
+width = 640
+height = 320
 
 [node name="main" type="Node" unique_id=2016616104]
 script = ExtResource("1_xc5wj")
@@ -44,6 +54,14 @@ light_mask = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="menu_handler/CanvasLayer" unique_id=1139692350]
 environment = SubResource("Environment_xc5wj")
+
+[node name="scene_trans" type="Sprite2D" parent="menu_handler/CanvasLayer" unique_id=1157511131]
+modulate = Color(1, 1, 1, 0)
+light_mask = 0
+z_index = 100
+position = Vector2(320, 160)
+texture = SubResource("GradientTexture2D_1sg0x")
+script = ExtResource("6_v06ru")
 
 [node name="MenuTheme" type="AudioStreamPlayer" parent="." unique_id=225245135]
 stream = ExtResource("3_xc5wj")

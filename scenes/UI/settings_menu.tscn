@@ -19,14 +19,11 @@ offset_top = 4.0
 offset_right = 216.0
 offset_bottom = 302.0
 
-[node name="Settings Title" type="Label" parent="VBoxContainer" unique_id=185163379]
-z_index = 1
+[node name="setting Title" type="Label" parent="VBoxContainer" unique_id=54862713]
 layout_mode = 2
-size_flags_vertical = 0
 theme = ExtResource("2_son7u")
 theme_override_font_sizes/font_size = 32
-text = "Settings
-"
+text = "Settings"
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=364230309]
 layout_mode = 2

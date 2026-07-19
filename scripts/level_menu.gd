@@ -1,4 +1,5 @@
 extends Control
+class_name LevelMenu
 
 @export var levels: Array[PackedScene] = []
 
@@ -27,8 +28,11 @@ const PAGE_DOT = preload("uid://cihhs64uxc1ot")
 @onready var lantern_ui: LanternGroupUI = $lantern_ui
 
 
+
 signal level_select(level: PackedScene)
 signal button_pressed(menu: MenuHandler.Menus)
+
+var menu_route: MenuHandler
 
 var level_index = 0
 var dis
@@ -84,6 +88,7 @@ func get_counter():
 	return level_index
 
 func set_level():
+	
 	if dis:
 		dis.queue_free()
 
@@ -202,5 +207,6 @@ func _on_back_b_pressed(m: MenuHandler.Menus) -> void:
 
 
 func _on_play_b_pressed(m: MenuHandler.Menus) -> void:
+	await menu_route.play_trans()
 	dis.queue_free()
 	level_select.emit(u_dict[level_index]["level"])

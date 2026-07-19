@@ -20,7 +20,7 @@ func flash_light(color: Color, inc:float , dec: float):
 	tween.tween_property(bg_light,"energy",3.0,inc)
 	tween.tween_property(bg_light,"energy",0,dec)
 
-func modulate_background(color:= Color(0.194, 0.194, 0.194, 0.495),time:=0.5):
+func modulate_background(color:= Color(0.096, 0.096, 0.096, 0.495),time:=0.4):
 	var tween = create_tween()
 	tween.tween_property(bg_text,"modulate",color,time)
 

@@ -38,8 +38,9 @@ func toggle_lock_off():
 func open_lock():
 	lock.play("default")
 	animation_player.play("unlock")
-	await animation_player.animation_finished
 	appear.play()
+	await animation_player.animation_finished
+	
 	locked = false
 	
 func deny_lock(count: int):

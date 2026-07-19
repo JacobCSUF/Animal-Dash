@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dosodixfkc4av" path="res://scenes/UI/pagnation.tscn" id="8_6gwu6"]
 [ext_resource type="PackedScene" uid="uid://bmfn8wqulw2vm" path="res://scenes/UI/difficulty_ui.tscn" id="8_vl0d2"]
 [ext_resource type="PackedScene" uid="uid://dkjl10fkw74f3" path="res://scenes/UI/currency.tscn" id="10_e7gcb"]
+[ext_resource type="Script" uid="uid://r4rc7fqjli71" path="res://scripts/scene_trans.gd" id="11_6gwu6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u2ndr"]
 texture = ExtResource("5_u2ndr")
@@ -123,6 +124,15 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="Gradient" id="Gradient_n1upn"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.016219461, 0.016219458, 0.016219467, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pvf43"]
+gradient = SubResource("Gradient_n1upn")
+width = 640
+height = 320
 
 [node name="level_menu" type="Control" unique_id=795183383]
 layout_mode = 3
@@ -335,6 +345,14 @@ offset_left = 532.0
 offset_top = 7.0
 offset_right = 630.0
 offset_bottom = 34.0
+
+[node name="scene_trans" type="Sprite2D" parent="." unique_id=779430130]
+modulate = Color(1, 1, 1, 0)
+light_mask = 0
+z_index = 100
+position = Vector2(320, 160)
+texture = SubResource("GradientTexture2D_pvf43")
+script = ExtResource("11_6gwu6")
 
 [connection signal="pressed" from="left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="right" to="." method="_on_right_pressed"]

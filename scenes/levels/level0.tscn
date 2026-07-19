@@ -306,10 +306,10 @@ position = Vector2(55, 371)
 texture = ExtResource("8_igeo0")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("1_025c5")]
-position = Vector2(-154, 118)
+position = Vector2(16362, 140)
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("2_bw3ef")]
-position = Vector2(-154, 118)
+position = Vector2(16362, 140)
 position_smoothing_speed = 10.0
 player = NodePath("../player")
 

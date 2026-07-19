@@ -19,6 +19,9 @@ colors = PackedColorArray(1, 1, 1, 1)
 gradient = SubResource("Gradient_ydsw5")
 
 [sub_resource type="FontFile" id="FontFile_ydsw5"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -49,10 +52,10 @@ energy = 0.0
 texture = SubResource("GradientTexture2D_1o3j2")
 
 [node name="bg_text" type="Sprite2D" parent="." unique_id=1736189762]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(0.1610392, 0.1610392, 0.1610392, 0)
 light_mask = 0
 z_index = 7
-position = Vector2(5.0000057, 680)
+position = Vector2(34.5, 182)
 scale = Vector2(3.9960935, 368.00003)
 texture = SubResource("GradientTexture1D_dim5v")
 
@@ -67,7 +70,7 @@ offset_bottom = 224.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.2932402, 0.29324, 0.29324004, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
-theme_override_colors/font_outline_color = Color(0, 0.8287706, 0.70065206, 1)
+theme_override_colors/font_outline_color = Color(0, 0.9598109, 0.9018106, 1)
 theme_override_colors/font_shadow_color = Color(0.44622445, 0.4462245, 0.44622445, 1)
 theme_override_constants/shadow_outline_size = 10
 theme_override_constants/shadow_offset_x = 2

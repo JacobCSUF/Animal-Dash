@@ -6,6 +6,7 @@ class_name MenuHandler
 @onready var pause_button: ButtonExtended = $CanvasLayer/pause_button
 @onready var menu_theme: AudioStreamPlayer = $"../MenuTheme"
 @onready var win_card: WinCard = $CanvasLayer/win_card
+@onready var scene_trans: SceneTrans = $CanvasLayer/scene_trans
 
 
 enum Menus{MAIN,LEVEL,SETTINGS,EXIT,BACK,LEVELBACK,PAUSE, RESUME, REFRESH}
@@ -38,8 +39,17 @@ func _ready() -> void:
 	
 func change_menu(type1):
 	print_orphan_nodes()
+	
+	
+	if type1 in [Menus.LEVEL,Menus.REFRESH,Menus.LEVELBACK,Menus.BACK]:
+		scene_trans.play_trans()
+		await scene_trans.finished_fade_in
+	
 	if type1 == Menus.PAUSE or type1 == Menus.RESUME:
 		pass
+		
+	
+		
 	else:
 		if curr_menu:
 			curr_menu.queue_free()
@@ -62,8 +72,10 @@ func change_menu(type1):
 			add_child(curr_menu)
 		
 		Menus.LEVEL:
+			
 			curr_menu = LEVEL_MENU.instantiate()
 			curr_menu.set_counter(level_counter)
+			curr_menu.menu_route = self
 			curr_menu.button_pressed.connect(_on_pressed)
 			curr_menu.level_select.connect(_on_level)
 			add_child(curr_menu)
@@ -86,6 +98,7 @@ func change_menu(type1):
 			menu_theme.play()
 			SongManager.stop_s()
 			curr_menu = LEVEL_MENU.instantiate()
+			curr_menu.menu_route = self
 			curr_menu.set_counter(level_counter)
 			curr_menu.button_pressed.connect(_on_pressed)
 			curr_menu.level_select.connect(_on_level)
@@ -117,7 +130,7 @@ func _on_pressed(type1: Menus):
 
 
 func _on_level(level: PackedScene):
- 	
+
 	if curr_menu:
 		level_counter = curr_menu.get_counter()
 		curr_menu.queue_free()
@@ -136,7 +149,9 @@ func _on_level(level: PackedScene):
 	call_deferred("add_child",curr_level)
 	
 
-	
+func play_trans():
+	scene_trans.play_trans()
+	await scene_trans.finished_fade_in
 	
 func _on_level_end(t_coin,n_coin,l_array,f,taken_c,new_c):
 	
@@ -146,5 +161,6 @@ func _on_level_end(t_coin,n_coin,l_array,f,taken_c,new_c):
 
 func _on_died():
 	if curr_level:
-		
+		scene_trans.play_trans()
+		await scene_trans.finished_fade_in
 		_on_level(curr_level_packed)
