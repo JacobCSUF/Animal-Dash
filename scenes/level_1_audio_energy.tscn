@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c7vnojhy2igu0" path="res://scripts/level_1_audio_energy.gd" id="1_i76jb"]
 [ext_resource type="Texture2D" uid="uid://bi0u334npwxv4" path="res://sprites/lvl1 decorations/battery_thing.png" id="3_2pb82"]
 [ext_resource type="Texture2D" uid="uid://doun74s1vkr28" path="res://sprites/lvl1 decorations/battery_thing_sheet.png" id="4_uigfo"]
-[ext_resource type="AudioStream" uid="uid://c17gicollx5wk" path="res://audio/sounds/sound_effects/charge.mp3" id="5_uigfo"]
 [ext_resource type="Texture2D" uid="uid://cw8doi0861qoa" path="res://sprites/lvl1 decorations/charge_texture.png" id="5_xbuto"]
 [ext_resource type="AudioStream" uid="uid://coqm1a3iwgv5v" path="res://audio/sounds/sound_effects/freesound_community-charging-machine-90403.mp3" id="6_fmauc"]
 [ext_resource type="AudioStream" uid="uid://fco84ef8wmrc" path="res://audio/sounds/music/freesound_community-power-up-35839.mp3" id="6_loaxv"]
@@ -238,23 +237,17 @@ default_color = Color(0.87058824, 0.105882354, 0, 1)
 texture = ExtResource("5_xbuto")
 texture_mode = 1
 
-[node name="Charge" type="AudioStreamPlayer2D" parent="charge" unique_id=1010660756]
-position = Vector2(-92, 39)
-stream = ExtResource("5_uigfo")
-volume_db = -80.0
-pitch_scale = 1.17
-
 [node name="FreesoundCommunityPowerUp35839" type="AudioStreamPlayer2D" parent="charge" unique_id=702914302]
 position = Vector2(235, 160)
 stream = ExtResource("6_loaxv")
-volume_db = -8.0
+volume_db = -12.0
 pitch_scale = 2.0
 
 [node name="Charge" type="AudioStreamPlayer2D" parent="." unique_id=592627554]
 light_mask = 0
 position = Vector2(85, -24)
 stream = ExtResource("6_fmauc")
-volume_db = -28.0
+volume_db = -32.0
 
 [node name="Ctr" type="Sprite2D" parent="Charge" unique_id=1164789502]
 z_index = 3

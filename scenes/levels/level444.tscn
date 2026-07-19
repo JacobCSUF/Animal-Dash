@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://y1mynvv3r5ue" path="res://scenes/player_camera.tscn" id="3_0p1vu"]
 [ext_resource type="PackedScene" uid="uid://blk1wa8unedc4" path="res://player/player1.tscn" id="4_6nv82"]
 [ext_resource type="PackedScene" uid="uid://bap6ofsij3477" path="res://scenes/background.tscn" id="5_6637v"]
-[ext_resource type="Resource" uid="uid://by2x512vkmt1q" path="res://sprites/animals/animal_resource/bird1.tres" id="5_s205g"]
+[ext_resource type="Resource" uid="uid://bvjtc1tct7p8" path="res://sprites/animals/animal_resource/parrot.tres" id="5_s205g"]
 [ext_resource type="Script" uid="uid://c3nbhfhjpls2a" path="res://scenes/levels/bg_resource.gd" id="6_evoxr"]
 [ext_resource type="PackedScene" uid="uid://b0t4urxjrfulk" path="res://managers/particle_manager/particle_scenes/rain_particles.tscn" id="7_bd1qx"]
 [ext_resource type="AudioStream" uid="uid://qkha8vsawcl5" path="res://audio/sounds/sound_effects/water_fall_small.mp3" id="8_ke5yq"]
@@ -56,15 +56,14 @@ script = ExtResource("1_mir2f")
 lr = SubResource("Resource_72xjh")
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("3_0p1vu")]
-position = Vector2(2993, 76)
+position = Vector2(3120, 88)
 player = NodePath("../player")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("4_6nv82")]
-position = Vector2(2993, 76)
+position = Vector2(3120, 88)
 anim_text = ExtResource("5_s205g")
 
 [node name="background" parent="." unique_id=1318822552 instance=ExtResource("5_6637v")]
-visible = false
 bg = SubResource("Resource_2eb3b")
 particles_packed = ExtResource("7_bd1qx")
 

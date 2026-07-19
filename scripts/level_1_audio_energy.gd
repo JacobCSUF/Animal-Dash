@@ -15,7 +15,7 @@ extends Node2D
 @onready var beep_7: AnimatedSprite2D = $beep7
 @onready var beep_8: AnimatedSprite2D = $beep8
 
-@onready var charge: AudioStreamPlayer2D = $charge/Charge
+
 @onready var line_2d: Line2D = $charge/Line2D
 @onready var line_2d_2: Line2D = $charge/Line2D2
 @onready var switch: AnimatedSprite2D = $switch

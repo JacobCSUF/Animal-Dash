@@ -270,7 +270,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gobk7"]
-size = Vector2(27.185642, 22.877254)
+size = Vector2(27.185642, 35.619167)
 
 [node name="cart" type="Node2D" unique_id=400616375]
 z_index = 2
@@ -319,7 +319,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="ccol" type="CollisionShape2D" parent="Area2D" unique_id=1117425223]
-position = Vector2(-3.987589, 1.4386272)
+position = Vector2(-3.987589, 7.8095837)
 shape = SubResource("RectangleShape2D_gobk7")
 disabled = true
 

@@ -49,7 +49,8 @@ func enter_state(player_node, _data = {}):
 	ccol.call_deferred("set_disabled",false)
 	self.visible = true
 	super(player_node)
-
+	
+	player.floor_snap_length = 10.0
 
 	
 
@@ -154,6 +155,8 @@ func handle_input(delta):
 				m_state = move_states.MOVE
 
 		move_states.JUMP:
+			cart_col.call_deferred("set_disabled",true)
+			boat_col.call_deferred("set_disabled",true)
 			PlayerFollower.stop_cart_particles()
 			#AudioManager.play_cart_sound(cart_data.land_sound)
 			player.velocity.y = JUMP_VELOCITY
@@ -177,7 +180,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 	
 	elif body.is_in_group("ground"):
-		
+		print('WHATTTTTTTTTTTTDSD')
 		state = states.CART
 		set_cart()
 		cart_col.call_deferred("set_disabled",false)
@@ -187,6 +190,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 	
 func exit_state():
+	player.floor_snap_length = 5.0
 	self.visible = false
 	in_state = false
 	sprite1.queue_free()

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bxoompvqha7ou"]
+
+[ext_resource type="Texture2D" uid="uid://bgdp1tf61pipf" path="res://sprites/mine_cart/train_end_plasma.png" id="1_3kc5x"]
+[ext_resource type="Script" uid="uid://bei5h1tcarj15" path="res://scripts/percent_flag.gd" id="1_rmkhj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sg0x"]
+size = Vector2(20, 454)
+
+[node name="percent_flag" type="Area2D" unique_id=1457998328 groups=["flag"]]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_rmkhj")
+
+[node name="TrainEndPlasma" type="Sprite2D" parent="." unique_id=1790269648]
+position = Vector2(1, 101)
+scale = Vector2(1, 1.2777778)
+texture = ExtResource("1_3kc5x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1830943069]
+position = Vector2(0, 101)
+shape = SubResource("RectangleShape2D_1sg0x")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

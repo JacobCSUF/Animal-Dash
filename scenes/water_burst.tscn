@@ -66,6 +66,7 @@ autoplay = true
 max_distance = 500.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1774649653]
+top_level = true
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1005824120]

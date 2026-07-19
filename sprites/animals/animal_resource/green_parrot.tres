@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="AnimalResource" format=3 uid="uid://x8i43uemqg1w"]
+
+[ext_resource type="SpriteFrames" uid="uid://c74vmip13uql0" path="res://sprites/animals/animation_resources/green_parrot_frames.tres" id="1_m62hq"]
+[ext_resource type="Script" uid="uid://co07lgyk00dl6" path="res://sprites/animals/animal_resource/animal_resource.gd" id="2_4fba4"]
+[ext_resource type="Texture2D" uid="uid://d4nhxvx2jknc7" path="res://sprites/animals/green_parrot_full.png" id="3_7mvt3"]
+
+[sub_resource type="Gradient" id="Gradient_pe652"]
+colors = PackedColorArray(0, 0.7131886, 0, 1, 0.66016734, 0.9999998, 0.86059403, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mwf0a"]
+gradient = SubResource("Gradient_pe652")
+
+[resource]
+script = ExtResource("2_4fba4")
+sprites = ExtResource("3_7mvt3")
+animations = ExtResource("1_m62hq")
+dash_colors = SubResource("GradientTexture1D_mwf0a")
+float_colors = SubResource("GradientTexture1D_mwf0a")
+save_index = 6
+cost = 30
+metadata/_custom_type_script = "uid://co07lgyk00dl6"

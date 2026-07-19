@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://c7s0rr3xil3fp"]
+
+[ext_resource type="Script" uid="uid://c32lyobpmefpa" path="res://scripts/character_equip.gd" id="1_dd6y1"]
+[ext_resource type="Theme" uid="uid://ve7bfujv5tqo" path="res://scenes/UI/global_theme.tres" id="2_bapuh"]
+[ext_resource type="SpriteFrames" uid="uid://b5oas7vd18qh3" path="res://sprites/animals/animation_resources/bat_frames.tres" id="3_d3ndk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8ba2"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.09411765, 0.09411765, 0.09411765, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="character_equip" type="Node2D" unique_id=668974337]
+script = ExtResource("1_dd6y1")
+
+[node name="Settings Title2" type="Label" parent="." unique_id=875188572]
+z_index = 1
+offset_left = 136.0
+offset_top = 16.0
+offset_right = 265.0
+offset_bottom = 121.0
+size_flags_vertical = 0
+theme = ExtResource("2_bapuh")
+theme_override_font_sizes/font_size = 16
+text = "Equip
+
+"
+
+[node name="left" type="AnimatedSprite2D" parent="Settings Title2" unique_id=35827401]
+physics_interpolation_mode = 2
+modulate = Color(1, 1, 1, 0.48800004)
+light_mask = 0
+position = Vector2(-15.999992, 40)
+sprite_frames = ExtResource("3_d3ndk")
+animation = &"flappy"
+autoplay = "flappy"
+
+[node name="mid" type="AnimatedSprite2D" parent="Settings Title2" unique_id=901582948]
+physics_interpolation_mode = 2
+light_mask = 0
+position = Vector2(24, 40)
+scale = Vector2(1.4, 1.4)
+sprite_frames = ExtResource("3_d3ndk")
+animation = &"flappy"
+autoplay = "flappy"
+
+[node name="right" type="AnimatedSprite2D" parent="Settings Title2" unique_id=718498048]
+physics_interpolation_mode = 2
+modulate = Color(1, 1, 1, 0.48800004)
+light_mask = 0
+position = Vector2(63.999992, 40)
+sprite_frames = ExtResource("3_d3ndk")
+animation = &"flappy"
+autoplay = "flappy"
+
+[node name="left" type="Button" parent="." unique_id=1891075442]
+z_index = 4
+offset_left = 136.0
+offset_top = 72.0
+offset_right = 158.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_k8ba2")
+text = "<
+"
+
+[node name="right" type="Button" parent="." unique_id=1971402950]
+z_index = 4
+offset_left = 160.0
+offset_top = 72.0
+offset_right = 182.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_k8ba2")
+text = ">"
+
+[connection signal="pressed" from="left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="right" to="." method="_on_right_pressed"]

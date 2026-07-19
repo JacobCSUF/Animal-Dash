@@ -32,6 +32,7 @@ func start_level():
 	
 	
 func die():
+	bg_death()
 	AudioManager.reset_sound()
 	player.die()
 	AudioManager.play_sound(AudioManager.Sound.DEATH)
@@ -39,8 +40,7 @@ func die():
 	PlayerFollower.reset()
 	TriggerHandler.reset()
 	SongManager.stop_s()
-	player_location = Vector2(0,0)
-	player_col_loc= Vector2(0,0)
+	
 	await get_tree().create_timer(2.0).timeout
 	if !main_menu:
 		
@@ -59,3 +59,6 @@ func handle_bg(p: BGParams):
 	if bg_manager:
 		bg_manager.handle_input(p)
 	
+func bg_death():
+	if bg_manager:
+		bg_manager.play_death(player.distance_helper.player_died())

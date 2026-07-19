@@ -1,20 +1,26 @@
+
 extends Node2D
 
 @export var is_burst:= false
 @export_range(0,360) var angle:= 90
 @export var volume_overide:= 0
-
+@export var area_increase := 0
 @onready var water: GPUParticles2D = $water
 @onready var water_flow: AudioStreamPlayer2D = $WaterFlow
 @onready var burst: AudioStreamPlayer2D = $Burst
 
+@onready var area_2d: Area2D = $Area2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	area_2d.global_position = global_position - Vector2(area_increase,0)
 	if is_burst:
-		water.rotation_degrees = angle + self.rotation_degrees
+		if get_parent() == Node2D:
+			
+			water.rotation_degrees = angle + get_parent().rotation_degrees
+		else:
+			water.rotation_degrees = angle
 		self.visible = false
 		water.emitting = false
 		water_flow.stop()

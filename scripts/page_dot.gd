@@ -12,6 +12,7 @@ class_name PageDots
 var locked = false
 var is_gray = false
 func toggle_on():
+	lock.visible = false
 	animation_player.play("hover")
 	ui_button_filled.visible = true
 	
@@ -21,6 +22,7 @@ func toggle_off():
 func toggle_gray():
 	ui_button.modulate = Color(0.253, 0.253, 0.253, 0.809)
 	is_gray = true
+
 func toggle_color():
 	ui_button.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
@@ -36,7 +38,7 @@ func toggle_lock_off():
 func open_lock():
 	lock.play("default")
 	animation_player.play("unlock")
-	animation_player.animation_finished
+	await animation_player.animation_finished
 	appear.play()
 	locked = false
 	

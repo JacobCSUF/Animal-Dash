@@ -5,11 +5,12 @@ var save_path = "user://save_game.res"
 
 var saved_data = {}
 
-signal currency_updated(coins:int,lans:int)
+signal currency_updated
 
 var ini_saved_data = {
 	"total_coins": 0,
-	"total_lanterns": 0,
+	"total_lanterns": 10,
+	"progress_bar": false,
 	"0": {
 		"completed": false,
 		"locked": false,
@@ -46,6 +47,7 @@ var ini_saved_data = {
 		"coins": [],
 		"lanterns": []
 		},
+		
 	
 	"skins":{
 		"0":
@@ -55,23 +57,35 @@ var ini_saved_data = {
 			},
 		"1":{
 			"bought":false,
-			"cost": 20
+			"cost": 1
 		},
 		"2":{
 			"bought":false,
-			"cost": 20
+			"cost": 2
 		},
 		"3":{
 			"bought":false,
-			"cost": 20
+			"cost": 3
 		},
 		"4":{
 			"bought":false,
-			"cost": 20
+			"cost": 4
 		},
 		"5":{
 			"bought":false,
-			"cost": 20
+			"cost": 5
+		},
+		"6":{
+			"bought":false,
+			"cost": 6
+		},
+		"7":{
+			"bought":false,
+			"cost": 7
+		},
+		"8":{
+			"bought":false,
+			"cost": 8
 		},
 		
 	}
@@ -188,6 +202,12 @@ func unlock_level(n1: int):
 	saved_data[name1]["locked"] = false
 
 
+
+
+
+
+################BUYING ANIMALS/SKINS###################
+
 func has_bought_skin(n1: int):
 	var name1 = str(n1)
 	return saved_data["skins"][name1]["bought"]
@@ -195,6 +215,32 @@ func has_bought_skin(n1: int):
 func get_skin_cost(n1: int):
 	var name1 = str(n1)
 	return saved_data["skins"][name1]["cost"]
+	
+func can_buy_skin(cost):
+	if cost <= saved_data["total_coins"]:
+		return true
+	else:
+		return false
+
+func buy_skin(n1,cost):
+	var name1 = str(n1)
+	saved_data["total_coins"] -= cost
+	saved_data["skins"][name1]["bought"] = true
+	currency_updated.emit()
+	save_game()
+	
+	
+	
+	
+	
+###############PROGRESSS BAR###############
+func change_progress_bar(show: bool):
+	saved_data["progress_bar"] = show
+	print(saved_data["progress_bar"]," JUST FKIGN WOR")
+
+func is_show_progress():
+	print(saved_data["progress_bar"],' IS IT ON HELLO')
+	return saved_data["progress_bar"]
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

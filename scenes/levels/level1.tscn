@@ -49,6 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://qbd5phm3hr2k" path="res://obstacles/obstacle piece/spike2.tscn" id="41_4rsgv"]
 [ext_resource type="Script" uid="uid://cvxnelhw3tch3" path="res://components/movement_component/bob_params.gd" id="43_7ppig"]
 [ext_resource type="Texture2D" uid="uid://cexciu28w8oem" path="res://sprites/signs/skulls_sign.png" id="49_h04ra"]
+[ext_resource type="PackedScene" uid="uid://baj3euubcjum7" path="res://scenes/UI/level_percent.tscn" id="51_3e3xw"]
 [ext_resource type="PackedScene" uid="uid://bq8nio2psfg0r" path="res://scenes/energy_pipe.tscn" id="51_ehvql"]
 
 [sub_resource type="Resource" id="Resource_6d4iq"]
@@ -3464,5 +3465,10 @@ rotation = -1.5707964
 
 [node name="level_end" parent="." unique_id=1117045117 instance=ExtResource("33_hlvfl")]
 position = Vector2(22919, 42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=641208709]
+
+[node name="level_percent" parent="CanvasLayer" unique_id=1500303497 node_paths=PackedStringArray("player") instance=ExtResource("51_3e3xw")]
+player = NodePath("../../player")
 
 [connection signal="area_entered" from="level_end" to="." method="_on_level_end_area_entered"]

@@ -36,8 +36,8 @@ var page_dots = []
 var locked_index = 1
 var level_dict = {
 	0:{
-		#"level": preload("uid://dbqh6h7t28qom"),
-		"level": preload("uid://dqc4ta6txr3o4"),
+		"level": preload("uid://coe544cy4b00e"),
+		#"level": preload("uid://dqc4ta6txr3o4"),
 		"display": preload("uid://disgsoafkm0u")
 		},
 	1:{

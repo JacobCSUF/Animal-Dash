@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://bfs1emvbtks26" path="res://player/animation_sounds.gd" id="16_8u37r"]
 [ext_resource type="Script" uid="uid://01uay4nidvvu" path="res://player/state_machine/stop_flap.gd" id="17_f5isc"]
 [ext_resource type="AudioStream" uid="uid://cue63oontuwvk" path="res://audio/sounds/sound_effects/float_wind.mp3" id="17_i7u44"]
+[ext_resource type="Script" uid="uid://2cj0dbiarydh" path="res://player/distance_helper.gd" id="20_4h07j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1sg0x"]
 
@@ -289,6 +290,9 @@ position = Vector2(5, 45)
 stream = ExtResource("17_i7u44")
 volume_db = -20.0
 pitch_scale = 1.53
+
+[node name="distance_helper" type="Node2D" parent="." unique_id=1436757910]
+script = ExtResource("20_4h07j")
 
 [connection signal="timeout" from="dash_cd" to="." method="_on_dash_cd_timeout"]
 [connection signal="timeout" from="states/dash/dash_coyote" to="states/dash" method="_on_dash_coyote_timeout"]

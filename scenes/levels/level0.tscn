@@ -34,6 +34,7 @@
 [ext_resource type="Script" uid="uid://daxf6fnwb7v3" path="res://1triggers/base_object/base_object.gd" id="31_y71nm"]
 [ext_resource type="Script" uid="uid://cdojrf8j4lvru" path="res://1triggers/response_resource/r_movement_resource.gd" id="33_agrr7"]
 [ext_resource type="PackedScene" uid="uid://cu3aadyktwbg1" path="res://obstacles/pipes/pipe_thin_long.tscn" id="33_igeo0"]
+[ext_resource type="PackedScene" uid="uid://baj3euubcjum7" path="res://scenes/UI/level_percent.tscn" id="35_a1vlu"]
 
 [sub_resource type="Resource" id="Resource_7jvlv"]
 script = ExtResource("2_6d4iq")
@@ -256,7 +257,7 @@ script = ExtResource("20_db1r7")
 target_path = NodePath("../../../BaseObject2")
 metadata/_custom_type_script = "uid://ckt20tfvnsnec"
 
-[node name="level1" type="Node2D" unique_id=271347830]
+[node name="level0" type="Node2D" unique_id=271347830]
 script = ExtResource("1_idf83")
 lr = SubResource("Resource_7jvlv")
 
@@ -265,12 +266,14 @@ bg = ExtResource("4_y71nm")
 
 [node name="-76" type="Parallax2D" parent="background" unique_id=214808457]
 modulate = Color(0.36767125, 0.36767122, 0.36767116, 1)
+light_mask = 0
 z_index = -70
 scroll_scale = Vector2(0.75, 1)
 repeat_size = Vector2(592, 0)
 
 [node name="Pipe3" type="Sprite2D" parent="background/-76" unique_id=1714943027]
 modulate = Color(0.65543026, 0.53056127, 0.94793385, 0.6509804)
+light_mask = 0
 z_index = -1
 position = Vector2(149, -32)
 rotation = -3.1415925
@@ -278,31 +281,35 @@ texture = ExtResource("8_igeo0")
 
 [node name="Pipe4" type="Sprite2D" parent="background/-76" unique_id=1636383272]
 modulate = Color(0.65543026, 0.53056127, 0.94793385, 0.6509804)
+light_mask = 0
 z_index = -1
 position = Vector2(353, 353)
 texture = ExtResource("8_igeo0")
 
 [node name="-61" type="Parallax2D" parent="background" unique_id=1456570813]
+light_mask = 0
 z_index = -60
 scroll_scale = Vector2(0.87, 1)
 repeat_size = Vector2(592, 0)
 
 [node name="Pipe2" type="Sprite2D" parent="background/-61" unique_id=154102882]
 modulate = Color(0.35993558, 0.48968625, 0.75361705, 0.6156863)
+light_mask = 0
 position = Vector2(338, -97)
 rotation = -3.1415925
 texture = ExtResource("8_igeo0")
 
 [node name="Pipe" type="Sprite2D" parent="background/-61" unique_id=890136970]
 modulate = Color(0.35993558, 0.48968625, 0.75361705, 0.6156863)
+light_mask = 0
 position = Vector2(55, 371)
 texture = ExtResource("8_igeo0")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("1_025c5")]
-position = Vector2(-367, 125)
+position = Vector2(-154, 118)
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("2_bw3ef")]
-position = Vector2(-367, 125)
+position = Vector2(-154, 118)
 position_smoothing_speed = 10.0
 player = NodePath("../player")
 
@@ -1500,5 +1507,10 @@ is_on = true
 
 [node name="level_end" parent="." unique_id=1117045117 instance=ExtResource("30_07dy8")]
 position = Vector2(16799, 42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1498921821]
+
+[node name="level_percent" parent="CanvasLayer" unique_id=1500303497 node_paths=PackedStringArray("player") instance=ExtResource("35_a1vlu")]
+player = NodePath("../../player")
 
 [connection signal="area_entered" from="level_end" to="." method="_on_level_end_area_entered"]

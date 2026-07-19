@@ -22,9 +22,9 @@ script = ExtResource("1_0vboe")
 left_pillars = [NodePath("track_pillar"), NodePath("track_pillar2"), NodePath("track_pillar3"), NodePath("track_pillar4")]
 right_pillars = [NodePath("track_pillar5"), NodePath("track_pillar6"), NodePath("track_pillar7"), NodePath("track_pillar8")]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1448926292]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1448926292 groups=["ground"]]
 z_index = 2
-collision_layer = 4
+collision_layer = 6
 collision_mask = 4
 mass = 50.0
 physics_material_override = SubResource("PhysicsMaterial_pxqp1")

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="AnimalResource" format=3 uid="uid://nx4ucs2venwi"]
+
+[ext_resource type="SpriteFrames" uid="uid://dac0nrk36fbb3" path="res://sprites/animals/animation_resources/blue_butterfly_frames.tres" id="1_6m2vb"]
+[ext_resource type="Script" uid="uid://co07lgyk00dl6" path="res://sprites/animals/animal_resource/animal_resource.gd" id="2_bb0qb"]
+[ext_resource type="Texture2D" uid="uid://cnkli0fdnhtgl" path="res://sprites/animals/blue_butterfly_full.png" id="3_8m7is"]
+
+[sub_resource type="Gradient" id="Gradient_soyx7"]
+colors = PackedColorArray(0, 0.8277864, 0.8238249, 1, 0.5497381, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lwl5x"]
+gradient = SubResource("Gradient_soyx7")
+
+[resource]
+script = ExtResource("2_bb0qb")
+sprites = ExtResource("3_8m7is")
+animations = ExtResource("1_6m2vb")
+dash_colors = SubResource("GradientTexture1D_lwl5x")
+float_colors = SubResource("GradientTexture1D_lwl5x")
+save_index = 5
+cost = 50
+metadata/_custom_type_script = "uid://co07lgyk00dl6"

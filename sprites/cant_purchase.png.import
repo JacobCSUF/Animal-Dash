@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dum1ts8uhyspq"
-path="res://.godot/imported/animal_skin_frame-Sheet.png-372b7847044f48b62d3ab6cbae90b5b2.ctex"
+uid="uid://t4ut3uldpi5n"
+path="res://.godot/imported/cant_purchase.png-ddd456890eaa6d41716da8026d6be2cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/animal_skin_frame-Sheet.png"
-dest_files=["res://.godot/imported/animal_skin_frame-Sheet.png-372b7847044f48b62d3ab6cbae90b5b2.ctex"]
+source_file="res://sprites/cant_purchase.png"
+dest_files=["res://.godot/imported/cant_purchase.png-ddd456890eaa6d41716da8026d6be2cf.ctex"]
 
 [params]
 

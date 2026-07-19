@@ -8,7 +8,6 @@ size = Vector2(40, 266)
 [node name="player_camera" type="Camera2D" unique_id=1119034557]
 offset = Vector2(50, 0)
 zoom = Vector2(1.1, 1.1)
-process_callback = 0
 limit_top = 0
 limit_bottom = 290
 position_smoothing_enabled = true

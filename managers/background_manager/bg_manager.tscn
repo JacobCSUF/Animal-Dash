@@ -11,6 +11,34 @@ gradient = SubResource("Gradient_qajex")
 width = 720
 height = 420
 
+[sub_resource type="Gradient" id="Gradient_ydsw5"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dim5v"]
+gradient = SubResource("Gradient_ydsw5")
+
+[sub_resource type="FontFile" id="FontFile_ydsw5"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/64/0/ascent = 0.0
+cache/0/64/0/descent = 0.0
+cache/0/64/0/underline_position = 0.0
+cache/0/64/0/underline_thickness = 0.0
+cache/0/64/0/scale = 1.0
+
 [node name="bg_manager" type="Node2D" unique_id=859320413]
 physics_interpolation_mode = 2
 script = ExtResource("1_jwprj")
@@ -19,3 +47,33 @@ script = ExtResource("1_jwprj")
 position = Vector2(56, 160)
 energy = 0.0
 texture = SubResource("GradientTexture2D_1o3j2")
+
+[node name="bg_text" type="Sprite2D" parent="." unique_id=1736189762]
+modulate = Color(1, 1, 1, 0)
+light_mask = 0
+z_index = 7
+position = Vector2(5.0000057, 680)
+scale = Vector2(3.9960935, 368.00003)
+texture = SubResource("GradientTexture1D_dim5v")
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=1648705162]
+modulate = Color(1, 1, 1, 0)
+light_mask = 0
+z_index = 12
+offset_left = 23.0
+offset_top = 63.0
+offset_right = 273.0
+offset_bottom = 224.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.2932402, 0.29324, 0.29324004, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0.8287706, 0.70065206, 1)
+theme_override_colors/font_shadow_color = Color(0.44622445, 0.4462245, 0.44622445, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = SubResource("FontFile_ydsw5")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "100%"

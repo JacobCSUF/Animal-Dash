@@ -1,0 +1,75 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c74vmip13uql0"]
+
+[ext_resource type="Texture2D" uid="uid://d4nhxvx2jknc7" path="res://sprites/animals/green_parrot_full.png" id="1_m8q5a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwf0a"]
+atlas = ExtResource("1_m8q5a")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uacj4"]
+atlas = ExtResource("1_m8q5a")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5avw"]
+atlas = ExtResource("1_m8q5a")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i01dx"]
+atlas = ExtResource("1_m8q5a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu38k"]
+atlas = ExtResource("1_m8q5a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgwnj"]
+atlas = ExtResource("1_m8q5a")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l1ac"]
+atlas = ExtResource("1_m8q5a")
+region = Rect2(64, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwf0a")
+}],
+"loop": 1,
+"name": &"ball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uacj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5avw")
+}],
+"loop": 1,
+"name": &"cart",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i01dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu38k")
+}],
+"loop": 1,
+"name": &"flappy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgwnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l1ac")
+}],
+"loop": 1,
+"name": &"float",
+"speed": 7.0
+}]

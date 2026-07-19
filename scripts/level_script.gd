@@ -2,7 +2,7 @@ extends Node2D
 class_name Level
 
 @export var lr: LevelResource
-
+@export var total_distance := 20000
 
 var coins: Dictionary[int,Coin] ={}
 var lanterns: Dictionary[int,LanternChain]
@@ -13,7 +13,33 @@ var taken_coin_counter = 0
 var old_taken = 0
 var lan_new = 0
 
+
+
+
+var d_dict = {}
+
+
 func _ready() -> void:
+	
+	########Calulate total distance of level and send to player
+	for flag: PercentFlag in get_tree().get_nodes_in_group("flag"):
+		var ind = flag.flag_index
+		if !d_dict.has(ind):
+			d_dict[ind] = {}
+		if flag.is_enter:
+			d_dict[ind]["enter"] = flag.global_position.x
+		else:
+			d_dict[ind]["exit"] = flag.global_position.x
+	
+		d_dict[ind]["mult"] = flag.flag_divide
+	
+	for f in d_dict:
+		
+		total_distance-= (d_dict[f]["exit"] - d_dict[f]["enter"])  
+		total_distance += (d_dict[f]["exit"] - d_dict[f]["enter"]) *(d_dict[f]["mult"]) 
+		
+	GameState.player.distance_helper.get_distance(total_distance)
+	
 	
 	GameState.start_level()
 	for coin: Coin in get_tree().get_nodes_in_group("coin"):

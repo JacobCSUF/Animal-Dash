@@ -1,0 +1,75 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b8um8eir6s6m5"]
+
+[ext_resource type="Texture2D" uid="uid://clb1ao1drxhnm" path="res://sprites/animals/red_bat_full.png" id="1_7fatg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgrom"]
+atlas = ExtResource("1_7fatg")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp8ri"]
+atlas = ExtResource("1_7fatg")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyvgp"]
+atlas = ExtResource("1_7fatg")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opjmb"]
+atlas = ExtResource("1_7fatg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o04uw"]
+atlas = ExtResource("1_7fatg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4nxh"]
+atlas = ExtResource("1_7fatg")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp0np"]
+atlas = ExtResource("1_7fatg")
+region = Rect2(64, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgrom")
+}],
+"loop": 1,
+"name": &"ball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp8ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyvgp")
+}],
+"loop": 1,
+"name": &"cart",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opjmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o04uw")
+}],
+"loop": 1,
+"name": &"flappy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4nxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp0np")
+}],
+"loop": 1,
+"name": &"float",
+"speed": 7.0
+}]

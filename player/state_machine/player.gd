@@ -14,6 +14,7 @@ enum player_states{FLAPPY, DASH, RECOIL, FLOAT, STOP, GLIDE, THROW, BALL, CANNON
 ,TRAINEND}
 
 @onready var animation_sounds: AnimationSounds = $AnimationSounds
+@onready var distance_helper: DistanceHelper = $distance_helper
 
 
 enum StateType{
@@ -70,7 +71,12 @@ func change_state(new_state_name: String, data: Dictionary = {}):
 	elif current_state:
 		current_state.enter_state(self)
 
+
+var distance = 16671
+var travled = 0
 func _physics_process(delta: float) -> void:
+	
+	
 	if curr_group == StateType.CART:
 		GameState.player_location = cart.get_pos()
 	else:
@@ -98,6 +104,7 @@ func modify_speed(added_speed: float):
 	
 	
 func die():
+	distance_helper.player_died()
 	self.visible = false
 	process_mode = Node.PROCESS_MODE_DISABLED
 	
@@ -116,7 +123,7 @@ func end_level():
 func get_partial_mult_vector(speed_v,weight):
 	var x = speed_v.x +((speed_v.x*speed_mult)-speed_v.x)*weight
 	var y = speed_v.y +((speed_v.y*speed_mult)-speed_v.y)*weight
-	print(Vector2(x,y))
+
 	return Vector2(x,y)
 	
 	

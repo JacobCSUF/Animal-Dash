@@ -9,8 +9,11 @@
 [ext_resource type="Resource" uid="uid://by2x512vkmt1q" path="res://sprites/animals/animal_resource/bird1.tres" id="5_g5lem"]
 [ext_resource type="Resource" uid="uid://bvjtc1tct7p8" path="res://sprites/animals/animal_resource/parrot.tres" id="6_me3x7"]
 [ext_resource type="Resource" uid="uid://b4wb6efmxuuxv" path="res://sprites/animals/animal_resource/pink_butterfly.tres" id="7_1r7kg"]
+[ext_resource type="Resource" uid="uid://nx4ucs2venwi" path="res://sprites/animals/animal_resource/blue_butterfly.tres" id="7_7n6il"]
 [ext_resource type="SpriteFrames" uid="uid://nxecp61r5lmm" path="res://sprites/animals/animation_resources/pink_butterfly_frames.tres" id="8_5q3dr"]
 [ext_resource type="Resource" uid="uid://r0x1p0kov2xq" path="res://sprites/animals/animal_resource/chicken.tres" id="8_g5lem"]
+[ext_resource type="Resource" uid="uid://ch13mtagmuwj2" path="res://sprites/animals/animal_resource/red_bat.tres" id="9_aoehs"]
+[ext_resource type="Resource" uid="uid://x8i43uemqg1w" path="res://sprites/animals/animal_resource/green_parrot.tres" id="9_e4038"]
 [ext_resource type="PackedScene" uid="uid://dkjl10fkw74f3" path="res://scenes/UI/currency.tscn" id="12_me3x7"]
 [ext_resource type="PackedScene" uid="uid://srr2wd5rvthy" path="res://scenes/UI/skin_ui.tscn" id="13_854eh"]
 [ext_resource type="Texture2D" uid="uid://x6l8qtkmq61g" path="res://sprites/shop_background.png" id="14_mq6cw"]
@@ -28,7 +31,7 @@ fill_to = Vector2(0.87682927, 0.13780488)
 
 [node name="shop_menu" type="Node2D" unique_id=98029773]
 script = ExtResource("1_se1m4")
-animal_skins = Array[ExtResource("2_5q3dr")]([ExtResource("3_7qhmt"), ExtResource("4_1r7kg"), ExtResource("5_g5lem"), ExtResource("6_me3x7"), ExtResource("8_g5lem"), ExtResource("7_1r7kg")])
+animal_skins = Array[ExtResource("2_5q3dr")]([ExtResource("3_7qhmt"), ExtResource("4_1r7kg"), ExtResource("5_g5lem"), ExtResource("8_g5lem"), ExtResource("7_1r7kg"), ExtResource("7_7n6il"), ExtResource("9_e4038"), ExtResource("6_me3x7"), ExtResource("9_aoehs")])
 
 [node name="currency" parent="." unique_id=1348172473 instance=ExtResource("12_me3x7")]
 
@@ -77,6 +80,7 @@ offset_bottom = 84.4
 text = "Change"
 
 [node name="buy_text" type="Label" parent="." unique_id=1720237492]
+visible = false
 z_index = 1
 offset_left = 304.0
 offset_top = 128.0
@@ -104,6 +108,7 @@ sprite_frames = ExtResource("8_5q3dr")
 animation = &"flappy"
 
 [node name="skin_frames" type="Node2D" parent="." unique_id=964145659]
+position = Vector2(0, 24)
 
 [node name="skin_ui" parent="skin_frames" unique_id=1545742205 instance=ExtResource("13_854eh")]
 offset_left = 80.0
@@ -137,14 +142,14 @@ offset_bottom = 184.0
 
 [node name="ShopBackground" type="Sprite2D" parent="." unique_id=1809136720]
 z_index = 2
-position = Vector2(320, 160)
+position = Vector2(320, 184)
 texture = ExtResource("14_mq6cw")
 
 [node name="right" type="Button" parent="." unique_id=315675686]
 offset_left = 304.0
-offset_top = 248.0
+offset_top = 272.0
 offset_right = 336.0
-offset_bottom = 280.0
+offset_bottom = 297.0
 text = ">"
 
 [node name="Node2D" type="Node2D" parent="." unique_id=109460839]
@@ -158,8 +163,8 @@ anchor_bottom = 0.0
 grow_vertical = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1392593557]
-position = Vector2(320, 184)
-color = Color(0.34580213, 0.61138725, 0.61222285, 0.546)
+position = Vector2(320, 208)
+color = Color(0.2285192, 0.43928683, 0.43948063, 0.34901962)
 texture = SubResource("GradientTexture2D_1sg0x")
 
 [connection signal="button_down" from="Settings Title2/change" to="." method="_on_change_button_down"]

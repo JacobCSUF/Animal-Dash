@@ -16,8 +16,8 @@ script = ExtResource("1_yk8t3")
 layout_mode = 0
 offset_left = 34.0
 offset_top = 4.0
-offset_right = 214.0
-offset_bottom = 284.0
+offset_right = 216.0
+offset_bottom = 302.0
 
 [node name="Settings Title" type="Label" parent="VBoxContainer" unique_id=185163379]
 z_index = 1
@@ -30,10 +30,12 @@ text = "Settings
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=364230309]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "Back"
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=698822521]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "Music"
 
 [node name="Music volume" type="HSlider" parent="VBoxContainer" unique_id=220141288]
@@ -46,6 +48,7 @@ value = -10.0
 
 [node name="Label2" type="Label" parent="VBoxContainer" unique_id=1374153878]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "Sound Effects"
 
 [node name="Sound effects volume" type="HSlider" parent="VBoxContainer" unique_id=288055206]
@@ -56,6 +59,54 @@ min_value = -30.0
 max_value = 15.0
 value = -10.0
 
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1876812507]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=552278920]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Show Progess bar"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer" unique_id=738797925]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=592179332]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Testing:"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1652054664]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Add max coins/lantenrs"
+autowrap_mode = 3
+autowrap_trim_flags = 192
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1117441173]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Set coins/lanterns to 0"
+autowrap_mode = 3
+autowrap_trim_flags = 192
+
+[node name="Button4" type="Button" parent="VBoxContainer" unique_id=520077051]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Reset Save
+"
+autowrap_mode = 3
+autowrap_trim_flags = 192
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="value_changed" from="VBoxContainer/Music volume" to="." method="_on_music_volume_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/Sound effects volume" to="." method="_on_sound_effects_volume_value_changed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
