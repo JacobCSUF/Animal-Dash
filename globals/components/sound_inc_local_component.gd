@@ -19,8 +19,6 @@ func setup_inc():
 func play_inc():
 	sound.pitch_scale = starting_pitch
 	sound.play()
-	print('playing this pitch: ',sound.pitch_scale)
-	print('playing this volumne: ',sound.volume_db)
 	starting_pitch *= step
 	
 

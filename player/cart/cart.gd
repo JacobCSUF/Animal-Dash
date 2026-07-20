@@ -180,7 +180,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 	
 	elif body.is_in_group("ground"):
-		print('WHATTTTTTTTTTTTDSD')
+		
 		state = states.CART
 		set_cart()
 		cart_col.call_deferred("set_disabled",false)

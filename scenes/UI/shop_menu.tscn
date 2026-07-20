@@ -18,18 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://srr2wd5rvthy" path="res://scenes/UI/skin_ui.tscn" id="13_854eh"]
 [ext_resource type="Texture2D" uid="uid://x6l8qtkmq61g" path="res://sprites/shop_background.png" id="14_mq6cw"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4038"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
 [sub_resource type="Gradient" id="Gradient_mq6cw"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
@@ -106,11 +94,11 @@ text = "Tap
 "
 
 [node name="back" type="Button" parent="." unique_id=933180142]
-offset_left = 20.0
-offset_top = 10.0
-offset_right = 82.0
-offset_bottom = 44.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_e4038")
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 40.0
+theme = ExtResource("2_8vm3j")
 text = "Back"
 
 [node name="Icon" type="AnimatedSprite2D" parent="back" unique_id=18416201]

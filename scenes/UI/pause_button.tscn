@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://brea1sjqgfvk4"]
 
+[ext_resource type="Theme" uid="uid://ve7bfujv5tqo" path="res://scenes/UI/global_theme.tres" id="1_4ks8w"]
 [ext_resource type="Script" uid="uid://cvqxmagdeq065" path="res://scenes/UI/base_button.gd" id="1_f8e8d"]
 
 [node name="pause_button" type="Button" unique_id=677821903]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 32.0
+offset_bottom = 25.0
+theme = ExtResource("1_4ks8w")
+theme_override_font_sizes/font_size = 16
 text = "II"
 script = ExtResource("1_f8e8d")
 to_menu = 6

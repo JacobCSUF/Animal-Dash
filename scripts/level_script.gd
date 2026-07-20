@@ -37,7 +37,7 @@ func _ready() -> void:
 		
 		total_distance-= (d_dict[f]["exit"] - d_dict[f]["enter"])  
 		total_distance += (d_dict[f]["exit"] - d_dict[f]["enter"]) *(d_dict[f]["mult"]) 
-		
+	print('TOTAL DIST: ',total_distance)
 	GameState.player.distance_helper.get_distance(total_distance)
 	
 	
@@ -69,7 +69,7 @@ func _on_new_take(taken: bool):
 	
 func _on_lan_new_hit():
 	lan_new += 1
-	print("NEW HIT LAN: NOW: ",lan_new)
+
 
 func load_level_data():
 	
@@ -97,7 +97,7 @@ func save_level_data():
 	for l in lanterns:
 		if lanterns[l] is LanternChain and lanterns[l].is_on:
 			lans1.append(l)
-	print(lans1)
+	
 	SaveManager.save_level_data(lr.level_number,coins1,lans1,true,new_coin_counter,lan_new)
 		
 		

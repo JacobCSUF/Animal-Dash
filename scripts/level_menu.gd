@@ -159,8 +159,6 @@ func set_level():
 
 
 	dis = leve["display"].instantiate()
-	print(self.global_position,' SELF POS')
-	print(dis.global_position)
 	add_child(dis)
 	lev.queue_free()
 

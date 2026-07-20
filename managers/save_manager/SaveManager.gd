@@ -1,6 +1,6 @@
 extends Node
 
-var save_path = "user://save_game.res"
+var save_path = "user://savegame.save"
 # Called when the node enters the scene tree for the first time.
 
 var saved_data = {}
@@ -9,8 +9,8 @@ signal currency_updated
 
 var ini_saved_data = {
 	"total_coins": 0,
-	"total_lanterns": 10,
-	"progress_bar": false,
+	"total_lanterns": 0,
+	"progress_bar": true,
 	"0": {
 		"completed": false,
 		"locked": false,
@@ -96,7 +96,7 @@ func _ready() -> void:
 
 	
 func save_game():
-	var file = FileAccess.open("res://savegame.save", FileAccess.WRITE)
+	var file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	var json_string = JSON.stringify(saved_data)
 	file.store_string(json_string)
 	file.close()
@@ -104,13 +104,13 @@ func save_game():
 	
 	
 func load_game():
-	if not FileAccess.file_exists("res://savegame.save"):
+	if not FileAccess.file_exists("user://savegame.save"):
 		saved_data = ini_saved_data
 		return # Error! We don't have a save to load.
 
 	# Load the file line by line and process that dictionary to restore
 	# the object it represents.
-	var file = FileAccess.open("res://savegame.save", FileAccess.READ)
+	var file = FileAccess.open("user://savegame.save", FileAccess.READ)
 	var json = file.get_as_text()
 	if not json.is_empty():
 		saved_data = JSON.parse_string(json)
@@ -236,10 +236,10 @@ func buy_skin(n1,cost):
 ###############PROGRESSS BAR###############
 func change_progress_bar(show: bool):
 	saved_data["progress_bar"] = show
-	print(saved_data["progress_bar"]," JUST FKIGN WOR")
+	
 
 func is_show_progress():
-	print(saved_data["progress_bar"],' IS IT ON HELLO')
+	
 	return saved_data["progress_bar"]
 
 func _notification(what):

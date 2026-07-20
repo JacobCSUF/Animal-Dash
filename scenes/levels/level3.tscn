@@ -57,7 +57,8 @@
 [ext_resource type="Texture2D" uid="uid://blr8svwtfpwtp" path="res://sprites/signs/cannon_sign.png" id="53_8dwgf"]
 [ext_resource type="Texture2D" uid="uid://dwrrj15tqvpma" path="res://sprites/signs/sign_arrow.png" id="54_hd2vb"]
 [ext_resource type="Texture2D" uid="uid://udsl8olr4m7o" path="res://sprites/signs/wind_sign.png" id="55_hd2vb"]
-[ext_resource type="PackedScene" uid="uid://baj3euubcjum7" path="res://scenes/UI/level_percent.tscn" id="58_6ixxf"]
+[ext_resource type="PackedScene" uid="uid://baj3euubcjum7" path="res://scenes/UI/level_progress.tscn" id="58_6ixxf"]
+[ext_resource type="PackedScene" uid="uid://bxoompvqha7ou" path="res://scenes/percent_flag.tscn" id="59_4ghar"]
 
 [sub_resource type="Resource" id="Resource_7pa0d"]
 script = ExtResource("2_0qxt0")
@@ -283,6 +284,7 @@ metadata/_custom_type_script = "uid://cdojrf8j4lvru"
 [node name="level3" type="Node2D" unique_id=271347830 groups=["Persist"]]
 script = ExtResource("1_k4124")
 lr = SubResource("Resource_7pa0d")
+total_distance = 24106
 
 [node name="background" parent="." unique_id=1318822552 instance=ExtResource("2_6vxnv")]
 bg = SubResource("Resource_eanys")
@@ -2011,6 +2013,18 @@ volume_db = -24.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=655406533]
 
 [node name="level_percent" parent="CanvasLayer" unique_id=1500303497 node_paths=PackedStringArray("player") instance=ExtResource("58_6ixxf")]
+value = 0.0
 player = NodePath("../../player")
+
+[node name="percent_flags" type="Node2D" parent="." unique_id=861880088]
+
+[node name="percent_flag" parent="percent_flags" unique_id=1457998328 instance=ExtResource("59_4ghar")]
+position = Vector2(21199, 65)
+flag_divide = 0.75
+
+[node name="percent_flag2" parent="percent_flags" unique_id=1255564717 instance=ExtResource("59_4ghar")]
+position = Vector2(24023, 79)
+flag_divide = 0.75
+is_enter = false
 
 [connection signal="area_entered" from="visuals/fireworks/level_end" to="." method="_on_level_end_area_entered"]

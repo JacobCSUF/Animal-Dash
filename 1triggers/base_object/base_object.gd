@@ -3,6 +3,7 @@ class_name BaseObject
 
 @export var group_number := 0
 @export var sound_group_number := 0
+@export var enabler:= true
 
 @export_group("movement")
 @export var bob: BobParams
@@ -22,11 +23,11 @@ var overide_pos:Vector2 = Vector2(0,0)
 
 
 func _ready() -> void:
-	
-	var x: VisibleOnScreenEnabler2D = OBJECT_ENABLER.instantiate()
-	x.enable_node_path = get_path()
-	x.global_position = global_position
-	add_child(x)
+	if enabler:
+		var x: VisibleOnScreenEnabler2D = OBJECT_ENABLER.instantiate()
+		x.enable_node_path = get_path()
+		x.global_position = global_position
+		add_child(x)
 	
 	add_to_group("base_object")
 	

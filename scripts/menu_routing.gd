@@ -38,7 +38,7 @@ func _ready() -> void:
 	win_card.button_pressed.connect(change_menu)
 	
 func change_menu(type1):
-	print_orphan_nodes()
+	#print_orphan_nodes()
 	
 	
 	if type1 in [Menus.LEVEL,Menus.REFRESH,Menus.LEVELBACK,Menus.BACK]:
@@ -54,7 +54,7 @@ func change_menu(type1):
 		if curr_menu:
 			curr_menu.queue_free()
 		if curr_level != null:
-			print('IM NULL BITCHA')
+		
 			curr_level.queue_free()
 			await curr_level.tree_exited
 			curr_level = null

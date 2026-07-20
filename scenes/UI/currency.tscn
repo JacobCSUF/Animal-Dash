@@ -2,20 +2,20 @@
 
 [ext_resource type="StyleBox" uid="uid://3mthwxvesul0" path="res://panel_style.tres" id="1_818y0"]
 [ext_resource type="Script" uid="uid://bv0gc8yk4tbaw" path="res://scripts/currency.gd" id="1_ades8"]
-[ext_resource type="Texture2D" uid="uid://cok67dik24s0m" path="res://sprites/coin-Sheet-Sheet.png" id="1_v12xo"]
 [ext_resource type="Texture2D" uid="uid://d4cvgryygmrgh" path="res://sprites/lantern_ui.png" id="2_ades8"]
+[ext_resource type="Texture2D" uid="uid://bprymiyo6ckax" path="res://sprites/coin_ui.png" id="3_0dvg8"]
 [ext_resource type="Texture2D" uid="uid://cb650ykpv5l6e" path="res://sprites/flame_back.png" id="3_818y0"]
 [ext_resource type="Texture2D" uid="uid://kxlgfbtfum3m" path="res://sprites/lantern_fire.png" id="4_0dvg8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e7gcb"]
-atlas = ExtResource("1_v12xo")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk5n2"]
+atlas = ExtResource("3_0dvg8")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v87q7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e7gcb")
+"texture": SubResource("AtlasTexture_tk5n2")
 }],
 "loop": 1,
 "name": &"default",

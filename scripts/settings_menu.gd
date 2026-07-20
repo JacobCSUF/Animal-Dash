@@ -24,8 +24,8 @@ func _on_button_pressed() -> void:
 
 
 func _on_button_2_pressed() -> void:
-	SaveManager.saved_data["total_coins"] = 999
-	SaveManager.saved_data["total_lanterns"] = 999
+	SaveManager.saved_data["total_coins"] = 777
+	SaveManager.saved_data["total_lanterns"] = 777
 	SaveManager.currency_updated.emit()
 
 

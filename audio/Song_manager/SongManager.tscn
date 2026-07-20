@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bq80hahwfxx0t" path="res://audio/Song_manager/song_manager.gd" id="1_2eulm"]
 [ext_resource type="AudioStream" uid="uid://b1powhmofhbpi" path="res://audio/sounds/music/digital-overture-408211.mp3" id="2_7qo18"]
-[ext_resource type="AudioStream" uid="uid://be3ywurlaad83" path="res://audio/sounds/music/adventure music.mp3" id="3_3wynt"]
-[ext_resource type="AudioStream" uid="uid://ckrw16xdy7ehq" path="res://audio/sounds/music/luminkai-crystal-skies-170913.mp3" id="4_n0tih"]
-[ext_resource type="AudioStream" uid="uid://o578v6pevoar" path="res://audio/sounds/music/christmas-snow-179849.mp3" id="5_blguv"]
-[ext_resource type="AudioStream" uid="uid://desu31v2aubl0" path="res://audio/sounds/music/water_escape.mp3" id="6_4f1q0"]
+[ext_resource type="AudioStream" uid="uid://bttml035f1eop" path="res://audio/sounds/music/adventure music.ogg" id="3_2eulm"]
+[ext_resource type="AudioStream" uid="uid://dc5ia1dpjg3h0" path="res://audio/sounds/music/luminkai-crystal-skies-170913.ogg" id="4_2eulm"]
+[ext_resource type="AudioStream" uid="uid://cpr3dv137saxd" path="res://audio/sounds/music/christmas-snow-179849.ogg" id="5_2eulm"]
+[ext_resource type="AudioStream" uid="uid://c77k732sh63nm" path="res://audio/sounds/music/water_escape.ogg" id="6_2eulm"]
 
 [node name="SongManager" type="Node2D" unique_id=234326870]
 script = ExtResource("1_2eulm")
@@ -16,20 +16,20 @@ volume_db = -16.0
 bus = &"Music"
 
 [node name="AdventureMusic" type="AudioStreamPlayer" parent="." unique_id=519615038]
-stream = ExtResource("3_3wynt")
+stream = ExtResource("3_2eulm")
 volume_db = -25.0
 bus = &"Music"
 
 [node name="LuminkaiCrystalSkies170913" type="AudioStreamPlayer" parent="." unique_id=255881708]
-stream = ExtResource("4_n0tih")
+stream = ExtResource("4_2eulm")
 volume_db = -23.0
 bus = &"Music"
 
 [node name="ChristmasSnow179849" type="AudioStreamPlayer" parent="." unique_id=1217397615]
-stream = ExtResource("5_blguv")
+stream = ExtResource("5_2eulm")
 volume_db = -18.0
 bus = &"Music"
 
 [node name="WaterMusic" type="AudioStreamPlayer" parent="." unique_id=1272966813]
-stream = ExtResource("6_4f1q0")
+stream = ExtResource("6_2eulm")
 volume_db = -30.0

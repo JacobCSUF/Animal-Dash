@@ -30,14 +30,11 @@ ParticleManager="*uid://or6wn166kcu"
 AudioManager="*uid://dk46gwrksu2ij"
 SongManager="*uid://bais6bdh5c0hm"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=320
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/physics_interpolation=true
 window/physics_jitter_fix=0.0

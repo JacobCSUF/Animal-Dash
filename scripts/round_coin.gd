@@ -13,7 +13,7 @@ func _ready() -> void:
 	#AnimationUtils.start_bob(self, 2.0,  0.50, 1.0, false)
 func set_taken():
 
-	self.modulate = Color(1.0, 1.0, 1.0, 0.8)
+	self.modulate = Color(1.0, 1.0, 1.0, 0.9)
 	is_taken = true
 	coin_sheet.play("taken")
 

@@ -107,10 +107,10 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 1, 1, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 corner_detail = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_od4ud"]
@@ -203,7 +203,7 @@ text = "Play"
 layout_mode = 0
 offset_left = 25.0
 offset_top = 2.0
-offset_right = 78.0
+offset_right = 80.0
 offset_bottom = 34.0
 text = "Back"
 to_menu = 4

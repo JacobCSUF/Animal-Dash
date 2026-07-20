@@ -4,6 +4,7 @@ signal button_pressed(menu: MenuHandler.Menus)
 @onready var main_block: Node2D = $main_block
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var smoke: SmokeChime = $main_block/Settings/small_smoke_pipes
 
 
 func _on_levels_menu_pressed() -> void:
@@ -15,7 +16,7 @@ func _on_settings_pressed() -> void:
 	AudioManager.play_sound(AudioManager.Sound.UIBUTTON)
 	#button_pressed.emit(MenuHandler.Menus.SETTINGS)
 	animation_player.play("settings_shift")
-	
+	smoke.start_smoke_chime()
 
 
 func _on_exit_pressed() -> void:
@@ -25,7 +26,7 @@ func _on_exit_pressed() -> void:
 
 func _on_settings_menu_back() -> void:
 	animation_player.play("settings_back")
-
+	smoke.stop_smoke_chime()
 
 func _on_shop_pressed() -> void:
 	AudioManager.play_sound(AudioManager.Sound.UIBUTTON)

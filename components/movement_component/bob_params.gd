@@ -5,3 +5,4 @@ class_name BobParams
 @export var duration:= 0.50
 @export var speed:= 1.0
 @export var random:= true
+@export var wait:= 0.0

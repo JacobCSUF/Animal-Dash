@@ -37,11 +37,12 @@ var CartMap={
 }
 
 
-enum Scale{BUTTON,APPEAR} 
+enum Scale{BUTTON,APPEAR,SMOKE} 
 
 var Scale_map = {
 	Scale.BUTTON: preload("uid://dfmrlipel3efm"),
-	Scale.APPEAR: preload("uid://cpvs0v0upf3rw")
+	Scale.APPEAR: preload("uid://cpvs0v0upf3rw"),
+	Scale.SMOKE: preload("uid://c4g3q0ldmjqal")
 }
 
 
@@ -147,9 +148,16 @@ func play_packed_audio(aud: AudioStream,volume,pitch):
 	a.finished.connect(a.queue_free)
 	
 	
-func play_scale(st: Scale):
+func play_scale(st: Scale,pos:= Vector2(0,0)):
+	var player
+	if pos != Vector2(0,0):
+		player = AudioStreamPlayer2D.new()
+		player.global_position = pos
+		player.max_distance = 600
+	else:
+		player = AudioStreamPlayer.new()
 	var sd: ScaleResource = Scale_map[st]
-	var player = AudioStreamPlayer.new()
+	
 	add_child(player)
 	player.pitch_scale = sd.return_pitch()
 	player.volume_db = sd.volume

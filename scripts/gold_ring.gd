@@ -16,11 +16,20 @@ func _ready() -> void:
 
 	#AnimationUtils.start_bob(self, 2.0,  0.50, 1.0, false)
 	
+func set_taken():
 
+	self.modulate = Color(10, 10, 10, 0.5)
+	is_taken = true
+	
 
 
 func _on_direct_area_area_entered(area: Area2D) -> void:
 	if !entered1:
+		if is_taken:
+			new_take.emit(true)
+		else:
+		#coin has been taken before on completed level
+			new_take.emit(false)
 		is_taken = true
 		entered1 = true
 		particles.emitting= false

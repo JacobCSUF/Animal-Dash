@@ -47,7 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://cvwn8jmns7n77" path="res://obstacles/obstacle piece/thin_pipe.tscn" id="36_ku6mp"]
 [ext_resource type="PackedScene" uid="uid://daduexh2nx1fq" path="res://obstacles/interactable/sign.tscn" id="44_lt6iy"]
 [ext_resource type="Texture2D" uid="uid://chn86vkhmd3k8" path="res://sprites/signs/water_sign.png" id="45_1l836"]
-[ext_resource type="PackedScene" uid="uid://baj3euubcjum7" path="res://scenes/UI/level_percent.tscn" id="48_1l836"]
+[ext_resource type="PackedScene" uid="uid://baj3euubcjum7" path="res://scenes/UI/level_progress.tscn" id="48_1l836"]
 
 [sub_resource type="Resource" id="Resource_72xjh"]
 script = ExtResource("2_vnf24")
@@ -57,6 +57,7 @@ difficulty = 3
 outline_flame_color = Color(0, 0.9138015, 1, 1)
 flame_color = Color(0.25819302, 0.378207, 0.8319876, 1)
 ui_color = Color(0, 0.83137256, 1, 1)
+total_coins = 35
 metadata/_custom_type_script = "uid://5nmavtap5ybn"
 
 [sub_resource type="Gradient" id="Gradient_lxeoi"]
@@ -139,11 +140,11 @@ lr = SubResource("Resource_72xjh")
 total_distance = 22797
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("15_lxeoi")]
-position = Vector2(88, 96)
+position = Vector2(80, 96)
 player = NodePath("../player")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("16_q3cny")]
-position = Vector2(88, 96)
+position = Vector2(80, 96)
 anim_text = ExtResource("5_3fbce")
 
 [node name="background" parent="." unique_id=1318822552 instance=ExtResource("3_pm1y0")]
@@ -1567,7 +1568,7 @@ area_increase = 75
 [node name="water_burst18" parent="obstacles/chunk6" unique_id=1858028482 instance=ExtResource("17_1ix84")]
 position = Vector2(21043, 0)
 is_burst = true
-angle = 60
+angle = 300
 area_increase = 75
 
 [node name="water_burst19" parent="obstacles/chunk6" unique_id=1197133684 instance=ExtResource("17_1ix84")]
@@ -1579,7 +1580,7 @@ area_increase = 75
 [node name="water_burst20" parent="obstacles/chunk6" unique_id=1309430237 instance=ExtResource("17_1ix84")]
 position = Vector2(21011, 31)
 is_burst = true
-angle = 60
+angle = 270
 area_increase = 75
 
 [node name="water_burst21" parent="obstacles/chunk6" unique_id=1186838926 instance=ExtResource("17_1ix84")]
@@ -1603,7 +1604,7 @@ area_increase = 75
 [node name="water_burst24" parent="obstacles/chunk6" unique_id=1802257159 instance=ExtResource("17_1ix84")]
 position = Vector2(20258, 16)
 is_burst = true
-angle = 60
+angle = 270
 area_increase = 75
 
 [node name="water_burst25" parent="obstacles/chunk6" unique_id=1474542294 instance=ExtResource("17_1ix84")]
@@ -1615,7 +1616,7 @@ area_increase = 75
 [node name="water_burst26" parent="obstacles/chunk6" unique_id=698429555 instance=ExtResource("17_1ix84")]
 position = Vector2(20226, 47)
 is_burst = true
-angle = 60
+angle = 290
 area_increase = 75
 
 [node name="tracks_base11" parent="obstacles/chunk6" unique_id=1503233371 instance=ExtResource("29_pxqp1")]
@@ -1645,7 +1646,7 @@ area_increase = 100
 [node name="water_burst30" parent="obstacles/chunk7" unique_id=2093909969 instance=ExtResource("17_1ix84")]
 position = Vector2(21701, 37)
 is_burst = true
-angle = 200
+angle = 270
 area_increase = 100
 
 [node name="water_burst32" parent="obstacles/chunk7" unique_id=1584590259 instance=ExtResource("17_1ix84")]
@@ -1669,7 +1670,7 @@ area_increase = 100
 [node name="water_burst36" parent="obstacles/chunk7" unique_id=613027894 instance=ExtResource("17_1ix84")]
 position = Vector2(21807, 36)
 is_burst = true
-angle = 200
+angle = 60
 area_increase = 100
 
 [node name="water_burst39" parent="obstacles/chunk7" unique_id=1930388347 instance=ExtResource("17_1ix84")]
@@ -1808,6 +1809,7 @@ sound_group_number = 1
 
 [node name="level_end" parent="obstacles" unique_id=1117045117 instance=ExtResource("35_3fbce")]
 position = Vector2(23169, 58)
+collision_mask = 2148532225
 
 [node name="visuals" type="Node2D" parent="." unique_id=1759037270]
 position = Vector2(688, 112)

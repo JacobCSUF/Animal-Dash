@@ -14,15 +14,18 @@ var first = true
 
 
 func return_pitch():
+	
 	if first:
+		
 		first = false
 		curr_pitch = start_pitch
 		counter += 1
+	
 		return start_pitch
 	
 	if counter >= steps:
 		up = false
-	elif counter <= 0:
+	elif counter <= 1:
 		up = true
 	
 	if up:
@@ -31,5 +34,5 @@ func return_pitch():
 	else:
 		curr_pitch /= 1.059463
 		counter -= 1
-	
+
 	return curr_pitch

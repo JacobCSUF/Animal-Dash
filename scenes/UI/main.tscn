@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://c0h1eq2hrjp3y" path="res://scripts/main.gd" id="1_xc5wj"]
 [ext_resource type="PackedScene" uid="uid://d2kde3vc3x2y5" path="res://scenes/UI/pause_card.tscn" id="3_5paq6"]
 [ext_resource type="PackedScene" uid="uid://brea1sjqgfvk4" path="res://scenes/UI/pause_button.tscn" id="3_orlg7"]
-[ext_resource type="AudioStream" uid="uid://c0ttd04415ov" path="res://audio/sounds/music/menu_theme.mp3" id="3_xc5wj"]
 [ext_resource type="Script" uid="uid://xjm5nrw176ga" path="res://scripts/menu_routing.gd" id="4_5paq6"]
 [ext_resource type="PackedScene" uid="uid://vv7twnx5yeo5" path="res://scenes/UI/win_card.tscn" id="5_a7jsp"]
 [ext_resource type="Script" uid="uid://r4rc7fqjli71" path="res://scripts/scene_trans.gd" id="6_v06ru"]
+[ext_resource type="AudioStream" uid="uid://dhk2abqeynh8r" path="res://audio/sounds/music/menu_theme.ogg" id="7_v06ru"]
 
 [sub_resource type="Environment" id="Environment_xc5wj"]
 background_mode = 3
@@ -43,10 +43,10 @@ light_mask = 0
 [node name="pause_button" parent="menu_handler/CanvasLayer" unique_id=677821903 instance=ExtResource("3_orlg7")]
 visible = false
 light_mask = 0
-offset_left = 594.0
-offset_top = 11.0
-offset_right = 622.0
-offset_bottom = 36.0
+offset_left = 600.0
+offset_top = 8.0
+offset_right = 628.0
+offset_bottom = 33.0
 
 [node name="win_card" parent="menu_handler/CanvasLayer" unique_id=635528446 instance=ExtResource("5_a7jsp")]
 visible = false
@@ -64,7 +64,7 @@ texture = SubResource("GradientTexture2D_1sg0x")
 script = ExtResource("6_v06ru")
 
 [node name="MenuTheme" type="AudioStreamPlayer" parent="." unique_id=225245135]
-stream = ExtResource("3_xc5wj")
+stream = ExtResource("7_v06ru")
 volume_db = -20.0
 autoplay = true
 bus = &"Music"

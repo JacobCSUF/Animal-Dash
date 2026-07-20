@@ -47,17 +47,17 @@ scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(640, 0)
 
 [node name="water_fall" parent="background/Parallax2D" unique_id=439761495 instance=ExtResource("5_wjaoy")]
-position = Vector2(199, 274)
+position = Vector2(199, 267)
 is_bg = true
 location = 2
 
 [node name="water_fall3" parent="background/Parallax2D" unique_id=1286976115 instance=ExtResource("5_wjaoy")]
-position = Vector2(315, 131)
+position = Vector2(315, 124)
 is_bg = true
 location = 2
 
 [node name="water_fall2" parent="background/Parallax2D" unique_id=41856889 instance=ExtResource("5_wjaoy")]
-position = Vector2(446, 284)
+position = Vector2(446, 277)
 is_bg = true
 location = 2
 
@@ -67,12 +67,12 @@ scroll_scale = Vector2(0.75, 0.75)
 repeat_size = Vector2(500, 0)
 
 [node name="water_fall" parent="background/Parallax2D2" unique_id=419605164 instance=ExtResource("5_wjaoy")]
-position = Vector2(155, 108)
+position = Vector2(161, 94)
 is_bg = true
 location = 1
 
 [node name="water_fall3" parent="background/Parallax2D2" unique_id=1768400083 instance=ExtResource("5_wjaoy")]
-position = Vector2(402, 85)
+position = Vector2(408, 71)
 is_bg = true
 location = 1
 

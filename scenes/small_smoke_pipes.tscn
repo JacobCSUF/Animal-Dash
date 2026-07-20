@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cfvw0fn2govc4"]
+
+[ext_resource type="Script" uid="uid://dh0w4s4g4hx87" path="res://scripts/small_smoke_pipes.gd" id="1_xfr6p"]
+[ext_resource type="PackedScene" uid="uid://dftixxmfhy57u" path="res://scenes/small_pipe_steam.tscn" id="2_8vk30"]
+
+[node name="small_smoke_pipes" type="Node2D" unique_id=1515259026]
+script = ExtResource("1_xfr6p")
+
+[node name="small_pipe_steam" parent="." unique_id=48822534 instance=ExtResource("2_8vk30")]
+
+[node name="small_pipe_steam2" parent="." unique_id=1978561572 instance=ExtResource("2_8vk30")]
+position = Vector2(48, 0)
+
+[node name="small_pipe_steam3" parent="." unique_id=1142245877 instance=ExtResource("2_8vk30")]
+position = Vector2(96, 0)
+
+[node name="small_pipe_steam4" parent="." unique_id=724938537 instance=ExtResource("2_8vk30")]
+position = Vector2(144, 0)
+
+[node name="small_pipe_steam5" parent="." unique_id=1510853836 instance=ExtResource("2_8vk30")]
+position = Vector2(192, 0)
+
+[node name="play" type="Timer" parent="." unique_id=483325433]
+wait_time = 3.0
+
+[connection signal="timeout" from="play" to="." method="_on_play_timeout"]

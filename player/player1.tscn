@@ -172,27 +172,23 @@ animation = &"flappy"
 frame_progress = 0.9576264
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1883544562]
-visible = false
 position = Vector2(-3.8146973e-06, 0)
 shape = SubResource("CircleShape2D_anojk")
 
 [node name="cart_col" type="CollisionShape2D" parent="." unique_id=816901980]
 unique_name_in_owner = true
-visible = false
 position = Vector2(0, 19.5)
 shape = SubResource("RectangleShape2D_tqiix")
 disabled = true
 
 [node name="boat_col" type="CollisionShape2D" parent="." unique_id=1347023097]
 unique_name_in_owner = true
-visible = false
 position = Vector2(0.5, 6)
 shape = SubResource("RectangleShape2D_e7oew")
 disabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1378479681]
 unique_name_in_owner = true
-visible = false
 target_position = Vector2(0, 26)
 collision_mask = 6
 

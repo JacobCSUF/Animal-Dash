@@ -23,7 +23,6 @@ func set_lanterns(l_array: Array,f: Color, outline: Color):
 		lans[i-1].set_colors(f,outline)
 		
 func turn_on_group(l_array: Array,f: Color, outline: Color):
-	print(l_array)
 	sound_inc.setup_inc()
 	for i in l_array:
 		lans[i-1].set_colors(f,outline)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ScaleResource" format=3 uid="uid://c4g3q0ldmjqal"]
+
+[ext_resource type="Script" uid="uid://cfvvtbgfccs2t" path="res://audio/AudioManager/scale_resource/scale_resource.gd" id="1_kwo1b"]
+[ext_resource type="AudioStream" uid="uid://r5b7ix6d3rx4" path="res://audio/sounds/steam_burst-6822.mp3" id="2_a8ful"]
+
+[resource]
+script = ExtResource("1_kwo1b")
+sound = ExtResource("2_a8ful")
+volume = -40.0
+steps = 10
+metadata/_custom_type_script = "uid://cfvvtbgfccs2t"

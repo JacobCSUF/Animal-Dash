@@ -3,6 +3,66 @@
 [ext_resource type="Script" uid="uid://btfird367j2ve" path="res://scripts/settings_menu.gd" id="1_yk8t3"]
 [ext_resource type="Theme" uid="uid://ve7bfujv5tqo" path="res://scenes/UI/global_theme.tres" id="2_son7u"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_son7u"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 0.9607843)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.49019608, 0.49019608, 0.49019608, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+shadow_color = Color(0.05541061, 0.085361965, 0.105561025, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4w0s"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.9607843)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.49019608, 0.49019608, 0.49019608, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+shadow_color = Color(0.05541061, 0.085361965, 0.105561025, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yk8t3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.9607843)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.49019608, 0.49019608, 0.49019608, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+shadow_color = Color(0.05541061, 0.085361965, 0.105561025, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
 [node name="Settings Menu" type="Control" unique_id=257281012]
 layout_mode = 3
 anchors_preset = 15
@@ -12,72 +72,125 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yk8t3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=54388526]
+[node name="setting Title" type="Label" parent="." unique_id=54862713]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 4.0
-offset_right = 216.0
-offset_bottom = 302.0
-
-[node name="setting Title" type="Label" parent="VBoxContainer" unique_id=54862713]
-layout_mode = 2
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 198.0
+offset_bottom = 41.0
 theme = ExtResource("2_son7u")
 theme_override_font_sizes/font_size = 32
 text = "Settings"
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=364230309]
-layout_mode = 2
+[node name="Button" type="Button" parent="." unique_id=364230309]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 8.0
+offset_right = 240.0
+offset_bottom = 40.0
+theme = ExtResource("2_son7u")
 theme_override_font_sizes/font_size = 12
 text = "Back"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=54388526]
+z_index = 2
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 73.0
+offset_right = 224.0
+offset_bottom = 371.0
+theme_override_constants/separation = 6
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1374153878]
+layout_mode = 2
+theme = ExtResource("2_son7u")
+theme_type_variation = &"labelA"
+theme_override_font_sizes/font_size = 10
+text = "Master Volume"
+
+[node name="Sound effects volume" type="HSlider" parent="VBoxContainer" unique_id=288055206]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_son7u")
+min_value = -30.0
+max_value = 15.0
+value = -6.0
+ticks_on_borders = true
+ticks_position = 3
+
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=698822521]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme = ExtResource("2_son7u")
+theme_type_variation = &"labelA"
+theme_override_font_sizes/font_size = 10
 text = "Music"
 
 [node name="Music volume" type="HSlider" parent="VBoxContainer" unique_id=220141288]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_son7u")
 min_value = -30.0
 max_value = 15.0
-value = -10.0
-
-[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1374153878]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Sound Effects"
-
-[node name="Sound effects volume" type="HSlider" parent="VBoxContainer" unique_id=288055206]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-min_value = -30.0
-max_value = 15.0
-value = -10.0
+value = -5.0
+ticks_on_borders = true
+ticks_position = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1876812507]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=552278920]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Show Progess bar"
+theme = ExtResource("2_son7u")
+theme_type_variation = &"labelA"
+theme_override_font_sizes/font_size = 10
+text = "Show Progress bar"
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer" unique_id=738797925]
+z_index = 2
 layout_mode = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8750814, 0.8750814, 0.8750814, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/checkbox_checked_color = Color(1, 1, 1, 1)
+theme_override_colors/checkbox_unchecked_color = Color(1, 1, 1, 1)
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/CheckBox" unique_id=1552321674]
+z_index = -2
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 20.0
+offset_bottom = 20.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t4w0s")
 
 [node name="Label3" type="Label" parent="VBoxContainer" unique_id=592179332]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme = ExtResource("2_son7u")
+theme_type_variation = &"labelA"
+theme_override_font_sizes/font_size = 10
 text = "Testing:"
 
 [node name="Button2" type="Button" parent="VBoxContainer" unique_id=1652054664]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 12
-text = "Add max coins/lantenrs"
+theme = ExtResource("2_son7u")
+theme_override_font_sizes/font_size = 10
+text = "Add max coins/lanterns"
 autowrap_mode = 3
 autowrap_trim_flags = 192
 
@@ -85,7 +198,8 @@ autowrap_trim_flags = 192
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 12
+theme = ExtResource("2_son7u")
+theme_override_font_sizes/font_size = 10
 text = "Set coins/lanterns to 0"
 autowrap_mode = 3
 autowrap_trim_flags = 192
@@ -94,15 +208,26 @@ autowrap_trim_flags = 192
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 12
+theme = ExtResource("2_son7u")
+theme_override_font_sizes/font_size = 10
 text = "Reset Save
 "
 autowrap_mode = 3
 autowrap_trim_flags = 192
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="value_changed" from="VBoxContainer/Music volume" to="." method="_on_music_volume_value_changed"]
+[node name="Panel" type="Panel" parent="." unique_id=1590227925]
+z_index = 1
+layout_mode = 0
+offset_left = 40.0
+offset_top = 64.0
+offset_right = 232.0
+offset_bottom = 280.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yk8t3")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="value_changed" from="VBoxContainer/Sound effects volume" to="." method="_on_sound_effects_volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Music volume" to="." method="_on_music_volume_value_changed"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

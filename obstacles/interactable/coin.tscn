@@ -181,6 +181,7 @@ radius = 8.0
 
 [node name="Coin" type="Node2D" unique_id=1270067473 node_paths=PackedStringArray("sound_inc_component") groups=["coin", "trigger"]]
 script = ExtResource("1_s5xbs")
+enabler = false
 sound_inc_component = NodePath("SoundIncComponent")
 
 [node name="CoinSheet" type="AnimatedSprite2D" parent="." unique_id=599253525]

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://baj3euubcjum7"]
+
+[ext_resource type="Script" uid="uid://bf76qjivxve7a" path="res://scripts/level_percent.gd" id="1_r3nuc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utfx1"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.3019608)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik8o1"]
+bg_color = Color(0, 0.8123662, 0.8334029, 0.89100003)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+corner_radius_top_left = 3
+corner_radius_bottom_left = 3
+corner_detail = 6
+
+[node name="level_progress" type="ProgressBar" unique_id=1500303497]
+offset_left = 256.0
+offset_top = 8.0
+offset_right = 384.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0.17923622, 0.9499975, 0.9499975, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_utfx1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ik8o1")
+value = 26.0
+script = ExtResource("1_r3nuc")
+metadata/_edit_use_anchors_ = true

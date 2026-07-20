@@ -9,7 +9,9 @@ static func start_bob(node: Node2D, data: BobParams) -> Tween:
 	tween.tween_property(node, "position:y", center_y -data.height, data.duration / data.speed)\
 		.set_trans(Tween.TRANS_SINE)\
 		.set_ease(Tween.EASE_IN_OUT)
-
+	
+	tween.tween_interval(data.wait)
+	
 	tween.tween_property(node, "position:y", center_y + data.height, data.duration / data.speed)\
 		.set_trans(Tween.TRANS_SINE)\
 		.set_ease(Tween.EASE_IN_OUT)

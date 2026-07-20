@@ -12,7 +12,6 @@ extends Node2D
 func set_difficulty(d := 1):
 	if d <= 6 and d > 0:
 		for i in range(stars.size()):
-			print(i)
 			if d > i:
 				stars[i].frame = 1
 			else:
