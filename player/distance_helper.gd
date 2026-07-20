@@ -11,14 +11,14 @@ var mult:= 1.0
 
 func get_distance(distance:= 0):
 	level_distance = distance
-	print(level_distance)
+	
 
 
 func _process(delta: float) -> void:
 	
 	if player.velocity.x >= 0.0:
 		traveled += player.velocity.x*delta * mult
-		print(mult)
+		
 	#print(traveled)
 		
 

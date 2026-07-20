@@ -1592,7 +1592,7 @@ metadata/_custom_type_script = "uid://ckt20tfvnsnec"
 
 [sub_resource type="Resource" id="Resource_ev32s"]
 script = ExtResource("31_jvp1d")
-target_path = NodePath("../../chunk3/lantern_chain8")
+target_path = NodePath("../../chunk3/lanoff2")
 metadata/_custom_type_script = "uid://ckt20tfvnsnec"
 
 [sub_resource type="Resource" id="Resource_7ppig"]
@@ -1961,7 +1961,7 @@ position = Vector2(2549, 114)
 is_on = true
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
 
-[node name="lantern_chain3" parent="obstacles/chunk2" unique_id=449608567 instance=ExtResource("20_b3p8y")]
+[node name="lanoff1" parent="obstacles/chunk2" unique_id=449608567 instance=ExtResource("20_b3p8y")]
 position = Vector2(2840, 48)
 lantern_index = 1
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
@@ -2112,7 +2112,7 @@ position = Vector2(4960, -64)
 is_on = true
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
 
-[node name="lantern_chain8" parent="obstacles/chunk3" unique_id=1424497584 instance=ExtResource("20_b3p8y")]
+[node name="lanoff2" parent="obstacles/chunk3" unique_id=1424497584 instance=ExtResource("20_b3p8y")]
 position = Vector2(5072, 80)
 lantern_index = 2
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
@@ -2214,10 +2214,9 @@ position = Vector2(6257, 21)
 is_on = true
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
 
-[node name="lantern_chain9" parent="obstacles/chunk3" unique_id=79589299 instance=ExtResource("20_b3p8y")]
+[node name="lanoff3" parent="obstacles/chunk3" unique_id=79589299 instance=ExtResource("20_b3p8y")]
 position = Vector2(7052, 36)
 lantern_index = 3
-is_on = true
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
 
 [node name="button_pop" parent="obstacles/chunk3" unique_id=1209009567 instance=ExtResource("33_7jvlv")]
@@ -3421,7 +3420,7 @@ rotation = 1.5707964
 
 [node name="lanterns" type="Node" parent="visuals" unique_id=2035069781]
 
-[node name="lantern_chain" parent="visuals/lanterns" unique_id=971598624 instance=ExtResource("20_b3p8y")]
+[node name="lanoff4" parent="visuals/lanterns" unique_id=971598624 instance=ExtResource("20_b3p8y")]
 position = Vector2(9705, -41)
 lantern_index = 4
 
@@ -3465,7 +3464,7 @@ is_on = true
 position = Vector2(19712, -16)
 is_on = true
 
-[node name="lantern_chain12" parent="visuals/lanterns" unique_id=1489543213 instance=ExtResource("20_b3p8y")]
+[node name="lanoff5" parent="visuals/lanterns" unique_id=1489543213 instance=ExtResource("20_b3p8y")]
 position = Vector2(20592, 16)
 lantern_index = 5
 
