@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkjl10fkw74f3"]
 
-[ext_resource type="StyleBox" uid="uid://3mthwxvesul0" path="res://panel_style.tres" id="1_818y0"]
+[ext_resource type="StyleBox" uid="uid://3mthwxvesul0" path="res://shaders/panel_style.tres" id="1_818y0"]
 [ext_resource type="Script" uid="uid://bv0gc8yk4tbaw" path="res://scripts/currency.gd" id="1_ades8"]
 [ext_resource type="Texture2D" uid="uid://d4cvgryygmrgh" path="res://sprites/lantern_ui.png" id="2_ades8"]
 [ext_resource type="Texture2D" uid="uid://bprymiyo6ckax" path="res://sprites/coin_ui.png" id="3_0dvg8"]

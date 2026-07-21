@@ -10,11 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://b0t4urxjrfulk" path="res://managers/particle_manager/particle_scenes/rain_particles.tscn" id="8_bd6v3"]
 [ext_resource type="AudioStream" uid="uid://qkha8vsawcl5" path="res://audio/sounds/sound_effects/water_fall_small.mp3" id="9_yf1ea"]
 [ext_resource type="PackedScene" uid="uid://co8mupe6t3dnn" path="res://scenes/tilemap_base.tscn" id="11_vhr3a"]
+[ext_resource type="Texture2D" uid="uid://2vkkw43h5kyq" path="res://sprites/waterfill_2.png" id="14_2eb3b"]
+[ext_resource type="Texture2D" uid="uid://cfgmbi8vkojhv" path="res://sprites/water_fill3.png" id="15_iyn63"]
 [ext_resource type="Texture2D" uid="uid://c1ogjn3607lxy" path="res://sprites/lvl1 decorations/icon.png" id="15_kykwg"]
-[ext_resource type="PackedScene" uid="uid://l38tpxvlrf6p" path="res://areas/end_area.tscn" id="43_0itc1"]
+[ext_resource type="Texture2D" uid="uid://swraeg6ohe76" path="res://sprites/waterfill4.png" id="16_1ix84"]
+[ext_resource type="Shader" uid="uid://bs0yqjde8dau0" path="res://shaders/fog.gdshader" id="17_1ix84"]
 [ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="46_5np83"]
 [ext_resource type="Texture2D" uid="uid://dojen12h2ru5n" path="res://sprites/water_fill.png" id="47_6hk3k"]
-[ext_resource type="PackedScene" uid="uid://baj3euubcjum7" path="res://scenes/UI/level_progress.tscn" id="48_78ep2"]
 
 [sub_resource type="Resource" id="Resource_2axs0"]
 script = ExtResource("2_7vymo")
@@ -36,13 +38,95 @@ shader_parameter/top_down_move = false
 shader_parameter/wave_top_down = true
 shader_parameter/uv_speed_x = 0.0
 shader_parameter/uv_speed_y = 0.0
+shader_parameter/sway_speed = -3.9999978150000004
+shader_parameter/sway_strength = 0.0050000002375
+shader_parameter/noise_scale = 3.2330001060675
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kkoh"]
+size = Vector2(4999.001, 141.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ix84"]
+shader = ExtResource("46_5np83")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = true
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 0.0
+shader_parameter/sway_speed = -1.9999977200000032
+shader_parameter/sway_strength = 0.010000000475
+shader_parameter/noise_scale = 10.7210004617475
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4x4hb"]
+shader = ExtResource("46_5np83")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = true
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 0.0
+shader_parameter/sway_speed = -0.999997672500001
+shader_parameter/sway_strength = 0.0050000002375
+shader_parameter/noise_scale = 10.450000448875
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iyn63"]
+shader = ExtResource("46_5np83")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = true
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 0.0
 shader_parameter/sway_speed = -7.513997981914997
 shader_parameter/sway_strength = 0.0050000002375
 shader_parameter/noise_scale = 5.0
 shader_parameter/time_offset = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kkoh"]
-size = Vector2(4999.001, 141.5)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4x4hb"]
+frequency = 0.0183
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fmais"]
+width = 640
+height = 320
+noise = SubResource("FastNoiseLite_4x4hb")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_72xjh"]
+frequency = 0.0183
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xrw0o"]
+width = 360
+height = 360
+noise = SubResource("FastNoiseLite_72xjh")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4r5lo"]
+shader = ExtResource("17_1ix84")
+shader_parameter/pos = Vector2(0, 0)
+shader_parameter/textureResolution = 1280.0
+shader_parameter/moveDir = Vector2(-1, -0.5)
+shader_parameter/noise = SubResource("NoiseTexture2D_fmais")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_xrw0o")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3oqy1"]
+frequency = 0.0183
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yc10j"]
+width = 640
+height = 320
+noise = SubResource("FastNoiseLite_3oqy1")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yq6so"]
+gradient = SubResource("Gradient_lxeoi")
+width = 640
+height = 320
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
 
 [node name="level5" type="Node2D" unique_id=271347830]
 script = ExtResource("1_2l5fn")
@@ -50,11 +134,12 @@ lr = SubResource("Resource_2axs0")
 total_distance = 22797
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("3_uxru4")]
-position = Vector2(80, 96)
+position = Vector2(241, 100)
 player = NodePath("../player")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("4_3mmk6")]
-position = Vector2(80, 96)
+z_index = 2
+position = Vector2(241, 100)
 anim_text = ExtResource("5_cftcr")
 
 [node name="background" parent="." unique_id=1318822552 instance=ExtResource("6_6a81h")]
@@ -70,25 +155,7 @@ autoplay = true
 
 [node name="front" parent="." unique_id=13827966 groups=["ground"] instance=ExtResource("11_vhr3a")]
 
-[node name="obstacles" type="Node2D" parent="." unique_id=1134378161]
-
-[node name="chunk10" type="Node" parent="obstacles" unique_id=451138508]
-
-[node name="level_end" parent="obstacles" unique_id=1117045117 instance=ExtResource("43_0itc1")]
-position = Vector2(23169, 58)
-collision_mask = 2148532225
-
-[node name="visuals" type="Node2D" parent="." unique_id=1759037270]
-position = Vector2(688, 112)
-
-[node name="signs" type="Node" parent="visuals" unique_id=1216869313]
-
-[node name="lanterns" type="Node" parent="visuals" unique_id=496469561]
-
-[node name="Node3" type="Node" parent="visuals" unique_id=1497793187]
-
 [node name="WaterFill" type="Sprite2D" parent="." unique_id=1693494504]
-z_index = 2
 material = SubResource("ShaderMaterial_qtppw")
 position = Vector2(1624, 320)
 scale = Vector2(0.73279995, 1)
@@ -97,6 +164,7 @@ region_enabled = true
 region_rect = Rect2(5000, 100, 5000, 300)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WaterFill" unique_id=1374694800 groups=["water"]]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -107,35 +175,94 @@ position = Vector2(0.5, -27.25)
 scale = Vector2(0.9999999, 0.9999998)
 shape = SubResource("RectangleShape2D_7kkoh")
 
-[node name="WaterFill2" type="Sprite2D" parent="." unique_id=448132193]
-z_index = 2
-material = SubResource("ShaderMaterial_qtppw")
-position = Vector2(15200.001, 304)
-scale = Vector2(0.81280005, 1)
-texture = ExtResource("47_6hk3k")
-region_enabled = true
-region_rect = Rect2(5000, 100, 5000, 300)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="WaterFill2" unique_id=1146914150 groups=["water"]]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterFill2/StaticBody2D" unique_id=232438794]
-physics_interpolation_mode = 2
-z_index = 1
-position = Vector2(9.841501, -32)
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_7kkoh")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=157267249]
-
-[node name="level_percent" parent="CanvasLayer" unique_id=1500303497 node_paths=PackedStringArray("player") instance=ExtResource("48_78ep2")]
-player = NodePath("../../player")
-
 [node name="Icon" type="Sprite2D" parent="." unique_id=2072547848]
-z_index = -2
+modulate = Color(0, 1, 1, 1)
+z_index = -100
 position = Vector2(1428, 128)
 scale = Vector2(5.1125, 1)
 texture = ExtResource("15_kykwg")
 
-[connection signal="area_entered" from="obstacles/level_end" to="." method="_on_level_end_area_entered"]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=375670906]
+light_mask = 0
+z_index = -10
+scroll_scale = Vector2(0.9, 0.9)
+repeat_size = Vector2(640, 0)
+
+[node name="Waterfill2" type="Sprite2D" parent="Parallax2D" unique_id=536639697]
+light_mask = 0
+material = SubResource("ShaderMaterial_1ix84")
+position = Vector2(321, 146)
+texture = ExtResource("14_2eb3b")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=728096923]
+light_mask = 0
+z_index = -20
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(0, -8)
+repeat_size = Vector2(640, 0)
+
+[node name="Waterfill3" type="Sprite2D" parent="Parallax2D2" unique_id=1651969057]
+light_mask = 0
+z_index = -30
+material = SubResource("ShaderMaterial_4x4hb")
+position = Vector2(321, 144)
+texture = ExtResource("15_iyn63")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=479754001]
+light_mask = 0
+z_index = -30
+scroll_scale = Vector2(0.7, 0.7)
+repeat_size = Vector2(640, 0)
+
+[node name="Waterfill4" type="Sprite2D" parent="Parallax2D3" unique_id=934232124]
+light_mask = 0
+z_index = -30
+material = SubResource("ShaderMaterial_iyn63")
+position = Vector2(320, 145)
+texture = ExtResource("16_1ix84")
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1812757779]
+light_mask = 0
+z_index = -40
+scroll_scale = Vector2(0.6, 0.6)
+repeat_size = Vector2(640, 0)
+
+[node name="Waterfill4" type="Sprite2D" parent="Parallax2D4" unique_id=367101486]
+modulate = Color(0.8984552, 0.7842924, 0.8956408, 1)
+light_mask = 0
+z_index = -30
+position = Vector2(322, 136)
+texture = ExtResource("16_1ix84")
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=96670179]
+modulate = Color(0.41225117, 0.5905134, 1, 1)
+light_mask = 0
+z_index = -50
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(0, -5)
+repeat_size = Vector2(640, 0)
+
+[node name="Waterfill4" type="Sprite2D" parent="Parallax2D5" unique_id=7406310]
+modulate = Color(0.7882353, 0.5647059, 0.7882353, 1)
+light_mask = 0
+z_index = -30
+position = Vector2(322, 130)
+texture = ExtResource("16_1ix84")
+
+[node name="texture_recs" type="Parallax2D" parent="." unique_id=1475114518]
+z_index = -1
+scroll_scale = Vector2(0.7, 1)
+repeat_size = Vector2(640, 0)
+
+[node name="fog" type="Sprite2D" parent="texture_recs" unique_id=1494773848]
+modulate = Color(0.62352943, 0.85882354, 0.99215686, 0.06666667)
+z_index = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_4r5lo")
+position = Vector2(320, 160)
+texture = SubResource("NoiseTexture2D_yc10j")
+
+[node name="TextureRect4" type="Sprite2D" parent="texture_recs" unique_id=812755193]
+modulate = Color(1, 1, 1, 0.9647059)
+position = Vector2(320, 160)
+texture = SubResource("GradientTexture2D_yq6so")
