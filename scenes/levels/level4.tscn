@@ -24,7 +24,7 @@
 [ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="20_gw3dk"]
 [ext_resource type="Script" uid="uid://daxf6fnwb7v3" path="res://1triggers/base_object/base_object.gd" id="20_uq63i"]
 [ext_resource type="PackedScene" uid="uid://ftfnkrmwb02f" path="res://obstacles/interactable/coin.tscn" id="21_4b1m2"]
-[ext_resource type="Texture2D" uid="uid://dojen12h2ru5n" path="res://sprites/water_fill.png" id="21_atimw"]
+[ext_resource type="Texture2D" uid="uid://dojen12h2ru5n" path="res://sprites/ocean_backgrounds/water_fill.png" id="21_atimw"]
 [ext_resource type="PackedScene" uid="uid://67v0taus1rdj" path="res://obstacles/obstacle piece/pipe_fall_2.tscn" id="21_snswl"]
 [ext_resource type="PackedScene" uid="uid://c78tsv4v8o3xk" path="res://obstacles/obstacle_movement/cart_enter.tscn" id="22_34tlj"]
 [ext_resource type="Script" uid="uid://b3x5o46r6eays" path="res://1triggers/response_resource/response_resource.gd" id="22_sbh2c"]

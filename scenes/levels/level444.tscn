@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c78tsv4v8o3xk" path="res://obstacles/obstacle_movement/cart_enter.tscn" id="21_d1p4i"]
 [ext_resource type="PackedScene" uid="uid://cruq5rchkeqj6" path="res://obstacles/obstacle_movement/slow_down_zone.tscn" id="28_4yyga"]
 [ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="34_l3ths"]
-[ext_resource type="Texture2D" uid="uid://dojen12h2ru5n" path="res://sprites/water_fill.png" id="35_wm650"]
+[ext_resource type="Texture2D" uid="uid://dojen12h2ru5n" path="res://sprites/ocean_backgrounds/water_fill.png" id="35_wm650"]
 [ext_resource type="AudioStream" uid="uid://c2ndhsu44y1lp" path="res://audio/sounds/break2.mp3" id="36_a0ahh"]
 
 [sub_resource type="Resource" id="Resource_72xjh"]

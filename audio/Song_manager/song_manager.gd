@@ -4,6 +4,7 @@ extends Node2D
 @onready var lvl_2: AudioStreamPlayer = $ChristmasSnow179849
 @onready var lvl_3: AudioStreamPlayer = $DigitalOverture408211
 @onready var lvl_4: AudioStreamPlayer = $WaterMusic
+@onready var lvl_5: AudioStreamPlayer = $OceanMusic
 
 
 
@@ -29,6 +30,9 @@ func set_song(num = 0):
 		curr_song.volume_db = -16
 	elif num ==4:
 		curr_song = lvl_4
+		curr_song.volume_db = -30
+	elif num ==5:
+		curr_song = lvl_5
 		curr_song.volume_db = -30
 	
 func play_sound(player: AudioStreamPlayer2D):

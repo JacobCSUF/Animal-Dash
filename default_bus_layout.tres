@@ -19,7 +19,7 @@ resource_name = "HardLimiter"
 resource_name = "HardLimiter"
 
 [resource]
-bus/0/volume_db = 6.0199986
+bus/0/volume_db = -0.046060562
 bus/0/effect/0/effect = SubResource("AudioEffectDistortion_j3pel")
 bus/0/effect/0/enabled = true
 bus/0/effect/1/effect = SubResource("AudioEffectPhaser_j3pel")
