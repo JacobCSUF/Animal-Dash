@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://1p26alf41aod" path="res://managers/background_manager/bg_manager.tscn" id="9_lqx3n"]
 [ext_resource type="Script" uid="uid://b2txqab1v23q1" path="res://audio/sound_inc_manager/sound_inc_manager.gd" id="10_lysku"]
 [ext_resource type="PackedScene" uid="uid://b0t4urxjrfulk" path="res://managers/particle_manager/particle_scenes/rain_particles.tscn" id="12_16c8c"]
-[ext_resource type="Shader" uid="uid://be42h35uukedg" path="res://shaders/move.gdshader" id="13_gf0j8"]
 [ext_resource type="Texture2D" uid="uid://blgkal6r3erc5" path="res://sprites/ocean_backgrounds/sky_2.png" id="13_kblqe"]
 
 [sub_resource type="Gradient" id="Gradient_xhvr2"]
@@ -136,16 +135,30 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.90000004, 0.1)
 metadata/_snap_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gf0j8"]
-shader = ExtResource("13_gf0j8")
+[sub_resource type="Shader" id="Shader_kblqe"]
+code = "shader_type canvas_item;
+
+uniform bool top_down_move = false;
+
+uniform float uv_speed_x : hint_range(-10.0, 10.0) = 0.0;
+uniform float uv_speed_y : hint_range(-10.0, 10.0) = 0.0;
+
+void vertex() {
+	
+
+	// Apply movement
+	if (top_down_move)
+		UV.y += TIME * uv_speed_y;
+	else
+		UV.x += TIME * uv_speed_x;
+
+
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j3pel"]
+shader = SubResource("Shader_kblqe")
 shader_parameter/top_down_move = false
 shader_parameter/uv_speed_x = 0.010000475474999604
-shader_parameter/uv_speed_y = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lqx3n"]
-shader = ExtResource("13_gf0j8")
-shader_parameter/top_down_move = false
-shader_parameter/uv_speed_x = 0.020000475950000762
 shader_parameter/uv_speed_y = 0.0
 
 [node name="ocean_background" type="Node2D" unique_id=1318822552 node_paths=PackedStringArray("particles")]
@@ -160,7 +173,7 @@ position = Vector2(419, -44)
 
 [node name="texture_recs2" type="Parallax2D" parent="." unique_id=925574740]
 z_index = -1
-scroll_scale = Vector2(0.25, 0.357)
+scroll_scale = Vector2(0.01, 0.014)
 repeat_size = Vector2(640, 0)
 
 [node name="Icon" type="Sprite2D" parent="texture_recs2" unique_id=1233740767]
@@ -194,7 +207,7 @@ scroll_offset = Vector2(0, -5)
 repeat_size = Vector2(640, 0)
 
 [node name="Waterfill4" type="Sprite2D" parent="-100" unique_id=195637367]
-modulate = Color(0, 0.8329063, 0.27936393, 1)
+modulate = Color(0.0034549937, 0.51097727, 0.33032054, 1)
 light_mask = 0
 position = Vector2(322, 130)
 texture = ExtResource("3_bml8b")
@@ -290,7 +303,7 @@ texture = ExtResource("9_gf0j8")
 modulate = Color(1, 1, 1, 0.3882353)
 z_index = 4
 texture_repeat = 2
-material = SubResource("ShaderMaterial_gf0j8")
+material = SubResource("ShaderMaterial_j3pel")
 position = Vector2(318, 153)
 texture = ExtResource("13_kblqe")
 
@@ -298,6 +311,6 @@ texture = ExtResource("13_kblqe")
 modulate = Color(1, 1, 1, 0.34509805)
 z_index = 4
 texture_repeat = 2
-material = SubResource("ShaderMaterial_lqx3n")
+material = SubResource("ShaderMaterial_j3pel")
 position = Vector2(321, 178)
 texture = ExtResource("13_kblqe")
