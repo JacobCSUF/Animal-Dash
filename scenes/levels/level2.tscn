@@ -46,6 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://bxoompvqha7ou" path="res://scenes/percent_flag.tscn" id="45_77got"]
 [ext_resource type="Texture2D" uid="uid://dtiwysl2gbp6p" path="res://sprites/signs/sign_arrow_up.png" id="45_voq8u"]
 [ext_resource type="PackedScene" uid="uid://baj3euubcjum7" path="res://scenes/UI/level_progress.tscn" id="46_51ehb"]
+[ext_resource type="AudioStream" uid="uid://dq40u6v8h88am" path="res://audio/sounds/music/unsettling.mp3" id="47_fhdct"]
 
 [sub_resource type="Resource" id="Resource_fhdct"]
 script = ExtResource("2_0qxt0")
@@ -175,6 +176,14 @@ size = Vector2(20, 490)
 script = ExtResource("20_dc8aq")
 target_path = NodePath("../lantern_chain")
 metadata/_custom_type_script = "uid://ckt20tfvnsnec"
+
+[sub_resource type="Gradient" id="Gradient_fhdct"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.88235295, 0, 0.3019608, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1sg0x"]
+gradient = SubResource("Gradient_fhdct")
+fill_from = Vector2(0.6927861, 0.8569652)
 
 [node name="level2" type="Node2D" unique_id=271347830]
 script = ExtResource("1_k4124")
@@ -1603,5 +1612,21 @@ is_enter = false
 
 [node name="level_percent" parent="CanvasLayer" unique_id=1500303497 node_paths=PackedStringArray("player") instance=ExtResource("46_51ehb")]
 player = NodePath("../../player")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=769868266]
+visible = false
+modulate = Color(1, 1, 1, 0.18431373)
+z_index = 100
+offset_left = -1162.0
+offset_top = -76.0
+offset_right = 5944.0
+offset_bottom = 335.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_1sg0x")
+
+[node name="Unsettling" type="AudioStreamPlayer" parent="." unique_id=1681652266]
+stream = ExtResource("47_fhdct")
+volume_db = -35.0
+bus = &"Music"
 
 [connection signal="area_entered" from="obstacles/chunk8/level_end" to="." method="_on_level_end_area_entered"]

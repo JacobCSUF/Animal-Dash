@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dj0bqqj4xruec"]
+
+[ext_resource type="Texture2D" uid="uid://b8k672b7ne8rx" path="res://sprites/spin_flip.png" id="1_7mt1m"]
+[ext_resource type="Texture2D" uid="uid://bgoqr8f3l1mi" path="res://sprites/spin_flip_circle2.png" id="2_wbfaq"]
+
+[node name="spin_rope" type="Node2D" unique_id=1939023]
+
+[node name="SpinFlip" type="Sprite2D" parent="." unique_id=1596207639]
+texture = ExtResource("1_7mt1m")
+
+[node name="SpinFlipCircle2" type="Sprite2D" parent="." unique_id=511902192]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_wbfaq")

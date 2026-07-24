@@ -18,6 +18,26 @@ resource_name = "HardLimiter"
 [sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_n8wo2"]
 resource_name = "HardLimiter"
 
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_j3pel"]
+resource_name = "Chorus"
+voice_count = 1
+dry = 0.8
+wet = 0.7
+voice/1/delay_ms = 38.02
+voice/1/rate_hz = 1.8
+voice/1/depth_ms = 8.25
+voice/1/level_db = -2.0
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
+resource_name = "Reverb"
+room_size = 0.4
+spread = 0.7
+dry = 0.8
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_j3pel"]
+resource_name = "PitchShift"
+pitch_scale = 1.1
+
 [resource]
 bus/0/volume_db = -0.046060562
 bus/0/effect/0/effect = SubResource("AudioEffectDistortion_j3pel")
@@ -30,7 +50,13 @@ bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = -5.042245
+bus/1/volume_db = -0.046060562
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectHardLimiter_n8wo2")
 bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectChorus_j3pel")
+bus/1/effect/1/enabled = false
+bus/1/effect/2/effect = SubResource("AudioEffectReverb_j3pel")
+bus/1/effect/2/enabled = false
+bus/1/effect/3/effect = SubResource("AudioEffectPitchShift_j3pel")
+bus/1/effect/3/enabled = true

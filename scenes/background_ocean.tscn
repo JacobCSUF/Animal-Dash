@@ -283,6 +283,7 @@ script = ExtResource("10_lysku")
 environment = SubResource("Environment_8efq7")
 
 [node name="-110" type="Parallax2D" parent="." unique_id=1494812690]
+light_mask = 0
 z_index = -110
 scroll_scale = Vector2(0.033, 0.033)
 repeat_size = Vector2(640, 0)
@@ -295,12 +296,13 @@ range_item_cull_mask = 256
 texture = SubResource("GradientTexture2D_1sg0x")
 
 [node name="sky1" type="Sprite2D" parent="-110" unique_id=791217249]
-light_mask = 256
+light_mask = 0
 position = Vector2(319, 181)
 texture = ExtResource("9_gf0j8")
 
 [node name="Sky2" type="Sprite2D" parent="-110" unique_id=181223177]
 modulate = Color(1, 1, 1, 0.3882353)
+light_mask = 0
 z_index = 4
 texture_repeat = 2
 material = SubResource("ShaderMaterial_j3pel")
@@ -309,6 +311,7 @@ texture = ExtResource("13_kblqe")
 
 [node name="Sky3" type="Sprite2D" parent="-110" unique_id=284719072]
 modulate = Color(1, 1, 1, 0.34509805)
+light_mask = 0
 z_index = 4
 texture_repeat = 2
 material = SubResource("ShaderMaterial_j3pel")
