@@ -1626,7 +1626,7 @@ texture = SubResource("GradientTexture2D_1sg0x")
 
 [node name="Unsettling" type="AudioStreamPlayer" parent="." unique_id=1681652266]
 stream = ExtResource("47_fhdct")
-volume_db = -35.0
+volume_db = -26.377
 bus = &"Music"
 
 [connection signal="area_entered" from="obstacles/chunk8/level_end" to="." method="_on_level_end_area_entered"]
