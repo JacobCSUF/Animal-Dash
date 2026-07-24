@@ -33,7 +33,7 @@ func set_song(num = 0):
 		curr_song.volume_db = -30
 	elif num ==5:
 		curr_song = lvl_5
-		curr_song.volume_db = -26
+		curr_song.volume_db = -23
 	
 func play_sound(player: AudioStreamPlayer2D):
 	player.play()
