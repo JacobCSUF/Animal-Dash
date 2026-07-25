@@ -42,8 +42,8 @@ shader_parameter/noise = SubResource("NoiseTexture2D_yc10j")
 shader_parameter/noise2 = SubResource("NoiseTexture2D_qg8x4")
 
 [sub_resource type="Gradient" id="Gradient_8efq7"]
-offsets = PackedFloat32Array(0.21343283, 0.5, 0.7776119)
-colors = PackedColorArray(0.3812738, 0.57280755, 0.8487569, 0.38039216, 0.33740005, 0.308, 0.56, 0.5137255, 0.23290503, 0.48196286, 0.68826216, 0.40784314)
+offsets = PackedFloat32Array(0.06174699, 1)
+colors = PackedColorArray(0.19568515, 0.2464208, 0.10209205, 0.5411765, 0.036606144, 0.18907744, 0.07696355, 0.53333336)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yq6so"]
 gradient = SubResource("Gradient_8efq7")
@@ -93,16 +93,6 @@ distance = -111.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l5f8m"]
 
-[sub_resource type="Environment" id="Environment_8efq7"]
-background_mode = 3
-background_canvas_max_layer = 1
-glow_enabled = true
-glow_intensity = 1.2
-glow_strength = 1.2
-glow_blend_mode = 0
-glow_hdr_threshold = 0.7
-adjustment_enabled = true
-
 [node name="background2" type="Node2D" unique_id=1318822552 node_paths=PackedStringArray("particles", "texture_rect_4", "fog")]
 z_index = -6
 script = ExtResource("1_8efq7")
@@ -148,6 +138,7 @@ texture = ExtResource("4_b6e46")
 
 [node name="-90" type="Parallax2D" parent="." unique_id=1930824566]
 modulate = Color(0.22300279, 0.45589048, 0.705894, 1)
+light_mask = 0
 z_index = -90
 scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(640, 0)
@@ -159,6 +150,7 @@ texture = ExtResource("4_b6e46")
 
 [node name="-80" type="Parallax2D" parent="." unique_id=84730055]
 modulate = Color(0.11937206, 0.21529469, 0.28959903, 1)
+light_mask = 0
 z_index = -80
 scroll_scale = Vector2(0.7, 1)
 repeat_size = Vector2(640, 0)
@@ -192,6 +184,7 @@ process_material = SubResource("ParticleProcessMaterial_b6e46")
 
 [node name="-70" type="Parallax2D" parent="." unique_id=48475025]
 modulate = Color(0.2042624, 0.4059865, 0.42342082, 1)
+light_mask = 0
 z_index = -70
 scroll_scale = Vector2(0.8, 1)
 repeat_size = Vector2(640, 0)
@@ -231,6 +224,3 @@ shape = SubResource("WorldBoundaryShape2D_l5f8m")
 
 [node name="sound_increment_manager" type="Node2D" parent="managers" unique_id=1378223757]
 script = ExtResource("8_l5f8m")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=778469169]
-environment = SubResource("Environment_8efq7")

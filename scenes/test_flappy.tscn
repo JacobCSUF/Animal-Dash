@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cqbs8a7l6anyx"]
+
+[ext_resource type="PackedScene" uid="uid://blk1wa8unedc4" path="res://player/player1.tscn" id="1_41ay0"]
+[ext_resource type="PackedScene" uid="uid://y1mynvv3r5ue" path="res://scenes/player_camera.tscn" id="2_bvol1"]
+[ext_resource type="PackedScene" uid="uid://dnncyh7xd3cbn" path="res://obstacles/pipes/pipe.tscn" id="3_orl4u"]
+[ext_resource type="Shader" uid="uid://dt0pdrwg120tj" path="res://shaders/noblur.gdshader" id="4_bvol1"]
+
+[sub_resource type="Gradient" id="Gradient_crjig"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.5358753, 0.5358753, 0.53587526, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1sg0x"]
+gradient = SubResource("Gradient_crjig")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_41ay0"]
+shader = ExtResource("4_bvol1")
+
+[node name="Node2D" type="Node2D" unique_id=1421333805]
+
+[node name="player" parent="." unique_id=1431000598 instance=ExtResource("1_41ay0")]
+
+[node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("2_bvol1")]
+process_callback = 0
+position_smoothing_enabled = true
+player = NodePath("../player")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1458283750]
+z_index = -4
+offset_right = 9007.0
+offset_bottom = 342.0
+texture = SubResource("GradientTexture2D_1sg0x")
+
+[node name="pipe" parent="." unique_id=1899843357 instance=ExtResource("3_orl4u")]
+material = SubResource("ShaderMaterial_41ay0")
+position = Vector2(131, 196)
+
+[node name="pipe2" parent="." unique_id=842491652 instance=ExtResource("3_orl4u")]
+material = SubResource("ShaderMaterial_41ay0")
+position = Vector2(346, 150)
+
+[node name="pipe3" parent="." unique_id=780264166 instance=ExtResource("3_orl4u")]
+material = SubResource("ShaderMaterial_41ay0")
+position = Vector2(558, 183)
+
+[node name="pipe4" parent="." unique_id=1400205349 instance=ExtResource("3_orl4u")]
+material = SubResource("ShaderMaterial_41ay0")
+position = Vector2(741, 162)
+
+[node name="pipe5" parent="." unique_id=1891193974 instance=ExtResource("3_orl4u")]
+material = SubResource("ShaderMaterial_41ay0")
+position = Vector2(911, 165)
+
+[node name="pipe6" parent="." unique_id=339641716 instance=ExtResource("3_orl4u")]
+material = SubResource("ShaderMaterial_41ay0")
+position = Vector2(1079, 196)
+
+[node name="pipe7" parent="." unique_id=1530318775 instance=ExtResource("3_orl4u")]
+material = SubResource("ShaderMaterial_41ay0")
+position = Vector2(1251, 186)

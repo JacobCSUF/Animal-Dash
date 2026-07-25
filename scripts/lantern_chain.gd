@@ -12,6 +12,7 @@ class_name LanternChain
 signal lan_new_hit
 
 func _ready() -> void:
+	rope._set_pause(true)
 	if turn_off_chains:
 		chains.stop()
 	randomize()

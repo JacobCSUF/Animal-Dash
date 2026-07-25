@@ -309,12 +309,12 @@ position = Vector2(55, 371)
 texture = ExtResource("8_igeo0")
 
 [node name="player" parent="." unique_id=1431000598 instance=ExtResource("1_025c5")]
-position = Vector2(-376, 147)
+position = Vector2(6040, 104)
 anim_text = ExtResource("7_xremi")
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("2_bw3ef")]
-position = Vector2(-376, 147)
-position_smoothing_speed = 10.0
+position = Vector2(6040, 104)
+position_smoothing_enabled = true
 player = NodePath("../player")
 
 [node name="front2" parent="." unique_id=13827966 instance=ExtResource("5_4fww7")]
@@ -323,14 +323,6 @@ tile_map_data = PackedByteArray("AAC3ABkAAQALAAMAAAC3ABgAAQALAAIAAAC3ABcAAQALAAI
 [node name="obstacles" type="Node2D" parent="." unique_id=1134378161]
 
 [node name="chunk1" type="Node" parent="obstacles" unique_id=2021847219]
-
-[node name="lantern_chain4" parent="obstacles/chunk1" unique_id=1558548086 instance=ExtResource("21_c2nc4")]
-position = Vector2(-278, -35)
-is_on = true
-
-[node name="lantern_chain5" parent="obstacles/chunk1" unique_id=71158324 instance=ExtResource("21_c2nc4")]
-position = Vector2(-4, -37)
-is_on = true
 
 [node name="pipes" parent="obstacles/chunk1" unique_id=2101710733 instance=ExtResource("8_7plwd")]
 position = Vector2(376, 64)
@@ -402,10 +394,6 @@ rotation = 1.5707964
 position = Vector2(1912, 48)
 distance = 32
 bob = SubResource("Resource_sqv5l")
-
-[node name="lantern_chain6" parent="obstacles/chunk1" unique_id=723181033 instance=ExtResource("21_c2nc4")]
-position = Vector2(2290, -42)
-is_on = true
 
 [node name="breaking_pipe_combined3" parent="obstacles/chunk1" unique_id=2142396387 instance=ExtResource("9_agrr7")]
 position = Vector2(2208, 104)
@@ -521,11 +509,6 @@ z_index = -1
 position = Vector2(3148, 267)
 rotation = -1.5707964
 
-[node name="lantern_chain4" parent="obstacles/chunk2" unique_id=382453299 instance=ExtResource("21_c2nc4")]
-position = Vector2(3533, -36)
-is_on = true
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-
 [node name="pipe_curve2" parent="obstacles/chunk2" unique_id=1819312837 instance=ExtResource("11_07dy8")]
 z_index = -1
 position = Vector2(3809, 21)
@@ -571,11 +554,6 @@ position = Vector2(4921, 250)
 [node name="pipe_curve2" parent="obstacles/chunk3" unique_id=2104538125 instance=ExtResource("11_07dy8")]
 z_index = -2
 position = Vector2(4978, 273)
-
-[node name="lantern_chain5" parent="obstacles/chunk3" unique_id=286404289 instance=ExtResource("21_c2nc4")]
-position = Vector2(4943, -38)
-is_on = true
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
 
 [node name="stretch pipe" parent="obstacles/chunk3" unique_id=1596464814 instance=ExtResource("28_noix2")]
 z_index = 1
@@ -755,23 +733,6 @@ responses = Array[ExtResource("31_3gp1u")]([SubResource("Resource_6gwlt")])
 position = Vector2(-96, -16)
 shape = SubResource("RectangleShape2D_db1r7")
 
-[node name="lantern_chain6" parent="obstacles/chunk4" unique_id=933193390 instance=ExtResource("21_c2nc4")]
-position = Vector2(6138, 3)
-is_on = true
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-
-[node name="lantern_chain3" parent="obstacles/chunk4" unique_id=2131227534 instance=ExtResource("21_c2nc4")]
-position = Vector2(6399, 0)
-is_on = true
-
-[node name="lantern_chain" parent="obstacles/chunk4" unique_id=401885757 instance=ExtResource("21_c2nc4")]
-position = Vector2(7014, -60)
-is_on = true
-
-[node name="lantern_chain2" parent="obstacles/chunk4" unique_id=435730265 instance=ExtResource("21_c2nc4")]
-position = Vector2(6621, -41)
-is_on = true
-
 [node name="lanoff3" parent="obstacles/chunk4" unique_id=26139755 instance=ExtResource("21_c2nc4")]
 position = Vector2(7458, -121)
 lantern_index = 3
@@ -824,12 +785,6 @@ area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_a21j6")])
 [node name="lanoff4" parent="obstacles/chunk5" unique_id=1534262142 instance=ExtResource("21_c2nc4")]
 position = Vector2(8924, -143)
 lantern_index = 4
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-group_number = 12
-
-[node name="lantern_chain9" parent="obstacles/chunk5" unique_id=945369682 instance=ExtResource("21_c2nc4")]
-position = Vector2(8211, -50)
-is_on = true
 fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
 group_number = 12
 
@@ -1222,42 +1177,6 @@ rotation = -3.1415925
 sign_image_overide = ExtResource("27_jqv5m")
 upside_down = true
 
-[node name="lantern_chain3" parent="obstacles/9" unique_id=1464535404 instance=ExtResource("21_c2nc4")]
-position = Vector2(15357, -11)
-is_on = true
-
-[node name="lantern_chain4" parent="obstacles/9" unique_id=298399477 instance=ExtResource("21_c2nc4")]
-position = Vector2(15671, -17)
-is_on = true
-
-[node name="lantern_chain5" parent="obstacles/9" unique_id=918602529 instance=ExtResource("21_c2nc4")]
-position = Vector2(15897, -28)
-is_on = true
-
-[node name="lantern_chain9" parent="obstacles/9" unique_id=987266585 instance=ExtResource("21_c2nc4")]
-position = Vector2(16148, 21)
-is_on = true
-
-[node name="lantern_chain6" parent="obstacles/9" unique_id=123288700 instance=ExtResource("21_c2nc4")]
-position = Vector2(14176, -1)
-is_on = true
-
-[node name="lantern_chain7" parent="obstacles/9" unique_id=1546245901 instance=ExtResource("21_c2nc4")]
-position = Vector2(14836, -51)
-is_on = true
-
-[node name="lantern_chain8" parent="obstacles/9" unique_id=411861379 instance=ExtResource("21_c2nc4")]
-position = Vector2(13465, -63)
-is_on = true
-
-[node name="lantern_chain15" parent="obstacles/9" unique_id=263442971 instance=ExtResource("21_c2nc4")]
-position = Vector2(13799, -40)
-is_on = true
-
-[node name="lantern_chain16" parent="obstacles/9" unique_id=692245167 instance=ExtResource("21_c2nc4")]
-position = Vector2(13516, -30)
-is_on = true
-
 [node name="chunk33" type="Node" parent="obstacles" unique_id=1853978910]
 
 [node name="CraneLift" type="AudioStreamPlayer2D" parent="obstacles/chunk33" unique_id=2034472641]
@@ -1467,54 +1386,6 @@ rotation = -1.5707964
 [node name="pipe_curve10" parent="visuals/pipe_decor" unique_id=1476959804 instance=ExtResource("11_07dy8")]
 z_index = -2
 position = Vector2(2260, 275)
-
-[node name="lanterns" type="Node" parent="visuals" unique_id=1759003694]
-
-[node name="lan_off" parent="visuals/lanterns" unique_id=193647597 instance=ExtResource("21_c2nc4")]
-position = Vector2(1421, 4)
-lantern_index = 1
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-
-[node name="lan_off5" parent="visuals/lanterns" unique_id=1658372685 instance=ExtResource("21_c2nc4")]
-position = Vector2(15123, -30)
-lantern_index = 5
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-
-[node name="lantern_chain2" parent="visuals/lanterns" unique_id=1331834167 instance=ExtResource("21_c2nc4")]
-position = Vector2(484, -33)
-is_on = true
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-
-[node name="lantern_chain9" parent="visuals/lanterns" unique_id=2074431633 instance=ExtResource("21_c2nc4")]
-position = Vector2(9284, -39)
-is_on = true
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-
-[node name="lantern_chain17" parent="visuals/lanterns" unique_id=12930858 instance=ExtResource("21_c2nc4")]
-position = Vector2(9486, -69)
-is_on = true
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-
-[node name="lantern_chain11" parent="visuals/lanterns" unique_id=1297170352 instance=ExtResource("21_c2nc4")]
-position = Vector2(9980, -21)
-is_on = true
-fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
-
-[node name="lantern_chain10" parent="visuals/lanterns" unique_id=1016438128 instance=ExtResource("21_c2nc4")]
-position = Vector2(11846, -8)
-is_on = true
-
-[node name="lantern_chain12" parent="visuals/lanterns" unique_id=1773141469 instance=ExtResource("21_c2nc4")]
-position = Vector2(12099, -55)
-is_on = true
-
-[node name="lantern_chain13" parent="visuals/lanterns" unique_id=546096110 instance=ExtResource("21_c2nc4")]
-position = Vector2(12268, 46)
-is_on = true
-
-[node name="lantern_chain14" parent="visuals/lanterns" unique_id=407170287 instance=ExtResource("21_c2nc4")]
-position = Vector2(12647, -48)
-is_on = true
 
 [node name="level_end" parent="." unique_id=1117045117 instance=ExtResource("30_07dy8")]
 position = Vector2(16792, 40)

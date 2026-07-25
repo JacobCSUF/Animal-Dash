@@ -18,11 +18,18 @@ class_name BaseObject
 
 @export var shader: ShaderMaterial
 const OBJECT_ENABLER = preload("uid://b0baha740wdqu")
+const NOBLUR = preload("uid://dt0pdrwg120tj")
 
 var overide_pos:Vector2 = Vector2(0,0)
 
 
 func _ready() -> void:
+	
+	#var shader_material = ShaderMaterial.new()
+	#shader_material.shader = NOBLUR
+	#set_shader(shader_material)
+	
+
 	if enabler:
 		var x: VisibleOnScreenEnabler2D = OBJECT_ENABLER.instantiate()
 		x.enable_node_path = get_path()

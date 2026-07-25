@@ -74,6 +74,7 @@ metadata/_custom_type_script = "uid://daxf6fnwb7v3"
 
 [node name="Ship" type="Sprite2D" parent="background/ship/BaseObject" unique_id=441295636]
 position = Vector2(15, -40)
+scale = Vector2(0.795, 0.795)
 texture = ExtResource("19_xrw0o")
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("3_uxru4")]

@@ -13,6 +13,7 @@ config_version=5
 config/name="flappy bat adventure"
 run/main_scene="uid://iwbtqm3nill0"
 config/features=PackedStringArray("4.7", "Mobile")
+run/max_fps=60
 run/stretch/mode="disabled"
 run/canvas_textures/default_texture_filter=1
 
@@ -33,9 +34,11 @@ SongManager="*uid://bais6bdh5c0hm"
 [display]
 
 window/size/viewport_width=640
-window/size/viewport_height=320
+window/size/viewport_height=360
 window/size/mode=3
 window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=3
 window/physics_interpolation=true
 window/physics_jitter_fix=0.0
 window/lossless_compression/force_png=false
@@ -84,7 +87,6 @@ dive={
 
 [physics]
 
-common/max_physics_steps_per_frame=6
 3d/physics_engine="Jolt Physics"
 common/physics_interpolation=true
 common/enable_object_picking=false
@@ -95,6 +97,7 @@ textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
 textures/lossless_compression/force_png=true
 textures/default_filters/use_nearest_mipmap_filter=true
 textures/decals/filter=4
