@@ -314,7 +314,6 @@ anim_text = ExtResource("7_xremi")
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("2_bw3ef")]
 position = Vector2(6040, 104)
-position_smoothing_enabled = true
 player = NodePath("../player")
 
 [node name="front2" parent="." unique_id=13827966 instance=ExtResource("5_4fww7")]
@@ -436,7 +435,12 @@ sound_group_number = 2
 [node name="lanoff2" parent="obstacles/chunk2" unique_id=1595990185 instance=ExtResource("21_c2nc4")]
 position = Vector2(3100, -37)
 lantern_index = 2
+is_on = false
 fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="pipe_curve" parent="obstacles/chunk2" unique_id=397017065 instance=ExtResource("11_07dy8")]
 position = Vector2(2975, 21)
@@ -736,7 +740,12 @@ shape = SubResource("RectangleShape2D_db1r7")
 [node name="lanoff3" parent="obstacles/chunk4" unique_id=26139755 instance=ExtResource("21_c2nc4")]
 position = Vector2(7458, -121)
 lantern_index = 3
+is_on = false
 fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="direct_area" parent="obstacles/chunk4" unique_id=2097865557 instance=ExtResource("16_db1r7")]
 position = Vector2(7146, 119)
@@ -785,8 +794,12 @@ area_entered = Array[ExtResource("31_3gp1u")]([SubResource("Resource_a21j6")])
 [node name="lanoff4" parent="obstacles/chunk5" unique_id=1534262142 instance=ExtResource("21_c2nc4")]
 position = Vector2(8924, -143)
 lantern_index = 4
+is_on = false
 fire_color = Color(1.732707e-06, 0.5941152, 0.88373524, 1)
+turn_off_chains = false
 group_number = 12
+sound_group_number = 0
+enabler = true
 
 [node name="pipe" parent="obstacles/chunk5" unique_id=448733467 instance=ExtResource("24_vhxpm")]
 position = Vector2(8688, 200)

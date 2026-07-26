@@ -17,7 +17,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 		
 var follow = true
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	
 	if follow and player:
 		self.global_position = player.global_position

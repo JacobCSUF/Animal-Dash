@@ -25,9 +25,9 @@ var overide_pos:Vector2 = Vector2(0,0)
 
 func _ready() -> void:
 	
-	#var shader_material = ShaderMaterial.new()
-	#shader_material.shader = NOBLUR
-	#set_shader(shader_material)
+	var shader_material = ShaderMaterial.new()
+	shader_material.shader = NOBLUR
+	set_shader(shader_material)
 	
 
 	if enabler:

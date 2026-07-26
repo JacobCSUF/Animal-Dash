@@ -7,6 +7,7 @@ size = Vector2(40, 266)
 
 [node name="player_camera" type="Camera2D" unique_id=1119034557]
 offset = Vector2(50, 0)
+process_callback = 0
 limit_top = 0
 limit_bottom = 290
 script = ExtResource("1_7pa0d")

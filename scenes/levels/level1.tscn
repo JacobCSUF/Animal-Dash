@@ -1706,6 +1706,7 @@ position = Vector2(128, 149)
 
 [node name="player_camera" parent="." unique_id=1119034557 node_paths=PackedStringArray("player") instance=ExtResource("2_b4tpv")]
 position = Vector2(128, 149)
+process_callback = 1
 limit_left = -9999993
 limit_top = 1
 limit_right = 10000007
@@ -1806,8 +1807,13 @@ position = Vector2(420, -73)
 
 [node name="lantern_chain3" parent="obstacles/chunk1" unique_id=1995067671 instance=ExtResource("20_b3p8y")]
 position = Vector2(464, -32)
+lantern_index = 0
 is_on = true
 fire_color = Color(0.7411765, 0.85882354, 0, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="pipe_curve5" parent="obstacles/chunk1" unique_id=187457262 instance=ExtResource("19_h3qar")]
 position = Vector2(566, 249)
@@ -1958,18 +1964,33 @@ sound_group_number = 67
 
 [node name="lantern_chain4" parent="obstacles/chunk2" unique_id=949724294 instance=ExtResource("20_b3p8y")]
 position = Vector2(2549, 114)
+lantern_index = 0
 is_on = true
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lanoff1" parent="obstacles/chunk2" unique_id=449608567 instance=ExtResource("20_b3p8y")]
 position = Vector2(2840, 48)
 lantern_index = 1
+is_on = false
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lantern_chain5" parent="obstacles/chunk2" unique_id=1975861189 instance=ExtResource("20_b3p8y")]
 position = Vector2(2927, -55)
+lantern_index = 0
 is_on = true
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="chain3" parent="obstacles/chunk2" unique_id=1166982214 instance=ExtResource("19_4eecq")]
 position = Vector2(2976, -112)
@@ -2109,13 +2130,23 @@ coin_index = 9
 
 [node name="lantern_chain7" parent="obstacles/chunk3" unique_id=907779128 instance=ExtResource("20_b3p8y")]
 position = Vector2(4960, -64)
+lantern_index = 0
 is_on = true
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lanoff2" parent="obstacles/chunk3" unique_id=1424497584 instance=ExtResource("20_b3p8y")]
 position = Vector2(5072, 80)
 lantern_index = 2
+is_on = false
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="cannon3" parent="obstacles/chunk3" unique_id=115943734 instance=ExtResource("7_hkuam")]
 position = Vector2(4616.0005, 63.99997)
@@ -2171,8 +2202,13 @@ scale = Vector2(1.339109, 1)
 
 [node name="lantern_chain5" parent="obstacles/chunk3" unique_id=147399901 instance=ExtResource("20_b3p8y")]
 position = Vector2(5713, 45)
+lantern_index = 0
 is_on = true
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="wall_break2" parent="obstacles/chunk3" unique_id=1212589123 instance=ExtResource("20_8kpy5")]
 position = Vector2(5824, 192)
@@ -2211,13 +2247,23 @@ rotation = -3.1415925
 
 [node name="lantern_chain6" parent="obstacles/chunk3" unique_id=206313295 instance=ExtResource("20_b3p8y")]
 position = Vector2(6257, 21)
+lantern_index = 0
 is_on = true
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lanoff3" parent="obstacles/chunk3" unique_id=79589299 instance=ExtResource("20_b3p8y")]
 position = Vector2(7052, 36)
 lantern_index = 3
+is_on = false
 fire_color = Color(0.52156866, 0.7882353, 0, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="button_pop" parent="obstacles/chunk3" unique_id=1209009567 instance=ExtResource("33_7jvlv")]
 position = Vector2(5457, 88)
@@ -2357,6 +2403,13 @@ rotation = 1.5707964
 
 [node name="lantern_chain" parent="obstacles/chunk4" unique_id=898320247 instance=ExtResource("20_b3p8y")]
 position = Vector2(18428, 5)
+lantern_index = 0
+is_on = false
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="cannon5" parent="obstacles/chunk4" unique_id=1040235357 instance=ExtResource("7_hkuam")]
 position = Vector2(8335.999, 128)
@@ -3423,58 +3476,142 @@ rotation = 1.5707964
 [node name="lanoff4" parent="visuals/lanterns" unique_id=971598624 instance=ExtResource("20_b3p8y")]
 position = Vector2(9705, -41)
 lantern_index = 4
+is_on = false
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lantern_chain2" parent="visuals/lanterns" unique_id=1541325572 instance=ExtResource("20_b3p8y")]
 position = Vector2(11644, -6)
+lantern_index = 0
 is_on = true
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lantern_chain3" parent="visuals/lanterns" unique_id=2130615870 instance=ExtResource("20_b3p8y")]
 position = Vector2(12063, -37)
+lantern_index = 0
 is_on = true
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lantern_chain4" parent="visuals/lanterns" unique_id=433107361 instance=ExtResource("20_b3p8y")]
 position = Vector2(12695, 15)
+lantern_index = 0
 is_on = true
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lantern_chain5" parent="visuals/lanterns" unique_id=1424863990 instance=ExtResource("20_b3p8y")]
 position = Vector2(14577, -35)
+lantern_index = 0
 is_on = true
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lantern_chain6" parent="visuals/lanterns" unique_id=392744914 instance=ExtResource("20_b3p8y")]
 position = Vector2(8232, -40)
+lantern_index = 0
 is_on = true
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lantern_chain7" parent="visuals/lanterns" unique_id=278821593 instance=ExtResource("20_b3p8y")]
 position = Vector2(8824, -64)
+lantern_index = 0
 is_on = true
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lantern_chain8" parent="visuals/lanterns" unique_id=1424869852 instance=ExtResource("20_b3p8y")]
 position = Vector2(13896, 8)
+lantern_index = 0
 is_on = true
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lantern_chain9" parent="visuals/lanterns" unique_id=2021933003 instance=ExtResource("20_b3p8y")]
 position = Vector2(15003, -17)
+lantern_index = 0
 is_on = true
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lantern_chain10" parent="visuals/lanterns" unique_id=236947967 instance=ExtResource("20_b3p8y")]
 position = Vector2(15608, 32)
+lantern_index = 0
 is_on = true
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lantern_chain11" parent="visuals/lanterns" unique_id=2010637729 instance=ExtResource("20_b3p8y")]
 position = Vector2(19712, -16)
+lantern_index = 0
 is_on = true
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lanoff5" parent="visuals/lanterns" unique_id=1489543213 instance=ExtResource("20_b3p8y")]
 position = Vector2(20592, 16)
 lantern_index = 5
+is_on = false
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lantern_chain13" parent="visuals/lanterns" unique_id=1781725769 instance=ExtResource("20_b3p8y")]
 position = Vector2(21312, -56)
+lantern_index = 0
 is_on = true
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="lantern_chain14" parent="visuals/lanterns" unique_id=443073403 instance=ExtResource("20_b3p8y")]
 position = Vector2(22312, 16)
+lantern_index = 0
 is_on = true
+fire_color = Color(0, 0.675, 1, 1)
+turn_off_chains = false
+group_number = 0
+sound_group_number = 0
+enabler = true
 
 [node name="Node3" type="Node" parent="visuals" unique_id=950520035]
 
