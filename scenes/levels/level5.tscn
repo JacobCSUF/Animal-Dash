@@ -161,7 +161,3 @@ auto_fire = true
 [node name="cannon3" parent="." unique_id=2120906964 instance=ExtResource("16_iyn63")]
 position = Vector2(1070, 48)
 auto_fire = true
-
-[node name="Ship" type="Sprite2D" parent="." unique_id=2095524486]
-position = Vector2(575, 28)
-texture = ExtResource("19_xrw0o")
