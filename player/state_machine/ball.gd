@@ -82,7 +82,7 @@ func match_state(state: states,_delta):
 			
 				
 				if player.is_on_floor():
-					
+					squish.play("squish")
 					ray_cast_2d.target_position = Vector2(0,1)*ray_len
 					#right
 					if v.x > 0:
@@ -94,7 +94,7 @@ func match_state(state: states,_delta):
 						
 						
 				elif player.is_on_ceiling():
-					
+					squish.play("squish")
 					ray_cast_2d.target_position = Vector2(0,-1)*ray_len
 					if v.x > 0:
 						player.velocity = Vector2.RIGHT *SPEED
@@ -105,7 +105,7 @@ func match_state(state: states,_delta):
 						flip = 0
 				
 				elif player.is_on_wall():
-					
+					squish.play("squish_wall")
 					
 					####right wall
 					if v.x >= 0:

@@ -13,7 +13,6 @@ config_version=5
 config/name="flappy bat adventure"
 run/main_scene="uid://iwbtqm3nill0"
 config/features=PackedStringArray("4.7", "Mobile")
-run/max_fps=60
 run/stretch/mode="disabled"
 run/canvas_textures/default_texture_filter=1
 

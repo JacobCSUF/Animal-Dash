@@ -383,12 +383,14 @@ metadata/_custom_type_script = "uid://daxf6fnwb7v3"
 
 [node name="Coin2" parent="obstacles/chunk1/pipe2/BaseObject" unique_id=1966943802 instance=ExtResource("35_pj0a0")]
 position = Vector2(-7, 2.0000005)
+rotation = 3.1415927
 coin_index = 4
 area_entered = Array[ExtResource("24_0qxt0")]([SubResource("Resource_1sg0x")])
 sound_group_number = 1
 
 [node name="Coin" parent="obstacles/chunk1/pipe2/BaseObject" unique_id=1975611571 instance=ExtResource("35_pj0a0")]
 position = Vector2(12, 1.9999989)
+rotation = 3.1415927
 coin_index = 3
 area_entered = Array[ExtResource("24_0qxt0")]([SubResource("Resource_1sg0x")])
 sound_group_number = 1
@@ -409,12 +411,14 @@ bob = SubResource("Resource_rv7jb")
 
 [node name="Coin" parent="obstacles/chunk1/pipe5" unique_id=1490770794 instance=ExtResource("35_pj0a0")]
 position = Vector2(26.999998, -37)
+rotation = 3.1415927
 coin_index = 1
 area_entered = Array[ExtResource("24_0qxt0")]([SubResource("Resource_rjokd")])
 sound_group_number = 1
 
 [node name="Coin2" parent="obstacles/chunk1/pipe5" unique_id=1599196160 instance=ExtResource("35_pj0a0")]
 position = Vector2(6.999997, -37)
+rotation = 3.1415927
 coin_index = 2
 area_entered = Array[ExtResource("24_0qxt0")]([SubResource("Resource_rjokd")])
 sound_group_number = 1
@@ -1272,12 +1276,6 @@ group_number = 2
 sound_group_number = 27
 
 [node name="to_dash19" parent="obstacles/chunk7" unique_id=656893375 instance=ExtResource("15_8dwgf")]
-position = Vector2(18488, 96)
-quiet = true
-group_number = 2
-sound_group_number = 27
-
-[node name="to_dash21" parent="obstacles/chunk7" unique_id=920156442 instance=ExtResource("15_8dwgf")]
 position = Vector2(18488, 96)
 quiet = true
 group_number = 2

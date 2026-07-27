@@ -25,6 +25,8 @@ const PAGE_DOT = preload("uid://cihhs64uxc1ot")
 @onready var difficulty: Panel = $difficulty
 @onready var difficulty_ui: Node2D = $difficulty/difficulty_ui
 
+@onready var lb_hints: LightBulb = $lightbulb_hints
+
 @onready var lantern_ui: LanternGroupUI = $lantern_ui
 
 
@@ -100,6 +102,8 @@ func set_level():
 	var c = lr.ui_color
 	var f = lr.flame_color
 	var o = lr.outline_flame_color
+	
+	lb_hints.set_text(lr.description,lr.level_number)
 	
 	for i in range(page_dots.size()):
 		if i == level_index:

@@ -16,6 +16,7 @@ sprites = ExtResource("3_8m7is")
 animations = ExtResource("1_6m2vb")
 dash_colors = SubResource("GradientTexture1D_lwl5x")
 float_colors = SubResource("GradientTexture1D_lwl5x")
+gpu_colors = Color(0, 1, 1, 1)
 save_index = 5
 cost = 50
 metadata/_custom_type_script = "uid://co07lgyk00dl6"

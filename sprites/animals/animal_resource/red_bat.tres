@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://clb1ao1drxhnm" path="res://sprites/animals/red_bat_full.png" id="3_u1qyh"]
 
 [sub_resource type="Gradient" id="Gradient_pvd2w"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 0, 1, 1)
+offsets = PackedFloat32Array(0, 0.10744681, 0.21170212)
+colors = PackedColorArray(0.9999648, 0.12471328, 0.08660475, 1, 1, 0, 1, 1, 1, 0.15480563, 0.11117954, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_bj0iu"]
 gradient = SubResource("Gradient_pvd2w")
@@ -16,6 +17,7 @@ sprites = ExtResource("3_u1qyh")
 animations = ExtResource("1_u1qyh")
 dash_colors = SubResource("GradientTexture1D_bj0iu")
 float_colors = SubResource("GradientTexture1D_bj0iu")
+gpu_colors = Color(1, 0, 0, 1)
 save_index = 8
 cost = 50
 metadata/_custom_type_script = "uid://co07lgyk00dl6"

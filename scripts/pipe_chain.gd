@@ -34,8 +34,6 @@ func _on_timer_timeout() -> void:
 	wave(bottom_pipes)
 		
 func wave(pipes):
-	
-	
 	for pipe in pipes:
 		var old_position = pipe.position
 		var tween = create_tween()

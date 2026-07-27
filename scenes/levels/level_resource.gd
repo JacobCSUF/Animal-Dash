@@ -9,3 +9,4 @@ class_name LevelResource
 @export var flame_color:= Color(0.0, 0.49, 1.0, 1.0)
 @export var ui_color: Color
 @export var total_coins:= 30
+@export_multiline var description: String = 'SDJHADBJAHKDBASJDHKBSDJKHBSDHJD'

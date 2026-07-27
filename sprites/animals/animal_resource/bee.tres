@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://co07lgyk00dl6" path="res://sprites/animals/animal_resource/animal_resource.gd" id="2_wywk8"]
 
 [sub_resource type="Gradient" id="Gradient_2qd3h"]
-offsets = PackedFloat32Array(0, 0.38046876, 1)
-colors = PackedColorArray(0.74231815, 0.9701968, 0, 1, 1, 1, 0, 1, 1, 0.50980395, 0, 1)
+offsets = PackedFloat32Array(0, 0.38046876)
+colors = PackedColorArray(1, 0.96862745, 0, 1, 0.8117647, 1, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_8ymi2"]
 gradient = SubResource("Gradient_2qd3h")
@@ -25,6 +25,7 @@ sprites = ExtResource("2_203bc")
 animations = ExtResource("1_wywk8")
 dash_colors = SubResource("GradientTexture1D_8ymi2")
 float_colors = SubResource("GradientTexture1D_phkpo")
+gpu_colors = Color(1, 1, 0, 1)
 save_index = 1
 cost = 50
 metadata/_custom_type_script = "uid://co07lgyk00dl6"

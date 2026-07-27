@@ -16,8 +16,7 @@ func get_distance(distance:= 0):
 
 func _process(delta: float) -> void:
 	
-	if player.velocity.x >= 0.0:
-		traveled += player.velocity.x*delta * mult
+	traveled += player.velocity.x*delta * mult
 		
 	#print(traveled)
 		

@@ -1,20 +1,23 @@
 extends Control
 
 @onready var check_box: CheckBox = $VBoxContainer/HBoxContainer/CheckBox
+@onready var sound_effects_volume: HSlider = $"VBoxContainer/Sound effects volume"
+@onready var music_volume: HSlider = $"VBoxContainer/Music volume"
 
 signal back
 
 func _ready() -> void:
 	if SaveManager.is_show_progress():
 		check_box.button_pressed = true
-
+	sound_effects_volume.value = SaveManager.get_master_volume()
+	music_volume.value = SaveManager.get_music_volume()
 
 func _on_music_volume_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(1,value)
+	SaveManager.change_music_volume(value)
 
 
 func _on_sound_effects_volume_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(0,value)
+	SaveManager.change_master_volume(value)
 
 
 

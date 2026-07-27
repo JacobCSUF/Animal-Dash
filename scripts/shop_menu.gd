@@ -35,13 +35,16 @@ func _ready() -> void:
 		set_next_animal(frames[i-1])
 	
 	toggle_frames()
-	change_skin(0)
+
 	
 	
-func set_shop(ind:= 0):
+func set_shop():
 	bought_skins.clear()
 	shop_skins.clear()
-	character.sprite_frames = animal_skins[ind].animations
+	var num = SaveManager.get_equiped_skin()
+	character.sprite_frames = animal_skins[num].animations
+	character.play("flappy")
+	GameState.set_animal_resource(animal_skins[num])
 	for i in range(animal_skins.size()):
 		if SaveManager.has_bought_skin(i):
 			bought_skins.append(i)
@@ -71,20 +74,16 @@ func toggle_center_frame():
 
 func _on_change_button_down() -> void:
 	AudioManager.play_sound(AudioManager.Sound.UIBUTTON)
-	change_skin()
+	change_skin() 
 	
 
-####change skin based on index
-func set_skin(ind:= 0):
-	
-	character.sprite_frames = animal_skins[ind].animations
-	GameState.set_animal_resource(animal_skins[ind])
-	character.play("flappy")
+
 	
 	
 ######toggle between the skins
 func change_skin(ind:= 0):
 	var i = bought_skins[counter]
+	SaveManager.set_equiped_skin(i)
 	character.sprite_frames = animal_skins[i].animations
 	GameState.set_animal_resource(animal_skins[i])
 	character.play("flappy")
@@ -134,8 +133,10 @@ func _on_purchased(ind):
 	
 	var a = animal_skins[ind]
 	SaveManager.buy_skin(a.save_index,a.cost)
-	set_shop(ind)
-	set_skin(ind)
+	SaveManager.set_equiped_skin(ind)
+	set_shop()
+	
+	print('INDDDD, IND: ',ind)
 	
 	
 func _on_back_button_down() -> void:

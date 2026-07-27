@@ -2,12 +2,12 @@ extends Node
 class_name MenuHandler
 @onready var main: Node = $".."
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
-@onready var pause_card: Control = $CanvasLayer/pause_card
+
 @onready var pause_button: ButtonExtended = $CanvasLayer/pause_button
 @onready var menu_theme: AudioStreamPlayer = $"../MenuTheme"
 @onready var win_card: WinCard = $CanvasLayer/win_card
 @onready var scene_trans: SceneTrans = $CanvasLayer/scene_trans
-
+@onready var pause_card: PauseCard = $CanvasLayer/pause_card
 
 enum Menus{MAIN,LEVEL,SETTINGS,EXIT,BACK,LEVELBACK,PAUSE, RESUME, REFRESH}
 
@@ -29,6 +29,8 @@ var level_counter = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameState.died.connect(_on_died)
+	GameState.predied.connect(_on_predied)
+	
 	menu_theme.play()
 	change_menu(Menus.MAIN)
 	
@@ -64,6 +66,8 @@ func change_menu(type1):
 	match type1:
 		
 		Menus.MAIN:
+			get_tree().paused = false
+			pause_card.toggle_off()
 			menu_theme.play()
 			SongManager.stop_s()
 			pause_button.visible = false
@@ -94,7 +98,7 @@ func change_menu(type1):
 		Menus.LEVELBACK:
 			get_tree().paused = false
 			pause_button.visible = false
-			pause_card.visible = false
+			pause_card.toggle_off()
 			menu_theme.play()
 			SongManager.stop_s()
 			curr_menu = LEVEL_MENU.instantiate()
@@ -107,19 +111,19 @@ func change_menu(type1):
 		
 		Menus.PAUSE:
 			pause_button.visible = false
-			pause_card.visible = true
+			pause_card.toggle_on()
 		
 			get_tree().paused = true
 			
 	
 		Menus.RESUME:
 			pause_button.visible = true
-			pause_card.visible = false
+			pause_card.toggle_off()
 			get_tree().paused = false
 	
 		
 		Menus.REFRESH:
-			pause_card.visible = false
+			pause_card.toggle_off()
 			get_tree().paused = false
 			_on_level(curr_level_packed)
 			
@@ -143,7 +147,7 @@ func _on_level(level: PackedScene):
 	curr_level = level.instantiate()
 	curr_level_packed = level
 	curr_level.level_end.connect(_on_level_end)
-	
+	pause_card.set_lightbulb(curr_level.lr.description,curr_level.lr.level_number)
 	pause_button.visible = true
 
 	call_deferred("add_child",curr_level)
@@ -154,13 +158,16 @@ func play_trans():
 	await scene_trans.finished_fade_in
 	
 func _on_level_end(t_coin,n_coin,l_array,f,taken_c,new_c):
-	
+	pause_button.visible = false
 	win_card.visible = true
 	win_card.set_coins(t_coin,n_coin,l_array,f,taken_c,new_c)
 	
+func _on_predied():
+	pause_button.visible = false
 
 func _on_died():
 	if curr_level:
+		
 		scene_trans.play_trans()
 		await scene_trans.finished_fade_in
 		_on_level(curr_level_packed)

@@ -8,6 +8,7 @@ var animal_resource: AnimalResource
 var main_menu = false
 
 signal died
+signal predied
 signal changed_state(state: String, dict: Dictionary)
 
 
@@ -32,11 +33,12 @@ func start_level():
 	
 	
 func die():
+	predied.emit()
 	bg_death()
 	AudioManager.reset_sound()
 	player.die()
 	AudioManager.play_sound(AudioManager.Sound.DEATH)
-	ParticleManager.play_particle(ParticleManager.particles.DEATH,player.global_position)
+	ParticleManager.play_particle(ParticleManager.particles.DEATH,player.global_position,null,animal_resource.gpu_colors)
 	PlayerFollower.reset()
 	TriggerHandler.reset()
 	SongManager.stop_s()

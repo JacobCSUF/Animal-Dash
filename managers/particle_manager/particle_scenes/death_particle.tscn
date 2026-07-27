@@ -36,7 +36,6 @@ scale_curve = SubResource("CurveTexture_bucgq")
 color_ramp = SubResource("GradientTexture1D_vn2gu")
 
 [node name="death_particle" type="GPUParticles2D" unique_id=295060064]
-modulate = Color(1, 0.40784314, 1, 1)
 z_index = 10
 emitting = false
 amount = 100

@@ -45,6 +45,14 @@ outline_flame_color = Color(0.4649247, 1, 0.7240472, 1)
 flame_color = Color(1.2995303e-06, 0.50852597, 0.5142111, 1)
 ui_color = Color(0, 1, 0.9254902, 1)
 total_coins = 36
+description = "Welcome to Animal Dash!
+
+Click on lightbulbs for controls and hints.
+
+[u]Flappy Form[/u]:
+
+	[u]Jump[/u] - Left Click 
+	[u]Dash[/u] - Right Click to go faster and break through cracked objects."
 metadata/_custom_type_script = "uid://5nmavtap5ybn"
 
 [sub_resource type="Resource" id="Resource_j3pel"]

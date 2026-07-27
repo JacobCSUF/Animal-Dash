@@ -21,7 +21,7 @@ func set_animal():
 		set_dash_texture()
 		set_dash_color()
 		set_float_color()
-
+		ball_hit_particle.modulate = GameState.animal_resource.gpu_colors
 
 func set_dash_texture():
 	var a = AtlasTexture.new()

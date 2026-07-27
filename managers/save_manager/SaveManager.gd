@@ -11,15 +11,20 @@ var ini_saved_data = {
 	"total_coins": 0,
 	"total_lanterns": 0,
 	"progress_bar": true,
+	"music_volume" : -6,
+	"master_volume" : -6,
+	"equiped_skin": 0,
 	"0": {
 		"completed": false,
 		"locked": false,
+		"is_hint": false,
 		"coins": [],
 		"lanterns": []
 	},
 	"1":{
 		"completed": false,
 		"locked": false,
+		"is_hint": false,
 		"coins": [],
 		"lanterns": []
 		},
@@ -28,6 +33,7 @@ var ini_saved_data = {
 	"2":{
 		"completed": false,
 		"locked": false,
+		"is_hint": false,
 		"coins": [],
 		"lanterns": []
 		},
@@ -35,6 +41,7 @@ var ini_saved_data = {
 	"3":{
 		"completed": false,
 		"locked": true,
+		"is_hint": false,
 		"cost": 5,
 		"coins": [],
 		"lanterns": []
@@ -44,6 +51,7 @@ var ini_saved_data = {
 	"4":{
 		"completed": false,
 		"locked": false,
+		"is_hint": false,
 		"coins": [],
 		"lanterns": []
 		},
@@ -207,6 +215,13 @@ func unlock_level(n1: int):
 
 
 ################BUYING ANIMALS/SKINS###################
+func get_equiped_skin():
+	return int(saved_data["equiped_skin"])
+						
+
+func set_equiped_skin(n1: int):
+	
+	saved_data["equiped_skin"] = int(n1)
 
 func has_bought_skin(n1: int):
 	var name1 = str(n1)
@@ -241,6 +256,48 @@ func change_progress_bar(show: bool):
 func is_show_progress():
 	
 	return saved_data["progress_bar"]
+	
+	
+
+	
+	
+	
+#################VOLUME#####################
+func change_music_volume(value: float):
+	if value == -30:
+		value = - 80
+	AudioServer.set_bus_volume_db(1,value)
+	saved_data["music_volume"] = value
+
+
+func change_master_volume(value: float):
+	if value == -30:
+		value = - 80
+	AudioServer.set_bus_volume_db(0,value)
+	saved_data["master_volume"] = value
+
+func get_music_volume():
+	return saved_data["music_volume"]
+	
+func get_master_volume():
+	return saved_data["master_volume"]
+
+
+
+
+
+
+##############TUTORIAL HINTS######################
+func set_tutorial_hint(n1: int):
+	var name1 = str(n1)
+	if saved_data.has(name1):
+		saved_data[name1]["is_hint"] = true
+			
+
+func get_tutorial_hint(n1: int):
+	var name1 = str(n1)
+	if saved_data.has(name1):
+		return saved_data[name1]["is_hint"]
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

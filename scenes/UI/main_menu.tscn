@@ -170,7 +170,8 @@ size_flags_horizontal = 4
 theme = ExtResource("12_dqbul")
 theme_type_variation = &"MainMenuButton"
 theme_override_colors/font_color = Color(0.85490197, 0.85490197, 0.85490197, 1)
-text = "Levels"
+text = "Start
+"
 
 [node name="Shop" type="Button" parent="main_block/main_menu/VBoxContainer" unique_id=1401585055]
 z_index = 1

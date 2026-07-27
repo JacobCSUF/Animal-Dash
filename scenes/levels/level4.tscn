@@ -58,6 +58,13 @@ outline_flame_color = Color(0, 0.9138015, 1, 1)
 flame_color = Color(0.25819302, 0.378207, 0.8319876, 1)
 ui_color = Color(0, 0.83137256, 1, 1)
 total_coins = 35
+description = "[u]MineCart Form[/u]:
+	
+	Enter a minecart to go into Minecart Form
+
+	Press [u]left click[/u]: to jump up into the air
+
+	While in water press [u]Right Click[/u]: to dive into the water to duck under obstacles"
 metadata/_custom_type_script = "uid://5nmavtap5ybn"
 
 [sub_resource type="Gradient" id="Gradient_lxeoi"]

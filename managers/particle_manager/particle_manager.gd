@@ -25,7 +25,7 @@ var particle_dict: Dictionary[particles,PackedScene] = {
 }
 
 
-func play_particle(particle: particles, pos: Vector2, tex_overide: Texture2D = null):
+func play_particle(particle: particles, pos: Vector2, tex_overide: Texture2D = null,color: Color = Color()):
 	if particle == particles.BLANK:
 		return
 	var ptcl: GPUParticles2D = particle_dict[particle].instantiate()
@@ -35,6 +35,8 @@ func play_particle(particle: particles, pos: Vector2, tex_overide: Texture2D = n
 	
 	if tex_overide:
 		ptcl.texture = tex_overide
+	if color!= Color():
+		ptcl.modulate = color
 	#ptcl.amount = data.amount
 	#ptcl.process_material.emission_sphere_radius = data.radius
 	#ptcl.modulate = data.color
