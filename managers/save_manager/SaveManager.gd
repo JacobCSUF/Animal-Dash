@@ -118,7 +118,7 @@ func load_game():
 
 	# Load the file line by line and process that dictionary to restore
 	# the object it represents.
-	var file = FileAccess.open("user://savegame.save", FileAccess.READ)
+	var file = FileAccess.open("user://savegame11.save", FileAccess.READ)
 	var json = file.get_as_text()
 	if not json.is_empty():
 		saved_data = JSON.parse_string(json)
