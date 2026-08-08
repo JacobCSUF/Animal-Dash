@@ -178,6 +178,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_t4w0s")
 
 [node name="Label3" type="Label" parent="VBoxContainer" unique_id=592179332]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_son7u")
 theme_type_variation = &"labelA"
@@ -185,6 +186,7 @@ theme_override_font_sizes/font_size = 10
 text = "Testing:"
 
 [node name="Button2" type="Button" parent="VBoxContainer" unique_id=1652054664]
+visible = false
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -195,6 +197,7 @@ autowrap_mode = 3
 autowrap_trim_flags = 192
 
 [node name="Button3" type="Button" parent="VBoxContainer" unique_id=1117441173]
+visible = false
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -205,6 +208,7 @@ autowrap_mode = 3
 autowrap_trim_flags = 192
 
 [node name="Button4" type="Button" parent="VBoxContainer" unique_id=520077051]
+visible = false
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 4

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ckmtl3c646bnq" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://co8mupe6t3dnn" path="res://scenes/tilemap_base.tscn" id="2_a1wsg"]
 [ext_resource type="PackedScene" uid="uid://bap6ofsij3477" path="res://scenes/background.tscn" id="2_i7p8e"]
+[ext_resource type="SpriteFrames" uid="uid://b5oas7vd18qh3" path="res://sprites/animals/animation_resources/bat_frames.tres" id="2_n3ahy"]
 [ext_resource type="Script" uid="uid://c3nbhfhjpls2a" path="res://scenes/levels/bg_resource.gd" id="3_sfthw"]
 [ext_resource type="PackedScene" uid="uid://b5q8mj0xt4xaj" path="res://obstacles/obstacle piece/pipes.tscn" id="11_d6l81"]
 [ext_resource type="Texture2D" uid="uid://db1phwb71s76j" path="res://sprites/pipes/thin_long_pipe_decor.png" id="11_i7p8e"]
@@ -28,6 +29,23 @@ particle_texture = SubResource("CompressedTexture2D_scr1a")
 bg_gradient = SubResource("Gradient_n3ahy")
 fog_color = Color(0.1750539, 0.46494013, 0.6030278, 0.17254902)
 metadata/_custom_type_script = "uid://c3nbhfhjpls2a"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3ahy"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(4.632585e-07, 0.15926406, 0.15926409, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [sub_resource type="Gradient" id="Gradient_sfthw"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -137,10 +155,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
 
+[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=501714637]
+physics_interpolation_mode = 2
+light_mask = 0
+position = Vector2(224, 21)
+sprite_frames = ExtResource("2_n3ahy")
+animation = &"flappy"
+
 [node name="background" parent="." unique_id=1318822552 instance=ExtResource("2_i7p8e")]
 bg = SubResource("Resource_d0t0a")
 
 [node name="main_block" type="Node2D" parent="." unique_id=1844612997]
+
+[node name="Panel" type="Panel" parent="main_block" unique_id=549920323]
+z_index = 200
+offset_right = 640.0
+offset_bottom = 320.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n3ahy")
 
 [node name="front" parent="main_block" unique_id=13827966 instance=ExtResource("2_a1wsg")]
 z_index = 0

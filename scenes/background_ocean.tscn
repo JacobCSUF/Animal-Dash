@@ -158,7 +158,7 @@ void vertex() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j3pel"]
 shader = SubResource("Shader_kblqe")
 shader_parameter/top_down_move = false
-shader_parameter/uv_speed_x = 0.010000475474999604
+shader_parameter/uv_speed_x = 0.0100004754749996
 shader_parameter/uv_speed_y = 0.0
 
 [node name="ocean_background" type="Node2D" unique_id=1318822552 node_paths=PackedStringArray("particles")]
@@ -203,13 +203,12 @@ modulate = Color(0.41225117, 0.5905134, 1, 1)
 light_mask = 0
 z_index = -100
 scroll_scale = Vector2(0.5, 0.5)
-scroll_offset = Vector2(0, -5)
 repeat_size = Vector2(640, 0)
 
 [node name="Waterfill4" type="Sprite2D" parent="-100" unique_id=195637367]
 modulate = Color(0.0034549937, 0.51097727, 0.33032054, 1)
 light_mask = 0
-position = Vector2(322, 130)
+position = Vector2(322, 126)
 texture = ExtResource("3_bml8b")
 
 [node name="-90" type="Parallax2D" parent="." unique_id=412815901]
@@ -240,13 +239,12 @@ texture = ExtResource("8_kblqe")
 light_mask = 0
 z_index = -70
 scroll_scale = Vector2(0.8, 0.8)
-scroll_offset = Vector2(0, -8)
 repeat_size = Vector2(640, 0)
 
 [node name="Waterfill3" type="Sprite2D" parent="-70" unique_id=1436530431]
 light_mask = 0
 material = SubResource("ShaderMaterial_hsech")
-position = Vector2(321, 144)
+position = Vector2(319, 136)
 texture = ExtResource("7_16c8c")
 
 [node name="-60" type="Parallax2D" parent="." unique_id=1447688806]

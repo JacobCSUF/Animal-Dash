@@ -19,14 +19,7 @@ point_count = 2
 
 [node name="lantern_chain" type="Node2D" unique_id=945369682 node_paths=PackedStringArray("lantern") groups=["lantern"]]
 script = ExtResource("1_h5ht8")
-lantern_index = null
-is_on = null
-fire_color = null
 lantern = NodePath("RopeAnchor/Lantern")
-turn_off_chains = null
-group_number = null
-sound_group_number = null
-enabler = null
 
 [node name="RopeRendererLine2D" type="Line2D" parent="." unique_id=251922748]
 position = Vector2(-0.05192566, -77.12572)
@@ -86,5 +79,10 @@ script = ExtResource("8_cdim7")
 rope_path = NodePath("../../Rope")
 metadata/_custom_type_script = "uid://p7agqkyx3kru"
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2022844672]
+rect = Rect2(-200, -96, 210, 425)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

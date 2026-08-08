@@ -1,0 +1,317 @@
+[gd_scene format=3 uid="uid://ddb3ceett3ovp"]
+
+[ext_resource type="Script" uid="uid://rsl8lnogsoyf" path="res://scripts/background.gd" id="1_if16n"]
+[ext_resource type="PackedScene" uid="uid://b0t4urxjrfulk" path="res://managers/particle_manager/particle_scenes/rain_particles.tscn" id="2_mmx1w"]
+[ext_resource type="Shader" uid="uid://bs0yqjde8dau0" path="res://shaders/fog.gdshader" id="3_nijsj"]
+[ext_resource type="Texture2D" uid="uid://b4oqobpsl8nj2" path="res://sprites/ocean_backgrounds/water_fill5.png" id="4_o3ea4"]
+[ext_resource type="Texture2D" uid="uid://swraeg6ohe76" path="res://sprites/ocean_backgrounds/waterfill4.png" id="5_kprp5"]
+[ext_resource type="Shader" uid="uid://cr1itl5n3o5d5" path="res://shaders/waterfall.gdshader" id="6_csiya"]
+[ext_resource type="Texture2D" uid="uid://cfgmbi8vkojhv" path="res://sprites/ocean_backgrounds/water_fill3.png" id="7_diiyt"]
+[ext_resource type="Texture2D" uid="uid://2vkkw43h5kyq" path="res://sprites/ocean_backgrounds/waterfill_2.png" id="8_vpoqn"]
+[ext_resource type="PackedScene" uid="uid://i2byjd8biyff" path="res://areas/kill_area.tscn" id="9_y1w22"]
+[ext_resource type="PackedScene" uid="uid://1p26alf41aod" path="res://managers/background_manager/bg_manager.tscn" id="10_7yik3"]
+[ext_resource type="Script" uid="uid://b2txqab1v23q1" path="res://audio/sound_inc_manager/sound_inc_manager.gd" id="11_vk6m0"]
+[ext_resource type="Texture2D" uid="uid://b02rp5lx4nle6" path="res://sprites/ocean_backgrounds/ocean.png" id="12_ovxa8"]
+[ext_resource type="Texture2D" uid="uid://blgkal6r3erc5" path="res://sprites/ocean_backgrounds/sky_2.png" id="13_efo23"]
+
+[sub_resource type="Gradient" id="Gradient_xhvr2"]
+colors = PackedColorArray(0.03387151, 3.2127277e-06, 0.22088376, 1, 0.08391545, 0.17566074, 0.15931137, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sfthw"]
+gradient = SubResource("Gradient_xhvr2")
+width = 640
+height = 360
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 0.7)
+metadata/_snap_enabled = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lqx3n"]
+frequency = 1.0
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fmais"]
+width = 640
+height = 320
+noise = SubResource("FastNoiseLite_lqx3n")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lysku"]
+frequency = 0.0078
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xrw0o"]
+width = 360
+height = 360
+noise = SubResource("FastNoiseLite_lysku")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5i870"]
+shader = ExtResource("3_nijsj")
+shader_parameter/pos = Vector2(0, 0)
+shader_parameter/textureResolution = 1280.0
+shader_parameter/moveDir = Vector2(-1, -0.5)
+shader_parameter/noise = SubResource("NoiseTexture2D_fmais")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_xrw0o")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3oqy1"]
+frequency = 0.0183
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bsoqc"]
+width = 640
+height = 320
+noise = SubResource("FastNoiseLite_3oqy1")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="Gradient" id="Gradient_lxeoi"]
+colors = PackedColorArray(0.21805432, 0.2192134, 0.61505914, 0.6039216, 0.10933765, 0.00017567724, 0.23121426, 0.53333336)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_17kfx"]
+gradient = SubResource("Gradient_lxeoi")
+width = 640
+height = 320
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uil41"]
+shader = ExtResource("6_csiya")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = true
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 0.0
+shader_parameter/sway_speed = -7.513997981914997
+shader_parameter/sway_strength = 0.0050000002375
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hsech"]
+shader = ExtResource("6_csiya")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = true
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 0.0
+shader_parameter/sway_speed = -0.999997672500001
+shader_parameter/sway_strength = 0.0050000002375
+shader_parameter/noise_scale = 10.450000448875
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_op3qg"]
+shader = ExtResource("6_csiya")
+shader_parameter/top_down_move = false
+shader_parameter/wave_top_down = true
+shader_parameter/uv_speed_x = 0.0
+shader_parameter/uv_speed_y = 0.0
+shader_parameter/sway_speed = -1.9999977200000032
+shader_parameter/sway_strength = 0.010000000475
+shader_parameter/noise_scale = 10.7210004617475
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1tmhi"]
+distance = -111.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l5f8m"]
+
+[sub_resource type="Environment" id="Environment_8efq7"]
+background_mode = 3
+background_canvas_max_layer = 1
+glow_enabled = true
+glow_intensity = 1.2
+glow_strength = 1.2
+glow_blend_mode = 0
+glow_hdr_threshold = 0.7
+adjustment_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_bml8b"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1sg0x"]
+gradient = SubResource("Gradient_bml8b")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.90000004, 0.1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Shader" id="Shader_kblqe"]
+code = "shader_type canvas_item;
+
+uniform bool top_down_move = false;
+
+uniform float uv_speed_x : hint_range(-10.0, 10.0) = 0.0;
+uniform float uv_speed_y : hint_range(-10.0, 10.0) = 0.0;
+
+void vertex() {
+	
+
+	// Apply movement
+	if (top_down_move)
+		UV.y += TIME * uv_speed_y;
+	else
+		UV.x += TIME * uv_speed_x;
+
+
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j3pel"]
+shader = SubResource("Shader_kblqe")
+shader_parameter/top_down_move = false
+shader_parameter/uv_speed_x = 0.0100004754749996
+shader_parameter/uv_speed_y = 0.0
+
+[node name="ocean_background" type="Node2D" unique_id=1318822552 node_paths=PackedStringArray("particles")]
+z_index = -6
+script = ExtResource("1_if16n")
+particles = [NodePath("rain_particles")]
+
+[node name="rain_particles" parent="." unique_id=1380835609 instance=ExtResource("2_mmx1w")]
+visible = false
+modulate = Color(0.41415063, 0.6377002, 1, 1)
+position = Vector2(419, -44)
+
+[node name="texture_recs2" type="Parallax2D" parent="." unique_id=925574740]
+z_index = -1
+scroll_scale = Vector2(0.01, 0.014)
+repeat_size = Vector2(640, 0)
+
+[node name="Icon" type="Sprite2D" parent="texture_recs2" unique_id=1233740767]
+modulate = Color(1, 1, 1, 0.53333336)
+light_mask = 257
+z_index = -100
+position = Vector2(319, 180)
+texture = SubResource("GradientTexture2D_sfthw")
+
+[node name="fog" type="Sprite2D" parent="texture_recs2" unique_id=1332479062]
+modulate = Color(0.6901961, 0.88235295, 0.99215686, 0.12941177)
+light_mask = 257
+z_index = -6
+texture_repeat = 2
+material = SubResource("ShaderMaterial_5i870")
+position = Vector2(320, 160)
+texture = SubResource("NoiseTexture2D_bsoqc")
+
+[node name="TextureRect4" type="Sprite2D" parent="texture_recs2" unique_id=1289955030]
+modulate = Color(1, 1, 1, 0.41960785)
+light_mask = 257
+position = Vector2(320, 160)
+texture = SubResource("GradientTexture2D_17kfx")
+
+[node name="-100" type="Parallax2D" parent="." unique_id=1455709722]
+modulate = Color(0.41225117, 0.5905134, 1, 1)
+light_mask = 0
+z_index = -100
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(640, 0)
+
+[node name="Waterfill4" type="Sprite2D" parent="-100" unique_id=195637367]
+modulate = Color(0.0034549937, 0.51097727, 0.33032054, 1)
+light_mask = 0
+position = Vector2(322, 126)
+texture = ExtResource("4_o3ea4")
+
+[node name="-90" type="Parallax2D" parent="." unique_id=412815901]
+light_mask = 0
+z_index = -90
+scroll_scale = Vector2(0.6, 0.6)
+repeat_size = Vector2(640, 0)
+
+[node name="Waterfill4" type="Sprite2D" parent="-90" unique_id=2021672987]
+modulate = Color(0.8984552, 0.7842924, 0.8956408, 1)
+light_mask = 0
+position = Vector2(322, 136)
+texture = ExtResource("5_kprp5")
+
+[node name="-80" type="Parallax2D" parent="." unique_id=1456513315]
+light_mask = 0
+z_index = -80
+scroll_scale = Vector2(0.7, 0.7)
+repeat_size = Vector2(640, 0)
+
+[node name="Waterfill4" type="Sprite2D" parent="-80" unique_id=473405613]
+light_mask = 0
+material = SubResource("ShaderMaterial_uil41")
+position = Vector2(320, 145)
+texture = ExtResource("5_kprp5")
+
+[node name="-70" type="Parallax2D" parent="." unique_id=1706415081]
+light_mask = 0
+z_index = -70
+scroll_scale = Vector2(0.8, 0.8)
+repeat_size = Vector2(640, 0)
+
+[node name="Waterfill3" type="Sprite2D" parent="-70" unique_id=1436530431]
+light_mask = 0
+material = SubResource("ShaderMaterial_hsech")
+position = Vector2(319, 136)
+texture = ExtResource("7_diiyt")
+
+[node name="-60" type="Parallax2D" parent="." unique_id=1447688806]
+light_mask = 0
+z_index = -60
+scroll_scale = Vector2(0.9, 0.9)
+repeat_size = Vector2(640, 0)
+
+[node name="Waterfill2" type="Sprite2D" parent="-60" unique_id=2137437717]
+light_mask = 0
+material = SubResource("ShaderMaterial_op3qg")
+position = Vector2(321, 145)
+texture = ExtResource("8_vpoqn")
+
+[node name="kill_area" parent="." unique_id=8564388 instance=ExtResource("9_y1w22")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="kill_area" unique_id=1589457265]
+position = Vector2(171, 55)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_1tmhi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill_area" unique_id=1783293839]
+position = Vector2(136, 323)
+shape = SubResource("WorldBoundaryShape2D_l5f8m")
+
+[node name="managers" type="Node2D" parent="." unique_id=1365530276]
+
+[node name="bg_manager" parent="managers" unique_id=859320413 instance=ExtResource("10_7yik3")]
+
+[node name="sound_increment_manager" type="Node2D" parent="managers" unique_id=1378223757]
+script = ExtResource("11_vk6m0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=778469169]
+environment = SubResource("Environment_8efq7")
+
+[node name="-110" type="Parallax2D" parent="." unique_id=1494812690]
+light_mask = 0
+z_index = -110
+scroll_scale = Vector2(0.033, 0.033)
+repeat_size = Vector2(640, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="-110" unique_id=1381651543]
+position = Vector2(502, 36)
+scale = Vector2(0.49999976, 0.49999976)
+energy = 6.78
+range_item_cull_mask = 256
+texture = SubResource("GradientTexture2D_1sg0x")
+
+[node name="sky1" type="Sprite2D" parent="-110" unique_id=791217249]
+light_mask = 0
+position = Vector2(319, 181)
+texture = ExtResource("12_ovxa8")
+
+[node name="Sky2" type="Sprite2D" parent="-110" unique_id=181223177]
+modulate = Color(1, 1, 1, 0.3882353)
+light_mask = 0
+z_index = 4
+texture_repeat = 2
+material = SubResource("ShaderMaterial_j3pel")
+position = Vector2(318, 153)
+texture = ExtResource("13_efo23")
+
+[node name="Sky3" type="Sprite2D" parent="-110" unique_id=284719072]
+modulate = Color(1, 1, 1, 0.34509805)
+light_mask = 0
+z_index = 4
+texture_repeat = 2
+material = SubResource("ShaderMaterial_j3pel")
+position = Vector2(321, 178)
+texture = ExtResource("13_efo23")

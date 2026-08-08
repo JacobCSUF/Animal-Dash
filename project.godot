@@ -30,15 +30,17 @@ ParticleManager="*uid://or6wn166kcu"
 AudioManager="*uid://dk46gwrksu2ij"
 SongManager="*uid://bais6bdh5c0hm"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=320
-window/size/mode=3
 window/stretch/mode="canvas_items"
-window/vsync/vsync_mode=3
+window/stretch/scale_mode="integer"
 window/physics_interpolation=true
-window/physics_jitter_fix=0.0
 window/lossless_compression/force_png=false
 
 [editor_plugins]
@@ -85,6 +87,7 @@ dive={
 
 [physics]
 
+common/max_physics_steps_per_frame=6
 3d/physics_engine="Jolt Physics"
 common/physics_interpolation=true
 common/enable_object_picking=false

@@ -12,7 +12,7 @@ class_name LanternChain
 signal lan_new_hit
 
 func _ready() -> void:
-	#rope._set_pause(true)
+	rope._set_pause(true)
 	if turn_off_chains:
 		chains.stop()
 	randomize()
@@ -104,3 +104,12 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		return
 	first = false
 	apply_strength(area.global_position,1.5)
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	
+	rope._set_pause(false)
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	rope._set_pause(true)

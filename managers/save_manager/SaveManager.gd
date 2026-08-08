@@ -1,6 +1,6 @@
 extends Node
 
-var save_path = "user://savegame.save"
+var save_path = "user://savegame11.save"
 # Called when the node enters the scene tree for the first time.
 
 var saved_data = {}
@@ -104,7 +104,7 @@ func _ready() -> void:
 
 	
 func save_game():
-	var file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var file = FileAccess.open("user://savegame11.save", FileAccess.WRITE)
 	var json_string = JSON.stringify(saved_data)
 	file.store_string(json_string)
 	file.close()
@@ -112,7 +112,7 @@ func save_game():
 	
 	
 func load_game():
-	if not FileAccess.file_exists("user://savegame.save"):
+	if not FileAccess.file_exists("user://savegame11.save"):
 		saved_data = ini_saved_data
 		return # Error! We don't have a save to load.
 

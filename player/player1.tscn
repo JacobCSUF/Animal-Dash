@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c60dbvryxencn" path="res://player/state_machine/player.gd" id="1_uef0s"]
 [ext_resource type="Resource" uid="uid://b4wb6efmxuuxv" path="res://sprites/animals/animal_resource/pink_butterfly.tres" id="2_f5isc"]
-[ext_resource type="SpriteFrames" uid="uid://nxecp61r5lmm" path="res://sprites/animals/animation_resources/pink_butterfly_frames.tres" id="3_4h07j"]
+[ext_resource type="SpriteFrames" uid="uid://b5oas7vd18qh3" path="res://sprites/animals/animation_resources/bat_frames.tres" id="3_4h07j"]
 [ext_resource type="Script" uid="uid://cmiccfy3kd8cd" path="res://player/state_machine/flappy.gd" id="3_qvdwi"]
 [ext_resource type="AudioStream" uid="uid://4rftf3sg1wff" path="res://audio/sounds/player_sounds/jumpp.mp3" id="4_fcbal"]
 [ext_resource type="Script" uid="uid://b5vy1stk8juby" path="res://player/state_machine/dash.gd" id="5_bndlp"]
@@ -139,7 +139,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_4h07j"]
 resource_name = "squish_wall"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -186,7 +186,6 @@ physics_interpolation_mode = 2
 light_mask = 0
 sprite_frames = ExtResource("3_4h07j")
 animation = &"flappy"
-frame_progress = 0.9576264
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1883544562]
 position = Vector2(-3.8146973e-06, 0)
